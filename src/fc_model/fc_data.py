@@ -1,7 +1,8 @@
 # Dependency (const_types) enumeration mapping
 from typing import Dict, List, Tuple, Union
 
-from numpy import dtype, float64
+from numpy import dtype, float64, generic
+from numpy.typing import NDArray
 
 from .fc_value import FCValue
 
@@ -32,6 +33,12 @@ class FCDependencyColumn:
         self.type = type
         self.value = value
 
+    def __str__(self) -> str:
+        return f"FCDependencyColumn(type={self.type}, value={self.value})"
+
+    def __repr__(self) -> str:
+        return f"<FCDependencyColumn type={self.type!r}>"
+
 
 class FCData:
     """
@@ -42,7 +49,7 @@ class FCData:
     value: FCValue  # Данные для зависимости (e.g., массив ID узлов)
     table: List[FCDependencyColumn]
 
-    def __init__(self, data: str, dep_type: Union[List[int], int, str], dep_data: Union[List[str], str]):
+    def __init__(self, data: Union[NDArray[generic], str], dep_type: Union[List[int], int, str], dep_data: Union[List[Union[NDArray[generic], str]], str]):
 
         if isinstance(dep_type, list) and isinstance(dep_data, list):
             self.value = FCValue(data, dtype(float64))

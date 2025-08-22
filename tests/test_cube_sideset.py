@@ -5,7 +5,7 @@ from typing import Any, List
 from fc_model import FCModel
 
 def main() -> int:
-    p = Path('tests/data/cube_sidesets.fc')
+    p = Path('tests/data/ultracube.fc')
     out = p.with_name(p.stem + '_roundtrip.fc')
 
     # Обновляем round-trip для актуальности

@@ -49,33 +49,39 @@ class FCValue:
     type: FCValueTypeLiteral = 'null'
     data: Union[NDArray[np.generic], str]
 
-    def __init__(self, src_data: str, dtype:np.dtype[np.generic] = np.dtype('int32'), value_type: FCValueTypeLiteral='array'):
+    def __init__(self, src_data: Union[NDArray[np.generic], str], dtype:np.dtype[np.generic] = np.dtype('int32'), value_type: FCValueTypeLiteral='array'):
 
-        if value_type == 'array':
+        if isinstance(src_data, str):
 
-            if src_data == '':
-                self.data = np.array([], dtype=dtype)
-                self.type = 'null'
-            elif isBase64(src_data):
-                # Строгое распознавание base64 прошло — дополнительно проверим кратность буфера типу
-                raw = b64decode(src_data, validate=True)
-                if len(raw) % dtype.itemsize != 0:
-                    # Не соответствует типу — трактуем как формулу
+            if value_type == 'array':
+
+                if src_data == '':
+                    self.data = np.array([], dtype=dtype)
+                    self.type = 'null'
+                elif isBase64(src_data):
+                    # Строгое распознавание base64 прошло — дополнительно проверим кратность буфера типу
+                    raw = b64decode(src_data, validate=True)
+                    if len(raw) % dtype.itemsize != 0:
+                        # Не соответствует типу — трактуем как формулу
+                        self.data = src_data
+                        self.type = 'formula'
+                    else:
+                        self.data = np.frombuffer(raw, dtype)
+                        self.type = 'array'
+                else:
                     self.data = src_data
                     self.type = 'formula'
-                else:
-                    self.data = np.frombuffer(raw, dtype)
-                    self.type = 'array'
-            else:
+
+            elif value_type == 'null':
+                self.data = np.array([], dtype=dtype)
+                self.type = 'null'
+            elif value_type == 'formula':
                 self.data = src_data
                 self.type = 'formula'
 
-        elif value_type == 'null':
-            self.data = np.array([], dtype=dtype)
-            self.type = 'null'
-        elif value_type == 'formula':
+        else:
             self.data = src_data
-            self.type = 'formula'
+            self.type = 'array'
 
     def resize(self, size: int) -> None:
         if isinstance(self.data, np.ndarray) and size > 0 and self.data.size % size == 0:

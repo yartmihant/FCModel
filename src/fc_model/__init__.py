@@ -10,7 +10,8 @@ from .fc_constraint import FCConstraint
 from .fc_coordinate_system import FCCoordinateSystem
 from .fc_data import FC_DEPENDENCY_TYPES_CODES, FC_DEPENDENCY_TYPES_KEYS, FCData, FCDependencyColumn
 from .fc_materials import FC_MATERIAL_PROPERTY_NAMES_CODES, FC_MATERIAL_PROPERTY_NAMES_KEYS, FC_MATERIAL_PROPERTY_TYPES_CODES, FC_MATERIAL_PROPERTY_TYPES_KEYS, FCMaterial, FCMaterialProperty
-from .fc_mesh import FC_ELEMENT_TYPES_KEYID, FC_ELEMENT_TYPES_KEYNAME, FCMesh, FCElement, FCElementType
+from .fc_mesh import FCMesh
+from .fc_elements import FC_ELEMENT_TYPES_KEYID, FC_ELEMENT_TYPES_KEYNAME, FCElement, FCElementType
 from .fc_property_tables import FCPropertyTable
 from .fc_receivers import FCReceiver
 from .fc_set import FCSet
