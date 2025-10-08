@@ -49,7 +49,7 @@ class FCData:
     value: FCValue  # Данные для зависимости (e.g., массив ID узлов)
     table: List[FCDependencyColumn]
 
-    def __init__(self, data: Union[NDArray[generic], str], dep_type: Union[List[int], int, str], dep_data: Union[List[Union[NDArray[generic], str]], str]):
+    def __init__(self, data: Union[NDArray[generic], str], dep_type: Union[List[int], int, str], dep_data: Union[List[NDArray[generic]], List[str], str, None]):
 
         if isinstance(dep_type, list) and isinstance(dep_data, list):
             self.value = FCValue(data, dtype(float64))

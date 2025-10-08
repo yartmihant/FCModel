@@ -94,6 +94,7 @@ class FCMesh:
         for i, eid in enumerate(elem_ids):
             fc_type_name = FC_ELEMENT_TYPES_KEYID[elem_types[i]]['name']
 
+            eid = int(eid)
             if fc_type_name not in self.elements:
                 self.elements[fc_type_name] = {}
 
