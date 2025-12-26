@@ -1,9 +1,9 @@
-## LLM Context for the fc_model library (≥ 1.1.4)
+## LLM Context for the fc_model library (≥ 1.1.17)
 
 Briefly: fc_model is a strictly typed object model for the Fidesys Case (.fc) format. Use only the public re-exports from the `fc_model` package. Do not import from internal modules `fc_model.fc_*`.
 
 ### Versions and compatibility
-- Minimum version for proper typing and mypy support: 1.1.4.
+- Minimum version for proper typing and mypy support: 1.1.17.
 - Python: ≥ 3.8.
 - The distribution includes `py.typed` (PEP 561), so first-party types are available to static analysis tools.
 
@@ -12,8 +12,9 @@ Briefly: fc_model is a strictly typed object model for the Fidesys Case (.fc) fo
   - Example: `from fc_model import FCModel, FCMaterial, FCData`
   - Avoid: `from fc_model.fc_materials import FCMaterial`
 - Serialization/deserialization:
-  - `FCModel(filepath)` — load a .fc (JSON) file and decode binary fields (Base64).
-  - `FCModel.dump()` — get a dictionary representation of the model.
+  - `FCModel.load(filepath)` — load a .fc (JSON) file and decode binary fields (Base64).
+  - `FCModel.decode(src_dict)` — build model from already loaded dict.
+  - `FCModel.encode()` — get a dictionary representation of the model (JSON-ready, Base64 for binary arrays).
   - `FCModel.save(path)` — write to a `.fc` file.
 
 ### Quick start
@@ -21,7 +22,7 @@ Briefly: fc_model is a strictly typed object model for the Fidesys Case (.fc) fo
 from fc_model import FCModel
 
 # Load a model from file
-m = FCModel("path/to/model.fc")
+m = FCModel.load("path/to/model.fc")
 
 # ... operate on model entities ...
 
@@ -46,7 +47,7 @@ m.save("path/to/output.fc")
 - Load/save:
 ```python
 from fc_model import FCModel
-m = FCModel("case.fc")
+m = FCModel.load("case.fc")
 m.save("out.fc")
 ```
 
@@ -59,12 +60,10 @@ _ = m.initial_sets, m.nodesets, m.sidesets, m.receivers, m.settings
 
 - Add a material property:
 ```python
-from fc_model import FCMaterialProperty, FCData
+from fc_model import FCData
 
-mat_id = next(iter(m.materials))
-mat = m.materials[mat_id]
-prop = FCMaterialProperty(type="USUAL", name="DENSITY", data=FCData(data="", dep_type=0, dep_data=""))
-mat.properties.setdefault("common", [[]])[0].append(prop)
+mat = m.add_material("Steel")
+mat.add_property("common", "DENSITY", 7850.0, "USUAL")
 ```
 
 - Work with sets:
@@ -74,16 +73,22 @@ nodesets = m.nodesets
 sidesets = m.sidesets
 ```
 
-- Dump without writing to a file:
+- Encode without writing to a file:
 ```python
-data = m.dump()  # serializable dict structure
+data = m.encode()  # serializable dict structure
+```
+
+- Add boundary conditions (restraints) without ручного заполнения классов:
+```python
+from fc_model import FCData
+r = m.add_restraint(name="Fix", flags=["UX","UY","UZ"], apply_to="all", data=[FCData.constant(0.0)]*3)
 ```
 
 ### Invariants and recommendations
 - Import from the `fc_model` root and rely on type annotations.
 - Use lookups/constants from `fc_model`; do not hardcode codes.
 - `settings` is an object (dict), defaults to an empty dict.
-- For serialization use only `dump()`/`save()`.
+- For serialization use only `encode()`/`save()`.
 
 ### Where to look for implementation details
 - Entry point (re-export): `src/fc_model/__init__.py` — list of public classes and constants.
@@ -101,16 +106,16 @@ data = m.dump()  # serializable dict structure
 ### Ready-to-use "Context" block for LLM prompts
 ```text
 Context:
-- Library: fc_model (>=1.1.4). Purpose: strictly typed model of Fidesys Case (.fc).
+- Library: fc_model (>=1.1.17). Purpose: strictly typed model of Fidesys Case (.fc).
 - Use only public re-exports from `fc_model`. Do not import from internal modules.
 - Key classes: FCModel, FCMesh, FCBlock, FCCoordinateSystem, FCConstraint, FCMaterial,
   FCPropertyTable, FCLoad, FCRestraint, FCInitialSet, FCReceiver, FCSet, FCValue, FCData, FCDependencyColumn.
 - Constants: FC_MATERIAL_PROPERTY_*, FC_LOADS_TYPES_*, FC_RESTRAINT_FLAGS_*, FC_ELEMENT_TYPES_*, FC_DEPENDENCY_TYPES_*.
 - Typical operations:
-  - Load/save: m = FCModel("in.fc"); m.save("out.fc")
-  - Materials: via m.materials[...] and FCMaterialProperty/FCData
+  - Load/save: m = FCModel.load("in.fc"); m.save("out.fc")
+  - Materials: via m.add_material(...), mat.add_property(...), FCData.constant/formula
   - Mesh/sets: m.mesh, m.nodesets, m.sidesets
-- Invariants: rely on type annotations; dump()/save() are the only serialization methods;
+- Invariants: rely on type annotations; encode()/save() are the only serialization methods;
   use constants from the public API.
 Task:
 [briefly describe what to do, which model sections, desired output]

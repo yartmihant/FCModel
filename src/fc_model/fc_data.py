@@ -1,7 +1,8 @@
 from __future__ import annotations
 # Dependency (const_types) enumeration mapping
-from typing import Dict, List, Literal, Tuple, Union
+from typing import Dict, List, Literal, Optional, Sequence, Tuple, Union
 
+import numpy as np
 from numpy import dtype, float64, generic
 from numpy.typing import NDArray
 
@@ -50,10 +51,28 @@ class FCData:
     value: FCValue  # Данные для зависимости (e.g., массив ID узлов)
     table: List[FCDependencyColumn]
 
-    def __init__(self, value: FCValue, type_code: Union[int, str] = 0, table: List[FCDependencyColumn] = []):
+    def __init__(self, value: FCValue, type_code: Union[int, str] = 0, table: Optional[List[FCDependencyColumn]] = None):
         self.value = value
         self.type = type_code
-        self.table = table
+        self.table = table if table is not None else []
+
+    @classmethod
+    def constant(cls, values: Union[float, int, Sequence[Union[float, int]]]) -> FCData:
+        """
+        Удобный конструктор константного значения (type=0) в формате float64 массива.
+        """
+        if isinstance(values, (list, tuple, np.ndarray)):
+            arr = np.asarray(values, dtype=float64)
+        else:
+            arr = np.asarray([values], dtype=float64)
+        return cls(FCValue(arr, 'array'), 0, [])
+
+    @classmethod
+    def formula(cls, expr: str) -> FCData:
+        """
+        Удобный конструктор формулы (type=6).
+        """
+        return cls(FCValue(expr, 'formula'), 6, [])
 
     @classmethod
     def decode(cls, data: Union[NDArray[generic], str], dep_type: Union[List[int], int, str], dep_data: Union[List[NDArray[generic]], List[str], str, None]) -> FCData:

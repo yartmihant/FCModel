@@ -1,7 +1,11 @@
 from __future__ import annotations
 import json
 
-from typing import TypedDict, Optional, Dict, Any, List
+from typing import Any, Sequence, TypedDict, Optional, Dict, List, Union
+
+import numpy as np
+from numpy import int32
+from numpy.typing import NDArray
 
 from .fc_blocks import FCBlock, FCSrcBlock
 from .fc_conditions import FC_INITIAL_SET_TYPES_CODES, FC_INITIAL_SET_TYPES_KEYS, \
@@ -9,7 +13,7 @@ from .fc_conditions import FC_INITIAL_SET_TYPES_CODES, FC_INITIAL_SET_TYPES_KEYS
 from .fc_constraint import FCConstraint, FCSrcConstraint
 from .fc_coordinate_system import FCCoordinateSystem, FCSrcCoordinateSystem
 from .fc_data import FC_DEPENDENCY_TYPES_CODES, FC_DEPENDENCY_TYPES_KEYS, FCData, FCDependencyColumn
-from .fc_materials import FC_MATERIAL_PROPERTY_NAMES_CODES, FC_MATERIAL_PROPERTY_NAMES_KEYS, FC_MATERIAL_PROPERTY_TYPES_CODES, FC_MATERIAL_PROPERTY_TYPES_KEYS, FCMaterial, FCMaterialProperty, FCSrcMaterial
+from .fc_materials import FC_MATERIAL_PROPERTY_NAMES_CODES, FC_MATERIAL_PROPERTY_NAMES_KEYS, FC_MATERIAL_PROPERTY_TYPES_CODES, FC_MATERIAL_PROPERTY_TYPES_KEYS, FCMaterial, FCMaterialPropertiesTypeLiteral, FCMaterialProperty, FCSrcMaterial
 from .fc_mesh import FCMesh, FCSrcMesh
 from .fc_elements import FC_ELEMENT_TYPES_KEYID, FC_ELEMENT_TYPES_KEYNAME, FCElement, FCElementType
 from .fc_property_tables import FCPropertyTable, FCSrcPropertyTable
@@ -174,13 +178,142 @@ class FCModel:
 
     def add_coordinate_system(self, name: str, type_name: str = "cartesian") -> FCCoordinateSystem:
         """
-        Создает и добавляет новый материал в модель.
+        Создает и добавляет новую систему координат в модель.
         Автоматически назначает уникальный ID.
         """
         new_id = max(self.coordinate_systems.keys(), default=0) + 1
         coordinate_system = FCCoordinateSystem(id=new_id, name=name, type_name=type_name)
         self.coordinate_systems[new_id] = coordinate_system
         return coordinate_system
+
+    def add_material(self, name: str) -> FCMaterial:
+        """
+        Создает и добавляет новый материал в модель, автоматически назначая уникальный ID.
+        """
+        new_id = max(self.materials.keys(), default=0) + 1
+        material = FCMaterial(id=new_id, name=name)
+        self.materials[new_id] = material
+        return material
+
+    def add_material_property(
+        self,
+        material_id: int,
+        group_name: FCMaterialPropertiesTypeLiteral,
+        property_name: str,
+        values: Union[str, float, int, Sequence[Union[float, int]]],
+        property_type: Optional[str] = None,
+    ) -> FCMaterialProperty:
+        """
+        Удобный хелпер: добавляет свойство материалу по id через FCMaterial.add_property().
+        """
+        mat = self.materials[material_id]
+        if isinstance(values, str):
+            v: Union[str, float, int, List[Union[str, float, int]]] = values
+        elif isinstance(values, (float, int)):
+            v = values
+        else:
+            v = list(values)
+        return mat.add_property(
+            group_name=group_name, property_name=property_name, values=v, property_type=property_type
+        )
+
+    def _make_apply_value(self, apply_to: Union[str, Sequence[int], NDArray[Any]]) -> FCValue:
+        """
+        Внутренний хелпер: формирует FCValue для apply_to.
+        - строка (например 'all') хранится как формула
+        - последовательность id -> int32 массив
+        """
+        if isinstance(apply_to, str):
+            return FCValue.decode(apply_to, np.dtype('int32'))
+        arr = np.asarray(list(apply_to), dtype=int32)
+        return FCValue(arr, 'array')
+
+    def add_load(
+        self,
+        name: str,
+        type: str,
+        apply_to: Union[str, Sequence[int], NDArray[Any]],
+        *,
+        cs_id: int = 0,
+        data: Optional[List[FCData]] = None,
+    ) -> FCLoad:
+        """
+        Создает и добавляет нагрузку в модель.
+        """
+        new_id = max((l.id for l in self.loads), default=0) + 1
+        load = FCLoad(id=new_id)
+        load.name = name
+        load.type = type
+        load.cs_id = cs_id
+        load.apply = self._make_apply_value(apply_to)
+        load.data = data if data is not None else []
+        self.loads.append(load)
+        return load
+
+    def add_restraint(
+        self,
+        name: str,
+        flags: List[str],
+        apply_to: Union[str, Sequence[int], NDArray[Any]],
+        *,
+        cs_id: int = 0,
+        data: Optional[List[FCData]] = None,
+    ) -> FCRestraint:
+        """
+        Создает и добавляет закрепление (ГУ) в модель.
+        """
+        new_id = max((r.id for r in self.restraints), default=0) + 1
+        rest = FCRestraint(id=new_id)
+        rest.name = name
+        rest.flags = flags
+        rest.cs_id = cs_id
+        rest.apply = self._make_apply_value(apply_to)
+        rest.data = data if data is not None else []
+        self.restraints.append(rest)
+        return rest
+
+    def add_initial_set(
+        self,
+        type: str,
+        apply_to: Union[str, Sequence[int], NDArray[Any]],
+        *,
+        flags: Optional[List[str]] = None,
+        cs_id: int = 0,
+        data: Optional[List[FCData]] = None,
+    ) -> FCInitialSet:
+        """
+        Создает и добавляет начальные условия (Initial Set) в модель.
+        """
+        new_id = max((s.id for s in self.initial_sets), default=0) + 1
+        init = FCInitialSet(id=new_id)
+        init.type = type
+        init.flags = flags if flags is not None else []
+        init.cs_id = cs_id
+        init.apply = self._make_apply_value(apply_to)
+        init.data = data if data is not None else []
+        self.initial_sets.append(init)
+        return init
+
+    def add_nodeset(self, name: str, apply_to: Sequence[int]) -> FCSet:
+        """
+        Создает и добавляет nodeset в модель.
+        """
+        new_id = max(self.nodesets.keys(), default=0) + 1
+        s = FCSet(id=new_id, name=name)
+        s.apply = self._make_apply_value(apply_to)
+        self.nodesets[new_id] = s
+        return s
+
+    def add_sideset(self, name: str, apply_to: Sequence[int]) -> FCSet:
+        """
+        Создает и добавляет sideset в модель.
+        """
+        new_id = max(self.sidesets.keys(), default=0) + 1
+        s = FCSet(id=new_id, name=name)
+        s.apply = self._make_apply_value(apply_to)
+        self.sidesets[new_id] = s
+        return s
+
 
     @classmethod
     def load(cls, filepath: str) -> FCModel:

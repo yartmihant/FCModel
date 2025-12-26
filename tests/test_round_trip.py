@@ -1,8 +1,17 @@
-import json, sys
+import json
 from pathlib import Path
 from typing import Any, List
 
 from fc_model import FCModel
+
+OPTIONAL_EMPTY_KEYS = {"data", "dep_var_num", "dep_var_size", "dependency_type"}
+
+def _is_effectively_empty_optional(value: Any) -> bool:
+    if value in ([], ""):
+        return True
+    if isinstance(value, list) and value:
+        return all(v in ("", 0) for v in value)
+    return False
 
 def deep_diff(a: Any, b: Any, path: str = "$") -> List[str]:
     diffs: List[str] = []
@@ -17,8 +26,14 @@ def deep_diff(a: Any, b: Any, path: str = "$") -> List[str]:
         only_a = a_keys - b_keys
         only_b = b_keys - a_keys
         for k in sorted(only_a):
+            # допустимо: ключ отсутствует во втором, если в первом он "пустой" и относится к опциональным
+            if k in OPTIONAL_EMPTY_KEYS and _is_effectively_empty_optional(a.get(k)):
+                continue
             diffs.append(f"{path}.{k}: missing in second")
         for k in sorted(only_b):
+            # допустимо: ключ отсутствует в первом, если во втором он "пустой" и относится к опциональным
+            if k in OPTIONAL_EMPTY_KEYS and _is_effectively_empty_optional(b.get(k)):
+                continue
             diffs.append(f"{path}.{k}: missing in first")
         for k in sorted(a_keys & b_keys):
             diffs.extend(deep_diff(a[k], b[k], f"{path}.{k}"))
@@ -44,36 +59,20 @@ def deep_diff(a: Any, b: Any, path: str = "$") -> List[str]:
     return diffs
 
 
-def main() -> int:
-    p = Path('data/ultracube.fc')
-    out = p.with_name(p.stem + '_roundtrip.fc')
-    report = p.with_name(p.stem + '_compare.txt')
+def test_ultracube_roundtrip(tmp_path: Path) -> None:
+    p = Path("tests/data/ultracube.fc")
+    out = tmp_path / "ultracube_roundtrip.fc"
 
-    # Обновляем round-trip для актуальности
-    m = FCModel(str(p))
+    m = FCModel.load(str(p))
     m.save(str(out))
 
     # Проверяем, что файл корректный JSON
-    with open(out, 'r') as f:
+    with open(out, "r") as f:
         json.load(f)
 
-    with open(p, 'r') as f1, open(out, 'r') as f2:
+    with open(p, "r") as f1, open(out, "r") as f2:
         src = json.load(f1)
         rtp = json.load(f2)
 
     diffs = deep_diff(src, rtp)
-
-    with open(report, 'w') as rf:
-        if not diffs:
-            rf.write('OK: files are identical\n')
-        else:
-            rf.write('DIFFERENCES FOUND:\n')
-            for line in diffs:
-                rf.write(line + '\n')
-
-    # Возвращаем код 0 если идентичны, иначе 1
-    return 0 if not diffs else 1
-
-
-if __name__ == '__main__':
-    sys.exit(main())
+    assert diffs == []

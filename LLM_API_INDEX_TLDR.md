@@ -1,14 +1,15 @@
 ## fc_model API TL;DR (≤ 400 tokens)
 
-Use only: `from fc_model import ...` (public re-exports). Serialize via `dump()`/`save()` only.
+Use only: `from fc_model import ...` (public re-exports). Serialize via `encode()`/`save()` only.
 
 ### Root
-- FCModel(filepath: Optional[str] = None)
+- FCModel()
   - Fields: `header`, `coordinate_systems: Dict[int, FCCoordinateSystem]`, `mesh: FCMesh`,
     `blocks: Dict[int, FCBlock]`, `materials: Dict[int, FCMaterial]`, `property_tables`,
     `loads: List[FCLoad]`, `restraints`, `initial_sets`, `contact_constraints`,
     `coupling_constraints`, `periodic_constraints`, `receivers`, `nodesets`, `sidesets`, `settings: dict`.
-  - Methods: `dump() -> Dict[str, Any]`, `save(path: str) -> None`.
+  - Methods: `load(path: str) -> FCModel`, `decode(data: dict) -> FCModel`, `encode() -> Dict[str, Any]`, `save(path: str) -> None`.
+  - Constructors/helpers: `add_material(name)`, `add_load(...)`, `add_restraint(...)`, `add_initial_set(...)`, `add_nodeset(...)`, `add_sideset(...)`.
 
 ### Mesh and geometry
 - FCMesh: holds arrays (node ids/coords, elem ids/types/blocks/orders/parents, flattened `elems`).
@@ -16,8 +17,10 @@ Use only: `from fc_model import ...` (public re-exports). Serialize via `dump()`
 
 ### Materials and properties
 - FCMaterial: `id`, `name`, grouped `properties` (elasticity/common/thermal/...).
+- FCMaterial has helper: `add_property(group_name, property_name, values, property_type=None)`.
 - FCMaterialProperty: `type`, `name`, `data: FCData`.
 - FCData: represents constant/table/formula; fields `data`, `dep_type`, `dep_data`.
+  - Helpers: `FCData.constant(x|[x...])`, `FCData.formula('...')`.
 
 ### Topology and grouping
 - FCBlock: links elements to materials/properties.
@@ -44,12 +47,12 @@ Use only: `from fc_model import ...` (public re-exports). Serialize via `dump()`
 
 ### Minimal usage
 ```python
-from fc_model import FCModel, FCMaterialProperty, FCData
-m = FCModel("in.fc"); m.save("out.fc")
-mat = m.materials[next(iter(m.materials))]
-mat.properties.setdefault("common", [[]])[0].append(
-  FCMaterialProperty(type="USUAL", name="DENSITY", data=FCData(data="", dep_type=0, dep_data=""))
-)
+from fc_model import FCModel, FCData
+m = FCModel.load("in.fc")
+mat = m.add_material("Steel")
+mat.add_property("common", "DENSITY", 7850.0, "USUAL")
+m.add_restraint(name="Fix", flags=["UX","UY","UZ"], apply_to="all", data=[FCData.constant(0.0)]*3)
+m.save("out.fc")
 ```
 
 
