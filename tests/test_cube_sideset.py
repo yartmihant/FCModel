@@ -9,7 +9,7 @@ def main() -> int:
     out = p.with_name(p.stem + '_roundtrip.fc')
 
     # Обновляем round-trip для актуальности
-    fc_model = FCModel(str(p))
+    fc_model = FCModel.load(str(p))
     fc_model.save(str(out))
 
     return 0

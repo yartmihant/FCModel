@@ -678,7 +678,7 @@ class FCElement:
         self.order = src_element['order']
        
 
-    def dump(self) -> FCSrcElement:
+    def encode(self) -> FCSrcElement:
         return {
             'id': self.id,
             'block': self.block,

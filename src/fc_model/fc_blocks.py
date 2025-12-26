@@ -1,3 +1,4 @@
+from __future__ import annotations
 from typing import TypedDict, List, Dict, Optional
 
 
@@ -32,41 +33,49 @@ class FCBlock:
     steps: Optional[List[int]]
     material: Optional[Dict[str, List[int]]]
 
-    def __init__(self, src_data: FCSrcBlock):
-        self.id = src_data['id']
-        self.cs_id = src_data['cs_id']
-        self.material_id = src_data['material_id']
-        self.property_id = src_data['property_id']
-
-        # Опциональные поля
+    def __init__(self, id: int = 0, cs_id: int = 0, material_id: int = 0, property_id: int = 0):
+        self.id = id
+        self.cs_id = cs_id
+        self.material_id = material_id
+        self.property_id = property_id
         self.steps = None
+        self.material = None
+
+    @classmethod
+    def decode(cls, src_data: FCSrcBlock) -> FCBlock:
+        block = cls(
+            id=src_data['id'],
+            cs_id=src_data['cs_id'],
+            material_id=src_data['material_id'],
+            property_id=src_data['property_id']
+        )
+
         if 'steps' in src_data:
             steps_val = src_data.get('steps')
             if isinstance(steps_val, list):
-                self.steps = [int(x) for x in steps_val]
+                block.steps = [int(x) for x in steps_val]
             else:
-                raise ValueError(f"Block(id={self.id}) steps must be a list of ints")
+                raise ValueError(f"Block(id={block.id}) steps must be a list of ints")
 
-        self.material = None
         if 'material' in src_data:
             mat_val = src_data.get('material')
             if isinstance(mat_val, dict):
                 ids = mat_val.get('ids', [])
                 stp = mat_val.get('steps', [])
                 if not isinstance(ids, list) or not isinstance(stp, list):
-                    raise ValueError(f"Block(id={self.id}) material.ids and material.steps must be lists")
+                    raise ValueError(f"Block(id={block.id}) material.ids and material.steps must be lists")
                 if len(ids) != len(stp):
-                    raise ValueError(f"Block(id={self.id}) material ids ({len(ids)}) and steps ({len(stp)}) length mismatch")
+                    raise ValueError(f"Block(id={block.id}) material ids ({len(ids)}) and steps ({len(stp)}) length mismatch")
                 # нормализуем к int
-                self.material = {
+                block.material = {
                     'ids': [int(v) for v in ids],
                     'steps': [int(v) for v in stp],
                 }
             else:
-                raise ValueError(f"Block(id={self.id}) material must be a dict with ids/steps")
+                raise ValueError(f"Block(id={block.id}) material must be a dict with ids/steps")
+        return block
 
-    def dump(self) -> FCSrcBlock:
-
+    def encode(self) -> FCSrcBlock:
         out: FCSrcBlock = {
             "id": self.id,
             "material_id": self.material_id,
@@ -80,7 +89,7 @@ class FCBlock:
                 'ids': list(self.material['ids']),
                 'steps': list(self.material['steps']),
             }
-        return out 
+        return out
 
     def __str__(self) -> str:
         return (

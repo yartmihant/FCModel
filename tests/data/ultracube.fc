@@ -447,12 +447,12 @@
                "const_types" : 
                [
                   [ 4 ],
-                  0
+                  6
                ],
                "constants" : 
                [
                   "AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAEEAAAAAAAAAUQAAAAAAAABhAAAAAAAAAHEA=",
-                  "AAAAAAAAAAA="
+                  "x"
                ],
                "type" : 0
             },
@@ -460,8 +460,8 @@
                "const_dep" : [ "", "" ],
                "const_dep_size" : [ 0, 0 ],
                "const_names" : [ 11, 36 ],
-               "const_types" : [ 0, 0 ],
-               "constants" : [ "AAAAAAAAAAA=", "AAAAAAAAAAA=" ],
+               "const_types" : [ 6, 6 ],
+               "constants" : [ "y", "z" ],
                "type" : 9
             }
          ],

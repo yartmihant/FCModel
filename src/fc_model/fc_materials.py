@@ -1,6 +1,8 @@
+from __future__ import annotations
 # Material property type codes per group
-from typing import Dict, List, Literal, TypedDict, Union
+from typing import Dict, List, Literal, TypedDict, Union, Optional
 
+from .fc_value import FCValue
 from .fc_data import FCData
 
 
@@ -31,6 +33,7 @@ FC_MATERIAL_PROPERTY_NAMES_KEYS: Dict[FCMaterialPropertiesTypeLiteral, Dict[Unio
         8: "C3",                   # MURNAGHAN
         9: "C4",                   # MURNAGHAN
         10: "C5",                  # MURNAGHAN
+        11: "VOIGT_YOUNG_MODULE",  # VOIGT
         16: "E_T",                 # HOOK_TRANSVERSAL_ISOTROPIC
         17: "E_L",                 # HOOK_TRANSVERSAL_ISOTROPIC
         18: "PR_T",                # HOOK_TRANSVERSAL_ISOTROPIC
@@ -45,6 +48,7 @@ FC_MATERIAL_PROPERTY_NAMES_KEYS: Dict[FCMaterialPropertiesTypeLiteral, Dict[Unio
         27: "C1",                  # COMPR_MOONEY
         28: "C2",                  # COMPR_MOONEY
         29: "D",                   # COMPR_MOONEY
+        36: "VOIGT_POISSON_RATIO", # VOIGT
         79: "VP",                  # HOOK
         80: "VS",                  # HOOK
         82: "C_1111",              # ANISOTROPIC
@@ -303,10 +307,14 @@ class FCMaterial:
     name: str  # Имя материала
     properties: Dict[FCMaterialPropertiesTypeLiteral, List[List[FCMaterialProperty]]]  # Словарь, где свойства сгруппированы по типам
 
-    def __init__(self, src_material:FCSrcMaterial):
-        self.id = src_material['id']
-        self.name = src_material['name']
+    def __init__(self, id: int = 0, name: str = ""):
         self.properties: Dict[FCMaterialPropertiesTypeLiteral, List[List[FCMaterialProperty]]] = {}
+        self.id = id
+        self.name = name
+
+    @classmethod
+    def decode(cls, src_material: FCSrcMaterial) -> FCMaterial:
+        material = cls(id=src_material['id'], name=src_material['name'])
 
         # Источник: только группы верхнего уровня из FCSrcMaterial
         property_groups: Dict[FCMaterialPropertiesTypeLiteral, List[FCSrcMaterialProperty]] = {}
@@ -317,14 +325,14 @@ class FCMaterial:
                 property_groups[property_group_name] = arr
 
         for property_group_name, src_properties in property_groups.items():
-            self.properties[property_group_name] = [] 
+            material.properties[property_group_name] = [] 
             for src_property in src_properties:
                 type_code = src_property.get("type", 0)
                 type_key = FC_MATERIAL_PROPERTY_TYPES_KEYS[property_group_name].get(type_code, type_code)  
 
                 some_property_group: List[FCMaterialProperty] = []
 
-                self.properties[property_group_name].append(some_property_group)
+                material.properties[property_group_name].append(some_property_group)
 
                 for i, constants in enumerate(src_property.get("constants", [])):
 
@@ -334,15 +342,85 @@ class FCMaterial:
                     prop = FCMaterialProperty(
                         name=name_key,
                         type=type_key,
-                        data=FCData(
+                        data=FCData.decode(
                             constants,
                             src_property["const_types"][i],
                             src_property["const_dep"][i]
                         )
                     )
-                    some_property_group.append(prop) 
+                    some_property_group.append(prop)
+        return material
 
-    def dump(self) -> FCSrcMaterial:
+    def add_property(
+        self,
+        group_name: FCMaterialPropertiesTypeLiteral,
+        property_name: str,
+        values: Union[str, float, int, List[Union[str, float, int]]],
+        property_type: Optional[str] = None
+    ) -> FCMaterialProperty:
+        """
+        Добавляет свойство материалу.
+
+        :param group_name: Имя группы свойств (e.g., 'elasticity', 'common', 'thermal').
+        :param property_name: Имя свойства (e.g., 'YOUNG_MODULE', 'DENSITY').
+        :param values: Значение или список значений свойства.
+        :param property_type: Тип свойства (e.g., 'HOOK', 'USUAL', 'ISOTROPIC').
+                              Если None, выбирается тип по умолчанию для данной группы (обычно код 0).
+        """
+        
+        if property_type is None:
+            # Пытаемся определить тип по умолчанию (обычно код 0)
+            types_map = FC_MATERIAL_PROPERTY_TYPES_KEYS.get(group_name, {})
+            if 0 in types_map:
+                property_type = str(types_map[0])
+            elif types_map:
+                # Берем первый попавшийся, если 0 нет
+                property_type = str(next(iter(types_map.values())))
+            else:
+                # Fallback
+                property_type = "USUAL"
+
+        # Ensure values is a list for consistency
+        constants_list = values if isinstance(values, list) else [values]
+        
+        # Convert values to strings as expected by FCData usually, or let FCData handle it
+        # Assuming FCData can take list of mix, but internal storage in FCSrc is strings usually.
+        # Let's verify FCData later, but for now passing as is.
+        
+        # Create Data object
+        # Note: FCData expects (data, type, dep)
+        # Assuming simple constant property for now:
+        # data=[val], type=0 (CONST), dep=""
+        
+        # New API usage: FCData constructor takes FCValue object
+        data_obj = FCData(FCValue.decode(constants_list), 0, [])
+        
+        prop = FCMaterialProperty(
+            name=property_name,
+            type=property_type,
+            data=data_obj
+        )
+
+        if group_name not in self.properties:
+            self.properties[group_name] = []
+
+        # Logic for appending to existing groups or new group?
+        # Usually properties are grouped. E.g. Elasticity HOOK contains Young and Poisson.
+        # Check if we have a group with the same type
+        
+        added = False
+        for prop_list in self.properties[group_name]:
+            if len(prop_list) > 0 and prop_list[0].type == property_type:
+                prop_list.append(prop)
+                added = True
+                break
+        
+        if not added:
+            self.properties[group_name].append([prop])
+
+        return prop
+
+    def encode(self) -> FCSrcMaterial:
         material_src: FCSrcMaterial = {"id": self.id, "name": self.name}
 
         for property_group_name, property_groups in self.properties.items():
@@ -361,15 +439,19 @@ class FCMaterial:
                         "type": 0,
                     }
                 material_src[property_group_name].append(src_some_property_group) 
+                
+                # Set type for the group based on the first property if available
+                if some_property_group:
+                    first_prop = some_property_group[0]
+                    type_code = FC_MATERIAL_PROPERTY_TYPES_CODES[property_group_name].get(first_prop.type, first_prop.type)
+                    src_some_property_group['type'] = int(type_code)
 
                 for property in some_property_group:
 
-                    constants, const_types, const_dep = property.data.dump()
+                    constants, const_types, const_dep = property.data.encode()
 
-                    type_code = FC_MATERIAL_PROPERTY_TYPES_CODES[property_group_name].get(property.type, property.type)
                     name_code = FC_MATERIAL_PROPERTY_NAMES_CODES[property_group_name].get(property.name, property.name)
 
-                    src_some_property_group['type'] = int(type_code)
                     src_some_property_group['const_dep'].append(const_dep)
                     src_some_property_group['const_dep_size'].append(len(property.data))
                     src_some_property_group['const_names'].append(name_code)

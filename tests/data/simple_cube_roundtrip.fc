@@ -1,0 +1,83 @@
+{
+    "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+            "char": 1,
+            "double": 8,
+            "int": 4,
+            "short_int": 2
+        },
+        "version": 3
+    },
+    "settings": {
+        "bc_tolerance": 0.0005,
+        "environment": {
+            "temperature": 0.0
+        },
+        "output": {
+            "energy": false,
+            "full_periodic": false,
+            "intermediate_results": true,
+            "log": true,
+            "material": false,
+            "normal_force": false,
+            "record3d": false,
+            "vtu": true,
+            "without_smoothing": false
+        },
+        "permission_write": true
+    },
+    "mesh": {
+        "elem_blocks": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAA=",
+        "elem_orders": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAA=",
+        "elem_parent_ids": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAA=",
+        "elem_types": "AwMDAwMDAwM=",
+        "elemids": "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAA=",
+        "elems": "BgAAABMAAAAXAAAABwAAAAgAAAAVAAAAGwAAAAkAAAATAAAADQAAABAAAAAXAAAAFQAAAA4AAAASAAAAGwAAAAcAAAAXAAAAFgAAAAQAAAAJAAAAGwAAABkAAAAFAAAAFwAAABAAAAAPAAAAFgAAABsAAAASAAAAEQAAABkAAAAIAAAAFQAAABsAAAAJAAAAAQAAABQAAAAaAAAAAwAAABUAAAAOAAAAEgAAABsAAAAUAAAACwAAAAwAAAAaAAAACQAAABsAAAAZAAAABQAAAAMAAAAaAAAAGAAAAAIAAAAbAAAAEgAAABEAAAAZAAAAGgAAAAwAAAAKAAAAGAAAAA==",
+        "elems_count": 8,
+        "nids": "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcAAAAYAAAAGQAAABoAAAAbAAAA",
+        "nodes": "AAAAAAAAFEAAAAAAAAAUwAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAAAAAAAAAAABRAAAAAAAAAFMAAAAAAAAAUQAAAAAAAABRAAAAAAAAAAAAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABRAAAAAAAAAFMAAAAAAAAAAAAAAAAAAABRAAAAAAAAAAAAAAAAAAAAUwAAAAAAAABRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABTAAAAAAAAAFEAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFEAAAAAAAAAAAAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAAAAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUQAAAAAAAABTAAAAAAAAAFMAAAAAAAAAAAAAAAAAAABTAAAAAAAAAAAAAAAAAAAAUQAAAAAAAABTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "nodes_count": 27
+    },
+    "blocks": [
+        {
+            "id": 1,
+            "material_id": 0,
+            "property_id": -1,
+            "cs_id": 1
+        }
+    ],
+    "coordinate_systems": [
+        {
+            "id": 1,
+            "type": "cartesian",
+            "name": "\u0413\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u0430\u044f \u0434\u0435\u043a\u0430\u0440\u0442\u043e\u0432\u0430",
+            "origin": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "dir1": "AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA",
+            "dir2": "AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAA"
+        }
+    ],
+    "loads": [
+        {
+            "id": 1,
+            "name": "Pressure",
+            "type": 3,
+            "apply_to": "BwAAAAMAAAAIAAAAAwAAAAMAAAADAAAABAAAAAMAAAA=",
+            "apply_to_size": 4,
+            "data": [
+                "AAAAAAAA8D8="
+            ],
+            "dependency_type": [
+                0
+            ],
+            "dep_var_num": [
+                ""
+            ],
+            "dep_var_size": [
+                0
+            ],
+            "cs": 1
+        }
+    ]
+}

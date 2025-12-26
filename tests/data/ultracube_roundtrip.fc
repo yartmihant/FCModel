@@ -1,10 +1,103 @@
 {
+    "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+            "char": 1,
+            "double": 8,
+            "int": 4,
+            "short_int": 2
+        },
+        "version": 3
+    },
+    "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "3D",
+        "elasticity": true,
+        "environment": {
+            "temperature": 0.0
+        },
+        "finite_deformations": false,
+        "heat_transfer": true,
+        "incompressibility": false,
+        "linear_solver": {
+            "iter_opts": {
+                "epsilon": 1e-09,
+                "max_iterations": 50000,
+                "preconditioner": "auto",
+                "stopping_criteria": 0.0
+            },
+            "method": "auto",
+            "on_fail": true,
+            "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+            "arc_method": false,
+            "line_search": false,
+            "max_iterations": 100,
+            "max_load_steps": 1000,
+            "min_load_steps": 1,
+            "start_load_steps": 1,
+            "target_iter": 5,
+            "tolerance": 0.001
+        },
+        "output": {
+            "energy": false,
+            "full_periodic": false,
+            "intermediate_results": true,
+            "log": true,
+            "material": false,
+            "normal_force": false,
+            "record3d": false,
+            "vtu": true,
+            "without_smoothing": false
+        },
+        "permission_write": true,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "radiation_among_surfaces": false,
+        "slm": true,
+        "statics": {
+            "steps_count": 3
+        },
+        "thermal_gap_settings": {
+            "end_temp": 3000.0,
+            "impact_eps": 0.01,
+            "scatangle_eps": 0.01,
+            "start_temp": 0.0,
+            "step_temp": 1.0,
+            "velocity_eps": 0.01
+        },
+        "type": "static"
+    },
+    "mesh": {
+        "elem_blocks": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAA=",
+        "elem_orders": "AwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAA=",
+        "elem_parent_ids": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAA=",
+        "elem_types": "BAQEBAQEBAQ=",
+        "elemids": "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAA=",
+        "elems": "BgAAABMAAAAXAAAABwAAAAgAAAAVAAAAGwAAAAkAAAA0AAAAQQAAAD8AAAAhAAAAOQAAAE0AAABOAAAAJQAAACIAAAA4AAAATAAAACcAAAATAAAADQAAABAAAAAXAAAAFQAAAA4AAAASAAAAGwAAADUAAAAsAAAAQAAAAEEAAAA6AAAAMgAAAE8AAABNAAAAOAAAACsAAAAzAAAATAAAAAcAAAAXAAAAFgAAAAQAAAAJAAAAGwAAABkAAAAFAAAAPwAAAD4AAAA8AAAAIAAAAE4AAABQAAAARQAAACYAAAAnAAAATAAAAEcAAAAfAAAAFwAAABAAAAAPAAAAFgAAABsAAAASAAAAEQAAABkAAABAAAAALQAAAD0AAAA+AAAATwAAADEAAABGAAAAUAAAAEwAAAAzAAAALgAAAEcAAAAIAAAAFQAAABsAAAAJAAAAAQAAABQAAAAaAAAAAwAAADkAAABNAAAATgAAACUAAAA2AAAASAAAAEkAAAAcAAAAIwAAADsAAABRAAAAJAAAABUAAAAOAAAAEgAAABsAAAAUAAAACwAAAAwAAAAaAAAAOgAAADIAAABPAAAATQAAADcAAAApAAAASgAAAEgAAAA7AAAAKgAAADAAAABRAAAACQAAABsAAAAZAAAABQAAAAMAAAAaAAAAGAAAAAIAAABOAAAAUAAAAEUAAAAmAAAASQAAAEsAAABCAAAAHQAAACQAAABRAAAARAAAAB4AAAAbAAAAEgAAABEAAAAZAAAAGgAAAAwAAAAKAAAAGAAAAE8AAAAxAAAARgAAAFAAAABKAAAAKAAAAEMAAABLAAAAUQAAADAAAAAvAAAARAAAAA==",
+        "elems_count": 8,
+        "nids": "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcAAAAYAAAAGQAAABoAAAAbAAAAHAAAAB0AAAAeAAAAHwAAACAAAAAhAAAAIgAAACMAAAAkAAAAJQAAACYAAAAnAAAAKAAAACkAAAAqAAAAKwAAACwAAAAtAAAALgAAAC8AAAAwAAAAMQAAADIAAAAzAAAANAAAADUAAAA2AAAANwAAADgAAAA5AAAAOgAAADsAAAA8AAAAPQAAAD4AAAA/AAAAQAAAAEEAAABCAAAAQwAAAEQAAABFAAAARgAAAEcAAABIAAAASQAAAEoAAABLAAAATAAAAE0AAABOAAAATwAAAFAAAABRAAAA",
+        "nodes": "AAAAAAAAFEAAAAAAAAAUwAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAAAAAAAAAAABRAAAAAAAAAFMAAAAAAAAAUQAAAAAAAABRAAAAAAAAAAAAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABRAAAAAAAAAFMAAAAAAAAAAAAAAAAAAABRAAAAAAAAAAAAAAAAAAAAUwAAAAAAAABRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABTAAAAAAAAAFEAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFEAAAAAAAAAAAAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAAAAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUQAAAAAAAABTAAAAAAAAAFMAAAAAAAAAAAAAAAAAAABTAAAAAAAAAAAAAAAAAAAAUQAAAAAAAABTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAEwAAAAAAAABRAAAAAAAAAFEAAAAAAAAAEQAAAAAAAABRAAAAAAAAABEAAAAAAAAAUQAAAAAAAABRAAAAAAAAABMAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFMAAAAAAAAAEQAAAAAAAABRAAAAAAAAAFMAAAAAAAAAEwAAAAAAAABRAAAAAAAAABMAAAAAAAAAUwAAAAAAAABRAAAAAAAAABEAAAAAAAAAUwAAAAAAAABRAAAAAAAAABEAAAAAAAAAAAAAAAAAAABRAAAAAAAAAAAAAAAAAAAAEwAAAAAAAABRAAAAAAAAAAAAAAAAAAAAEQAAAAAAAABRAAAAAAAAABMAAAAAAAAAAAAAAAAAAABRAAAAAAAAAFEAAAAAAAAAEQAAAAAAAABTAAAAAAAAAFEAAAAAAAAAEwAAAAAAAABTAAAAAAAAABEAAAAAAAAAUwAAAAAAAABTAAAAAAAAABMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAEwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAEQAAAAAAAABTAAAAAAAAABMAAAAAAAAAUQAAAAAAAABTAAAAAAAAABEAAAAAAAAAUQAAAAAAAABTAAAAAAAAABEAAAAAAAAAAAAAAAAAAABTAAAAAAAAAAAAAAAAAAAAEQAAAAAAAABTAAAAAAAAAAAAAAAAAAAAEwAAAAAAAABTAAAAAAAAABMAAAAAAAAAAAAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAAARAAAAAAAAAFMAAAAAAAAAUwAAAAAAAAATAAAAAAAAAFEAAAAAAAAAUwAAAAAAAAARAAAAAAAAAFEAAAAAAAAAUwAAAAAAAAATAAAAAAAAABMAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUwAAAAAAAAARAAAAAAAAAAAAAAAAAAAAUwAAAAAAAAATAAAAAAAAABEAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAUQAAAAAAAAARAAAAAAAAAFMAAAAAAAAAUQAAAAAAAAATAAAAAAAAAFMAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAAAAAAARAAAAAAAAAFMAAAAAAAAAAAAAAAAAAAATAAAAAAAAAFMAAAAAAAAAEwAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAUQAAAAAAAAARAAAAAAAAAFEAAAAAAAAAUQAAAAAAAAATAAAAAAAAABEAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQAAAAAAAAARAAAAAAAAAAAAAAAAAAAAUQAAAAAAAAATAAAAAAAAABMAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAEwAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAARAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAATAAAAAAAAAFEAAAAAAAAAEQAAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAAA",
+        "nodes_count": 81
+    },
     "blocks": [
         {
             "id": 1,
             "material_id": 1,
             "property_id": -1,
             "cs_id": 1
+        }
+    ],
+    "coordinate_systems": [
+        {
+            "id": 1,
+            "type": "cartesian",
+            "name": "\u0413\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u0430\u044f \u0434\u0435\u043a\u0430\u0440\u0442\u043e\u0432\u0430",
+            "origin": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "dir1": "AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA",
+            "dir2": "AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAA"
         }
     ],
     "contact_constraints": [
@@ -24,16 +117,6 @@
             "search_radius": 1.0,
             "thermo_penalty_mult": 1.0,
             "tolerance": 0.0005
-        }
-    ],
-    "coordinate_systems": [
-        {
-            "id": 1,
-            "type": "cartesian",
-            "name": "\u0413\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u0430\u044f \u0434\u0435\u043a\u0430\u0440\u0442\u043e\u0432\u0430",
-            "origin": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-            "dir1": "AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA",
-            "dir2": "AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAA"
         }
     ],
     "coupling_constraints": [
@@ -74,507 +157,30 @@
             "sectors": 1
         }
     ],
-    "header": {
-        "binary": true,
-        "description": "Fidesys Case Format",
-        "types": {
-            "char": 1,
-            "double": 8,
-            "int": 4,
-            "short_int": 2
-        },
-        "version": 3
+    "sets": {
+        "nodesets": [
+            {
+                "apply_to": "AgAAAAoAAAABAAAA",
+                "apply_to_size": 3,
+                "id": 22,
+                "name": ""
+            }
+        ],
+        "sidesets": [
+            {
+                "apply_to": "CAAAAAUAAAAGAAAABQAAAAUAAAAFAAAABwAAAAUAAAA=",
+                "apply_to_size": 4,
+                "id": 2,
+                "name": ""
+            },
+            {
+                "apply_to": "CAAAAAUAAAAGAAAABQAAAAUAAAAFAAAA",
+                "apply_to_size": 3,
+                "id": 3,
+                "name": ""
+            }
+        ]
     },
-    "loads": [
-        {
-            "id": 1,
-            "name": "Force",
-            "type": 5,
-            "apply_to": "BQAAAA==",
-            "apply_to_size": 1,
-            "data": [
-                "AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAEEAAAAAAAAAUQA==",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA="
-            ],
-            "dependency_type": [
-                [
-                    4
-                ],
-                0,
-                0,
-                0,
-                0,
-                0
-            ],
-            "dep_var_num": [
-                [
-                    "AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAEEAAAAAAAAAUQA=="
-                ],
-                "",
-                "",
-                "",
-                "",
-                ""
-            ],
-            "dep_var_size": [
-                5,
-                0,
-                0,
-                0,
-                0,
-                0
-            ],
-            "cs": 1
-        },
-        {
-            "id": 2,
-            "name": "Force",
-            "type": 5,
-            "apply_to": "BQAAAA==",
-            "apply_to_size": 1,
-            "data": [
-                "AAAAAAAAAEA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA="
-            ],
-            "dependency_type": [
-                0,
-                0,
-                0,
-                0,
-                0,
-                0
-            ],
-            "dep_var_num": [
-                "",
-                "",
-                "",
-                "",
-                "",
-                ""
-            ],
-            "dep_var_size": [
-                0,
-                0,
-                0,
-                0,
-                0,
-                0
-            ],
-            "cs": 1
-        },
-        {
-            "id": 3,
-            "name": "Pressure",
-            "type": 3,
-            "apply_to": "BQAAAAQAAAAHAAAABAAAAAMAAAAEAAAAAQAAAAQAAAA=",
-            "apply_to_size": 4,
-            "data": [
-                "AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAEEAAAAAAAAAUQAAAAAAAABhA"
-            ],
-            "dependency_type": [
-                [
-                    11
-                ]
-            ],
-            "dep_var_num": [
-                [
-                    "AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAEEAAAAAAAAAUQAAAAAAAABhA"
-                ]
-            ],
-            "dep_var_size": [
-                6
-            ],
-            "cs": 1
-        },
-        {
-            "id": 1,
-            "name": "distributed force",
-            "type": 38,
-            "apply_to": "BwAAAAMAAAAIAAAAAwAAAAMAAAADAAAABAAAAAMAAAA=",
-            "apply_to_size": 4,
-            "data": [
-                "harmonic(7.0, 0.0, w, time)",
-                "AAAAAAAAAAA=",
-                "AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAEEAAAAAAAAAUQAAAAAAAAAAA",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA="
-            ],
-            "dependency_type": [
-                6,
-                0,
-                [
-                    10
-                ],
-                0,
-                0,
-                0
-            ],
-            "dep_var_num": [
-                "",
-                "",
-                [
-                    "AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAFEAAAAAAAAAAAAAAAAAAABhA"
-                ],
-                "",
-                "",
-                ""
-            ],
-            "dep_var_size": [
-                0,
-                0,
-                6,
-                0,
-                0,
-                0
-            ],
-            "cs": 1
-        },
-        {
-            "id": 2,
-            "name": "distributed force",
-            "type": 38,
-            "apply_to": "BwAAAAMAAAAIAAAAAwAAAAMAAAADAAAABAAAAAMAAAA=",
-            "apply_to_size": 4,
-            "data": [
-                "AAAAAAAACEA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA="
-            ],
-            "dependency_type": [
-                0,
-                0,
-                0,
-                0,
-                0,
-                0
-            ],
-            "dep_var_num": [
-                "",
-                "",
-                "",
-                "",
-                "",
-                ""
-            ],
-            "dep_var_size": [
-                0,
-                0,
-                0,
-                0,
-                0,
-                0
-            ],
-            "cs": 1
-        },
-        {
-            "id": 1,
-            "name": "heatflux",
-            "type": 11,
-            "apply_to": "AwAAAAAAAAAEAAAAAAAAAAEAAAAAAAAAAgAAAAAAAAA=",
-            "apply_to_size": 4,
-            "data": [
-                "AAAAAAAALkA="
-            ],
-            "dependency_type": [
-                0
-            ],
-            "dep_var_num": [
-                ""
-            ],
-            "dep_var_size": [
-                0
-            ],
-            "cs": 1
-        },
-        {
-            "id": 1,
-            "name": "convection",
-            "type": 13,
-            "apply_to": "BQAAAAUAAAAHAAAABQAAAAgAAAAFAAAABgAAAAUAAAA=",
-            "apply_to_size": 4,
-            "data": [
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA="
-            ],
-            "dependency_type": [
-                0,
-                0
-            ],
-            "dep_var_num": [
-                "",
-                ""
-            ],
-            "dep_var_size": [
-                0,
-                0
-            ],
-            "cs": 1
-        },
-        {
-            "id": 1,
-            "name": "absorption",
-            "type": 19,
-            "apply_to": "BQAAAAUAAAAGAAAABQAAAAcAAAAFAAAACAAAAAUAAAA=",
-            "apply_to_size": 4,
-            "data": [],
-            "dependency_type": [],
-            "dep_var_num": [],
-            "dep_var_size": []
-        },
-        {
-            "id": 1,
-            "name": "gravity",
-            "type": 44,
-            "apply_to": "all",
-            "apply_to_size": 0,
-            "data": [
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA=",
-                "H4XrUbieI8A="
-            ],
-            "dependency_type": [
-                0,
-                0,
-                0
-            ],
-            "dep_var_num": [
-                "",
-                "",
-                ""
-            ],
-            "dep_var_size": [
-                0,
-                0,
-                0
-            ],
-            "cs": 1
-        },
-        {
-            "id": 2,
-            "name": "gravity",
-            "type": 44,
-            "apply_to": "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAA=",
-            "apply_to_size": 8,
-            "data": [
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAFkA="
-            ],
-            "dependency_type": [
-                0,
-                0,
-                0
-            ],
-            "dep_var_num": [
-                "",
-                "",
-                ""
-            ],
-            "dep_var_size": [
-                0,
-                0,
-                0
-            ],
-            "cs": 1
-        },
-        {
-            "id": 3,
-            "name": "gravity",
-            "type": 44,
-            "apply_to": "all",
-            "apply_to_size": 0,
-            "data": [
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA="
-            ],
-            "dependency_type": [
-                0,
-                0,
-                0
-            ],
-            "dep_var_num": [
-                "",
-                "",
-                ""
-            ],
-            "dep_var_size": [
-                0,
-                0,
-                0
-            ],
-            "cs": 1
-        },
-        {
-            "id": 1,
-            "name": "fluidflux",
-            "type": 39,
-            "apply_to": "CAAAAAIAAAAGAAAAAgAAAAQAAAACAAAAAgAAAAIAAAA=",
-            "apply_to_size": 4,
-            "data": [
-                "AAAAAAAANEA="
-            ],
-            "dependency_type": [
-                0
-            ],
-            "dep_var_num": [
-                ""
-            ],
-            "dep_var_size": [
-                0
-            ]
-        },
-        {
-            "id": 1,
-            "name": "stress",
-            "type": 3,
-            "apply_to": "AwAAAAAAAAAEAAAAAAAAAAEAAAAAAAAAAgAAAAAAAAA=",
-            "apply_to_size": 4,
-            "data": [
-                "AAAAAAAAGEA=",
-                "AAAAAAAAGEA=",
-                "AAAAAAAAGEA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA=",
-                "AAAAAAAAAAA="
-            ],
-            "dependency_type": [
-                0,
-                0,
-                0,
-                0,
-                0,
-                0
-            ],
-            "dep_var_num": [
-                "",
-                "",
-                "",
-                "",
-                "",
-                ""
-            ],
-            "dep_var_size": [
-                0,
-                0,
-                0,
-                0,
-                0,
-                0
-            ],
-            "cs": 1
-        },
-        {
-            "id": 1,
-            "name": "radiation",
-            "type": 15,
-            "apply_to": "BwAAAAMAAAADAAAAAwAAAAgAAAADAAAABAAAAAMAAAA=",
-            "apply_to_size": 4,
-            "data": [
-                "AAAAAAAAMEA="
-            ],
-            "dependency_type": [
-                0
-            ],
-            "dep_var_num": [
-                ""
-            ],
-            "dep_var_size": [
-                0
-            ],
-            "cs": 1
-        },
-        {
-            "id": 1,
-            "name": "heatsourcevolume",
-            "type": 17,
-            "apply_to": "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAA=",
-            "apply_to_size": 8,
-            "data": [
-                "AAAAAAAAMkA="
-            ],
-            "dependency_type": [
-                0
-            ],
-            "dep_var_num": [
-                ""
-            ],
-            "dep_var_size": [
-                0
-            ],
-            "cs": 1
-        },
-        {
-            "id": 1,
-            "name": "heatsourcepoint",
-            "type": 18,
-            "apply_to": "AgAAAA==",
-            "apply_to_size": 1,
-            "data": [
-                "AAAAAAAAMUA="
-            ],
-            "dependency_type": [
-                0
-            ],
-            "dep_var_num": [
-                ""
-            ],
-            "dep_var_size": [
-                0
-            ],
-            "cs": 1
-        },
-        {
-            "id": 2,
-            "name": "fluidsourcevolume",
-            "type": 42,
-            "apply_to": "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAA=",
-            "apply_to_size": 8,
-            "data": [
-                "AAAAAAAANkA="
-            ],
-            "dependency_type": [
-                0
-            ],
-            "dep_var_num": [
-                ""
-            ],
-            "dep_var_size": [
-                0
-            ]
-        },
-        {
-            "id": 1,
-            "name": "fluidsourcepoint",
-            "type": 43,
-            "apply_to": "GwAAAEwAAABNAAAATgAAAE8AAABQAAAAUQAAAAkAAAAkAAAAJQAAACYAAAAnAAAAEgAAADAAAAAxAAAAMgAAADMAAAAVAAAAOAAAADkAAAA6AAAAOwAAABcAAAA+AAAAPwAAAEAAAABBAAAAGQAAAEQAAABFAAAARgAAAEcAAAAaAAAASAAAAEkAAABKAAAASwAAABwAAAADAAAAHQAAAB4AAAAFAAAAHwAAACAAAAAHAAAAIQAAACIAAAAIAAAAIwAAACgAAAAMAAAAKQAAACoAAAAOAAAAKwAAACwAAAAQAAAALQAAAC4AAAARAAAALwAAADQAAAATAAAANQAAADYAAAAUAAAANwAAADwAAAAWAAAAPQAAAEIAAAAYAAAAQwAAAAEAAAACAAAABAAAAAYAAAAKAAAACwAAAA0AAAAPAAAA",
-            "apply_to_size": 81,
-            "data": [
-                "AAAAAAAANUA="
-            ],
-            "dependency_type": [
-                0
-            ],
-            "dep_var_num": [
-                ""
-            ],
-            "dep_var_size": [
-                0
-            ]
-        }
-    ],
     "materials": [
         {
             "id": 1,
@@ -599,11 +205,11 @@
                         [
                             4
                         ],
-                        0
+                        6
                     ],
                     "constants": [
                         "AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAEEAAAAAAAAAUQAAAAAAAABhAAAAAAAAAHEA=",
-                        "AAAAAAAAAAA="
+                        "x"
                     ],
                     "type": 0
                 },
@@ -621,12 +227,12 @@
                         36
                     ],
                     "const_types": [
-                        0,
-                        0
+                        6,
+                        6
                     ],
                     "constants": [
-                        "AAAAAAAAAAA=",
-                        "AAAAAAAAAAA="
+                        "y",
+                        "z"
                     ],
                     "type": 9
                 }
@@ -2402,30 +2008,494 @@
             "name": "PLASTISITY 15"
         }
     ],
-    "mesh": {
-        "elem_blocks": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAA=",
-        "elem_orders": "AwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAA=",
-        "elem_parent_ids": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAA=",
-        "elem_types": "BAQEBAQEBAQ=",
-        "elemids": "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAA=",
-        "elems": "BgAAABMAAAAXAAAABwAAAAgAAAAVAAAAGwAAAAkAAAA0AAAAQQAAAD8AAAAhAAAAOQAAAE0AAABOAAAAJQAAACIAAAA4AAAATAAAACcAAAATAAAADQAAABAAAAAXAAAAFQAAAA4AAAASAAAAGwAAADUAAAAsAAAAQAAAAEEAAAA6AAAAMgAAAE8AAABNAAAAOAAAACsAAAAzAAAATAAAAAcAAAAXAAAAFgAAAAQAAAAJAAAAGwAAABkAAAAFAAAAPwAAAD4AAAA8AAAAIAAAAE4AAABQAAAARQAAACYAAAAnAAAATAAAAEcAAAAfAAAAFwAAABAAAAAPAAAAFgAAABsAAAASAAAAEQAAABkAAABAAAAALQAAAD0AAAA+AAAATwAAADEAAABGAAAAUAAAAEwAAAAzAAAALgAAAEcAAAAIAAAAFQAAABsAAAAJAAAAAQAAABQAAAAaAAAAAwAAADkAAABNAAAATgAAACUAAAA2AAAASAAAAEkAAAAcAAAAIwAAADsAAABRAAAAJAAAABUAAAAOAAAAEgAAABsAAAAUAAAACwAAAAwAAAAaAAAAOgAAADIAAABPAAAATQAAADcAAAApAAAASgAAAEgAAAA7AAAAKgAAADAAAABRAAAACQAAABsAAAAZAAAABQAAAAMAAAAaAAAAGAAAAAIAAABOAAAAUAAAAEUAAAAmAAAASQAAAEsAAABCAAAAHQAAACQAAABRAAAARAAAAB4AAAAbAAAAEgAAABEAAAAZAAAAGgAAAAwAAAAKAAAAGAAAAE8AAAAxAAAARgAAAFAAAABKAAAAKAAAAEMAAABLAAAAUQAAADAAAAAvAAAARAAAAA==",
-        "elems_count": 8,
-        "nids": "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcAAAAYAAAAGQAAABoAAAAbAAAAHAAAAB0AAAAeAAAAHwAAACAAAAAhAAAAIgAAACMAAAAkAAAAJQAAACYAAAAnAAAAKAAAACkAAAAqAAAAKwAAACwAAAAtAAAALgAAAC8AAAAwAAAAMQAAADIAAAAzAAAANAAAADUAAAA2AAAANwAAADgAAAA5AAAAOgAAADsAAAA8AAAAPQAAAD4AAAA/AAAAQAAAAEEAAABCAAAAQwAAAEQAAABFAAAARgAAAEcAAABIAAAASQAAAEoAAABLAAAATAAAAE0AAABOAAAATwAAAFAAAABRAAAA",
-        "nodes": "AAAAAAAAFEAAAAAAAAAUwAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAAAAAAAAAAABRAAAAAAAAAFMAAAAAAAAAUQAAAAAAAABRAAAAAAAAAAAAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABRAAAAAAAAAFMAAAAAAAAAAAAAAAAAAABRAAAAAAAAAAAAAAAAAAAAUwAAAAAAAABRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABTAAAAAAAAAFEAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFEAAAAAAAAAAAAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAAAAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUQAAAAAAAABTAAAAAAAAAFMAAAAAAAAAAAAAAAAAAABTAAAAAAAAAAAAAAAAAAAAUQAAAAAAAABTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAEwAAAAAAAABRAAAAAAAAAFEAAAAAAAAAEQAAAAAAAABRAAAAAAAAABEAAAAAAAAAUQAAAAAAAABRAAAAAAAAABMAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFMAAAAAAAAAEQAAAAAAAABRAAAAAAAAAFMAAAAAAAAAEwAAAAAAAABRAAAAAAAAABMAAAAAAAAAUwAAAAAAAABRAAAAAAAAABEAAAAAAAAAUwAAAAAAAABRAAAAAAAAABEAAAAAAAAAAAAAAAAAAABRAAAAAAAAAAAAAAAAAAAAEwAAAAAAAABRAAAAAAAAAAAAAAAAAAAAEQAAAAAAAABRAAAAAAAAABMAAAAAAAAAAAAAAAAAAABRAAAAAAAAAFEAAAAAAAAAEQAAAAAAAABTAAAAAAAAAFEAAAAAAAAAEwAAAAAAAABTAAAAAAAAABEAAAAAAAAAUwAAAAAAAABTAAAAAAAAABMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAEwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAEQAAAAAAAABTAAAAAAAAABMAAAAAAAAAUQAAAAAAAABTAAAAAAAAABEAAAAAAAAAUQAAAAAAAABTAAAAAAAAABEAAAAAAAAAAAAAAAAAAABTAAAAAAAAAAAAAAAAAAAAEQAAAAAAAABTAAAAAAAAAAAAAAAAAAAAEwAAAAAAAABTAAAAAAAAABMAAAAAAAAAAAAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAAARAAAAAAAAAFMAAAAAAAAAUwAAAAAAAAATAAAAAAAAAFEAAAAAAAAAUwAAAAAAAAARAAAAAAAAAFEAAAAAAAAAUwAAAAAAAAATAAAAAAAAABMAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUwAAAAAAAAARAAAAAAAAAAAAAAAAAAAAUwAAAAAAAAATAAAAAAAAABEAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAUQAAAAAAAAARAAAAAAAAAFMAAAAAAAAAUQAAAAAAAAATAAAAAAAAAFMAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAAAAAAARAAAAAAAAAFMAAAAAAAAAAAAAAAAAAAATAAAAAAAAAFMAAAAAAAAAEwAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAUQAAAAAAAAARAAAAAAAAAFEAAAAAAAAAUQAAAAAAAAATAAAAAAAAABEAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQAAAAAAAAARAAAAAAAAAAAAAAAAAAAAUQAAAAAAAAATAAAAAAAAABMAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAEwAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAARAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAATAAAAAAAAAFEAAAAAAAAAEQAAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAAA",
-        "nodes_count": 81
-    },
-    "receivers": [
+    "loads": [
         {
-            "apply_to": "HAAAAAMAAAAdAAAAAQAAAAIAAAA=",
-            "apply_to_size": 5,
             "id": 1,
-            "name": "Receiver 1",
-            "dofs": [
-                1,
-                1,
-                1
+            "name": "Force",
+            "type": 5,
+            "apply_to": "BQAAAA==",
+            "apply_to_size": 1,
+            "data": [
+                "AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAEEAAAAAAAAAUQA==",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA="
             ],
-            "type": 0
+            "dependency_type": [
+                [
+                    4
+                ],
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "dep_var_num": [
+                [
+                    "AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAEEAAAAAAAAAUQA=="
+                ],
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "dep_var_size": [
+                5,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "cs": 1
+        },
+        {
+            "id": 2,
+            "name": "Force",
+            "type": 5,
+            "apply_to": "BQAAAA==",
+            "apply_to_size": 1,
+            "data": [
+                "AAAAAAAAAEA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA="
+            ],
+            "dependency_type": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "dep_var_num": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "dep_var_size": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "cs": 1
+        },
+        {
+            "id": 3,
+            "name": "Pressure",
+            "type": 3,
+            "apply_to": "BQAAAAQAAAAHAAAABAAAAAMAAAAEAAAAAQAAAAQAAAA=",
+            "apply_to_size": 4,
+            "data": [
+                "AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAEEAAAAAAAAAUQAAAAAAAABhA"
+            ],
+            "dependency_type": [
+                [
+                    11
+                ]
+            ],
+            "dep_var_num": [
+                [
+                    "AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAEEAAAAAAAAAUQAAAAAAAABhA"
+                ]
+            ],
+            "dep_var_size": [
+                6
+            ],
+            "cs": 1
+        },
+        {
+            "id": 1,
+            "name": "distributed force",
+            "type": 38,
+            "apply_to": "BwAAAAMAAAAIAAAAAwAAAAMAAAADAAAABAAAAAMAAAA=",
+            "apply_to_size": 4,
+            "data": [
+                "harmonic(7.0, 0.0, w, time)",
+                "AAAAAAAAAAA=",
+                "AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAEEAAAAAAAAAUQAAAAAAAAAAA",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA="
+            ],
+            "dependency_type": [
+                6,
+                0,
+                [
+                    10
+                ],
+                0,
+                0,
+                0
+            ],
+            "dep_var_num": [
+                "",
+                "",
+                [
+                    "AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAFEAAAAAAAAAAAAAAAAAAABhA"
+                ],
+                "",
+                "",
+                ""
+            ],
+            "dep_var_size": [
+                0,
+                0,
+                6,
+                0,
+                0,
+                0
+            ],
+            "cs": 1
+        },
+        {
+            "id": 2,
+            "name": "distributed force",
+            "type": 38,
+            "apply_to": "BwAAAAMAAAAIAAAAAwAAAAMAAAADAAAABAAAAAMAAAA=",
+            "apply_to_size": 4,
+            "data": [
+                "AAAAAAAACEA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA="
+            ],
+            "dependency_type": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "dep_var_num": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "dep_var_size": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "cs": 1
+        },
+        {
+            "id": 1,
+            "name": "heatflux",
+            "type": 11,
+            "apply_to": "AwAAAAAAAAAEAAAAAAAAAAEAAAAAAAAAAgAAAAAAAAA=",
+            "apply_to_size": 4,
+            "data": [
+                "AAAAAAAALkA="
+            ],
+            "dependency_type": [
+                0
+            ],
+            "dep_var_num": [
+                ""
+            ],
+            "dep_var_size": [
+                0
+            ],
+            "cs": 1
+        },
+        {
+            "id": 1,
+            "name": "convection",
+            "type": 13,
+            "apply_to": "BQAAAAUAAAAHAAAABQAAAAgAAAAFAAAABgAAAAUAAAA=",
+            "apply_to_size": 4,
+            "data": [
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA="
+            ],
+            "dependency_type": [
+                0,
+                0
+            ],
+            "dep_var_num": [
+                "",
+                ""
+            ],
+            "dep_var_size": [
+                0,
+                0
+            ],
+            "cs": 1
+        },
+        {
+            "id": 1,
+            "name": "absorption",
+            "type": 19,
+            "apply_to": "BQAAAAUAAAAGAAAABQAAAAcAAAAFAAAACAAAAAUAAAA=",
+            "apply_to_size": 4,
+            "data": [],
+            "dependency_type": [],
+            "dep_var_num": [],
+            "dep_var_size": []
+        },
+        {
+            "id": 1,
+            "name": "gravity",
+            "type": 44,
+            "apply_to": "all",
+            "apply_to_size": 0,
+            "data": [
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA=",
+                "H4XrUbieI8A="
+            ],
+            "dependency_type": [
+                0,
+                0,
+                0
+            ],
+            "dep_var_num": [
+                "",
+                "",
+                ""
+            ],
+            "dep_var_size": [
+                0,
+                0,
+                0
+            ],
+            "cs": 1
+        },
+        {
+            "id": 2,
+            "name": "gravity",
+            "type": 44,
+            "apply_to": "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAA=",
+            "apply_to_size": 8,
+            "data": [
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAFkA="
+            ],
+            "dependency_type": [
+                0,
+                0,
+                0
+            ],
+            "dep_var_num": [
+                "",
+                "",
+                ""
+            ],
+            "dep_var_size": [
+                0,
+                0,
+                0
+            ],
+            "cs": 1
+        },
+        {
+            "id": 3,
+            "name": "gravity",
+            "type": 44,
+            "apply_to": "all",
+            "apply_to_size": 0,
+            "data": [
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA="
+            ],
+            "dependency_type": [
+                0,
+                0,
+                0
+            ],
+            "dep_var_num": [
+                "",
+                "",
+                ""
+            ],
+            "dep_var_size": [
+                0,
+                0,
+                0
+            ],
+            "cs": 1
+        },
+        {
+            "id": 1,
+            "name": "fluidflux",
+            "type": 39,
+            "apply_to": "CAAAAAIAAAAGAAAAAgAAAAQAAAACAAAAAgAAAAIAAAA=",
+            "apply_to_size": 4,
+            "data": [
+                "AAAAAAAANEA="
+            ],
+            "dependency_type": [
+                0
+            ],
+            "dep_var_num": [
+                ""
+            ],
+            "dep_var_size": [
+                0
+            ]
+        },
+        {
+            "id": 1,
+            "name": "stress",
+            "type": 3,
+            "apply_to": "AwAAAAAAAAAEAAAAAAAAAAEAAAAAAAAAAgAAAAAAAAA=",
+            "apply_to_size": 4,
+            "data": [
+                "AAAAAAAAGEA=",
+                "AAAAAAAAGEA=",
+                "AAAAAAAAGEA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA=",
+                "AAAAAAAAAAA="
+            ],
+            "dependency_type": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "dep_var_num": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "dep_var_size": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "cs": 1
+        },
+        {
+            "id": 1,
+            "name": "radiation",
+            "type": 15,
+            "apply_to": "BwAAAAMAAAADAAAAAwAAAAgAAAADAAAABAAAAAMAAAA=",
+            "apply_to_size": 4,
+            "data": [
+                "AAAAAAAAMEA="
+            ],
+            "dependency_type": [
+                0
+            ],
+            "dep_var_num": [
+                ""
+            ],
+            "dep_var_size": [
+                0
+            ],
+            "cs": 1
+        },
+        {
+            "id": 1,
+            "name": "heatsourcevolume",
+            "type": 17,
+            "apply_to": "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAA=",
+            "apply_to_size": 8,
+            "data": [
+                "AAAAAAAAMkA="
+            ],
+            "dependency_type": [
+                0
+            ],
+            "dep_var_num": [
+                ""
+            ],
+            "dep_var_size": [
+                0
+            ],
+            "cs": 1
+        },
+        {
+            "id": 1,
+            "name": "heatsourcepoint",
+            "type": 18,
+            "apply_to": "AgAAAA==",
+            "apply_to_size": 1,
+            "data": [
+                "AAAAAAAAMUA="
+            ],
+            "dependency_type": [
+                0
+            ],
+            "dep_var_num": [
+                ""
+            ],
+            "dep_var_size": [
+                0
+            ],
+            "cs": 1
+        },
+        {
+            "id": 2,
+            "name": "fluidsourcevolume",
+            "type": 42,
+            "apply_to": "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAA=",
+            "apply_to_size": 8,
+            "data": [
+                "AAAAAAAANkA="
+            ],
+            "dependency_type": [
+                0
+            ],
+            "dep_var_num": [
+                ""
+            ],
+            "dep_var_size": [
+                0
+            ]
+        },
+        {
+            "id": 1,
+            "name": "fluidsourcepoint",
+            "type": 43,
+            "apply_to": "GwAAAEwAAABNAAAATgAAAE8AAABQAAAAUQAAAAkAAAAkAAAAJQAAACYAAAAnAAAAEgAAADAAAAAxAAAAMgAAADMAAAAVAAAAOAAAADkAAAA6AAAAOwAAABcAAAA+AAAAPwAAAEAAAABBAAAAGQAAAEQAAABFAAAARgAAAEcAAAAaAAAASAAAAEkAAABKAAAASwAAABwAAAADAAAAHQAAAB4AAAAFAAAAHwAAACAAAAAHAAAAIQAAACIAAAAIAAAAIwAAACgAAAAMAAAAKQAAACoAAAAOAAAAKwAAACwAAAAQAAAALQAAAC4AAAARAAAALwAAADQAAAATAAAANQAAADYAAAAUAAAANwAAADwAAAAWAAAAPQAAAEIAAAAYAAAAQwAAAAEAAAACAAAABAAAAAYAAAAKAAAACwAAAA0AAAAPAAAA",
+            "apply_to_size": 81,
+            "data": [
+                "AAAAAAAANUA="
+            ],
+            "dependency_type": [
+                0
+            ],
+            "dep_var_num": [
+                ""
+            ],
+            "dep_var_size": [
+                0
+            ]
         }
     ],
     "restraints": [
@@ -3023,88 +3093,18 @@
             "type": 4
         }
     ],
-    "settings": {
-        "bc_tolerance": 0.0005,
-        "dimensions": "3D",
-        "elasticity": true,
-        "environment": {
-            "temperature": 0.0
-        },
-        "finite_deformations": false,
-        "heat_transfer": true,
-        "incompressibility": false,
-        "linear_solver": {
-            "iter_opts": {
-                "epsilon": 1e-09,
-                "max_iterations": 50000,
-                "preconditioner": "auto",
-                "stopping_criteria": 0.0
-            },
-            "method": "auto",
-            "on_fail": true,
-            "use_uzawa": "auto"
-        },
-        "nonlinear_solver": {
-            "arc_method": false,
-            "line_search": false,
-            "max_iterations": 100,
-            "max_load_steps": 1000,
-            "min_load_steps": 1,
-            "start_load_steps": 1,
-            "target_iter": 5,
-            "tolerance": 0.001
-        },
-        "output": {
-            "energy": false,
-            "full_periodic": false,
-            "intermediate_results": true,
-            "log": true,
-            "material": false,
-            "normal_force": false,
-            "record3d": false,
-            "vtu": true,
-            "without_smoothing": false
-        },
-        "permission_write": true,
-        "plasticity": false,
-        "porefluid_transfer": false,
-        "radiation_among_surfaces": false,
-        "slm": true,
-        "statics": {
-            "steps_count": 3
-        },
-        "thermal_gap_settings": {
-            "end_temp": 3000.0,
-            "impact_eps": 0.01,
-            "scatangle_eps": 0.01,
-            "start_temp": 0.0,
-            "step_temp": 1.0,
-            "velocity_eps": 0.01
-        },
-        "type": "static"
-    },
-    "sets": {
-        "nodesets": [
-            {
-                "apply_to": "AgAAAAoAAAABAAAA",
-                "apply_to_size": 3,
-                "id": 22,
-                "name": ""
-            }
-        ],
-        "sidesets": [
-            {
-                "apply_to": "CAAAAAUAAAAGAAAABQAAAAUAAAAFAAAABwAAAAUAAAA=",
-                "apply_to_size": 4,
-                "id": 2,
-                "name": ""
-            },
-            {
-                "apply_to": "CAAAAAUAAAAGAAAABQAAAAUAAAAFAAAA",
-                "apply_to_size": 3,
-                "id": 3,
-                "name": ""
-            }
-        ]
-    }
+    "receivers": [
+        {
+            "apply_to": "HAAAAAMAAAAdAAAAAQAAAAIAAAA=",
+            "apply_to_size": 5,
+            "id": 1,
+            "name": "Receiver 1",
+            "dofs": [
+                1,
+                1,
+                1
+            ],
+            "type": 0
+        }
+    ]
 }

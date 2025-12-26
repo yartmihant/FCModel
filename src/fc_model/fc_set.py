@@ -1,6 +1,8 @@
+from __future__ import annotations
 from typing import TypedDict
 
 from numpy import dtype, int32
+import numpy as np
 
 from .fc_value import FCValue
 
@@ -17,15 +19,21 @@ class FCSet:
     apply: FCValue
     name: str
 
-    def __init__(self, src_data: FCSrcSet):
-        self.apply = FCValue(src_data['apply_to'], dtype(int32))
-        self.apply.resize(src_data['apply_to_size'])
-        self.id = src_data['id']
-        self.name = src_data['name']
+    def __init__(self, id: int = 0, name: str = ""):
+        self.id = id
+        self.name = name
+        self.apply = FCValue(np.array([], dtype=int32))
 
-    def dump(self) -> FCSrcSet:
+    @classmethod
+    def decode(cls, src_data: FCSrcSet) -> FCSet:
+        s = cls(id=src_data['id'], name=src_data['name'])
+        s.apply = FCValue.decode(src_data['apply_to'], dtype(int32))
+        s.apply.reshape(src_data['apply_to_size'])
+        return s
+
+    def encode(self) -> FCSrcSet:
         return {
-            "apply_to": self.apply.dump(),
+            "apply_to": self.apply.encode(),
             "apply_to_size": len(self.apply),
             "id": self.id,
             "name": self.name

@@ -41,7 +41,7 @@ class FCMesh:
     def __init__(self) -> None:
 
         self.nodes_ids = np.array([], dtype=np.int32)
-        self.nodes_xyz = np.array([], dtype=np.float64)
+        self.nodes_xyz = np.empty((0, 3), dtype=np.float64)
 
         self.elements = {}
 

@@ -1,4 +1,5 @@
 
+from __future__ import annotations
 from typing import Any, TypedDict, Dict
 
 
@@ -15,13 +16,20 @@ class FCPropertyTable:
     properties: Dict[str, Any]
     additional_properties: Dict[str, Any]
 
-    def __init__(self, src_data: FCSrcPropertyTable):
-        self.id = src_data['id']
-        self.type = src_data.get('type', 0)  # тип может отсутствовать
-        self.properties = src_data.get('properties', {})
-        self.additional_properties = src_data.get('additional_properties', {})
+    def __init__(self, id: int = 0, type_val: int = 0):
+        self.id = id
+        self.type = type_val
+        self.properties = {}
+        self.additional_properties = {}
 
-    def dump(self) -> FCSrcPropertyTable:
+    @classmethod
+    def decode(cls, src_data: FCSrcPropertyTable) -> FCPropertyTable:
+        pt = cls(id=src_data['id'], type_val=src_data.get('type', 0))
+        pt.properties = src_data.get('properties', {})
+        pt.additional_properties = src_data.get('additional_properties', {})
+        return pt
+
+    def encode(self) -> FCSrcPropertyTable:
         return {
             "id": self.id,
             "type": self.type,

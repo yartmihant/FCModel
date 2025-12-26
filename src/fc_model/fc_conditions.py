@@ -144,21 +144,34 @@ class FCLoad:
     cs_id: int
     data: List[FCData]
 
-    def __init__(self, src_load: FCSrcLoad):
+    def __init__(self, id: int = 0, name: str = ''):
+        self.id = id
 
-        self.id = src_load['id']
-        self.name = src_load['name']
 
-        self.cs_id = src_load.get('cs', 0)
+    @classmethod
+    def decode(cls, src_load: FCSrcLoad) -> 'FCLoad':
 
-        self.apply = FCValue(src_load['apply_to'], dtype('int32'))
-        self.apply.resize(src_load.get('apply_to_size', 0))
-        if len(self.apply) != src_load.get('apply_to_size', 0):
+        fc_load = FCLoad(
+            id = src_load['id'],
+        )
+
+        fc_load.name = src_load['name']
+        fc_load.cs_id = src_load.get('cs', 0)
+
+        apply_to = FCValue.decode(src_load['apply_to'], dtype('int32'))
+        apply_to_size = src_load.get('apply_to_size', 0)
+
+        apply_to.reshape(apply_to_size)
+
+        if len(apply_to) != apply_to_size:
             raise ValueError(
-                f"Load(id={self.id}) apply_to_size mismatch: {len(self.apply)} != {src_load.get('apply_to_size', 0)}"
+                f"Load(id={fc_load.id}) apply_to_size mismatch: {len(fc_load.apply)} != {src_load.get('apply_to_size', 0)}"
             )
-        self.type = FC_LOADS_TYPES_KEYS[src_load['type']]
-        self.data: List[FCData] = []
+
+        fc_load.apply = apply_to
+        
+        fc_load.type = FC_LOADS_TYPES_KEYS[src_load['type']]
+        fc_load.data = []
 
         if 'data' in src_load:
             dep_types_all = src_load.get("dependency_type", [])
@@ -166,24 +179,26 @@ class FCLoad:
             for i, data in enumerate(src_load["data"]):
                 dep_type_i = dep_types_all[i] if i < len(dep_types_all) else 0
                 dep_var_i = dep_vars_all[i] if i < len(dep_vars_all) else ""
-                self.data.append(FCData(
+                fc_load.data.append(FCData.decode(
                     data,
                     dep_type_i,
                     dep_var_i
                 ))
             # consistency for dependency arrays lengths
-            if len(dep_types_all) and len(dep_types_all) < len(self.data):
+            if len(dep_types_all) and len(dep_types_all) < len(fc_load.data):
                 raise ValueError("dependency_type shorter than data components")
-            if len(dep_vars_all) and len(dep_vars_all) < len(self.data):
+            if len(dep_vars_all) and len(dep_vars_all) < len(fc_load.data):
                 raise ValueError("dep_var_num shorter than data components")
 
-    def dump(self) -> FCSrcLoad:
+        return fc_load
+
+    def encode(self) -> FCSrcLoad:
 
         load_src: FCSrcLoad = {
             'id': self.id,
             'name': self.name,
             'type': FC_LOADS_TYPES_CODES[self.type],
-            'apply_to': self.apply.dump(),
+            'apply_to': self.apply.encode(),
             'apply_to_size': len(self.apply),
             'data': [],
             'dependency_type': [],
@@ -195,7 +210,7 @@ class FCLoad:
             load_src['cs'] = self.cs_id
 
         for data in self.data:
-            src_data, src_types, src_deps = data.dump()
+            src_data, src_types, src_deps = data.encode()
             load_src['data'].append(src_data)
             dep_types: Union[int, str, List[int]] = src_types 
             if isinstance(dep_types, str):
@@ -227,20 +242,27 @@ class FCRestraint:
     data: List[FCData]
     flags: List[str]
 
-    def __init__(self, src_restraint:FCSrcRestraint):
+    def __init__(self, id: int = 0):
+        self.id = id
 
-        self.id = src_restraint['id']
-        self.name = src_restraint['name']
-        self.cs_id = src_restraint.get('cs', 0)
+    @classmethod
+    def decode(cls, src_restraint:FCSrcRestraint) -> 'FCRestraint':
 
-        self.apply = FCValue(src_restraint['apply_to'], dtype('int32'))
-        self.apply.resize(src_restraint.get('apply_to_size', 0))
-        if len(self.apply) != src_restraint.get('apply_to_size', 0):
+        fc_restraint = FCRestraint(
+            id = src_restraint['id']
+        )
+
+        fc_restraint.name = src_restraint['name']
+        fc_restraint.cs_id = src_restraint.get('cs', 0)
+
+        fc_restraint.apply = FCValue.decode(src_restraint['apply_to'], dtype('int32'))
+        fc_restraint.apply.reshape(src_restraint.get('apply_to_size', 0))
+        if len(fc_restraint.apply) != src_restraint.get('apply_to_size', 0):
             raise ValueError(
-                f"Restraint(id={self.id}) apply_to_size mismatch: {len(self.apply)} != {src_restraint.get('apply_to_size', 0)}"
+                f"Restraint(id={fc_restraint.id}) apply_to_size mismatch: {len(fc_restraint.apply)} != {src_restraint.get('apply_to_size', 0)}"
             )
 
-        self.data: List[FCData] = []
+        fc_restraint.data = []
 
         if 'data' in src_restraint:
             dep_types_all = src_restraint.get("dependency_type", [])
@@ -248,24 +270,26 @@ class FCRestraint:
             for i, data in enumerate(src_restraint["data"]):
                 dep_type_i = dep_types_all[i] if i < len(dep_types_all) else 0
                 dep_var_i = dep_vars_all[i] if i < len(dep_vars_all) else ""
-                self.data.append(FCData(
+                fc_restraint.data.append(FCData.decode(
                     data,
                     dep_type_i,
                     dep_var_i
                 ))
-            if len(dep_types_all) and len(dep_types_all) < len(self.data):
+            if len(dep_types_all) and len(dep_types_all) < len(fc_restraint.data):
                 raise ValueError("dependency_type shorter than data components")
-            if len(dep_vars_all) and len(dep_vars_all) < len(self.data):
+            if len(dep_vars_all) and len(dep_vars_all) < len(fc_restraint.data):
                 raise ValueError("dep_var_num shorter than data components")
-        self.flags = [FC_RESTRAINT_FLAGS_KEYS[code] for code in src_restraint['flag']]
+        fc_restraint.flags = [FC_RESTRAINT_FLAGS_KEYS[code] for code in src_restraint['flag']]
+
+        return fc_restraint
 
 
-    def dump(self) -> FCSrcRestraint:
+    def encode(self) -> FCSrcRestraint:
 
         src_restraint: FCSrcRestraint = {
             'id': self.id,
             'name': self.name,
-            'apply_to': self.apply.dump(),
+            'apply_to': self.apply.encode(),
             'apply_to_size': len(self.apply),
             'data': [],
             'dependency_type': [],
@@ -279,7 +303,7 @@ class FCRestraint:
 
 
         for data in self.data:
-            src_data, src_types, src_deps = data.dump()
+            src_data, src_types, src_deps = data.encode()
             src_restraint['data'].append(src_data)
             dep_types: Union[int, str, List[int]] = src_types  
             dep_vars: Union[str, List[str]] = src_deps 
@@ -312,19 +336,34 @@ class FCInitialSet:
     flags: List[str]
     type: str
 
-    def __init__(self, src_initial_set:FCSrcInitialSet):
 
-        self.id = src_initial_set['id']
-        self.cs_id = src_initial_set.get('cs', 0)
+    def __init__(self, id: int = 0):
+        self.id = id
 
-        self.apply = FCValue(src_initial_set['apply_to'], dtype('int32'))
-        self.apply.resize(src_initial_set.get('apply_to_size', 0))
-        if len(self.apply) != src_initial_set.get('apply_to_size', 0):
+    @classmethod
+    def decode(cls, src_initial_set:FCSrcInitialSet) -> 'FCInitialSet':
+
+        fc_initial_set = FCInitialSet(
+            id = src_initial_set['id']
+        )
+
+        fc_initial_set.id = src_initial_set['id']
+        fc_initial_set.cs_id = src_initial_set.get('cs', 0)
+
+        apply_to = FCValue.decode(src_initial_set['apply_to'], dtype('int32'))
+        apply_to_size = src_initial_set.get('apply_to_size', 0)
+
+        apply_to.reshape(apply_to_size)
+
+
+        fc_initial_set.apply = apply_to
+
+        if len(fc_initial_set.apply) != apply_to_size:
             raise ValueError(
-                f"InitialSet(id={self.id}) apply_to_size mismatch: {len(self.apply)} != {src_initial_set.get('apply_to_size', 0)}"
+                f"InitialSet(id={fc_initial_set.id}) apply_to_size mismatch: {len(fc_initial_set.apply)} != {src_initial_set.get('apply_to_size', 0)}"
             )
         
-        self.data: List[FCData] = []
+        fc_initial_set.data = []
 
         if 'data' in src_initial_set:
             dep_types_all = src_initial_set.get("dependency_type", [])
@@ -332,25 +371,27 @@ class FCInitialSet:
             for i, data in enumerate(src_initial_set["data"]):
                 dep_type_i = dep_types_all[i] if i < len(dep_types_all) else 0
                 dep_var_i = dep_vars_all[i] if i < len(dep_vars_all) else ""
-                self.data.append(FCData(
+                fc_initial_set.data.append(FCData.decode(
                     data,
                     dep_type_i,
                     dep_var_i
                 ))
-            if len(dep_types_all) and len(dep_types_all) < len(self.data):
+            if len(dep_types_all) and len(dep_types_all) < len(fc_initial_set.data):
                 raise ValueError("dependency_type shorter than data components")
-            if len(dep_vars_all) and len(dep_vars_all) < len(self.data):
+            if len(dep_vars_all) and len(dep_vars_all) < len(fc_initial_set.data):
                 raise ValueError("dep_var_num shorter than data components")
 
-        self.flags = [FC_RESTRAINT_FLAGS_KEYS[code] for code in src_initial_set['flag']]
+        fc_initial_set.flags = [FC_RESTRAINT_FLAGS_KEYS[code] for code in src_initial_set['flag']]
 
-        self.type = FC_INITIAL_SET_TYPES_KEYS[src_initial_set['type']]
+        fc_initial_set.type = FC_INITIAL_SET_TYPES_KEYS[src_initial_set['type']]
 
-    def dump(self) -> FCSrcInitialSet:
+        return fc_initial_set
+
+    def encode(self) -> FCSrcInitialSet:
 
         src_initial_set: FCSrcInitialSet = {
             'id': self.id,
-            'apply_to': self.apply.dump(),
+            'apply_to': self.apply.encode(),
             'apply_to_size': len(self.apply),
             'data': [],
             'dependency_type': [],
@@ -364,7 +405,7 @@ class FCInitialSet:
             src_initial_set['cs'] = self.cs_id
 
         for data in self.data:
-            src_data, src_types, src_deps = data.dump()
+            src_data, src_types, src_deps = data.encode()
             src_initial_set['data'].append(src_data)
             dep_types: Union[int, str, List[int]] = src_types
             dep_vars: Union[str, List[str]] = src_deps

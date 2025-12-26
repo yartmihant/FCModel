@@ -1,6 +1,8 @@
+from __future__ import annotations
 from typing import TypedDict, List
 
 from numpy import dtype, int32
+import numpy as np
 from .fc_value import FCValue
 
 
@@ -20,17 +22,27 @@ class FCReceiver:
     name: str
     type: int
 
-    def __init__(self, src_data: FCSrcReceiver):
-        self.apply = FCValue(src_data['apply_to'], dtype(int32))
-        self.apply.resize(src_data['apply_to_size'])
-        self.id = src_data['id']
-        self.name = src_data['name']
-        self.dofs = src_data['dofs']
-        self.type = src_data['type']
+    def __init__(self, id: int = 0, name: str = "", type_val: int = 0, dofs: List[int] = []):
+        self.id = id
+        self.name = name
+        self.type = type_val
+        self.dofs = dofs
+        self.apply = FCValue(np.array([], dtype=int32))
 
-    def dump(self) -> FCSrcReceiver:
+    @classmethod
+    def decode(cls, src_data: FCSrcReceiver) -> FCReceiver:
+        receiver = cls(
+            id=src_data['id'],
+            name=src_data['name'],
+            type_val=src_data['type'],
+            dofs=src_data['dofs']
+        )
+        receiver.apply = FCValue.decode(src_data['apply_to'], dtype(int32))
+        return receiver
+
+    def encode(self) -> FCSrcReceiver:
         return {
-            "apply_to": self.apply.dump(),
+            "apply_to": self.apply.encode(),
             "apply_to_size": len(self.apply),
             "id": self.id,
             "name": self.name,

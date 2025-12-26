@@ -1,3 +1,4 @@
+from __future__ import annotations
 from base64 import b64decode, b64encode
 import binascii
 from typing import Literal, Optional, Tuple, Union
@@ -27,7 +28,7 @@ def isBase64(sb: str) -> bool:
         return False
 
 
-from typing import TypeVar, Generic
+from typing import TypeVar
 import numpy as np
 from numpy.typing import NDArray
 
@@ -49,49 +50,42 @@ class FCValue:
     type: FCValueTypeLiteral = 'null'
     data: Union[NDArray[np.generic], str]
 
-    def __init__(self, src_data: Union[NDArray[np.generic], str], dtype:np.dtype[np.generic] = np.dtype('int32'), value_type: FCValueTypeLiteral='array'):
+    def __init__(self, data: Union[NDArray[np.generic], str], value_type: FCValueTypeLiteral = 'array'):
+        self.data = data
+        self.type = value_type
 
+    @classmethod
+    def decode(cls, src_data: Union[NDArray[np.generic], str], dtype: np.dtype[np.generic] = np.dtype('int32'), value_type: FCValueTypeLiteral = 'array') -> FCValue:
+        
         if isinstance(src_data, str):
-
             if value_type == 'array':
-
                 if src_data == '':
-                    self.data = np.array([], dtype=dtype)
-                    self.type = 'null'
+                    return cls(np.array([], dtype=dtype), 'null')
                 elif isBase64(src_data):
-                    # Строгое распознавание base64 прошло — дополнительно проверим кратность буфера типу
                     raw = b64decode(src_data, validate=True)
                     if len(raw) % dtype.itemsize != 0:
-                        # Не соответствует типу — трактуем как формулу
-                        self.data = src_data
-                        self.type = 'formula'
+                        return cls(src_data, 'formula')
                     else:
-                        self.data = np.frombuffer(raw, dtype)
-                        self.type = 'array'
+                        return cls(np.frombuffer(raw, dtype), 'array')
                 else:
-                    self.data = src_data
-                    self.type = 'formula'
-
+                    return cls(src_data, 'formula')
             elif value_type == 'null':
-                self.data = np.array([], dtype=dtype)
-                self.type = 'null'
+                return cls(np.array([], dtype=dtype), 'null')
             elif value_type == 'formula':
-                self.data = src_data
-                self.type = 'formula'
+                return cls(src_data, 'formula')
+        
+        return cls(src_data, 'array')
 
-        else:
-            self.data = src_data
-            self.type = 'array'
-
-    def resize(self, size: int) -> None:
-        if isinstance(self.data, np.ndarray) and size > 0 and self.data.size % size == 0:
-            self.data = self.data.reshape(size, -1)
-
-    def dump(self) -> str:
+    def encode(self) -> str:
         if isinstance(self.data, np.ndarray):
             return encode(self.data)
         else:
             return self.data
+
+    def reshape(self, size: int) -> None:
+        if isinstance(self.data, np.ndarray) and size > 0 and self.data.size % size == 0:
+            self.data = self.data.reshape(size, -1)
+
 
     def __len__(self) -> int:
         if self.type == 'array':
