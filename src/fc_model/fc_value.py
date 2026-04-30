@@ -28,18 +28,23 @@ def isBase64(sb: str) -> bool:
         return False
 
 
-from typing import TypeVar
+from typing import TypeVar, overload
 import numpy as np
 from numpy.typing import NDArray
 
 T = TypeVar('T', bound=np.generic)
 
-def decode(src: str, dtype: Optional[np.dtype[T]] = None) -> NDArray[T]:
+@overload
+def decode(src: str, dtype: np.dtype[T]) -> NDArray[T]: ...
+@overload
+def decode(src: str, dtype: None = None) -> NDArray[np.int32]: ...
+def decode(src: str, dtype: Optional[np.dtype[T]] = None) -> NDArray[np.generic]:
     """Декодирует строку base64 в numpy массив с заданным типом данных."""
+    effective_dtype: np.dtype[np.generic] = dtype if dtype is not None else np.dtype('int32')
     if src == '':
-        return np.array([], dtype=dtype if dtype else np.dtype('int32')) 
+        return np.array([], dtype=effective_dtype)
     data = b64decode(src, validate=True)
-    return np.frombuffer(data, dtype if dtype else np.dtype('int32'))
+    return np.frombuffer(data, effective_dtype)
 
 def encode(data: NDArray[np.generic]) -> str:
     """Кодирует numpy массив в строку base64."""

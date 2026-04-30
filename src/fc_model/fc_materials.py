@@ -418,6 +418,7 @@ class FCMaterial:
 
             if property_group_name not in material_src:
                 material_src[property_group_name] = []
+            group_props: List[FCSrcMaterialProperty] = material_src[property_group_name]  # pyright: ignore[reportTypedDictNotRequiredAccess]
 
             for some_property_group in property_groups:
 
@@ -429,7 +430,7 @@ class FCMaterial:
                         "constants": [],
                         "type": 0,
                     }
-                material_src[property_group_name].append(src_some_property_group) 
+                group_props.append(src_some_property_group)
                 
                 # Set type for the group based on the first property if available
                 if some_property_group:
