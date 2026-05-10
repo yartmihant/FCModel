@@ -1,11 +1,14 @@
 from __future__ import annotations
-from typing import TypedDict
+from typing import List, TypedDict
 from numpy.typing import NDArray
 
 from numpy import dtype, float64
 import numpy as np
 
 from .fc_value import decode, encode
+
+
+FC_COORDINATE_SYSTEM_TYPES: List[str] = ["cartesian", "cylindrical", "spherical"]
 
 
 

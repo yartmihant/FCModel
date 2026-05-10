@@ -10,14 +10,20 @@ from numpy.typing import NDArray
 from .fc_blocks import FCBlock, FCSrcBlock
 from .fc_conditions import FC_INITIAL_SET_TYPES_CODES, FC_INITIAL_SET_TYPES_KEYS, \
     FC_LOADS_TYPES_CODES, FC_LOADS_TYPES_KEYS, FC_RESTRAINT_FLAGS_CODES, FC_RESTRAINT_FLAGS_KEYS, FCInitialSet, FCRestraint, FCLoad, FCSrcInitialSet, FCSrcLoad, FCSrcRestraint
-from .fc_constraint import FCConstraint, FCSrcConstraint
-from .fc_coordinate_system import FCCoordinateSystem, FCSrcCoordinateSystem
+from .fc_constraint import FCConstraint, FCSrcConstraint, \
+    FC_CONTACT_TYPES, FC_CONTACT_METHODS, \
+    FC_COUPLING_TYPES_KEYS, FC_COUPLING_TYPES_CODES, \
+    FC_PERIODIC_TYPES_KEYS, FC_PERIODIC_TYPES_CODES
+from .fc_coordinate_system import FCCoordinateSystem, FCSrcCoordinateSystem, FC_COORDINATE_SYSTEM_TYPES
 from .fc_data import FC_DEPENDENCY_TYPES_CODES, FC_DEPENDENCY_TYPES_KEYS, FCData, FCDependencyColumn
 from .fc_materials import FC_MATERIAL_PROPERTY_NAMES_CODES, FC_MATERIAL_PROPERTY_NAMES_KEYS, FC_MATERIAL_PROPERTY_TYPES_CODES, FC_MATERIAL_PROPERTY_TYPES_KEYS, FCMaterial, FCMaterialPropertiesTypeLiteral, FCMaterialProperty, FCSrcMaterial
 from .fc_mesh import FCMesh, FCSrcMesh
 from .fc_elements import FC_ELEMENT_TYPES_KEYID, FC_ELEMENT_TYPES_KEYNAME, FCElement, FCElementType
-from .fc_property_tables import FCPropertyTable, FCSrcPropertyTable
-from .fc_receivers import FCReceiver, FCSrcReceiver
+from .fc_property_tables import FCPropertyTable, FCSrcPropertyTable, \
+    FC_PROPERTY_TABLE_TYPES_KEYS, FC_PROPERTY_TABLE_TYPES_CODES, \
+    FC_BEAM_SECTION_TYPES_KEYS, FC_BEAM_SECTION_TYPES_CODES
+from .fc_receivers import FCReceiver, FCSrcReceiver, \
+    FC_RECEIVER_TYPES_KEYS, FC_RECEIVER_TYPES_CODES
 from .fc_set import FCSet, FCSrcSet
 from .fc_value import FCValue
 
@@ -277,7 +283,7 @@ class FCModel:
         type: str,
         apply_to: Union[str, Sequence[int], NDArray[Any]],
         *,
-        flags: Optional[List[str]] = None,
+        flags: Optional[List[int]] = None,
         cs_id: int = 0,
         data: Optional[List[FCData]] = None,
     ) -> FCInitialSet:
@@ -467,4 +473,11 @@ __all__ = [
     'FC_MATERIAL_PROPERTY_TYPES_CODES', 'FC_MATERIAL_PROPERTY_TYPES_KEYS',
     'FC_RESTRAINT_FLAGS_CODES', 'FC_RESTRAINT_FLAGS_KEYS',
     'FC_ELEMENT_TYPES_KEYID', 'FC_ELEMENT_TYPES_KEYNAME',
+    'FC_PROPERTY_TABLE_TYPES_KEYS', 'FC_PROPERTY_TABLE_TYPES_CODES',
+    'FC_BEAM_SECTION_TYPES_KEYS', 'FC_BEAM_SECTION_TYPES_CODES',
+    'FC_CONTACT_TYPES', 'FC_CONTACT_METHODS',
+    'FC_COUPLING_TYPES_KEYS', 'FC_COUPLING_TYPES_CODES',
+    'FC_PERIODIC_TYPES_KEYS', 'FC_PERIODIC_TYPES_CODES',
+    'FC_RECEIVER_TYPES_KEYS', 'FC_RECEIVER_TYPES_CODES',
+    'FC_COORDINATE_SYSTEM_TYPES',
 ]

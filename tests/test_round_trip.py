@@ -76,3 +76,6 @@ def test_ultracube_roundtrip(tmp_path: Path) -> None:
 
     diffs = deep_diff(src, rtp)
     assert diffs == []
+
+if __name__ == '__main__':
+    test_ultracube_roundtrip(Path('.'))

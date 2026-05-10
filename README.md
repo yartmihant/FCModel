@@ -41,7 +41,7 @@ python3 -m pip install -e .
 from fc_model import FCModel
 
 # Загрузка модели из файла
-m = FCModel("path/to/model.fc")
+m = FCModel.load("path/to/model.fc")
 
 # ... чтение/изменение данных модели ...
 
@@ -49,7 +49,7 @@ m = FCModel("path/to/model.fc")
 m.save("path/to/output.fc")
 ```
 
-Если путь не передан в конструктор, создаётся пустая модель с инициализированными коллекциями.
+Для создания пустой модели используйте конструктор без аргументов: `FCModel()`.
 
 ## Основные классы
 

@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: current file",
+      "type": "debugpy",
+      "request": "launch",
+
+      // Запускает текущий открытый файл
+      "program": "${file}",
+
+      // Все относительные пути внутри скрипта считаются от корня проекта
+      "cwd": "${workspaceFolder}",
+
+      "console": "integratedTerminal",
+      "justMyCode": false,
+
+      // Явно говорим debugger'у брать тот же интерпретатор,
+      // который выбран Python extension / Pylance.
+      "python": "${command:python.interpreterPath}"
+    }
+  ]
+}

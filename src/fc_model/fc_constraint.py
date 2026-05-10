@@ -1,10 +1,41 @@
 from __future__ import annotations
-from typing import Any, TypedDict, Dict, Union
+from typing import Any, Dict, List, TypedDict, Union
 
 from numpy import dtype, int32
 import numpy as np
 
 from .fc_value import FCValue
+
+
+# Contact constraint types (string-valued in .fc)
+FC_CONTACT_TYPES: List[str] = ["general", "tied", "tied_normal", "tied_tangent"]
+
+# Contact constraint methods (string-valued in .fc)
+FC_CONTACT_METHODS: List[str] = ["auto", "penalty", "mpc"]
+
+# Coupling constraint types
+FC_COUPLING_TYPES_KEYS: Dict[int, str] = {
+    0: "ELASTICITY",
+    1: "TEMPERATURE",
+    2: "DISTANCE",
+    3: "PORE_PRESSURE",
+    4: "DIRECTION",
+    5: "INTERPOLATION",
+}
+
+FC_COUPLING_TYPES_CODES: Dict[str, int] = {v: k for k, v in FC_COUPLING_TYPES_KEYS.items()}
+
+# Periodic constraint types
+FC_PERIODIC_TYPES_KEYS: Dict[int, str] = {
+    0: "ALL",
+    1: "DISPLACEMENT",
+    2: "THERMAL_CONDUCTION",
+    3: "PORE_PRESSURE_CONDUCTION",
+    4: "VELOCITY",
+    5: "ACCELERATION",
+}
+
+FC_PERIODIC_TYPES_CODES: Dict[str, int] = {v: k for k, v in FC_PERIODIC_TYPES_KEYS.items()}
 
 
 class FCSrcConstraint(TypedDict):

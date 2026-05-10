@@ -117,6 +117,7 @@ class FCSrcRestraintStrict(TypedDict):
 
 class FCSrcRestraint(FCSrcRestraintStrict, total=False):
     cs: int
+    step: List[int]
 
 
 class FCSrcInitialSetStrict(TypedDict):
@@ -241,9 +242,11 @@ class FCRestraint:
     cs_id: int
     data: List[FCData]
     flags: List[str]
+    step: Optional[List[int]]
 
     def __init__(self, id: int = 0):
         self.id = id
+        self.step = None
 
     @classmethod
     def decode(cls, src_restraint:FCSrcRestraint) -> 'FCRestraint':
@@ -281,6 +284,9 @@ class FCRestraint:
                 raise ValueError("dep_var_num shorter than data components")
         fc_restraint.flags = [FC_RESTRAINT_FLAGS_KEYS[code] for code in src_restraint['flag']]
 
+        if 'step' in src_restraint:
+            fc_restraint.step = list(src_restraint['step'])
+
         return fc_restraint
 
 
@@ -313,6 +319,9 @@ class FCRestraint:
 
         src_restraint['flag'] = [FC_RESTRAINT_FLAGS_CODES[key] for key in self.flags] 
 
+        if self.step is not None:
+            src_restraint['step'] = list(self.step)
+
         return src_restraint
 
     def __str__(self) -> str:
@@ -333,7 +342,7 @@ class FCInitialSet:
     apply: FCValue
     cs_id: int
     data: List[FCData]
-    flags: List[str]
+    flags: List[int]
     type: str
 
 
@@ -381,7 +390,7 @@ class FCInitialSet:
             if len(dep_vars_all) and len(dep_vars_all) < len(fc_initial_set.data):
                 raise ValueError("dep_var_num shorter than data components")
 
-        fc_initial_set.flags = [FC_RESTRAINT_FLAGS_KEYS[code] for code in src_initial_set['flag']]
+        fc_initial_set.flags = list(src_initial_set['flag'])
 
         fc_initial_set.type = FC_INITIAL_SET_TYPES_KEYS[src_initial_set['type']]
 
@@ -397,7 +406,7 @@ class FCInitialSet:
             'dependency_type': [],
             'dep_var_num': [],
             'dep_var_size': [],
-            'flag': [FC_RESTRAINT_FLAGS_CODES[key] for key in self.flags],
+            'flag': list(self.flags),
             'type': FC_INITIAL_SET_TYPES_CODES[self.type]
         }
 
