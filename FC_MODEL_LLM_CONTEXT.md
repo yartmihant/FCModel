@@ -1,4 +1,4 @@
-## LLM Context for the fc_model library (≥ 1.1.20)
+## LLM Context for the fc_model library (≥ 1.2)
 
 fc_model is a strictly typed Python object model for the Fidesys Case (`.fc`) format.
 Use only the public re-exports from the `fc_model` package root. Do not import from internal modules `fc_model.fc_*`.
@@ -7,7 +7,7 @@ Use only the public re-exports from the `fc_model` package root. Do not import f
 
 ### Versions and compatibility
 
-- Current version: **1.1.20** (read from `VERSION`).
+- Current version: **1.2.0** (read from `VERSION`).
 - Python: ≥ 3.8.
 - Runtime dependency: `numpy ≥ 1.20`.
 - PEP 561 (`py.typed`) — first-party types available to static analysis tools.
@@ -84,6 +84,11 @@ m.add_nodeset(name: str, apply_to: Sequence[int]) -> FCSet
 m.add_sideset(name: str, apply_to: Sequence[int]) -> FCSet
 ```
 
+**Index normalization:**
+```python
+m.compress() -> None  # Renumber all entity IDs to [1, 2, 3, ...], update all cross-references
+```
+
 **IMPORTANT:** `FCModel("path")` does NOT load a file. Use `FCModel.load("path")`.
 
 ---
@@ -94,7 +99,7 @@ m.add_sideset(name: str, apply_to: Sequence[int]) -> FCSet
 class FCMesh:
     nodes_ids: NDArray[int32]       # Node IDs
     nodes_xyz: NDArray[float64]     # Node coordinates, shape (N, 3)
-    elements: Dict[int, FCElement]  # Element ID → FCElement
+    elements: Dict[str, Dict[int, FCElement]]  # Type name → {elem_id → FCElement}
 ```
 
 **Key methods:**
@@ -102,8 +107,8 @@ class FCMesh:
 mesh.decode(src: FCSrcMesh) -> None    # Populate from source dict (Base64 decode)
 mesh.encode() -> FCSrcMesh             # Serialize (Base64 encode)
 mesh.add(elem: FCElement) -> None      # Add element
-mesh.compress() -> None                # Rebuild internal arrays
-mesh.reindex() -> None                 # Reassign contiguous IDs
+mesh.compress() -> Dict[int, int]      # Renumber element IDs to [1,2,3,...], return old→new map
+mesh.reindex(map: Dict[int,int]) -> None  # Apply custom ID mapping
 mesh.max_id -> int                     # Highest element ID
 mesh.nodes_list -> List[int]           # List of node IDs
 len(mesh)                              # Number of elements
@@ -115,15 +120,14 @@ for elem in mesh: ...                  # Iterate elements
 
 ### FCElement
 
-A `TypedDict` with fields:
 ```python
-class FCElement(TypedDict):
+class FCElement:
     id: int
-    type: str          # Element type name (e.g. "TETRA4", "HEX8")
-    nodes: List[int]   # Node IDs forming the element
-    parent_id: int     # Geometry parent ID
-    block: int         # Block ID
-    order: int         # SEM order (ignored for FEM)
+    type: FCElementTypeLiteral  # Element type name (e.g. "TETRA4", "HEX8")
+    nodes: List[int]            # Node IDs forming the element
+    parent_id: int              # Geometry parent ID (0 = no parent)
+    block: int                  # Block ID
+    order: int                  # SEM order (ignored for FEM)
 ```
 
 ### Element types
@@ -257,6 +261,12 @@ FCData.constant([1.0, 2.0, 3.0])   # Array of constants
 FCData.formula("x*10+y")           # Formula expression
 ```
 
+**Reindexing tabular columns:**
+```python
+data.remap_column("TABULAR_NODE_ID", node_map)      # Remap node IDs in tabular dependency
+data.remap_column("TABULAR_ELEMENT_ID", elem_map)    # Remap element IDs in tabular dependency
+```
+
 **Dependency types** — `FC_DEPENDENCY_TYPES_KEYS: Dict[int, str]`:
 ```
 0=CONSTANT, 1=TABULAR_X, 2=TABULAR_Y, 3=TABULAR_Z, 4=TABULAR_TIME,
@@ -283,6 +293,8 @@ class FCValue:
     def decode(cls, src_data, dtype=int32, value_type='array') -> FCValue
     def encode(self) -> str            # Base64 string or formula string
     def reshape(self, size: int) -> None
+    def remap(self, mapping: dict[int, int]) -> None    # Remap all values via mapping; skips formula/null
+    def remap_pairs(self, mapping: dict[int, int]) -> None  # Remap first element of each [id, extra] pair
     len(v)  # Array length (0 for formula/null)
 ```
 
@@ -366,10 +378,12 @@ class FCInitialSet:
 
 ```python
 class FCConstraint:
-    # All fields from source dict are preserved as attributes
     id: int
     name: str
-    # ... additional fields depend on constraint type (contact/coupling/periodic)
+    type: Union[int, str]
+    master: FCValue     # Master surface node IDs
+    slave: FCValue      # Slave surface node IDs
+    properties: Dict[str, Any]  # Additional type-dependent properties
 ```
 
 **Contact types** — `FC_CONTACT_TYPES: List[str]` = `["general", "tied", "tied_normal", "tied_tangent"]`
@@ -561,7 +575,7 @@ m.add_initial_set(type="Temperature", apply_to="all", flags=[1], data=[FCData.co
 ```python
 print(f"Nodes: {len(m.mesh.nodes_ids)}, Elements: {len(m.mesh)}")
 for elem in m.mesh:
-    print(elem['id'], elem['type'], elem['nodes'])
+    print(elem.id, elem.type, elem.nodes)
 ```
 
 ### Encode without saving to file
@@ -569,6 +583,13 @@ for elem in m.mesh:
 data = m.encode()  # Returns serializable dict
 import json
 json_str = json.dumps(data, indent=2)
+```
+
+### Normalize IDs (compress)
+```python
+m = FCModel.load("messy_ids.fc")
+m.compress()   # All entity IDs become [1, 2, 3, ...]; all cross-references updated
+m.save("clean.fc")
 ```
 
 ### Configure analysis settings
@@ -618,13 +639,13 @@ They are valid extensions and work correctly with encode/decode.
 
 ```text
 Context:
-- Library: fc_model (>=1.1.20). Strictly typed Python model of Fidesys Case (.fc) format.
+- Library: fc_model (>=1.2). Strictly typed Python model of Fidesys Case (.fc) format.
 - Import only from `fc_model` root. Never from `fc_model.fc_*` internals.
 - Key classes: FCModel, FCMesh, FCBlock, FCCoordinateSystem, FCConstraint, FCMaterial,
   FCPropertyTable, FCLoad, FCRestraint, FCInitialSet, FCReceiver, FCSet, FCValue, FCData.
 - Constants: FC_MATERIAL_PROPERTY_*, FC_LOADS_TYPES_*, FC_RESTRAINT_FLAGS_*, FC_ELEMENT_TYPES_*, FC_DEPENDENCY_TYPES_*.
 - Pattern: m = FCModel.load("in.fc"); modify; m.save("out.fc")
-- Helpers: m.add_material(), mat.add_property(), m.add_load(), m.add_restraint(), FCData.constant/formula
+- Helpers: m.add_material(), mat.add_property(), m.add_load(), m.add_restraint(), FCData.constant/formula, m.compress()
 - Settings is a plain dict. Binary arrays encoded as Base64.
 Task: [describe what to do]
 ```

@@ -1,25 +1,19 @@
 # Changelog
 
-## 1.1.21 [2026-05-10 12:00:00]
+## 1.2.0 [2026-05-10 20:00:00]
 
-### Добавлено
-- **Константы**: 14 новых справочных констант из спецификации — `FC_CONTACT_TYPES`, `FC_CONTACT_METHODS`, `FC_COUPLING_TYPES_KEYS/CODES`, `FC_PERIODIC_TYPES_KEYS/CODES`, `FC_PROPERTY_TABLE_TYPES_KEYS/CODES`, `FC_BEAM_SECTION_TYPES_KEYS/CODES`, `FC_RECEIVER_TYPES_KEYS/CODES`, `FC_COORDINATE_SYSTEM_TYPES`.
-- **Поля**: `FCRestraint.step: Optional[List[int]]` — шаги активности закрепления.
-- **Поля**: `FCReceiver.output_step: Optional[int]` — интервал вывода результатов.
-- **Поля**: `FCPropertyTable.name: str` — описание таблицы свойств.
-- **Unit-тесты**: 125 тестов pytest в 7 файлах (test_value, test_data, test_materials, test_mesh, test_conditions, test_model, test_constants), покрывающие все публичные классы и константы.
-- **Документация**: `AGENTS.md` — руководство для ИИ-агентов (русский).
-- **Документация**: `FC_MODEL_LLM_CONTEXT.md` — полное описание API для LLM (английский, ~400 строк).
-- **Документация**: `CHANGELOG.md` — журнал изменений проекта.
+Релиз версии 1.2 — полное установление и фиксация публичного API.
 
-### Изменено
-- **Документация**: `FC_MODEL_API_INDEX_TLDR.md` — обновлён компактный индекс API, добавлены все новые константы и поля.
-- **Документация**: `README.md` — исправлен пример быстрого старта (`FCModel("path")` → `FCModel.load("path")`).
-- **Экспорт**: `__init__.py __all__` — добавлены все 14 новых символов констант.
+### Ключевые изменения
 
-### Исправлено
-- **Баг**: `FCInitialSet.flags` декодировался через `FC_RESTRAINT_FLAGS_KEYS` (маппинг 0→"EmptyRestraint", 1→"Displacement") вместо сохранения исходных 0/1 значений по спецификации. Исправлено на `list(src['flag'])`.
+- **Фиксация публичного API**: все 16 доменных классов (`FCModel`, `FCMesh`, `FCBlock`, `FCCoordinateSystem`, `FCMaterial`, `FCMaterialProperty`, `FCPropertyTable`, `FCLoad`, `FCRestraint`, `FCInitialSet`, `FCConstraint`, `FCReceiver`, `FCSet`, `FCValue`, `FCData`, `FCDependencyColumn`) и 28 справочных констант стабилизированы и покрыты тестами.
+- **Перенос всех флагов и констант из спецификации**: 14 новых справочных констант (`FC_CONTACT_TYPES`, `FC_CONTACT_METHODS`, `FC_COUPLING_TYPES_*`, `FC_PERIODIC_TYPES_*`, `FC_PROPERTY_TABLE_TYPES_*`, `FC_BEAM_SECTION_TYPES_*`, `FC_RECEIVER_TYPES_*`, `FC_COORDINATE_SYSTEM_TYPES`), дополнительные поля `FCRestraint.step`, `FCReceiver.output_step`, `FCPropertyTable.name`.
+- **Обновление LLM-контекста**: `FC_MODEL_LLM_CONTEXT.md` и `FC_MODEL_API_INDEX_TLDR.md` актуализированы до версии 1.2, включая compress API, методы remap, полный перечень констант и рецепты.
+- **`FCModel.compress()`**: нормализация всех 13 индексных пространств модели к каноническому виду `[1, 2, 3, ...]` с обновлением всех перекрёстных ссылок (coordinate systems, materials, property tables, blocks, nodes, elements, loads, restraints, initial sets, constraints, receivers, nodesets, sidesets). Методы `FCValue.remap()`, `FCValue.remap_pairs()`, `FCData.remap_column()`.
+- **192 unit-теста**: полное покрытие всех публичных классов, констант, encode/decode, roundtrip на реальных `.fc` файлах, compress + идемпотентность.
+- **Исправлено**: `FCInitialSet.flags` сохраняет исходные `List[int]` (0/1) вместо ошибочного маппинга через restraint-коды.
+- **Документация**: `AGENTS.md`, `FC_MODEL_LLM_CONTEXT.md`, `FC_MODEL_API_INDEX_TLDR.md`, `CHANGELOG.md` + `CHANGELOG_ARCHIVE.md`.
 
-### Убрано
-- Удалён устаревший файл `LLM_API_INDEX_FC_MODEL.json` (заменён на `FC_MODEL_LLM_CONTEXT.md` и `FC_MODEL_API_INDEX_TLDR.md`).
+Подробная история изменений линии 1.1.x — в `CHANGELOG_ARCHIVE.md`.
+
 

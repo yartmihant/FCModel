@@ -90,7 +90,6 @@ class FCSrcModel(FCSrcModelStrict, total=False):
     sets: Dict[str, List[FCSrcSet]]
 
 
-
 class FCModel:
     """
     Основной класс для представления, загрузки и сохранения модели в формате Fidesys Case (.fc).
@@ -319,6 +318,172 @@ class FCModel:
         s.apply = self._make_apply_value(apply_to)
         self.sidesets[new_id] = s
         return s
+
+
+    def _collect_all_data(self) -> List[FCData]:
+        """Собирает все FCData из нагрузок, закреплений, начальных условий и материалов."""
+        result: List[FCData] = []
+        for load in self.loads:
+            result.extend(load.data)
+        for rest in self.restraints:
+            result.extend(rest.data)
+        for init_set in self.initial_sets:
+            result.extend(init_set.data)
+        for mat in self.materials.values():
+            for group_props in mat.properties.values():
+                for prop_list in group_props:
+                    for prop in prop_list:
+                        result.append(prop.data)
+        return result
+
+
+    def compress(self) -> None:
+        """
+        Нормализует все индексные пространства сущностей в модели
+        к каноническому виду [1, 2, 3, ...].
+        """
+
+        # 1. Coordinate Systems
+        if self.coordinate_systems:
+            cs_map: Dict[int, int] = {}
+            new_cs: Dict[int, FCCoordinateSystem] = {}
+            for new_id, (old_id, cs) in enumerate(self.coordinate_systems.items(), start=1):
+                cs_map[old_id] = new_id
+                cs.id = new_id
+                new_cs[new_id] = cs
+            self.coordinate_systems = new_cs
+
+            for blk in self.blocks.values():
+                if blk.cs_id in cs_map:
+                    blk.cs_id = cs_map[blk.cs_id]
+            for load in self.loads:
+                if load.cs_id in cs_map:
+                    load.cs_id = cs_map[load.cs_id]
+            for rest in self.restraints:
+                if rest.cs_id in cs_map:
+                    rest.cs_id = cs_map[rest.cs_id]
+            for init_set in self.initial_sets:
+                if init_set.cs_id in cs_map:
+                    init_set.cs_id = cs_map[init_set.cs_id]
+
+        # 2. Materials
+        if self.materials:
+            mat_map: Dict[int, int] = {}
+            new_mats: Dict[int, FCMaterial] = {}
+            for new_id, (old_id, mat) in enumerate(self.materials.items(), start=1):
+                mat_map[old_id] = new_id
+                mat.id = new_id
+                new_mats[new_id] = mat
+            self.materials = new_mats
+
+            for blk in self.blocks.values():
+                if blk.material_id in mat_map:
+                    blk.material_id = mat_map[blk.material_id]
+                if blk.material is not None:
+                    blk.material['ids'] = [mat_map.get(mid, mid) for mid in blk.material['ids']]
+
+        # 3. Property Tables
+        if self.property_tables:
+            pt_map: Dict[int, int] = {}
+            new_pts: Dict[int, FCPropertyTable] = {}
+            for new_id, (old_id, pt) in enumerate(self.property_tables.items(), start=1):
+                pt_map[old_id] = new_id
+                pt.id = new_id
+                new_pts[new_id] = pt
+            self.property_tables = new_pts
+
+            for blk in self.blocks.values():
+                if blk.property_id in pt_map:
+                    blk.property_id = pt_map[blk.property_id]
+
+        # 4. Blocks
+        if self.blocks:
+            blk_map: Dict[int, int] = {}
+            new_blks: Dict[int, FCBlock] = {}
+            for new_id, (old_id, blk) in enumerate(self.blocks.items(), start=1):
+                blk_map[old_id] = new_id
+                blk.id = new_id
+                new_blks[new_id] = blk
+            self.blocks = new_blks
+
+            for elem in self.mesh:
+                if elem.block in blk_map:
+                    elem.block = blk_map[elem.block]
+
+        # 5. Nodes
+        if len(self.mesh.nodes_ids) > 0:
+            node_map: Dict[int, int] = {}
+            for new_id, old_id in enumerate(self.mesh.nodes_ids, start=1):
+                node_map[int(old_id)] = new_id
+            self.mesh.nodes_ids = np.arange(1, len(self.mesh.nodes_ids) + 1, dtype=int32)
+
+            for elem in self.mesh:
+                elem.nodes = [node_map[n] for n in elem.nodes]
+
+            for load in self.loads:
+                load.apply.remap(node_map)
+            for rest in self.restraints:
+                rest.apply.remap(node_map)
+            for init_set in self.initial_sets:
+                init_set.apply.remap(node_map)
+
+            for constraint in self.contact_constraints + self.coupling_constraints + self.periodic_constraints:
+                constraint.master.remap(node_map)
+                constraint.slave.remap(node_map)
+
+            for receiver in self.receivers:
+                receiver.apply.remap(node_map)
+
+            for ns in self.nodesets.values():
+                ns.apply.remap(node_map)
+
+            for data in self._collect_all_data():
+                data.remap_column("TABULAR_NODE_ID", node_map)
+
+        # 6. Elements
+        if len(self.mesh) > 0:
+            elem_map = self.mesh.compress()
+
+            for elem in self.mesh:
+                if elem.parent_id != 0 and elem.parent_id in elem_map:
+                    elem.parent_id = elem_map[elem.parent_id]
+
+            for ss in self.sidesets.values():
+                ss.apply.remap_pairs(elem_map)
+
+            for data in self._collect_all_data():
+                data.remap_column("TABULAR_ELEMENT_ID", elem_map)
+
+        # 7–11. Autonomous IDs
+        for new_id, load in enumerate(self.loads, start=1):
+            load.id = new_id
+        for new_id, rest in enumerate(self.restraints, start=1):
+            rest.id = new_id
+        for new_id, init_set in enumerate(self.initial_sets, start=1):
+            init_set.id = new_id
+        for new_id, constraint in enumerate(self.contact_constraints, start=1):
+            constraint.id = new_id
+        for new_id, constraint in enumerate(self.coupling_constraints, start=1):
+            constraint.id = new_id
+        for new_id, constraint in enumerate(self.periodic_constraints, start=1):
+            constraint.id = new_id
+        for new_id, receiver in enumerate(self.receivers, start=1):
+            receiver.id = new_id
+
+        # 12–13. NodeSets / SideSets
+        if self.nodesets:
+            new_ns: Dict[int, FCSet] = {}
+            for new_id, ns in enumerate(self.nodesets.values(), start=1):
+                ns.id = new_id
+                new_ns[new_id] = ns
+            self.nodesets = new_ns
+
+        if self.sidesets:
+            new_ss: Dict[int, FCSet] = {}
+            for new_id, ss in enumerate(self.sidesets.values(), start=1):
+                ss.id = new_id
+                new_ss[new_id] = ss
+            self.sidesets = new_ss
 
 
     @classmethod

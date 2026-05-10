@@ -7,19 +7,20 @@ Import only from `fc_model` root. Serialize via `encode()`/`save()` only. Load v
 - Class methods: `load(path) -> FCModel`, `decode(dict) -> FCModel`.
 - Instance: `encode() -> dict`, `save(path)`.
 - Helpers: `add_material(name)`, `add_load(...)`, `add_restraint(...)`, `add_initial_set(...)`, `add_nodeset(...)`, `add_sideset(...)`, `add_coordinate_system(...)`, `add_material_property(...)`.
+- Index normalization: `compress()` — renumber all entity IDs to `[1,2,3,...]`, update all cross-references.
 
 ### Data classes
-- **FCMesh**: `nodes_ids`, `nodes_xyz`, `elements` dict. Methods: `add()`, `compress()`, `reindex()`, `__len__`, `__iter__`, `__getitem__`.
+- **FCMesh**: `nodes_ids`, `nodes_xyz`, `elements` dict. Methods: `add()`, `compress() -> Dict[int,int]`, `reindex(map)`, `__len__`, `__iter__`, `__getitem__`.
 - **FCBlock**: `id`, `cs_id`, `material_id`, `property_id`, optional `steps`, `material`.
 - **FCCoordinateSystem**: `id`, `type_name`, `name`, `origin`, `dir1`, `dir2`.
 - **FCMaterial**: `id`, `name`, `properties` (grouped dict). Helper: `add_property(group, name, values, type)`.
 - **FCMaterialProperty**: `type`, `name`, `data: FCData`.
-- **FCData**: constant/table/formula. Constructors: `FCData.constant(x)`, `FCData.formula("expr")`.
-- **FCValue**: Base64 array/formula wrapper. `encode() -> str`, `decode(src, dtype)`.
+- **FCData**: constant/table/formula. Constructors: `FCData.constant(x)`, `FCData.formula("expr")`. Method: `remap_column(dep_type, mapping)`.
+- **FCValue**: Base64 array/formula wrapper. `encode() -> str`, `decode(src, dtype)`. Methods: `remap(mapping)`, `remap_pairs(mapping)`.
 - **FCLoad**: `id`, `name`, `type`, `cs_id`, `apply`, `data`.
 - **FCRestraint**: `id`, `name`, `flags: List[str]`, `apply`, `data`, `step: Optional[List[int]]`.
 - **FCInitialSet**: `id`, `name`, `type`, `flags: List[int]` (raw 0/1), `apply`, `data`.
-- **FCConstraint**: pass-through for contact/coupling/periodic constraint dicts.
+- **FCConstraint**: `id`, `name`, `type`, `master: FCValue`, `slave: FCValue`, `properties: dict`.
 - **FCPropertyTable**: `id`, `name`, `type`, `properties`.
 - **FCReceiver**: `id`, `name`, `type`, `apply`, `dofs`, `output_step: Optional[int]`.
 - **FCSet**: `id`, `name`, `apply`.

@@ -105,6 +105,14 @@ class FCData:
             return self.value.encode(), self.type, ""
 
 
+    def remap_column(self, dep_type_name: str, mapping: dict[int, int]) -> None:
+        """Переиндексирует ID в табличных столбцах заданного типа зависимости."""
+        if self.type != -1:
+            return
+        for col in self.table:
+            if col.type == dep_type_name:
+                col.value.remap(mapping)
+
     def __len__(self) -> int:
         if not len(self.table):
             return 0

@@ -92,6 +92,47 @@ class FCValue:
             self.data = self.data.reshape(size, -1)
 
 
+    def remap(self, mapping: dict[int, int]) -> None:
+        """Переиндексирует все целочисленные значения в массиве по маппингу. Пропускает формулы и null."""
+        if self.type != 'array' or not isinstance(self.data, np.ndarray):
+            return
+        if self.data.size == 0:
+            return
+        original_shape = self.data.shape
+        if not self.data.flags.writeable:
+            self.data = self.data.copy()
+        flat = self.data.ravel()
+        for i in range(len(flat)):
+            old = int(flat[i])
+            if old in mapping:
+                flat[i] = mapping[old]
+        self.data = flat.reshape(original_shape)
+
+    def remap_pairs(self, mapping: dict[int, int]) -> None:
+        """Переиндексирует первый элемент каждой пары [id, extra] по маппингу.
+
+        Работает с 2D-массивом (столбец 0) и 1D flat-массивом (чётные индексы).
+        Пропускает формулы и null.
+        """
+        if self.type != 'array' or not isinstance(self.data, np.ndarray):
+            return
+        if self.data.size == 0:
+            return
+        if not self.data.flags.writeable:
+            self.data = self.data.copy()
+        if self.data.ndim == 2:
+            col = self.data[:, 0]
+            for i in range(len(col)):
+                old = int(col[i])
+                if old in mapping:
+                    col[i] = mapping[old]
+        else:
+            flat = self.data.ravel()
+            for i in range(0, len(flat), 2):
+                old = int(flat[i])
+                if old in mapping:
+                    flat[i] = mapping[old]
+
     def __len__(self) -> int:
         if self.type == 'array':
             return len(self.data)
