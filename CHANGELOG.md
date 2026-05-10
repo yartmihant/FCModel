@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.21 [2026-05-10 12:00:00] [Unreleased]
+## 1.1.21 [2026-05-10 12:00:00]
 
 ### Добавлено
 - **Константы**: 14 новых справочных констант из спецификации — `FC_CONTACT_TYPES`, `FC_CONTACT_METHODS`, `FC_COUPLING_TYPES_KEYS/CODES`, `FC_PERIODIC_TYPES_KEYS/CODES`, `FC_PROPERTY_TABLE_TYPES_KEYS/CODES`, `FC_BEAM_SECTION_TYPES_KEYS/CODES`, `FC_RECEIVER_TYPES_KEYS/CODES`, `FC_COORDINATE_SYSTEM_TYPES`.
@@ -22,3 +22,4 @@
 
 ### Убрано
 - Удалён устаревший файл `LLM_API_INDEX_FC_MODEL.json` (заменён на `FC_MODEL_LLM_CONTEXT.md` и `FC_MODEL_API_INDEX_TLDR.md`).
+
