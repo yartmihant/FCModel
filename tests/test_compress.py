@@ -33,9 +33,9 @@ def _make_model_with_gaps() -> FCModel:
     m.materials[7] = mat7
 
     # Property tables with gap: ids 2, 10
-    pt2 = FCPropertyTable(id=2, type_val=0, name="Shell1")
+    pt2 = FCPropertyTable(id=2, type_val="SHELL", name="Shell1")
     m.property_tables[2] = pt2
-    pt10 = FCPropertyTable(id=10, type_val=1, name="Beam1")
+    pt10 = FCPropertyTable(id=10, type_val="BEAM", name="Beam1")
     m.property_tables[10] = pt10
 
     # Blocks with gap: ids 5, 15
@@ -83,7 +83,7 @@ def _make_model_with_gaps() -> FCModel:
     m.contact_constraints.append(cc)
 
     # Receiver
-    rcv = FCReceiver(id=8, name="rcv1", type_val=0, dofs=[1, 2, 3])
+    rcv = FCReceiver(id=8, name="rcv1", type_val="DISPLACEMENT", dofs=[1, 2, 3])
     rcv.apply = FCValue(np.array([10, 30], dtype=np.int32))
     m.receivers.append(rcv)
 
@@ -478,9 +478,9 @@ class TestCompressMultipleAutonomous:
 
     def test_multiple_receivers_renumbered(self):
         m = FCModel()
-        r1 = FCReceiver(id=7, name="r1", type_val=0, dofs=[1])
+        r1 = FCReceiver(id=7, name="r1", type_val="DISPLACEMENT", dofs=[1])
         r1.apply = FCValue(np.array([], dtype=np.int32))
-        r2 = FCReceiver(id=13, name="r2", type_val=0, dofs=[2])
+        r2 = FCReceiver(id=13, name="r2", type_val="DISPLACEMENT", dofs=[2])
         r2.apply = FCValue(np.array([], dtype=np.int32))
         m.receivers = [r1, r2]
         m.compress()
@@ -500,7 +500,7 @@ class TestCompressTabularData:
             value=FCValue(np.array([10.0, 20.0, 30.0], dtype=np.float64))
         )
         value_col = FCValue(np.array([100.0, 200.0, 300.0], dtype=np.float64))
-        tabular_data = FCData(value_col, -1, [node_id_col])
+        tabular_data = FCData(value_col, "TABLE", [node_id_col])
         prop = FCMaterialProperty(type="HOOK", name="YOUNG_MODULE", data=tabular_data)
         mat.properties["elasticity"] = [[prop]]
 
@@ -522,7 +522,7 @@ class TestCompressTabularData:
             value=FCValue(np.array([50.0], dtype=np.float64))
         )
         value_col = FCValue(np.array([999.0], dtype=np.float64))
-        tabular_data = FCData(value_col, -1, [elem_id_col])
+        tabular_data = FCData(value_col, "TABLE", [elem_id_col])
         prop = FCMaterialProperty(type="HOOK", name="YOUNG_MODULE", data=tabular_data)
         mat.properties["elasticity"] = [[prop]]
 
@@ -561,7 +561,7 @@ class TestCompressTabularData:
             value=FCValue(np.array([5.0, 15.0], dtype=np.float64))
         )
         value_fcv = FCValue(np.array([1.0, 2.0], dtype=np.float64))
-        tab_data = FCData(value_fcv, -1, [node_col])
+        tab_data = FCData(value_fcv, "TABLE", [node_col])
 
         load = m.add_load("P", "NodeForce", "all", data=[tab_data])
         m.compress()
@@ -670,7 +670,7 @@ class TestCompressEmptyCollections:
     def test_empty_apply_array(self):
         """FCValue with empty ndarray should not crash."""
         m = FCModel()
-        rcv = FCReceiver(id=3, name="empty", type_val=0, dofs=[])
+        rcv = FCReceiver(id=3, name="empty", type_val="DISPLACEMENT", dofs=[])
         rcv.apply = FCValue(np.array([], dtype=np.int32))
         m.receivers.append(rcv)
         m.compress()

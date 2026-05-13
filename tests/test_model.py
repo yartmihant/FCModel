@@ -235,30 +235,30 @@ class TestFCModelCoordinateSystem:
 
 class TestFCModelPropertyTable:
     def test_encode_decode(self):
-        pt = FCPropertyTable(id=1, type_val=0, name="shell1")
+        pt = FCPropertyTable(id=1, type_val="SHELL", name="shell1")
         pt.properties = {"e": 0.5}
         encoded = pt.encode()
         pt2 = FCPropertyTable.decode(encoded)
         assert pt2.id == 1
-        assert pt2.type == 0
+        assert pt2.type == "SHELL"
         assert pt2.name == "shell1"
         assert pt2.properties["e"] == 0.5
 
     def test_name_empty_not_emitted(self):
-        pt = FCPropertyTable(id=1, type_val=1)
+        pt = FCPropertyTable(id=1, type_val="BEAM")
         encoded = pt.encode()
         assert 'name' not in encoded
 
 
 class TestFCModelReceiver:
     def test_encode_decode(self):
-        r = FCReceiver(id=1, name="recv1", type_val=0, dofs=[1, 0, 0, 0, 0, 0])
+        r = FCReceiver(id=1, name="recv1", type_val="DISPLACEMENT", dofs=[1, 0, 0, 0, 0, 0])
         r.output_step = 5
         encoded = r.encode()
         r2 = FCReceiver.decode(encoded)
         assert r2.id == 1
         assert r2.name == "recv1"
-        assert r2.type == 0
+        assert r2.type == "DISPLACEMENT"
         assert r2.dofs == [1, 0, 0, 0, 0, 0]
         assert r2.output_step == 5
 

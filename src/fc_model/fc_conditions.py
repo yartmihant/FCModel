@@ -25,6 +25,7 @@ FC_LOADS_TYPES_KEYS = {
     37: 'FaceTrackingDistributedForce',     # Следящая распределенная сила на грань
     38: 'FaceTrackingEquivalentForce',      # Следящая равнодействующая сила на грань
     39: 'FaceFluidFlux',                    # Поток жидкости через грань
+    45: 'FaceSloshingBC',                   # Sloshing ГУ на грани
 
     # Нагрузки на ребро
     2: 'SegmentDeadStress',                 # Давление на ребро
@@ -38,6 +39,7 @@ FC_LOADS_TYPES_KEYS = {
     33: 'SegmentTrackingDistributedForce',  # Следящая распределенная сила на ребро
     34: 'SegmentTrackingEquivalentForce',   # Следящая равнодействующая сила на ребро
     40: 'SegmentFluidFlux',                 # Поток жидкости через ребро
+    46: 'SegmentSloshingBC',                # Sloshing ГУ на ребре
 
     # Нагрузки на узел
     5: 'NodeForce',                         # Узловая сила
@@ -48,7 +50,13 @@ FC_LOADS_TYPES_KEYS = {
     41: 'NodeFluidFlux',                    # Поток жидкости через узел
     43: 'FluidSource',                      # Узловой источник жидкости
 
+    # Точечные нагрузки
+    47: 'PointDeadForce',                   # Точечная сила
+    48: 'PointTrackingForce',               # Следящая точечная сила
+    49: 'PointHydrodynamicForce',           # Гидродинамическая точечная сила
+
     # Нагрузки на элемент
+    6: 'GravityMassForce',                  # Гравитация (массовая сила)
     17: 'VolumeHeatSource',                 # Объемный источник тепла
     42: 'VolumeFluidSource',                # Объемный источник жидкости
     44: 'VolumeGravityMassForce',           # Гравитация
@@ -102,6 +110,8 @@ class FCSrcLoadStrict(TypedDict):
 
 class FCSrcLoad(FCSrcLoadStrict, total=False):
     cs: int
+    step: List[int]
+    case: List[int]
 
 
 class FCSrcRestraintStrict(TypedDict):
@@ -118,6 +128,7 @@ class FCSrcRestraintStrict(TypedDict):
 class FCSrcRestraint(FCSrcRestraintStrict, total=False):
     cs: int
     step: List[int]
+    case: List[int]
 
 
 class FCSrcInitialSetStrict(TypedDict):
@@ -134,6 +145,7 @@ class FCSrcInitialSetStrict(TypedDict):
 
 class FCSrcInitialSet(FCSrcInitialSetStrict, total=False):
     cs: int
+    name: str
 
 
 class FCLoad:
@@ -144,9 +156,13 @@ class FCLoad:
     apply: FCValue
     cs_id: int
     data: List[FCData]
+    step: Optional[List[int]]
+    case: Optional[List[int]]
 
     def __init__(self, id: int = 0, name: str = ''):
         self.id = id
+        self.step = None
+        self.case = None
 
 
     @classmethod
@@ -158,6 +174,11 @@ class FCLoad:
 
         fc_load.name = src_load['name']
         fc_load.cs_id = src_load.get('cs', 0)
+
+        if 'step' in src_load:
+            fc_load.step = list(src_load['step'])
+        if 'case' in src_load:
+            fc_load.case = list(src_load['case'])
 
         apply_to = FCValue.decode(src_load['apply_to'], dtype('int32'))
         apply_to_size = src_load.get('apply_to_size', 0)
@@ -210,12 +231,15 @@ class FCLoad:
         if self.cs_id:
             load_src['cs'] = self.cs_id
 
+        if self.step is not None:
+            load_src['step'] = list(self.step)
+        if self.case is not None:
+            load_src['case'] = list(self.case)
+
         for data in self.data:
             src_data, src_types, src_deps = data.encode()
             load_src['data'].append(src_data)
-            dep_types: Union[int, str, List[int]] = src_types 
-            if isinstance(dep_types, str):
-                raise TypeError("dep_types должен быть int или List[int], а не str")
+            dep_types: Union[int, List[int]] = src_types 
             dep_vars: Union[str, List[str]] = src_deps 
             load_src['dependency_type'].append(dep_types)
             load_src['dep_var_num'].append(dep_vars)
@@ -243,10 +267,12 @@ class FCRestraint:
     data: List[FCData]
     flags: List[str]
     step: Optional[List[int]]
+    case: Optional[List[int]]
 
     def __init__(self, id: int = 0):
         self.id = id
         self.step = None
+        self.case = None
 
     @classmethod
     def decode(cls, src_restraint:FCSrcRestraint) -> 'FCRestraint':
@@ -286,6 +312,8 @@ class FCRestraint:
 
         if 'step' in src_restraint:
             fc_restraint.step = list(src_restraint['step'])
+        if 'case' in src_restraint:
+            fc_restraint.case = list(src_restraint['case'])
 
         return fc_restraint
 
@@ -311,7 +339,7 @@ class FCRestraint:
         for data in self.data:
             src_data, src_types, src_deps = data.encode()
             src_restraint['data'].append(src_data)
-            dep_types: Union[int, str, List[int]] = src_types  
+            dep_types: Union[int, List[int]] = src_types  
             dep_vars: Union[str, List[str]] = src_deps 
             src_restraint['dependency_type'].append(dep_types)
             src_restraint['dep_var_num'].append(dep_vars)
@@ -321,6 +349,8 @@ class FCRestraint:
 
         if self.step is not None:
             src_restraint['step'] = list(self.step)
+        if self.case is not None:
+            src_restraint['case'] = list(self.case)
 
         return src_restraint
 
@@ -339,6 +369,7 @@ class FCRestraint:
 
 class FCInitialSet:
     id: int
+    name: str
     apply: FCValue
     cs_id: int
     data: List[FCData]
@@ -348,6 +379,7 @@ class FCInitialSet:
 
     def __init__(self, id: int = 0):
         self.id = id
+        self.name = ''
 
     @classmethod
     def decode(cls, src_initial_set:FCSrcInitialSet) -> 'FCInitialSet':
@@ -357,6 +389,7 @@ class FCInitialSet:
         )
 
         fc_initial_set.id = src_initial_set['id']
+        fc_initial_set.name = src_initial_set.get('name', '')
         fc_initial_set.cs_id = src_initial_set.get('cs', 0)
 
         apply_to = FCValue.decode(src_initial_set['apply_to'], dtype('int32'))
@@ -410,13 +443,16 @@ class FCInitialSet:
             'type': FC_INITIAL_SET_TYPES_CODES[self.type]
         }
 
+        if self.name:
+            src_initial_set['name'] = self.name
+
         if self.cs_id:
             src_initial_set['cs'] = self.cs_id
 
         for data in self.data:
             src_data, src_types, src_deps = data.encode()
             src_initial_set['data'].append(src_data)
-            dep_types: Union[int, str, List[int]] = src_types
+            dep_types: Union[int, List[int]] = src_types
             dep_vars: Union[str, List[str]] = src_deps
             src_initial_set['dependency_type'].append(dep_types)
             src_initial_set['dep_var_num'].append(dep_vars)

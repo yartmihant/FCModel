@@ -10,7 +10,7 @@ from numpy.typing import NDArray
 from .fc_blocks import FCBlock, FCSrcBlock
 from .fc_conditions import FC_INITIAL_SET_TYPES_CODES, FC_INITIAL_SET_TYPES_KEYS, \
     FC_LOADS_TYPES_CODES, FC_LOADS_TYPES_KEYS, FC_RESTRAINT_FLAGS_CODES, FC_RESTRAINT_FLAGS_KEYS, FCInitialSet, FCRestraint, FCLoad, FCSrcInitialSet, FCSrcLoad, FCSrcRestraint
-from .fc_constraint import FCConstraint, FCSrcConstraint, \
+from .fc_constraint import FCConstraint, FCConstraintKind, FCSrcConstraint, \
     FC_CONTACT_TYPES, FC_CONTACT_METHODS, \
     FC_COUPLING_TYPES_KEYS, FC_COUPLING_TYPES_CODES, \
     FC_PERIODIC_TYPES_KEYS, FC_PERIODIC_TYPES_CODES
@@ -89,6 +89,9 @@ class FCSrcModel(FCSrcModelStrict, total=False):
 
     sets: Dict[str, List[FCSrcSet]]
 
+    orientations: List[Dict[str, Any]]
+    imported_sections: List[Dict[str, Any]]
+
 
 class FCModel:
     """
@@ -142,6 +145,9 @@ class FCModel:
     nodesets: Dict[int, FCSet]
     sidesets: Dict[int, FCSet]
 
+    orientations: List[Dict[str, Any]]
+    imported_sections: List[Dict[str, Any]]
+
     settings: FCSettings
 
     def __init__(self) -> None:
@@ -170,11 +176,14 @@ class FCModel:
         self.nodesets = {}
         self.sidesets = {}
 
+        self.orientations: List[Dict[str, Any]] = []
+        self.imported_sections: List[Dict[str, Any]] = []
+
         self.settings = {}
         self.header = {
             "binary": True,
             "description": "Fidesys Case Format",
-            "types": {"char": 1, "short_int": 2, "int": 4, "double": 8, },
+            "types": {"char": 1, "short_int": 2, "int": 4, "double": 8, "FCTYPE": 8},
             "version": 3
         }
 
@@ -531,11 +540,11 @@ class FCModel:
 
         fc_model.mesh.decode(src_data['mesh'])
 
-        fc_model.contact_constraints = [FCConstraint.decode(cc_src) for cc_src in src_data.get('contact_constraints', [])]
+        fc_model.contact_constraints = [FCConstraint.decode(cc_src, kind='contact') for cc_src in src_data.get('contact_constraints', [])]
         
-        fc_model.coupling_constraints = [FCConstraint.decode(cc_src) for cc_src in src_data.get('coupling_constraints', [])]
+        fc_model.coupling_constraints = [FCConstraint.decode(cc_src, kind='coupling') for cc_src in src_data.get('coupling_constraints', [])]
 
-        fc_model.periodic_constraints = [FCConstraint.decode(cc_src) for cc_src in src_data.get('periodic_constraints', [])]
+        fc_model.periodic_constraints = [FCConstraint.decode(cc_src, kind='periodic') for cc_src in src_data.get('periodic_constraints', [])]
 
         fc_model.restraints = [FCRestraint.decode(src_restraint) for src_restraint in src_data.get('restraints', [])]
 
@@ -564,6 +573,9 @@ class FCModel:
 
         fc_model.settings = src_data.get('settings', {})
 
+        fc_model.orientations = src_data.get('orientations', [])  # type: ignore[assignment]
+        fc_model.imported_sections = src_data.get('imported_sections', [])  # type: ignore[assignment]
+
         return fc_model
 
 
@@ -589,13 +601,13 @@ class FCModel:
             output_data['coordinate_systems'] = [cs.encode() for cs in self.coordinate_systems.values()]
 
         if self.contact_constraints:
-            output_data['contact_constraints'] = [cc.encode() for cc in self.contact_constraints]
+            output_data['contact_constraints'] = [cc.encode(kind='contact') for cc in self.contact_constraints]
 
         if self.coupling_constraints:
-            output_data['coupling_constraints'] = [cc.encode() for cc in self.coupling_constraints]
+            output_data['coupling_constraints'] = [cc.encode(kind='coupling') for cc in self.coupling_constraints]
 
         if self.periodic_constraints:
-            output_data['periodic_constraints'] = [cc.encode() for cc in self.periodic_constraints]
+            output_data['periodic_constraints'] = [cc.encode(kind='periodic') for cc in self.periodic_constraints]
 
         if self.nodesets or self.sidesets:
             output_data['sets'] = {}
@@ -622,12 +634,17 @@ class FCModel:
         if self.receivers:
             output_data['receivers'] = [receiver.encode() for receiver in self.receivers]
 
+        if self.orientations:
+            output_data['orientations'] = self.orientations  # type: ignore[assignment]
+        if self.imported_sections:
+            output_data['imported_sections'] = self.imported_sections  # type: ignore[assignment]
+
         return output_data
 
 
 __all__ = [
     'FCModel',
-    'FCMesh', 'FCBlock', 'FCPropertyTable', 'FCCoordinateSystem', 'FCConstraint',
+    'FCMesh', 'FCBlock', 'FCPropertyTable', 'FCCoordinateSystem', 'FCConstraint', 'FCConstraintKind',
     'FCElement', 'FCElementType', 'FCMaterial', 'FCLoad', 'FCRestraint', 'FCInitialSet',
     'FCReceiver', 'FCSet', 'FCDependencyColumn', 'FCValue', 'FCData', 'FCHeader',
     'FCMaterialProperty',

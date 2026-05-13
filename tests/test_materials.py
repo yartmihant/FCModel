@@ -28,7 +28,7 @@ class TestFCMaterialAddProperty:
         prop = m.add_property("common", "DENSITY", 7850.0, "USUAL")
         assert prop.name == "DENSITY"
         assert prop.type == "USUAL"
-        assert prop.data.type == 0  # CONSTANT
+        assert prop.data.type == "CONSTANT"  # CONSTANT
         np.testing.assert_array_almost_equal(prop.data.value.data, [7850.0])
 
     def test_add_constant_list(self):
@@ -39,7 +39,7 @@ class TestFCMaterialAddProperty:
     def test_add_formula(self):
         m = FCMaterial(id=1, name="Mat")
         prop = m.add_property("elasticity", "YOUNG_MODULE", "200e9*(1-T/1000)", "HOOK")
-        assert prop.data.type == 6  # FORMULA
+        assert prop.data.type == "FORMULA"  # FORMULA
         assert prop.data.value.data == "200e9*(1-T/1000)"
 
     def test_add_default_type(self):
@@ -132,6 +132,7 @@ class TestMaterialConstants:
 
     def test_all_groups_present(self):
         expected = {"elasticity", "common", "thermal", "geomechanic",
-                    "plasticity", "hardening", "creep", "preload", "strength", "swelling"}
+                    "plasticity", "hardening", "creep", "preload", "strength", "swelling",
+                    "kinematic_hardening", "hsdf"}
         assert set(FC_MATERIAL_PROPERTY_NAMES_KEYS.keys()) == expected
         assert set(FC_MATERIAL_PROPERTY_TYPES_KEYS.keys()) == expected

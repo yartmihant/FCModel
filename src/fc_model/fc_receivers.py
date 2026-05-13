@@ -35,10 +35,10 @@ class FCReceiver:
     apply: FCValue
     dofs: List[int]
     name: str
-    type: int
+    type: str
     output_step: Optional[int]
 
-    def __init__(self, id: int = 0, name: str = "", type_val: int = 0, dofs: List[int] = []):
+    def __init__(self, id: int = 0, name: str = "", type_val: str = "DISPLACEMENT", dofs: List[int] = []):
         self.id = id
         self.name = name
         self.type = type_val
@@ -48,10 +48,11 @@ class FCReceiver:
 
     @classmethod
     def decode(cls, src_data: FCSrcReceiver) -> FCReceiver:
+        type_code = src_data['type']
         receiver = cls(
             id=src_data['id'],
             name=src_data['name'],
-            type_val=src_data['type'],
+            type_val=FC_RECEIVER_TYPES_KEYS.get(type_code, str(type_code)),
             dofs=src_data['dofs']
         )
         receiver.apply = FCValue.decode(src_data['apply_to'], dtype(int32))
@@ -66,7 +67,7 @@ class FCReceiver:
             "id": self.id,
             "name": self.name,
             "dofs": self.dofs,
-            "type": self.type
+            "type": FC_RECEIVER_TYPES_CODES.get(self.type, int(self.type) if self.type.isdigit() else 0)
         }
         if self.output_step is not None:
             out["output_step"] = self.output_step

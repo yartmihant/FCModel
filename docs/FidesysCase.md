@@ -380,7 +380,7 @@ plasticity
    9 = DILATANCY_ANGLE
  // DRUCKER_PRAGER_CREEP
    21 = DPC_A,
-   22 = DPC_N,
+   22 = DPC_B,
    23 = DPC_M
 ```
 

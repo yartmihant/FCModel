@@ -44,12 +44,12 @@ class FCSrcPropertyTable(FCSrcPropertyTableStrict, total=False):
 
 class FCPropertyTable:
     id: int
-    type: int
+    type: str
     name: str
     properties: Dict[str, Any]
     additional_properties: Dict[str, Any]
 
-    def __init__(self, id: int = 0, type_val: int = 0, name: str = ""):
+    def __init__(self, id: int = 0, type_val: str = "SHELL", name: str = ""):
         self.id = id
         self.type = type_val
         self.name = name
@@ -58,7 +58,8 @@ class FCPropertyTable:
 
     @classmethod
     def decode(cls, src_data: FCSrcPropertyTable) -> FCPropertyTable:
-        pt = cls(id=src_data['id'], type_val=src_data.get('type', 0), name=src_data.get('name', ''))
+        type_code = src_data.get('type', 0)
+        pt = cls(id=src_data['id'], type_val=FC_PROPERTY_TABLE_TYPES_KEYS.get(type_code, str(type_code)), name=src_data.get('name', ''))
         pt.properties = src_data.get('properties', {})
         pt.additional_properties = src_data.get('additional_properties', {})
         return pt
@@ -66,7 +67,7 @@ class FCPropertyTable:
     def encode(self) -> FCSrcPropertyTable:
         out: FCSrcPropertyTable = {
             "id": self.id,
-            "type": self.type,
+            "type": FC_PROPERTY_TABLE_TYPES_CODES.get(self.type, int(self.type) if self.type.isdigit() else 0),
             "properties": self.properties,
             "additional_properties": self.additional_properties
         }

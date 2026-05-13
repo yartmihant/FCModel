@@ -1,5 +1,32 @@
 # Changelog
 
+## 1.2.2 [2026-05-13 18:52:00]
+
+### Добавлено
+
+- **Материалы**: группы `kinematic_hardening` и `hsdf` в `FCMaterialPropertiesTypeLiteral`, `FC_MATERIAL_PROPERTY_NAMES_KEYS`, `FC_MATERIAL_PROPERTY_TYPES_KEYS`, `FCSrcMaterial`.
+- **Материалы**: константы `COEF_SPECIFIC_HEAT` (thermal[2]), `EMISSIVITY` (thermal[3]), `TENSILE_STRAIN` (plasticity[1]), `TENSILE_STRAIN_COMPR` (plasticity[6]).
+- **Нагрузки**: типы `GravityMassForce` (6), `FaceSloshingBC` (45), `SegmentSloshingBC` (46), `PointDeadForce` (47), `PointTrackingForce` (48), `PointHydrodynamicForce` (49) в `FC_LOADS_TYPES_KEYS`.
+- **Coupling constraints**: тип `CONSTRAINT_EQUATION` (6) в `FC_COUPLING_TYPES_KEYS`.
+- **Contact methods**: `pure_lagrangian` и `aug_lagrangian` в `FC_CONTACT_METHODS`.
+- **FCBlock**: опциональное поле `orientation_id` (decode/encode).
+- **FCLoad**: опциональные поля `step` и `case` (decode/encode).
+- **FCRestraint**: опциональное поле `case` (decode/encode).
+- **FCInitialSet**: поле `name` (decode/encode).
+- **FCModel**: pass-through поля `orientations` и `imported_sections` (`List[Dict[str, Any]]`).
+- **Header**: `FCTYPE: 8` в default `header.types`.
+- **FCConstraint**: параметр `kind: FCConstraintKind` (`'contact'`/`'coupling'`/`'periodic'`) в `decode()`/`encode()` для корректного маппинга типов.
+- **FCConstraintKind**: новый экспортируемый тип-литерал.
+
+### Изменено
+
+- **FCReceiver.type**: `int` → `str`. Decode маппит через `FC_RECEIVER_TYPES_KEYS`, encode — через `FC_RECEIVER_TYPES_CODES`. Пример: `0` → `"DISPLACEMENT"`.
+- **FCPropertyTable.type**: `int` → `str`. Decode маппит через `FC_PROPERTY_TABLE_TYPES_KEYS`, encode — через `FC_PROPERTY_TABLE_TYPES_CODES`. Пример: `0` → `"SHELL"`.
+- **FCConstraint.type**: `Union[int, str]` → `str`. Для coupling/periodic типы маппятся из int-кодов в строки. Пример: coupling `0` → `"ELASTICITY"`, periodic `0` → `"ALL"`.
+- **FCData.type**: `Union[int, str]` → `str`. Magic numbers заменены строками: `0` → `"CONSTANT"`, `6` → `"FORMULA"`, `-1` → `"TABLE"`.
+- **FCData.encode()**: возвращает `Tuple[str, int, str]` вместо `Tuple[str, Union[int, str], str]` для не-табличных данных.
+- Нормализация `dependency_type: ""` → `0` в тестовых данных `ultracube.fc`.
+
 ## 1.2.0 [2026-05-10 20:00:00]
 
 Релиз версии 1.2 — полное установление и фиксация публичного API.

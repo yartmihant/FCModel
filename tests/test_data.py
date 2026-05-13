@@ -8,7 +8,7 @@ from fc_model import FCData, FCDependencyColumn, FCValue
 class TestFCDataConstant:
     def test_scalar(self):
         d = FCData.constant(42.0)
-        assert d.type == 0
+        assert d.type == "CONSTANT"
         assert d.table == []
         np.testing.assert_array_almost_equal(d.value.data, [42.0])
 
@@ -28,7 +28,7 @@ class TestFCDataConstant:
 class TestFCDataFormula:
     def test_formula(self):
         d = FCData.formula("2*x+1")
-        assert d.type == 6
+        assert d.type == "FORMULA"
         assert d.value.type == 'formula'
         assert d.value.data == "2*x+1"
         assert d.table == []
@@ -40,7 +40,7 @@ class TestFCDataEncodeDecode:
         encoded_val, encoded_type, encoded_dep = d.encode()
 
         d2 = FCData.decode(encoded_val, encoded_type, encoded_dep)
-        assert d2.type == 0
+        assert d2.type == "CONSTANT"
         np.testing.assert_array_almost_equal(d2.value.data, [100.0])
 
     def test_formula_roundtrip(self):
@@ -48,7 +48,7 @@ class TestFCDataEncodeDecode:
         encoded_val, encoded_type, encoded_dep = d.encode()
 
         d2 = FCData.decode(encoded_val, encoded_type, encoded_dep)
-        assert d2.type == 6
+        assert d2.type == "FORMULA"
         assert d2.value.data == "sin(x)"
 
     def test_tabular_roundtrip(self):
@@ -58,7 +58,7 @@ class TestFCDataEncodeDecode:
 
         val = FCValue(values, 'array')
         col = FCDependencyColumn(type="TABULAR_TEMPERATURE", value=FCValue(dep_col, 'array'))
-        d = FCData(val, -1, [col])
+        d = FCData(val, "TABLE", [col])
 
         assert len(d) == 3
 
@@ -69,7 +69,7 @@ class TestFCDataEncodeDecode:
         assert len(encoded_deps) == 1
 
         d2 = FCData.decode(encoded_val, encoded_types, encoded_deps)
-        assert d2.type == -1
+        assert d2.type == "TABLE"
         assert len(d2.table) == 1
         assert d2.table[0].type == "TABULAR_TEMPERATURE"
         np.testing.assert_array_almost_equal(d2.value.data, values)
@@ -88,5 +88,5 @@ class TestFCDataRepr:
     def test_table_repr(self):
         val = FCValue(np.array([1.0], dtype=np.float64), 'array')
         col = FCDependencyColumn(type="TABULAR_TIME", value=FCValue(np.array([0.0], dtype=np.float64), 'array'))
-        d = FCData(val, -1, [col])
+        d = FCData(val, "TABLE", [col])
         assert "TABLE" in repr(d)

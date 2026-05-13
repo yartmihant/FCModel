@@ -16,6 +16,7 @@ class FCSrcBlockStrict(TypedDict):
 class FCSrcBlock(FCSrcBlockStrict, total=False):
     steps: List[int]  # Опционально в файле
     material: FCSrcBlockMaterial  # Опционально в файле
+    orientation_id: int  # Опционально: ID ориентации для анизотропных материалов
 
 
 class FCBlock:
@@ -32,6 +33,7 @@ class FCBlock:
     # Опциональные поля блока
     steps: Optional[List[int]]
     material: Optional[Dict[str, List[int]]]
+    orientation_id: int
 
     def __init__(self, id: int = 0, cs_id: int = 0, material_id: int = 0, property_id: int = 0):
         self.id = id
@@ -40,6 +42,7 @@ class FCBlock:
         self.property_id = property_id
         self.steps = None
         self.material = None
+        self.orientation_id = 0
 
     @classmethod
     def decode(cls, src_data: FCSrcBlock) -> FCBlock:
@@ -49,6 +52,9 @@ class FCBlock:
             material_id=src_data['material_id'],
             property_id=src_data['property_id']
         )
+
+        if 'orientation_id' in src_data:
+            block.orientation_id = int(src_data['orientation_id'])
 
         if 'steps' in src_data:
             steps_val = src_data.get('steps')
@@ -84,6 +90,8 @@ class FCBlock:
         }
         if self.steps is not None and len(self.steps):
             out['steps'] = list(self.steps)
+        if self.orientation_id:
+            out['orientation_id'] = self.orientation_id  # type: ignore[typeddict-unknown-key]
         if self.material is not None and len(self.material.get('ids', [])):
             out['material'] = {
                 'ids': list(self.material['ids']),

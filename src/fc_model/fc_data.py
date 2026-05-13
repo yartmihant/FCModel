@@ -46,12 +46,12 @@ class FCData:
     """
     Определяет зависимость свойства от внешних факторов (температура, координаты, etc.).
     """
-    type: Union[int, str] # -1 - таблица, иное число - константа
+    type: str  # "CONSTANT", "FORMULA", "TABLE", или иной тип из FC_DEPENDENCY_TYPES_KEYS
 
     value: FCValue  # Данные для зависимости (e.g., массив ID узлов)
     table: List[FCDependencyColumn]
 
-    def __init__(self, value: FCValue, type_code: Union[int, str] = 0, table: Optional[List[FCDependencyColumn]] = None):
+    def __init__(self, value: FCValue, type_code: str = "CONSTANT", table: Optional[List[FCDependencyColumn]] = None):
         self.value = value
         self.type = type_code
         self.table = table if table is not None else []
@@ -65,14 +65,14 @@ class FCData:
             arr = np.asarray(values, dtype=float64)
         else:
             arr = np.asarray([values], dtype=float64)
-        return cls(FCValue(arr, 'array'), 0, [])
+        return cls(FCValue(arr, 'array'), "CONSTANT", [])
 
     @classmethod
     def formula(cls, expr: str) -> FCData:
         """
         Удобный конструктор формулы (type=6).
         """
-        return cls(FCValue(expr, 'formula'), 6, [])
+        return cls(FCValue(expr, 'formula'), "FORMULA", [])
 
     @classmethod
     def decode(cls, data: Union[NDArray[generic], str], dep_type: Union[List[int], int, str], dep_data: Union[List[NDArray[generic]], List[str], str, None]) -> FCData:
@@ -89,25 +89,27 @@ class FCData:
                 value = FCValue.decode(dep_data[j], dtype(float64))
             ) for j, deps_type in enumerate(dep_type)]
             
-            return cls(value, -1, table)
+            return cls(value, "TABLE", table)
 
         elif (isinstance(dep_type, int) or isinstance(dep_type, str)) and isinstance(dep_data, str):
             val_type:Literal['formula', 'array', 'null'] = 'formula' if dep_type == 6 else 'array'
             value = FCValue.decode(data, dtype(float64), val_type)
-            return cls(value, dep_type, [])
+            type_str = FC_DEPENDENCY_TYPES_KEYS.get(dep_type, str(dep_type)) if isinstance(dep_type, int) else dep_type
+            return cls(value, type_str, [])
         else:
              raise ValueError("Invalid dependency data for decode")
 
-    def encode(self) -> Union[Tuple[str, List[int], List[str]], Tuple[str, Union[int, str], str]]:
-        if self.type == -1:
+    def encode(self) -> Union[Tuple[str, List[int], List[str]], Tuple[str, int, str]]:
+        if self.type == "TABLE":
             return self.value.encode(), [FC_DEPENDENCY_TYPES_CODES[deps.type] for deps in self.table], [deps.value.encode() for deps in self.table]
         else:
-            return self.value.encode(), self.type, ""
+            enc_code = FC_DEPENDENCY_TYPES_CODES.get(self.type, 0)
+            return self.value.encode(), enc_code, ""
 
 
     def remap_column(self, dep_type_name: str, mapping: dict[int, int]) -> None:
         """Переиндексирует ID в табличных столбцах заданного типа зависимости."""
-        if self.type != -1:
+        if self.type != "TABLE":
             return
         for col in self.table:
             if col.type == dep_type_name:
@@ -124,11 +126,11 @@ class FCData:
         )
 
     def __repr__(self) -> str:
-        if self.type == -1:
+        if self.type == "TABLE":
             return f"<FCData TABLE [{len(self)}])>"
-        elif self.type == 6:
+        elif self.type == "FORMULA":
             return f"<FCData FORMULA {self.value.data}>"
-        elif self.type == 0:
+        elif self.type == "CONSTANT":
             return f"<FCData CONST {self.value.data}>"
         else:
             return f"<FCData <{self.type}>>"

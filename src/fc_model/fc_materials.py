@@ -16,7 +16,9 @@ FCMaterialPropertiesTypeLiteral = Literal[
     "creep", # Позучесть
     "preload", # Преднагружение
     "strength", # Прочность
-    "swelling" # Распухание
+    "swelling", # Распухание
+    "kinematic_hardening", # Кинематическое упрочнение
+    "hsdf" # HSDF
 ]
 
 
@@ -82,6 +84,8 @@ FC_MATERIAL_PROPERTY_NAMES_KEYS: Dict[FCMaterialPropertiesTypeLiteral, Dict[Unio
     "thermal": {
         0: "COEF_LIN_EXPANSION",             # ISOTROPIC
         1: "COEF_THERMAL_CONDUCTIVITY",      # ISOTROPIC
+        2: "COEF_SPECIFIC_HEAT",             # ISOTROPIC
+        3: "EMISSIVITY",                     # ISOTROPIC
         5: "COEF_THERMAL_CONDUCTIVITY_XX",   # ORTHOTROPIC
         9: "COEF_THERMAL_CONDUCTIVITY_YY",   # ORTHOTROPIC
         13: "COEF_THERMAL_CONDUCTIVITY_ZZ",  # ORTHOTROPIC
@@ -123,12 +127,14 @@ FC_MATERIAL_PROPERTY_NAMES_KEYS: Dict[FCMaterialPropertiesTypeLiteral, Dict[Unio
     },
     "plasticity": {
         0: "YIELD_STRENGTH",                 # MISES
+        1: "TENSILE_STRAIN",                 # MISES
         5: "YIELD_STRENGTH_COMPR",           # DRUCKER_PRAGER, MOHR_COULOMB
+        6: "TENSILE_STRAIN_COMPR",           # DRUCKER_PRAGER, MOHR_COULOMB
         7: "COHESION",                       # DRUCKER_PRAGER, MOHR_COULOMB
         8: "INTERNAL_FRICTION_ANGLE",        # DRUCKER_PRAGER, MOHR_COULOMB
         9: "DILATANCY_ANGLE",                # MOHR_COULOMB
         21: "DPC_A",                         # DRUCKER_PRAGER_CREEP
-        22: "DPC_N",                         # DRUCKER_PRAGER_CREEP
+        22: "DPC_B",                         # DRUCKER_PRAGER_CREEP
         23: "DPC_M",                         # DRUCKER_PRAGER_CREEP
     },
     "hardening": {
@@ -200,7 +206,9 @@ FC_MATERIAL_PROPERTY_NAMES_KEYS: Dict[FCMaterialPropertiesTypeLiteral, Dict[Unio
         0: "TENSILE_STRENGTH",              # ISOTROPIC
         1: "TENSILE_STRENGTH_COMPR",        # ISOTROPIC
     },
-    "swelling": {}
+    "swelling": {},
+    "kinematic_hardening": {},
+    "hsdf": {}
 }
 
 FC_MATERIAL_PROPERTY_NAMES_CODES: Dict[FCMaterialPropertiesTypeLiteral, Dict[Union[str, int], Union[str, int]]] = {
@@ -230,7 +238,9 @@ FC_MATERIAL_PROPERTY_TYPES_KEYS: Dict[FCMaterialPropertiesTypeLiteral, Dict[Unio
     "creep": {0: "NORTON"},
     "preload": {0: "INITIAL"},
     "strength": {0: "ISOTROPIC"},
-    "swelling": {}
+    "swelling": {},
+    "kinematic_hardening": {},
+    "hsdf": {}
 }
 
 FC_MATERIAL_PROPERTY_TYPES_CODES: Dict[FCMaterialPropertiesTypeLiteral, Dict[Union[str, int], Union[str, int]]] = {
@@ -297,6 +307,8 @@ class FCSrcMaterial(FCSrcMaterialBase, total=False):
     strength: List[FCSrcMaterialProperty]
     thermal: List[FCSrcMaterialProperty]
     swelling: List[FCSrcMaterialProperty]
+    kinematic_hardening: List[FCSrcMaterialProperty]
+    hsdf: List[FCSrcMaterialProperty]
 
 
 class FCMaterial:
