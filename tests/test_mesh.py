@@ -150,26 +150,89 @@ class TestFCMeshEncodeDecode:
 class TestElementConstants:
     def test_keyid_keyname_consistent(self):
         """Every entry in KEYID should have a matching entry in KEYNAME."""
-        for fc_id, info in FC_ELEMENT_TYPES_KEYID.items():
+        for code, info in FC_ELEMENT_TYPES_KEYID.items():
             name = info['name']
             assert name in FC_ELEMENT_TYPES_KEYNAME
-            assert FC_ELEMENT_TYPES_KEYNAME[name]['fc_id'] == fc_id
+            assert FC_ELEMENT_TYPES_KEYNAME[name]['code'] == code
 
     def test_keyname_keyid_consistent(self):
         for name, info in FC_ELEMENT_TYPES_KEYNAME.items():
-            fc_id = info['fc_id']
-            assert fc_id in FC_ELEMENT_TYPES_KEYID
-            assert FC_ELEMENT_TYPES_KEYID[fc_id]['name'] == name
+            code = info['code']
+            assert code in FC_ELEMENT_TYPES_KEYID
+            assert FC_ELEMENT_TYPES_KEYID[code]['name'] == name
 
     def test_tetra4_properties(self):
         t = FC_ELEMENT_TYPES_KEYNAME['TETRA4']
-        assert t['fc_id'] == 1
+        assert t['code'] == 1
         assert t['dim'] == 3
-        assert t['nodes'] == 4
+        assert t['nodes_count'] == 4
         assert t['order'] == 1
+        assert t['nodes_coords'] == [
+            [0.0, 1.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 1.0, 0.0],
+            [0.0, 0.0, 0.0, 1.0],
+        ]
+        assert t['vertices_count'] == 4
+        assert t['faces'] == [[0, 2, 3], [1, 2, 3], [0, 1, 3], [0, 1, 2]]
 
     def test_hex8_properties(self):
         h = FC_ELEMENT_TYPES_KEYNAME['HEX8']
-        assert h['fc_id'] == 3
+        assert h['code'] == 3
         assert h['dim'] == 3
-        assert h['nodes'] == 8
+        assert h['nodes_count'] == 8
+
+    def test_element_type_schema_has_new_keys_only(self):
+        t = FC_ELEMENT_TYPES_KEYNAME['HEX20']
+        assert 'code' in t
+        assert 'nodes_count' in t
+        assert 'nodes_coords' in t
+        assert 'vertices_count' in t
+        assert 'vertices' not in t
+        assert 'faces' in t
+        assert 'fc_id' not in t
+        assert 'nodes' not in t
+        assert 'facets' not in t
+        assert 'tetras' not in t
+
+    def test_quad8_geometry(self):
+        q = FC_ELEMENT_TYPES_KEYNAME['QUAD8']
+        assert q['nodes_coords'] == [
+            [-1.0, -1.0],
+            [1.0, -1.0],
+            [1.0, 1.0],
+            [-1.0, 1.0],
+            [0.0, -1.0],
+            [1.0, 0.0],
+            [0.0, 1.0],
+            [-1.0, 0.0],
+        ]
+        assert q['vertices_count'] == 4
+        assert q['edges'] == [[0, 1, 4], [1, 2, 5], [2, 3, 6], [0, 3, 7]]
+        assert q['faces'] == q['edges']
+
+    def test_hex20_geometry(self):
+        h = FC_ELEMENT_TYPES_KEYNAME['HEX20']
+        assert h['edges'] == [
+            [0, 1, 8], [1, 2, 9], [2, 3, 10], [0, 3, 11],
+            [4, 5, 12], [5, 6, 13], [6, 7, 14], [4, 7, 15],
+            [0, 4, 16], [1, 5, 17], [2, 6, 18], [3, 7, 19],
+        ]
+        assert h['faces'][0] == [0, 1, 2, 3, 8, 9, 10, 11]
+        assert h['faces'][5] == [4, 5, 6, 7, 12, 13, 14, 15]
+
+    def test_wedge15_and_pyr13_geometry(self):
+        w = FC_ELEMENT_TYPES_KEYNAME['WEDGE15']
+        assert w['edges'] == [
+            [0, 1, 6], [1, 2, 7], [0, 2, 8],
+            [3, 4, 9], [4, 5, 10], [3, 5, 11],
+            [0, 3, 12], [1, 4, 13], [2, 5, 14],
+        ]
+        assert w['faces'][1] == [1, 2, 4, 5, 7, 10, 13, 14]
+
+        p = FC_ELEMENT_TYPES_KEYNAME['PYR13']
+        assert p['edges'] == [
+            [0, 1, 5], [1, 2, 6], [2, 3, 7], [0, 3, 8],
+            [0, 4, 9], [1, 4, 10], [2, 4, 11], [3, 4, 12],
+        ]
+        assert p['faces'][4] == [3, 0, 4, 8, 9, 12]

@@ -77,15 +77,15 @@
 
 
 
-# def split_facet(facet: List[int]) -> List[int]:
-#     if len(facet) == 3:
-#         return facet
-#     if len(facet) < 3:
+# def split_face(face: List[int]) -> List[int]:
+#     if len(face) == 3:
+#         return face
+#     if len(face) < 3:
 #         return []
-#     tail = facet[2:]
-#     tail.append(facet[1])
-#     tris = [facet[-1], facet[0], facet[1]]
-#     tris.extend(split_facet(tail))
+#     tail = face[2:]
+#     tail.append(face[1])
+#     tris = [face[-1], face[0], face[1]]
+#     tris.extend(split_face(tail))
 #     return tris
 
 
@@ -100,14 +100,10 @@
 #     return pairs
 
 
-# def split_polihedron(tetra: List[int]) -> List[int]:
-#     return tetra
-
-
 # def make_structure():
 #     for eid in FC_ELEMENT_TYPES:
 #         element_type = FC_ELEMENT_TYPES[eid]
-#         element_type['structure'][0] = np.arange(element_type['nodes'], dtype=np.int32)
+#         element_type['structure'][0] = np.arange(element_type['nodes_count'], dtype=np.int32)
 
 #         if element_type['dim'] > 0:
 
@@ -120,15 +116,7 @@
 #         if element_type['dim'] > 1:
 
 #             trangles = []
-#             for facet in element_type['facets']:
-#                 trangles.extend(split_facet(facet))
+#             for face in element_type['faces']:
+#                 trangles.extend(split_face(face))
 
 #             element_type['structure'][2] = np.array(trangles, dtype=np.int32)
-
-#         if element_type['dim'] > 2:
-
-#             tetras = []
-#             for tetra in element_type['tetras']:
-#                 tetras.extend(split_polihedron(tetra))
-
-#             element_type['structure'][3] = np.array(tetras, dtype=np.int32)

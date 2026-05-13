@@ -108,9 +108,9 @@ class TestElementTypesCompleteness:
             'WEDGE6': 6, 'WEDGE15': 7, 'PYR5': 8, 'PYR13': 9,
             'TRI3': 10, 'TRI6': 11, 'QUAD4': 12, 'QUAD8': 13,
         }
-        for name, fc_id in expected.items():
+        for name, code in expected.items():
             assert name in FC_ELEMENT_TYPES_KEYNAME, f"Missing {name}"
-            assert FC_ELEMENT_TYPES_KEYNAME[name]['fc_id'] == fc_id
+            assert FC_ELEMENT_TYPES_KEYNAME[name]['code'] == code
 
     def test_all_spec_solid_sem(self):
         expected = {
@@ -118,18 +118,18 @@ class TestElementTypesCompleteness:
             'WEDGE6S': 20, 'WEDGE15S': 21, 'PYR5S': 22, 'PYR13S': 23,
             'TRI3S': 24, 'TRI6S': 25, 'QUAD4S': 26, 'QUAD8S': 27,
         }
-        for name, fc_id in expected.items():
+        for name, code in expected.items():
             assert name in FC_ELEMENT_TYPES_KEYNAME, f"Missing {name}"
-            assert FC_ELEMENT_TYPES_KEYNAME[name]['fc_id'] == fc_id
+            assert FC_ELEMENT_TYPES_KEYNAME[name]['code'] == code
 
     def test_all_spec_shell(self):
         expected = {
             'MITC3': 29, 'MITC6': 30, 'MITC4': 31, 'MITC8': 32,
             'SHELL3S': 84, 'SHELL4S': 85, 'SHELL6S': 86, 'SHELL8S': 87,
         }
-        for name, fc_id in expected.items():
+        for name, code in expected.items():
             assert name in FC_ELEMENT_TYPES_KEYNAME, f"Missing {name}"
-            assert FC_ELEMENT_TYPES_KEYNAME[name]['fc_id'] == fc_id
+            assert FC_ELEMENT_TYPES_KEYNAME[name]['code'] == code
 
     def test_all_spec_beam_spring_mass(self):
         expected = {
@@ -139,17 +139,17 @@ class TestElementTypesCompleteness:
             'LUMPMASS3D': 38, 'LUMPMASS6D': 40, 'LUMPMASS2D': 82,
             'POINT3D': 99, 'POINT2D': 100, 'POINT6D': 101, 'LUMPMASS2DR': 105,
         }
-        for name, fc_id in expected.items():
+        for name, code in expected.items():
             assert name in FC_ELEMENT_TYPES_KEYNAME, f"Missing {name}"
-            assert FC_ELEMENT_TYPES_KEYNAME[name]['fc_id'] == fc_id
+            assert FC_ELEMENT_TYPES_KEYNAME[name]['code'] == code
 
     def test_node_count_positive(self):
-        """All element types must have nodes > 0 (except NONE)."""
+        """All element types must have nodes_count > 0 (except NONE)."""
         for name, info in FC_ELEMENT_TYPES_KEYNAME.items():
             if name == 'NONE':
-                assert info['nodes'] == 0
+                assert info['nodes_count'] == 0
             else:
-                assert info['nodes'] > 0, f"{name} has 0 nodes"
+                assert info['nodes_count'] > 0, f"{name} has 0 nodes"
 
 
 class TestLoadTypesCompleteness:

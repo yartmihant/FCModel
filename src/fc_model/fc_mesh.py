@@ -83,7 +83,7 @@ class FCMesh:
             if len(arr) != elems_count:
                 raise ValueError(f"{name} length {len(arr)} != elems_count {elems_count}")
 
-        elem_sizes = np.vectorize(lambda t: FC_ELEMENT_TYPES_KEYID[t]['nodes'])(elem_types)
+        elem_sizes = np.vectorize(lambda t: FC_ELEMENT_TYPES_KEYID[t]['nodes_count'])(elem_types)
         total_nodes = int(np.sum(elem_sizes))
         if len(elem_nodes) != total_nodes:
             raise ValueError(
@@ -133,12 +133,12 @@ class FCMesh:
             elem_blocks[i] = elem.block
             elem_parent_ids[i] = elem.parent_id
             elem_orders[i] = elem.order
-            elem_types[i] = FC_ELEMENT_TYPES_KEYNAME[elem.type]['fc_id']
+            elem_types[i] = FC_ELEMENT_TYPES_KEYNAME[elem.type]['code']
 
         # basic consistency: each element nodes count must match its type definition
         expected_nodes_total = 0
         for elem in self:
-            expected_nodes_total += FC_ELEMENT_TYPES_KEYNAME[elem.type]['nodes']
+            expected_nodes_total += FC_ELEMENT_TYPES_KEYNAME[elem.type]['nodes_count']
         elem_nodes: NDArray[np.int32] = np.array(self.nodes_list, np.int32)
         if len(elem_nodes) != expected_nodes_total:
             raise ValueError(

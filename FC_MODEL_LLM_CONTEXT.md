@@ -132,7 +132,7 @@ class FCElement:
 
 ### Element types
 
-`FC_ELEMENT_TYPES` — list of `FCElementType` dicts with `id`, `name`, `nodes` count.
+`FC_ELEMENT_TYPES` — list of `FCElementType` dicts with `code`, `name`, `dim`, `order`, `nodes_count`, `nodes_coords`, `vertices_count`, `edges`, `faces`. Vertex nodes are always local nodes `0..vertices_count-1`.
 
 Lookup dicts:
 - `FC_ELEMENT_TYPES_KEYID: Dict[int, FCElementType]` — by numeric ID

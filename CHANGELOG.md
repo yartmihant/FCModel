@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.2.3 [2026-05-13 20:46:06]
+
+### Изменено
+
+- **FC_ELEMENT_TYPES**: структура `FCElementType` обновлена под уточнённую спецификацию FidesysCase: `fc_id` → `code`, `nodes` → `nodes_count`, `facets` → `faces`; добавлены `nodes_coords` и `vertices_count`; поле `tetras` удалено.
+- **FC_ELEMENT_TYPES**: геометрия элементов пересчитана по `docs/fc-input-format 2.md` для FEM/SEM solid, shell, beam/string, spring, point/lumpmass элементов; `edges` и `faces` приведены к каноническому порядку узлов.
+- **FC_ELEMENT_TYPES**: исходные данные справочника вынесены в табличный список строк, а `List[FCElementType]` формируется из него циклом.
+- **FCMesh**: кодирование и декодирование сетки переведены на новые ключи `code` и `nodes_count`.
+- **Документация**: LLM-контекст обновлён для нового формата `FCElementType`.
+
+### Исправлено
+
+- Убраны устаревшие упоминания `facets`/`tetras` из черновых комментариев `fc_addons.py`.
+
 ## 1.2.2 [2026-05-13 18:52:00]
 
 ### Добавлено
@@ -42,5 +56,3 @@
 - **Документация**: `AGENTS.md`, `FC_MODEL_LLM_CONTEXT.md`, `FC_MODEL_API_INDEX_TLDR.md`, `CHANGELOG.md` + `CHANGELOG_ARCHIVE.md`.
 
 Подробная история изменений линии 1.1.x — в `CHANGELOG_ARCHIVE.md`.
-
-
