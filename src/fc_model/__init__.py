@@ -93,6 +93,28 @@ class FCSrcModel(FCSrcModelStrict, total=False):
     imported_sections: List[Dict[str, Any]]
 
 
+# Load types whose apply_to stores (element_id, face/edge_id) pairs, not node IDs.
+_FACE_SEGMENT_LOAD_TYPES: frozenset[str] = frozenset({
+    'FaceDeadStress', 'FaceTrackingStress', 'FaceHeatFlux',
+    'FaceConvection', 'FaceRadiation', 'FaceAbsorbingBC',
+    'ShellHeatfluxTopBottom', 'ShellHeatfluxTop', 'ShellHeatfluxBottom',
+    'ShellConvectionTopBottom', 'ShellConvectionTop', 'ShellConvectionBottom',
+    'FaceDistributedForce', 'FaceEquivalentForce',
+    'FaceTrackingDistributedForce', 'FaceTrackingEquivalentForce',
+    'FaceFluidFlux', 'FaceSloshingBC',
+    'SegmentDeadStress', 'SegmentTrackingStress', 'SegmentHeatFlux',
+    'SegmentConvection', 'SegmentRadiation', 'SegmentAbsorbingBC',
+    'SegmentDistributedForce', 'SegmentEquivalentForce',
+    'SegmentTrackingDistributedForce', 'SegmentTrackingEquivalentForce',
+    'SegmentFluidFlux', 'SegmentSloshingBC',
+})
+
+
+def _is_face_segment_load(load_type: str) -> bool:
+    """True if load's apply_to contains (element_id, face/edge_id) pairs."""
+    return load_type in _FACE_SEGMENT_LOAD_TYPES
+
+
 class FCModel:
     """
     Основной класс для представления, загрузки и сохранения модели в формате Fidesys Case (.fc).
@@ -430,7 +452,8 @@ class FCModel:
                 elem.nodes = [node_map[n] for n in elem.nodes]
 
             for load in self.loads:
-                load.apply.remap(node_map)
+                if not _is_face_segment_load(load.type):
+                    load.apply.remap(node_map)
             for rest in self.restraints:
                 rest.apply.remap(node_map)
             for init_set in self.initial_sets:
@@ -456,6 +479,10 @@ class FCModel:
             for elem in self.mesh:
                 if elem.parent_id != 0 and elem.parent_id in elem_map:
                     elem.parent_id = elem_map[elem.parent_id]
+
+            for load in self.loads:
+                if _is_face_segment_load(load.type):
+                    load.apply.remap_pairs(elem_map)
 
             for ss in self.sidesets.values():
                 ss.apply.remap_pairs(elem_map)
