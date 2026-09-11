@@ -1,0 +1,18 @@
+{
+  "files": 1130,
+  "removed_findings": 238,
+  "affected_files": 151,
+  "unchanged_other_findings": 5586,
+  "changed_columns": [
+    "Спецификация_коды_правил",
+    "Спецификация_неясностей",
+    "Спецификация_неясности",
+    "Спецификация_подробности_JSON",
+    "Спецификация_пути_JSON"
+  ],
+  "statuses_unchanged": true,
+  "non_spec_csv_cells_unchanged": true,
+  "spec_sha256": "80f4dcbb8719d10707a04e9b8f872832a165eb1f17c854829f18d9b906dc10af",
+  "csv_sha256": "facf26301c4711d12d128815e64dc16281a2d60920e6f296a2201d6552a4d7d4",
+  "first_changed_csv_row": 35
+}

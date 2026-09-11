@@ -1,0 +1,213 @@
+{
+  "rows": 1130,
+  "columns": 33,
+  "baseline_commit": "4bd5f2284613be67284c238e595ea37b66db3ee6",
+  "removed_findings": {
+    "DOC.DIMENSIONS_CONFLICT": 1130,
+    "MAT.GROUP_CARDINALITY": 396,
+    "MESH.BINARY_SEMANTICS_UNCHECKED": 1118,
+    "MESH.BUFFER_SIZE": 516,
+    "SET.ENUM": 84,
+    "PT.PROPERTY_FIELD": 307,
+    "DOC.FIELD_TYPE": 1,
+    "SET.EXCLUSIVE": 781,
+    "MESH.ARRAY_SIZE": 593
+  },
+  "retained_findings_unchanged": 5824,
+  "spec_statuses": {
+    "Выявлены нарушения": 491,
+    "Нарушений не выявлено; есть legacy/неясности": 454,
+    "Нарушений не выявлено по выполненным правилам": 185
+  },
+  "mesh_comparisons": {
+    "equal": 1097,
+    "different": 31,
+    "unknown": 2
+  },
+  "warning_files": {
+    "ignored_in_files": 315,
+    "remaining_warning_files": 52,
+    "loaded_with_remaining_warnings": 0,
+    "loaded_without_remaining_warnings": 450
+  },
+  "mismatch_files": [
+    {
+      "file": "Beam21_HookDamp_CodeAsterSDLL100.fc",
+      "comparison": "Да; узлы: JSON=2, Fidesys=0; элементы: JSON=1, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Beam21_HookDamp_SDLL100.fc",
+      "comparison": "Да; узлы: JSON=2, Fidesys=0; элементы: JSON=1, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Beam21_Hook_SDLL100.fc",
+      "comparison": "Да; узлы: JSON=2, Fidesys=0; элементы: JSON=1, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Beam21_Hook_VM76.fc",
+      "comparison": "Да; узлы: JSON=31, Fidesys=0; элементы: JSON=30, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "BeamArc.fc",
+      "comparison": "Да; узлы: JSON=41, Fidesys=0; элементы: JSON=40, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "BeamPropertiesTest.fc",
+      "comparison": "Да; узлы: JSON=11, Fidesys=0; элементы: JSON=10, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Beam_hollow rectangle_Force_Along_Y.fc",
+      "comparison": "Да; узлы: JSON=21, Fidesys=0; элементы: JSON=20, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact2dQuad8SFrictionless.fc",
+      "comparison": "Да; узлы: JSON=16, Fidesys=0; элементы: JSON=2, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact2dQuadSEigienVals.fc",
+      "comparison": "Да; узлы: JSON=242, Fidesys=0; элементы: JSON=200, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact2dQuadSFriction01.fc",
+      "comparison": "Да; узлы: JSON=8, Fidesys=0; элементы: JSON=2, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact2dQuadSFriction100.fc",
+      "comparison": "Да; узлы: JSON=8, Fidesys=0; элементы: JSON=2, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact2dQuadSFrictionlessDecouple.fc",
+      "comparison": "Да; узлы: JSON=8, Fidesys=0; элементы: JSON=2, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact2dQuadSTied.fc",
+      "comparison": "Да; узлы: JSON=8, Fidesys=0; элементы: JSON=2, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact2dTriSFriction01.fc",
+      "comparison": "Да; узлы: JSON=8, Fidesys=0; элементы: JSON=4, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact2dTriSFriction01_AL.fc",
+      "comparison": "Да; узлы: JSON=8, Fidesys=0; элементы: JSON=4, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact2dTriSFriction100.fc",
+      "comparison": "Да; узлы: JSON=8, Fidesys=0; элементы: JSON=4, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact2dTriSFrictionless.fc",
+      "comparison": "Да; узлы: JSON=8, Fidesys=0; элементы: JSON=4, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact2dTriSFrictionless_AL.fc",
+      "comparison": "Да; узлы: JSON=8, Fidesys=0; элементы: JSON=4, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact3dHex8Tet4DetectionAll.fc",
+      "comparison": "Да; узлы: JSON=60, Fidesys=0; элементы: JSON=92, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact3dHexSFriction05.fc",
+      "comparison": "Да; узлы: JSON=16, Fidesys=0; элементы: JSON=2, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact3dHexSFriction100.fc",
+      "comparison": "Да; узлы: JSON=16, Fidesys=0; элементы: JSON=2, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact3dHexSFrictionless.fc",
+      "comparison": "Да; узлы: JSON=16, Fidesys=0; элементы: JSON=2, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact3dTetSFriction05.fc",
+      "comparison": "Да; узлы: JSON=18, Fidesys=0; элементы: JSON=24, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact3dTetSFriction100.fc",
+      "comparison": "Да; узлы: JSON=18, Fidesys=0; элементы: JSON=24, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "Contact3dTetSFrictionless.fc",
+      "comparison": "Да; узлы: JSON=18, Fidesys=0; элементы: JSON=24, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "ContactPyrPyr2.fc",
+      "comparison": "Да; узлы: JSON=1073, Fidesys=0; элементы: JSON=567, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "ContactWedWed2.fc",
+      "comparison": "Да; узлы: JSON=298, Fidesys=0; элементы: JSON=64, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "check2d.fc",
+      "comparison": "Да; узлы: JSON=37808, Fidesys=0; элементы: JSON=13838, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "codeaster_ssnp159.fc",
+      "comparison": "Да; узлы: JSON=8, Fidesys=0; элементы: JSON=1, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "contact.fc",
+      "comparison": "Да; узлы: JSON=1436, Fidesys=0; элементы: JSON=340, Fidesys=0",
+      "fidesys_status": "import_error"
+    },
+    {
+      "file": "cube_multi.fc",
+      "comparison": "Да; узлы: JSON=53, Fidesys=0; элементы: JSON=96, Fidesys=0",
+      "fidesys_status": "import_error"
+    }
+  ],
+  "source_hashes_verified": 1130,
+  "original_logs_reparsed": 1130,
+  "removed_columns": [
+    "Fidesys_длительность_сек",
+    "Fidesys_код_launcher",
+    "Fidesys_конец_прогона_UTC",
+    "Fidesys_лог_повторного_запуска",
+    "Fidesys_полный_лог",
+    "Fidesys_реестр",
+    "Roundtrip_конец_прогона_UTC",
+    "Roundtrip_место_ошибки",
+    "Roundtrip_реестр",
+    "SHA256",
+    "Путь_исходного_файла",
+    "Спецификация_Luna_перепроверка",
+    "Спецификация_SHA256",
+    "Спецификация_документ",
+    "Спецификация_конец_прогона_UTC",
+    "Спецификация_охват",
+    "Спецификация_ошибок_проверки",
+    "Спецификация_реестр"
+  ],
+  "csv_sha256": "c4ca777ad60b54b5154c8f35155c2e68589670e16b0e194cfeaf2be9d6bbfcfb"
+}

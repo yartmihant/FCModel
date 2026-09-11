@@ -1,0 +1,47 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3dTetSo3_DiagonalCut_TiedTangent_Penalty.fc\'')
+
+[2026-09-11 18:42:10.159] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 18:42:10.160] [error] Command Failed.
+
+ERROR: Command Failed.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 2, "nodes": 226, "elements": 107, "version": "2021.11"}
+%>result = cubit.cmd('export fidesyscase "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_fidesys_roundtrip/exported/Contact3dTetSo3_DiagonalCut_TiedTangent_Penalty.fc" overwrite')
+
+Displacement 1 added to BCSet 100.
+Displacement 2 added to BCSet 100.
+Displacement 3 added to BCSet 100.
+Displacement 4 added to BCSet 100.
+Displacement 5 added to BCSet 100.
+Displacement 6 added to BCSet 100.
+Finished Command: export fidesyscase "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_fidesys_roundtrip/exported/Contact3dTetSo3_DiagonalCut_TiedTangent_Penalty.fc" overwrite
+
+%>print("FCMODEL_EXPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "result": result}))
+
+FCMODEL_EXPORT_DONE={"errors": 2, "nodes": 226, "elements": 107, "result": true}
+6 Displacement's were deleted.
+...deleting 107 tets from database...
+...deleting 62 tris and 186 edgeUses from database...
+...deleting 93 edges from database...
+...deleting 226 nodes from database...
+[2026-09-11 18:42:10.220] [error] Errors found during session.
+
+ERROR: Errors found during session.

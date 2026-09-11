@@ -1,0 +1,29 @@
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting tests/test_conditions.py ___________________
+import file mismatch:
+imported module 'test_conditions' has this __file__ attribute:
+  /home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_spec_audit/test_conditions.py
+which is not the same as the test file we want to collect:
+  /home/antonov/Base/Libs/FCModel/tests/test_conditions.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+___________________ ERROR collecting tests/test_materials.py ___________________
+import file mismatch:
+imported module 'test_materials' has this __file__ attribute:
+  /home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_spec_audit/test_materials.py
+which is not the same as the test file we want to collect:
+  /home/antonov/Base/Libs/FCModel/tests/test_materials.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+_____________________ ERROR collecting tests/test_mesh.py ______________________
+import file mismatch:
+imported module 'test_mesh' has this __file__ attribute:
+  /home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_spec_audit/test_mesh.py
+which is not the same as the test file we want to collect:
+  /home/antonov/Base/Libs/FCModel/tests/test_mesh.py
+HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
+=========================== short test summary info ============================
+ERROR tests/test_conditions.py
+ERROR tests/test_materials.py
+ERROR tests/test_mesh.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!
+3 errors in 0.15s

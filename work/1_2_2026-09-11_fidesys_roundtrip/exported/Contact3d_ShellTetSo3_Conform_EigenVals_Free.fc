@@ -1,0 +1,263 @@
+{
+   "blocks" : 
+   [
+      {
+         "cs_id" : 1,
+         "id" : 1,
+         "material_id" : 1,
+         "property_id" : 1
+      },
+      {
+         "cs_id" : 1,
+         "id" : 2,
+         "material_id" : 1,
+         "property_id" : 1
+      },
+      {
+         "cs_id" : 1,
+         "id" : 3,
+         "material_id" : 1,
+         "property_id" : 1
+      },
+      {
+         "cs_id" : 1,
+         "id" : 4,
+         "material_id" : 1,
+         "property_id" : 1
+      }
+   ],
+   "coordinate_systems" : 
+   [
+      {
+         "dir1" : "AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA",
+         "dir2" : "AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAA",
+         "id" : 1,
+         "name" : "Global Cartesian",
+         "origin" : "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         "type" : "cartesian"
+      }
+   ],
+   "header" : 
+   {
+      "binary" : true,
+      "description" : "Fidesys Case Format",
+      "types" : 
+      {
+         "char" : 1,
+         "double" : 8,
+         "int" : 4,
+         "short_int" : 2
+      },
+      "version" : 3
+   },
+   "materials" : 
+   [
+      {
+         "common" : 
+         [
+            {
+               "const_dep" : [ "" ],
+               "const_dep_size" : [ 0 ],
+               "const_names" : [ 0 ],
+               "const_types" : [ 0 ],
+               "constants" : [ "AAAAAABAv0A=" ],
+               "type" : 0
+            }
+         ],
+         "elasticity" : 
+         [
+            {
+               "const_dep" : [ "", "" ],
+               "const_dep_size" : [ 0, 0 ],
+               "const_names" : [ 0, 1 ],
+               "const_types" : [ 0, 0 ],
+               "constants" : [ "AAAA6HZIR0I=", "MzMzMzMz0z8=" ],
+               "type" : 0
+            }
+         ],
+         "id" : 1,
+         "name" : "mat1"
+      }
+   ],
+   "mesh" : 
+   {
+      "elem_blocks" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAA=",
+      "elem_orders" : "AwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAA=",
+      "elem_parent_ids" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAA=",
+      "elem_types" : "Hh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4=",
+      "elemids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcAAAAYAAAAGQAAABoAAAAbAAAAHAAAAB0AAAAeAAAAHwAAACAAAAA=",
+      "elems" : "IAAAAB8AAAAiAAAAWAAAAFkAAABdAAAAHQAAACQAAAAeAAAAXgAAAF8AAABWAAAAIwAAABwAAAAeAAAAXAAAAFUAAABgAAAAHQAAACAAAAAkAAAAVwAAAGEAAABeAAAAIwAAACQAAAAiAAAAYgAAAGMAAABkAAAAIwAAACIAAAAhAAAAZAAAAFoAAABbAAAAJAAAACAAAAAiAAAAYQAAAF0AAABjAAAAJAAAACMAAAAeAAAAYgAAAGAAAABfAAAAFwAAABYAAAAZAAAASAAAAEkAAABNAAAAFAAAABsAAAAVAAAATgAAAE8AAABGAAAAGgAAABMAAAAVAAAATAAAAEUAAABQAAAAFAAAABcAAAAbAAAARwAAAFEAAABOAAAAGgAAABsAAAAZAAAAUgAAAFMAAABUAAAAGgAAABkAAAAYAAAAVAAAAEoAAABLAAAAGwAAABcAAAAZAAAAUQAAAE0AAABTAAAAGwAAABoAAAAVAAAAUgAAAFAAAABPAAAADgAAAA0AAAAQAAAAOAAAADkAAAA9AAAACwAAABIAAAAMAAAAPgAAAD8AAAA2AAAAEQAAAAoAAAAMAAAAPAAAADUAAABAAAAACwAAAA4AAAASAAAANwAAAEEAAAA+AAAAEQAAABIAAAAQAAAAQgAAAEMAAABEAAAAEQAAABAAAAAPAAAARAAAADoAAAA7AAAAEgAAAA4AAAAQAAAAQQAAAD0AAABDAAAAEgAAABEAAAAMAAAAQgAAAEAAAAA/AAAABQAAAAQAAAAHAAAAKAAAACkAAAAtAAAAAgAAAAkAAAADAAAALgAAAC8AAAAmAAAACAAAAAEAAAADAAAALAAAACUAAAAwAAAAAgAAAAUAAAAJAAAAJwAAADEAAAAuAAAACAAAAAkAAAAHAAAAMgAAADMAAAA0AAAACAAAAAcAAAAGAAAANAAAACoAAAArAAAACQAAAAUAAAAHAAAAMQAAAC0AAAAzAAAACQAAAAgAAAADAAAAMgAAADAAAAAvAAAA",
+      "elems_count" : 32,
+      "nids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcAAAAYAAAAGQAAABoAAAAbAAAAHAAAAB0AAAAeAAAAHwAAACAAAAAhAAAAIgAAACMAAAAkAAAAJQAAACYAAAAnAAAAKAAAACkAAAAqAAAAKwAAACwAAAAtAAAALgAAAC8AAAAwAAAAMQAAADIAAAAzAAAANAAAADUAAAA2AAAANwAAADgAAAA5AAAAOgAAADsAAAA8AAAAPQAAAD4AAAA/AAAAQAAAAEEAAABCAAAAQwAAAEQAAABFAAAARgAAAEcAAABIAAAASQAAAEoAAABLAAAATAAAAE0AAABOAAAATwAAAFAAAABRAAAAUgAAAFMAAABUAAAAVQAAAFYAAABXAAAAWAAAAFkAAABaAAAAWwAAAFwAAABdAAAAXgAAAF8AAABgAAAAYQAAAGIAAABjAAAAZAAAAA==",
+      "nodes" : "AAAAAAAAFEAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQAAAAAAAAAAAAAAAAAAABEAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAEQAAAAAAAAAAAYHxzqPKTAkCkg4xXDWwFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAUQAAAAAAAAAAAAAAAAAAABMAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAoIOMVw1sBcCkg4xXDWwFQAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAUwAAAAAAAAAAAAAAAAAAABEAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAEwAAAAAAAAAAAYHxzqPKTAkBcfHOo8pMCwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAAAABMAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEwAAAAAAAAAAAoIOMVw1sBcBcfHOo8pMCwAAAAAAAAAAAAAAAAAAADkAAAAAAAAAUQAAAAAAAAAAAAAAAAAAA9D8AAAAA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",
+      "nodes_count" : 100
+   },
+   "property_tables" : 
+   [
+      {
+         "direction_normal" : true,
+         "id" : 1,
+         "properties" : 
+         {
+            "e" : 0.5,
+            "t" : 0.050000000000000003
+         },
+         "thickness_change" : false,
+         "thickness_integration_points" : 3,
+         "thickness_integration_rule" : "gauss",
+         "type" : 0
+      }
+   ],
+   "restraints" : 
+   [
+      {
+         "apply_to" : "VQAAAB4AAABWAAAAVwAAACAAAABYAAAAWQAAACIAAABaAAAAWwAAACMAAABcAAAARQAAABUAAABGAAAARwAAABcAAABIAAAASQAAABkAAABKAAAASwAAABoAAABMAAAANQAAAAwAAAA2AAAANwAAAA4AAAA4AAAAOQAAABAAAAA6AAAAOwAAABEAAAA8AAAAJQAAAAMAAAAmAAAAJwAAAAUAAAAoAAAAKQAAAAcAAAAqAAAAKwAAAAgAAAAsAAAAHAAAAB0AAAAfAAAAIQAAABMAAAAUAAAAFgAAABgAAAAKAAAACwAAAA0AAAAPAAAAAQAAAAIAAAAEAAAABgAAACQAAABdAAAAXgAAAF8AAABgAAAAYQAAAGIAAABjAAAAZAAAABsAAABNAAAATgAAAE8AAABQAAAAUQAAAFIAAABTAAAAVAAAABIAAAA9AAAAPgAAAD8AAABAAAAAQQAAAEIAAABDAAAARAAAAAkAAAAtAAAALgAAAC8AAAAwAAAAMQAAADIAAAAzAAAANAAAAA==",
+         "apply_to_size" : 100,
+         "cs" : 1,
+         "data" : 
+         [
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA="
+         ],
+         "dep_var_num" : [ "", "", "", "", "", "" ],
+         "dep_var_size" : [ 0, 0, 0, 0, 0, 0 ],
+         "dependency_type" : [ 0, 0, 0, 0, 0, 0 ],
+         "flag" : [ 1, 1, 0, 0, 0, 1 ],
+         "id" : 1,
+         "name" : ""
+      }
+   ],
+   "sets" : 
+   {
+      "sidesets" : 
+      [
+         {
+            "apply_to" : "AwAAAAEAAAACAAAAAgAAABEAAAABAAAAFgAAAAEAAAA=",
+            "apply_to_size" : 4,
+            "id" : 1,
+            "name" : ""
+         },
+         {
+            "apply_to" : "AwAAAAEAAAACAAAAAgAAABEAAAABAAAAFgAAAAEAAAA=",
+            "apply_to_size" : 4,
+            "id" : 2,
+            "name" : ""
+         },
+         {
+            "apply_to" : "BgAAAAIAAAADAAAAAAAAAAwAAAAAAAAACQAAAAAAAAA=",
+            "apply_to_size" : 4,
+            "id" : 3,
+            "name" : ""
+         },
+         {
+            "apply_to" : "BgAAAAIAAAADAAAAAAAAAAwAAAAAAAAACQAAAAAAAAA=",
+            "apply_to_size" : 4,
+            "id" : 4,
+            "name" : ""
+         },
+         {
+            "apply_to" : "CwAAAAEAAAAKAAAAAgAAABkAAAABAAAAHgAAAAEAAAA=",
+            "apply_to_size" : 4,
+            "id" : 5,
+            "name" : ""
+         },
+         {
+            "apply_to" : "CwAAAAEAAAAKAAAAAgAAABkAAAABAAAAHgAAAAEAAAA=",
+            "apply_to_size" : 4,
+            "id" : 6,
+            "name" : ""
+         },
+         {
+            "apply_to" : "HAAAAAAAAAAZAAAAAAAAABYAAAACAAAAEwAAAAAAAAA=",
+            "apply_to_size" : 4,
+            "id" : 7,
+            "name" : ""
+         },
+         {
+            "apply_to" : "HAAAAAAAAAAZAAAAAAAAABYAAAACAAAAEwAAAAAAAAA=",
+            "apply_to_size" : 4,
+            "id" : 8,
+            "name" : ""
+         }
+      ]
+   },
+   "settings" : 
+   {
+      "bc_tolerance" : 0.00050000000000000001,
+      "dimensions" : "3D",
+      "eigen_solver" : 
+      {
+         "absolute_tolerance" : 0.0,
+         "campbell" : false,
+         "eps_max_iterations" : 300,
+         "linear_solver" : 
+         {
+            "method" : "auto",
+            "preconditioner" : "auto",
+            "solver" : "auto"
+         },
+         "number" : 10,
+         "relative_tolerance" : 1e-08,
+         "solver" : "auto",
+         "spectr_trans" : 
+         {
+            "name" : "auto"
+         }
+      },
+      "elasticity" : false,
+      "environment" : 
+      {
+         "temperature" : 0.0
+      },
+      "finite_deformations" : false,
+      "heat_transfer" : false,
+      "incompressibility" : false,
+      "linear_solver" : 
+      {
+         "iter_opts" : 
+         {
+            "epsilon" : 1.0000000000000001e-09,
+            "max_iterations" : 50000,
+            "preconditioner" : "auto",
+            "stopping_criteria" : 0.0
+         },
+         "method" : "auto",
+         "on_fail" : true,
+         "use_uzawa" : "auto"
+      },
+      "nonlinear_solver" : 
+      {
+         "arc_method" : false,
+         "line_search" : false,
+         "max_iterations" : 50,
+         "max_load_steps" : 10,
+         "min_load_steps" : 1,
+         "start_load_steps" : 1,
+         "target_iter" : 5,
+         "tolerance" : 0.001
+      },
+      "output" : 
+      {
+         "energy" : false,
+         "full_periodic" : false,
+         "intermediate_results" : true,
+         "log" : true,
+         "material" : false,
+         "normal_force" : false,
+         "record3d" : true,
+         "vtu" : true,
+         "without_smoothing" : false
+      },
+      "permission_write" : true,
+      "plasticity" : false,
+      "porefluid_transfer" : false,
+      "preload" : false,
+      "radiation_among_surfaces" : false,
+      "slm" : false,
+      "type" : "eigenfrequencies"
+   }
+}

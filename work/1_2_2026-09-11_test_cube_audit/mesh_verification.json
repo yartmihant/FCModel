@@ -1,0 +1,22 @@
+{
+  "nodes": 1331,
+  "elements": 1000,
+  "element_type": "HEX8",
+  "connectivity_node_refs_valid": true,
+  "node_and_element_ids_unique": true,
+  "block_material_cs_refs_valid": true,
+  "load_element_and_face_refs_valid": true,
+  "restraint_node_refs_valid": true,
+  "load_faces": 100,
+  "restrained_nodes": 121,
+  "bbox_min": [
+    -5.0,
+    -5.0,
+    -5.0
+  ],
+  "bbox_max": [
+    5.0,
+    5.0,
+    5.0
+  ]
+}

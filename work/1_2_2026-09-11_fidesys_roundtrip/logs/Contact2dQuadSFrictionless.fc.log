@@ -1,0 +1,50 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact2dQuadSFrictionless.fc\'')
+
+[2026-09-11 18:39:02.241] [error] Property cannot be added to material 101 due to it's prerequisites and conflicts.
+
+ERROR: Property cannot be added to material 101 due to it's prerequisites and conflicts.
+[2026-09-11 18:39:02.241] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 18:39:02.296] [error] Property cannot be added to material 106 due to it's prerequisites and conflicts.
+
+ERROR: Property cannot be added to material 106 due to it's prerequisites and conflicts.
+[2026-09-11 18:39:02.296] [error] Command Failed.
+
+ERROR: Command Failed.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 4, "nodes": 8, "elements": 2, "version": "2021.11"}
+%>result = cubit.cmd('export fidesyscase "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_fidesys_roundtrip/exported/Contact2dQuadSFrictionless.fc" overwrite')
+
+Force 3 added to BCSet 100.
+Displacement 1 added to BCSet 100.
+Displacement 2 added to BCSet 100.
+Finished Command: export fidesyscase "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_fidesys_roundtrip/exported/Contact2dQuadSFrictionless.fc" overwrite
+
+%>print("FCMODEL_EXPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "result": result}))
+
+FCMODEL_EXPORT_DONE={"errors": 4, "nodes": 8, "elements": 2, "result": true}
+2 Displacement's were deleted.
+1 Force was deleted.
+...deleting 2 faces from database...
+...deleting 8 edges from database...
+...deleting 8 nodes from database...
+[2026-09-11 18:39:02.527] [error] Errors found during session.
+
+ERROR: Errors found during session.

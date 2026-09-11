@@ -1,0 +1,44 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact2dQuadS_CGS1_regular_notconform_gap01.fc\'')
+
+[2026-09-11 18:39:16.871] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 18:39:16.871] [error] Command Failed.
+
+ERROR: Command Failed.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 2, "nodes": 58, "elements": 12, "version": "2021.11"}
+%>result = cubit.cmd('export fidesyscase "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_fidesys_roundtrip/exported/Contact2dQuadS_CGS1_regular_notconform_gap01.fc" overwrite')
+
+Pressure 1 added to BCSet 100.
+Displacement 1 added to BCSet 100.
+Displacement 2 added to BCSet 100.
+Finished Command: export fidesyscase "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_fidesys_roundtrip/exported/Contact2dQuadS_CGS1_regular_notconform_gap01.fc" overwrite
+
+%>print("FCMODEL_EXPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "result": result}))
+
+FCMODEL_EXPORT_DONE={"errors": 2, "nodes": 58, "elements": 12, "result": true}
+2 Displacement's were deleted.
+1 Pressure was deleted.
+...deleting 12 faces from database...
+...deleting 34 edges from database...
+...deleting 58 nodes from database...
+[2026-09-11 18:39:17.134] [error] Errors found during session.
+
+ERROR: Errors found during session.

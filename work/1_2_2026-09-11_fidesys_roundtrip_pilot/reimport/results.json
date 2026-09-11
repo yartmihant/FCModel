@@ -1,0 +1,62 @@
+[
+  {
+    "file": "Cube_static_direction_shell.fc",
+    "sha256": "d940729a19ade46a3026a8497b616a15966654a792b8e1ca7e694bf9108052c3",
+    "source_unchanged": true,
+    "roundtrip_status": "diagnostic",
+    "status": "loaded_without_errors",
+    "duration_seconds": 2.219,
+    "returncode": 11,
+    "timeout": false,
+    "log": "logs/Cube_static_direction_shell.fc.log",
+    "command": [
+      "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+      "-nographics",
+      "-batch",
+      "-model",
+      "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_fidesys_roundtrip_controls/exported/Cube_static_direction_shell.fc",
+      "-input",
+      "/tmp/fc-fidesys-import-8vjp_ak9/after_import.py"
+    ],
+    "errors": [],
+    "warnings": [],
+    "primary_errors": [],
+    "completion": {
+      "errors": 0,
+      "nodes": 16,
+      "elements": 9,
+      "version": "2021.11"
+    },
+    "roundtrip_difference_patterns": []
+  },
+  {
+    "file": "Contact2dQuad4Quad8HomogeneousStress.fc",
+    "sha256": "80e07336809400b883488f2ecf235cba377eba70bfa6d2f57dddaca76fe96307",
+    "source_unchanged": true,
+    "roundtrip_status": "diagnostic",
+    "status": "loaded_without_errors",
+    "duration_seconds": 2.219,
+    "returncode": 11,
+    "timeout": false,
+    "log": "logs/Contact2dQuad4Quad8HomogeneousStress.fc.log",
+    "command": [
+      "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+      "-nographics",
+      "-batch",
+      "-model",
+      "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_fidesys_roundtrip_controls/exported/Contact2dQuad4Quad8HomogeneousStress.fc",
+      "-input",
+      "/tmp/fc-fidesys-import-9sltbaqh/after_import.py"
+    ],
+    "errors": [],
+    "warnings": [],
+    "primary_errors": [],
+    "completion": {
+      "errors": 0,
+      "nodes": 41,
+      "elements": 9,
+      "version": "2021.11"
+    },
+    "roundtrip_difference_patterns": []
+  }
+]

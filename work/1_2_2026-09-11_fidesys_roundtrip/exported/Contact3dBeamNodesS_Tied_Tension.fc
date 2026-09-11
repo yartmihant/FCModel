@@ -1,0 +1,99 @@
+{
+   "blocks" : 
+   [
+      {
+         "cs_id" : 1,
+         "id" : 1,
+         "material_id" : 0,
+         "property_id" : -1
+      },
+      {
+         "cs_id" : 1,
+         "id" : 2,
+         "material_id" : 0,
+         "property_id" : -1
+      }
+   ],
+   "coordinate_systems" : 
+   [
+      {
+         "dir1" : "AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA",
+         "dir2" : "AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAA",
+         "id" : 1,
+         "name" : "Global Cartesian",
+         "origin" : "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         "type" : "cartesian"
+      }
+   ],
+   "header" : 
+   {
+      "binary" : true,
+      "description" : "Fidesys Case Format",
+      "types" : 
+      {
+         "char" : 1,
+         "double" : 8,
+         "int" : 4,
+         "short_int" : 2
+      },
+      "version" : 3
+   },
+   "mesh" : 
+   {
+      "elem_blocks" : "AQAAAAEAAAACAAAAAgAAAA==",
+      "elem_orders" : "AgAAAAIAAAACAAAAAgAAAA==",
+      "elem_parent_ids" : "AQAAAAEAAAACAAAAAgAAAA==",
+      "elem_types" : "WlpaWg==",
+      "elemids" : "AQAAAAIAAAADAAAABAAAAA==",
+      "elems" : "AQAAAAMAAAAHAAAAAwAAAAIAAAAIAAAABAAAAAYAAAAJAAAABgAAAAUAAAAKAAAA",
+      "elems_count" : 4,
+      "nids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAA==",
+      "nodes" : "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA4D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA4L8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA0D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA6D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA0L8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA6L8AAAAAAAAAAAAAAAAAAAAA",
+      "nodes_count" : 10
+   },
+   "sets" : 
+   {
+      "nodesets" : 
+      [
+         {
+            "apply_to" : "BQAAAA==",
+            "apply_to_size" : 1,
+            "id" : 1,
+            "name" : ""
+         },
+         {
+            "apply_to" : "AgAAAA==",
+            "apply_to_size" : 1,
+            "id" : 2,
+            "name" : ""
+         },
+         {
+            "apply_to" : "AgAAAA==",
+            "apply_to_size" : 1,
+            "id" : 3,
+            "name" : ""
+         }
+      ]
+   },
+   "settings" : 
+   {
+      "bc_tolerance" : 0.00050000000000000001,
+      "environment" : 
+      {
+         "temperature" : 0.0
+      },
+      "output" : 
+      {
+         "energy" : false,
+         "full_periodic" : false,
+         "intermediate_results" : true,
+         "log" : true,
+         "material" : false,
+         "normal_force" : false,
+         "record3d" : false,
+         "vtu" : true,
+         "without_smoothing" : false
+      },
+      "permission_write" : true
+   }
+}

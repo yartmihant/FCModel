@@ -1,0 +1,57 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact2dTriCGS4_03_2el_Penalty.fc\'')
+
+[2026-09-11 18:39:36.643] [error] Unrecognized Identifier: 'constant_damping'
+
+ERROR: Unrecognized Identifier: 'constant_damping'
+[2026-09-11 18:39:36.643] [error] syntax error (<stdin>, line 54)
+
+ERROR: syntax error (<stdin>, line 54)
+[2026-09-11 18:39:36.645] [error] There is no such Spring properties.
+
+ERROR: There is no such Spring properties.
+[2026-09-11 18:39:36.645] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 18:39:36.674] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 18:39:36.674] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 18:39:36.686] [error] Invalid element id 5.
+
+ERROR: Invalid element id 5.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 7, "nodes": 10, "elements": 6, "version": "2021.11"}
+%>result = cubit.cmd('export fidesyscase "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_fidesys_roundtrip/exported/Contact2dTriCGS4_03_2el_Penalty.fc" overwrite')
+
+Displacement 1 added to BCSet 100.
+Displacement 2 added to BCSet 100.
+Finished Command: export fidesyscase "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_fidesys_roundtrip/exported/Contact2dTriCGS4_03_2el_Penalty.fc" overwrite
+
+%>print("FCMODEL_EXPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "result": result}))
+
+FCMODEL_EXPORT_DONE={"errors": 7, "nodes": 10, "elements": 6, "result": true}
+2 Displacement's were deleted.
+...deleting 4 tris and 12 edgeUses from database...
+...deleting 12 edges from database...
+...deleting 10 nodes from database...
+[2026-09-11 18:39:36.734] [error] Errors found during session.
+
+ERROR: Errors found during session.

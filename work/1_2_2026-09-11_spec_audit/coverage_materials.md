@@ -42,8 +42,9 @@ infer endianness, physical ranges, required material combinations, required
 properties, or geometry completeness. It does not treat the published
 `const_names` lists as exhaustive: corpus codes absent from those tables are
 reported as `ambiguity`. Unknown nested fields are reported as `ambiguity`,
-while repeated group components and non-array grouped fields are direct
-violations of the v3 shape. The documented flat `materials[i].constants`
+while non-array grouped fields remain violations of the v3 shape. Multiple
+objects within a group are permitted; each is checked independently. Integer
+fields accept integer-valued JSON floats, with enum and range checks retained. The documented flat `materials[i].constants`
 object is reported as `legacy`.
 
 No source files, corpus files, documentation, VERSION, or changelog were

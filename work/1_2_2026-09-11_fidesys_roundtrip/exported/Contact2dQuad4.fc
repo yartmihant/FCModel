@@ -1,0 +1,206 @@
+{
+   "blocks" : 
+   [
+      {
+         "cs_id" : 1,
+         "id" : 1,
+         "material_id" : 0,
+         "property_id" : -1
+      },
+      {
+         "cs_id" : 1,
+         "id" : 2,
+         "material_id" : 0,
+         "property_id" : -1
+      }
+   ],
+   "coordinate_systems" : 
+   [
+      {
+         "dir1" : "AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA",
+         "dir2" : "AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAA",
+         "id" : 1,
+         "name" : "Global Cartesian",
+         "origin" : "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         "type" : "cartesian"
+      }
+   ],
+   "header" : 
+   {
+      "binary" : true,
+      "description" : "Fidesys Case Format",
+      "types" : 
+      {
+         "char" : 1,
+         "double" : 8,
+         "int" : 4,
+         "short_int" : 2
+      },
+      "version" : 3
+   },
+   "materials" : 
+   [
+      {
+         "common" : 
+         [
+            {
+               "const_dep" : [ "" ],
+               "const_dep_size" : [ 0 ],
+               "const_names" : [ 0 ],
+               "const_types" : [ 0 ],
+               "constants" : [ "AAAAAABAj0A=" ],
+               "type" : 0
+            }
+         ],
+         "elasticity" : 
+         [
+            {
+               "const_dep" : [ "", "" ],
+               "const_dep_size" : [ 0, 0 ],
+               "const_names" : [ 0, 1 ],
+               "const_types" : [ 0, 0 ],
+               "constants" : [ "AAAAAAAA8D8=", "MzMzMzMz0z8=" ],
+               "type" : 0
+            }
+         ],
+         "id" : 1,
+         "name" : "mat2"
+      }
+   ],
+   "mesh" : 
+   {
+      "elem_blocks" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAA",
+      "elem_orders" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAA",
+      "elem_parent_ids" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAA",
+      "elem_types" : "DAwMDAwMDAwMDAwMDAwMDAwM",
+      "elemids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAA",
+      "elems" : "DQAAAAMAAAAEAAAADgAAAA4AAAAEAAAAAgAAAAYAAAANAAAADgAAABAAAAAPAAAADgAAAAYAAAAHAAAAEAAAAA8AAAAQAAAACQAAAAoAAAAQAAAABwAAAAUAAAAJAAAADQAAAA8AAAALAAAADAAAAA8AAAAKAAAACAAAAAsAAAANAAAADAAAAAEAAAADAAAAHQAAABMAAAAUAAAAHgAAAB4AAAAUAAAAEgAAABYAAAAdAAAAHgAAACAAAAAfAAAAHgAAABYAAAAXAAAAIAAAAB8AAAAgAAAAGQAAABoAAAAgAAAAFwAAABUAAAAZAAAAHQAAAB8AAAAbAAAAHAAAAB8AAAAaAAAAGAAAABsAAAAdAAAAHAAAABEAAAATAAAA",
+      "elems_count" : 18,
+      "nids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcAAAAYAAAAGQAAABoAAAAbAAAAHAAAAB0AAAAeAAAAHwAAACAAAAA=",
+      "nodes" : "AAAAAAAA4D8AAAAAAADgPwAAAAAAAAAAAAAAAAAA4L8AAAAAAADgPwAAAAAAAAAAVlVVVVVVxT8AAAAAAADgPwAAAAAAAAAAVFVVVVVVxb8AAAAAAADgPwAAAAAAAAAAAAAAAAAA4L8AAAAAAADgvwAAAAAAAAAAAAAAAAAA4L9WVVVVVVXFPwAAAAAAAAAAAAAAAAAA4L9UVVVVVVXFvwAAAAAAAAAAAAAAAAAA4D8AAAAAAADgvwAAAAAAAAAAVlVVVVVVxb8AAAAAAADgvwAAAAAAAAAAVFVVVVVVxT8AAAAAAADgvwAAAAAAAAAAAAAAAAAA4D9WVVVVVVXFvwAAAAAAAAAAAAAAAAAA4D9UVVVVVVXFPwAAAAAAAAAApaJKGtEqxT+kokoa0SrFPwAAAAAAAAAAkhpnm6Rqxb8ZkEMPBkDFPwAAAAAAAAAAwb44EAZAxT/p63GapGrFvwAAAAAAAAAAKk04Yg6Axb8nTThiDoDFvwAAAAAAAAAAAAAAAAAA0D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA0L8AAAAAAADwPwAAAAAAAAAAVlVVVVVVtT8AAAAAAADwPwAAAAAAAAAAVFVVVVVVtb8AAAAAAADwPwAAAAAAAAAAAAAAAAAA0L8AAAAAAADgPwAAAAAAAAAAAAAAAAAA0L+rqqqqqqrqPwAAAAAAAAAAAAAAAAAA0L9WVVVVVVXlPwAAAAAAAAAAAAAAAAAA0D8AAAAAAADgPwAAAAAAAAAAVlVVVVVVtb8AAAAAAADgPwAAAAAAAAAAVFVVVVVVtT8AAAAAAADgPwAAAAAAAAAAAAAAAAAA0D9VVVVVVVXlPwAAAAAAAAAAAAAAAAAA0D+qqqqqqqrqPwAAAAAAAAAApqJKGtEqtT9UVEkjWqXqPwAAAAAAAAAAkhpnm6Rqtb8EcujBAKjqPwAAAAAAAAAAwb44EAZAtT+DwrFsq1LlPwAAAAAAAAAAKU04Yg6Atb9b9rgz/k/lPwAAAAAAAAAA",
+      "nodes_count" : 32
+   },
+   "restraints" : 
+   [
+      {
+         "apply_to" : "BQAAAAkAAAAKAAAACAAAAA==",
+         "apply_to_size" : 4,
+         "cs" : 1,
+         "data" : 
+         [
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA="
+         ],
+         "dep_var_num" : [ "", "", "", "", "", "" ],
+         "dep_var_size" : [ 0, 0, 0, 0, 0, 0 ],
+         "dependency_type" : [ 0, 0, 0, 0, 0, 0 ],
+         "flag" : [ 1, 1, 0, 0, 0, 0 ],
+         "id" : 1,
+         "name" : ""
+      },
+      {
+         "apply_to" : "EQAAABMAAAAUAAAAEgAAAA==",
+         "apply_to_size" : 4,
+         "cs" : 1,
+         "data" : 
+         [
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA="
+         ],
+         "dep_var_num" : [ "", "", "", "", "", "" ],
+         "dep_var_size" : [ 0, 0, 0, 0, 0, 0 ],
+         "dependency_type" : [ 0, 0, 0, 0, 0, 0 ],
+         "flag" : [ 1, 0, 0, 0, 0, 0 ],
+         "id" : 2,
+         "name" : ""
+      },
+      {
+         "apply_to" : "EQAAABMAAAAUAAAAEgAAAA==",
+         "apply_to_size" : 4,
+         "cs" : 1,
+         "data" : 
+         [
+            "AAAAAAAAAAA=",
+            "mpmZmZmZub8=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA="
+         ],
+         "dep_var_num" : [ "", "", "", "", "", "" ],
+         "dep_var_size" : [ 0, 0, 0, 0, 0, 0 ],
+         "dependency_type" : [ 0, 0, 0, 0, 0, 0 ],
+         "flag" : [ 0, 1, 0, 0, 0, 0 ],
+         "id" : 3,
+         "name" : ""
+      }
+   ],
+   "settings" : 
+   {
+      "bc_tolerance" : 0.00050000000000000001,
+      "dimensions" : "2D",
+      "dynamics" : 
+      {
+         "result_output_iter" : 1
+      },
+      "elasticity" : true,
+      "environment" : 
+      {
+         "temperature" : 0.0
+      },
+      "finite_deformations" : false,
+      "heat_transfer" : false,
+      "incompressibility" : false,
+      "linear_solver" : 
+      {
+         "iter_opts" : 
+         {
+            "epsilon" : 1.0000000000000001e-09,
+            "max_iterations" : 50000,
+            "preconditioner" : "auto",
+            "stopping_criteria" : 0.0
+         },
+         "method" : "auto",
+         "on_fail" : true,
+         "use_uzawa" : "auto"
+      },
+      "nonlinear_solver" : 
+      {
+         "arc_method" : false,
+         "line_search" : false,
+         "max_iterations" : 100,
+         "max_load_steps" : 10,
+         "min_load_steps" : 10,
+         "start_load_steps" : 10,
+         "target_iter" : 5,
+         "tolerance" : 9.9999999999999995e-07
+      },
+      "output" : 
+      {
+         "energy" : false,
+         "full_periodic" : false,
+         "intermediate_results" : true,
+         "log" : true,
+         "material" : false,
+         "normal_force" : false,
+         "record3d" : true,
+         "vtu" : true,
+         "without_smoothing" : false
+      },
+      "permission_write" : true,
+      "plane_state" : "p-strain",
+      "plasticity" : false,
+      "porefluid_transfer" : false,
+      "radiation_among_surfaces" : false,
+      "slm" : false,
+      "type" : "static"
+   }
+}

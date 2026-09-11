@@ -12,7 +12,7 @@ The Wiki source was https://clare.office.saldlab.com/wiki/Формат_Fidesys_C
 
 - File extension: `.fc`
 - Encoding: UTF-8
-- Container format: JSON
+- Container format: JSON. For JSON fields denoted `int`, integer-valued numbers are accepted in either integer or floating-point notation (for example, `2` and `2.0`); booleans, fractional values and non-finite numbers are not integers. This notation rule does not change binary element widths or the declared value ranges.
 - Binary mode support: arrays can be stored as Base64-encoded binary blobs when `header.binary = true`
 - In the Python library, numerical value and argument buffers are Base64-encoded. Their JSON containers and metadata arrays (for example, `const_names`, `const_types`, and `const_dep_size`) remain JSON arrays. Array type notation describes decoded contents; the encoding boundary is specified per field below.
 
@@ -70,7 +70,7 @@ The parser reads the following top-level fields (some are optional):
   "nodes":          "<Base64 [double]>", // Node coordinates flat array [x0,y0,z0, x1,y1,z1, ...] (size = nodes_count*3)
   "elems_count":    "<int>",           // Total number of elements
   "elemids":        "<Base64 [int]>",  // Element IDs (1-based, size = elems_count)
-  "elem_types":     "<Base64 [int]>",  // Element type codes per element (see elem_types table, size = elems_count)
+  "elem_types":     "<Base64 [uint8]>",  // One-byte unsigned element type codes; independent of header.types.int (see elem_types table, size = elems_count)
   "elem_blocks":    "<Base64 [int]>",  // Block ID each element belongs to (size = elems_count)
   "elem_orders":    "<Base64 [int]>",  // Spectral polynomial order per element; relevant for SEM workflows (size = elems_count)
   "elem_parent_ids":"<Base64 [int]>",  // Parent element IDs for sub-element hierarchies (size = elems_count)
@@ -516,7 +516,7 @@ Common material record shape:
 }
 ```
 
-Each group is an array of one element. The element shape:
+Each group is an array of property objects, with no restriction to a single object. Each object has the following shape:
 
 ```json
 {
@@ -1020,7 +1020,7 @@ Example of a BEAM `properties` object containing rectangular geometry (illustrat
       "ids":   "[int]",           // List of material IDs per step
       "steps": "[int]"            // Step numbers corresponding to each material ID
     },
-    "property_id":    "<int>",    // Property table ID (beam/shell/spring/lumpmass sections)
+    "property_id":    "<int>",    // Property table ID (beam/shell/spring/lumpmass sections); -1 = no special properties for a non-beam/non-shell block (not a property_tables reference)
     "cs_id":          "<int>",    // Coordinate system ID for the block
     "orientation_id": "<int>",    // Orientation ID for anisotropic materials
     "steps":          "[int]"     // Steps on which the block is active (empty = all steps)
@@ -1608,7 +1608,7 @@ Field requirements depend on analysis type:
 ```
 
 **`solver` values:**
-- `"Auto"` — automatic selection
+- `"auto"` — automatic selection
 - `"krylovschur"` — Krylov-Schur (recommended for large sparse problems)
 - `"arnoldi"` — Arnoldi iteration
 - `"lanczos"` — Lanczos iteration (symmetric problems)
@@ -1682,7 +1682,7 @@ Field requirements depend on analysis type:
 }
 ```
 
-Output options are mutually exclusive: use exactly one of `result_output_iter`, `result_output_time`, or `result_number`.
+Output options are mutually exclusive: specifying an output option is optional; use at most one of `result_output_iter`, `result_output_time`, or `result_number`.
 
 ### settings.dynamics
 
@@ -1708,7 +1708,7 @@ Output options are mutually exclusive: use exactly one of `result_output_iter`, 
 - `method`: `"full_solution"` — direct time integration; `"mode_superposition"` — modal superposition
 - `scheme`: `"explicit"` — central differences (requires `courant` + `max_steps_count`); `"implicit"` — Newmark (requires `time_step` or `steps_count`)
 - `newmark_gamma`: controls high-frequency numerical dissipation; 0.0 = no dissipation (standard Newmark), 0.005 = slight damping (default)
-- Output options are mutually exclusive: use exactly one of `result_output_iter`, `result_output_time`, or `result_number`
+- Output options are mutually exclusive: specifying an output option is optional; use at most one of `result_output_iter`, `result_output_time`, or `result_number`
 
 ### settings.harmonic
 

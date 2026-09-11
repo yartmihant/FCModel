@@ -1,10 +1,13 @@
 """Independent audit of material and property-table sections of an FC JSON file."""
 
+
 import base64
 import binascii
 import math
 import struct
 from typing import Dict, List, Optional, Sequence, Tuple, cast
+
+from audit_types import is_integer as _is_int
 
 
 Finding = Dict[str, object]
@@ -57,10 +60,6 @@ def _type_name(value: object) -> str:
     if isinstance(value, bool):
         return "bool"
     return type(value).__name__
-
-
-def _is_int(value: object) -> bool:
-    return isinstance(value, int) and not isinstance(value, bool)
 
 
 def _is_number(value: object) -> bool:
@@ -161,7 +160,7 @@ def _audit_component(group: str, component: object, path: str, data: dict,
         elif group in NAME_CODES and name not in NAME_CODES[group]:
             out.append(_f("MAT.CONST_NAME", "ambiguity", p, "Индекс свойства отсутствует в опубликованной таблице группы; спецификация не устанавливает исчерпываемость индексов.",
                           name, sorted(NAME_CODES[group]), MATERIAL_LINE))
-        dep_size_num = cast(int, dep_size) if _is_int(dep_size) else -1
+        dep_size_num = int(dep_size) if isinstance(dep_size, (int, float)) and _is_int(dep_size) else -1
         if dep_size_num < 0:
             out.append(_f("MAT.DEP_SIZE", "violation", f"{path}.const_dep_size[{index}]",
                           "Размер таблицы должен быть неотрицательным целым.", dep_size, "целое >= 0", COMPONENT_LINE))
@@ -260,7 +259,7 @@ def _audit_materials(data: dict, out: List[Finding]) -> None:
         return
     header = data.get("header")
     version = header.get("version") if isinstance(header, dict) else None
-    legacy_version = _is_int(version) and cast(int, version) < 3
+    legacy_version = isinstance(version, (int, float)) and _is_int(version) and version < 3
     known_groups = set(GROUP_TYPES)
     for mi, material in enumerate(materials):
         path = f"$.materials[{mi}]"
@@ -286,9 +285,6 @@ def _audit_materials(data: dict, out: List[Finding]) -> None:
                 out.append(_f("MAT.GROUP_ARRAY", severity, f"{path}.{key}",
                               "Группа материала должна быть массивом в grouped layout.", _type_name(value), "array", MATERIAL_LINE))
                 continue
-            if len(value) > 1:
-                out.append(_f("MAT.GROUP_CARDINALITY", "violation", f"{path}.{key}",
-                              "Группа материала должна содержать ровно один объект.", len(value), "0 или 1", MATERIAL_LINE))
             for ci, component in enumerate(value):
                 _audit_component(key, component, f"{path}.{key}[{ci}]", data, out)
         if isinstance(material.get("constants"), dict):
@@ -400,7 +396,7 @@ def _audit_property_tables(data: dict, out: List[Finding]) -> None:
                         10: {"H", "B3", "B1", "B2", "d1", "d2", "c3", "c1", "c2"},
                         12: {"d1", "d2", "p1", "p2"},
                     }
-                    allowed_geometry = section_geometry_fields.get(cast(int, section), set()) if _is_int(section) else set()
+                    allowed_geometry = section_geometry_fields.get(int(section), set()) if isinstance(section, (int, float)) and _is_int(section) else set()
                     for key, value in geometry.items():
                         if key not in allowed_geometry:
                             out.append(_f("PT.UNKNOWN_FIELD", "ambiguity", f"{path}.properties.geometry.{key}",

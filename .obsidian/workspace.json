@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/fc_model/FC_INPUT_FORMAT.md",
+                "file": "work/1_2_2026-09-11_spec_findings_review_report.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "FC_INPUT_FORMAT"
+              "title": "1_2_2026-09-11_spec_findings_review_report"
             }
           }
         ]
@@ -83,7 +83,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "85229be2ebc8f7a6",
@@ -99,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "src/fc_model/FC_INPUT_FORMAT.md",
+                "file": "work/1_2_2026-09-11_spec_findings_review_report.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "src/fc_model/FC_INPUT_FORMAT.md",
+                "file": "work/1_2_2026-09-11_spec_findings_review_report.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "src/fc_model/FC_INPUT_FORMAT.md",
+                "file": "work/1_2_2026-09-11_spec_findings_review_report.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -190,20 +191,32 @@
   },
   "active": "e3de60444f2bf797",
   "lastOpenFiles": [
-    "work/1_2_2026-09-11_spec_findings_review_report.md",
-    "work/1_2_2026-09-11_spec_findings_review/project_pytest.log",
-    "work/1_2_2026-09-11_spec_findings_review/pyright.log",
-    "work/1_2_2026-09-11_spec_findings_review/evidence.json",
-    "work/1_2_2026-09-11_spec_findings_review/probe.py",
-    "work/1_2_2026-09-11_spec_findings_review",
+    "work/1_2_2026-09-11_property_id_sentinel/changed_preview.png",
+    "work/1_2_2026-09-11_property_id_sentinel/verification.json",
+    "work/1_2_2026-09-11_property_id_sentinel/project_pytest.log",
+    "work/1_2_2026-09-11_property_id_sentinel/pytest.log",
+    "work/1_2_2026-09-11_property_id_sentinel/csv_build.log",
+    "work/1_2_2026-09-11_property_id_sentinel/README.md",
+    "work/1_2_2026-09-11_property_id_sentinel/summary_before.csv",
+    "work/1_2_2026-09-11_property_id_sentinel/spec_before.json",
+    "work/1_2_2026-09-11_property_id_sentinel",
+    "work/1_2_2026-09-11_test_cube_audit/README.md",
+    "work/1_2_2026-09-11_test_cube_audit/mesh_verification.json",
+    "work/1_2_2026-09-11_test_cube_audit/fidesys_result.json",
+    "work/1_2_2026-09-11_test_cube_audit/fidesys/exported/test_cube.fc",
+    "work/1_2_2026-09-11_fidesys_export_changes.md",
+    "work/1_2_2026-09-11_fidesys_export_changes_plan.md",
+    "work/1_2_2026-09-11_fidesys_roundtrip/README.md",
+    "work/1_2_2026-09-11_test_summary/cycle_preview.png",
+    "work/1_2_2026-09-11_fidesys_roundtrip_plan.md",
+    "work/1_2_2026-09-11_spec_corrections/README.md",
+    "work/1_2_2026-09-11_test_summary/mesh_preview.png",
+    "work/1_2_2026-09-11_spec_corrections_plan.md",
     "work/1_2_2026-09-11_spec_findings_review_plan.md",
+    "src/fc_model/FC_INPUT_FORMAT.md",
+    "work/1_2_2026-09-11_spec_findings_review_report.md",
     "work/1_2_2026-09-11_spec_audit/README.md",
-    "work/1_2_2026-09-11_spec_audit/csv_verification.json",
     "work/1_2_2026-09-11_test_summary/spec_preview.png",
-    "work/1_2_2026-09-11_spec_audit/csv_build.log",
-    "work/1_2_2026-09-11_spec_audit/__pycache__/audit_mesh.cpython-38.pyc",
-    "work/1_2_2026-09-11_spec_audit/__pycache__/test_mesh.cpython-38-pytest-8.3.5.pyc",
-    "work/1_2_2026-09-11_spec_audit/__pycache__/audit_materials.cpython-38.pyc",
     "work/1_2_2026-09-11_spec_audit/coverage_document.md",
     "work/1_2_2026-09-11_spec_audit/coverage_conditions.md",
     "work/1_2_2026-09-11_spec_audit/coverage_materials.md",
@@ -218,23 +231,11 @@
     "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/tools/skills/playwright-component-testing/references/react.md",
     "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/tools/skills/playwright-component-testing/references/migration.md",
     "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/tools/skills/playwright-component-testing/references/gallery-spec.md",
-    "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/tools/skills/playwright-cli/references/video-recording.md",
-    "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/tools/skills/playwright-cli/references/tracing.md",
-    "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/tools/skills/playwright-cli/references/test-generation.md",
-    "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/tools/skills/playwright-cli/references/storage-state.md",
-    "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/tools/skills/playwright-cli/references/session-management.md",
-    "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/tools/skills/playwright-cli/references/running-code.md",
-    "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/tools/skills/playwright-cli/references/request-mocking.md",
-    "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/tools/skills/playwright-cli/references/playwright-tests.md",
-    "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/tools/skills/playwright-cli/references/element-attributes.md",
-    "work/1_2_2026-09-11_test_summary/node_modules/@oai/artifact-tool/docs/spreadsheets/references/ops/thread.md",
     "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/vite/dashboard/assets/safari-na3_-uQk.svg",
     "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/vite/dashboard/assets/firefox-nightly-Cp5nfeDT.svg",
     "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/vite/dashboard/assets/firefox-beta-k3eOH_eK.svg",
     "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/vite/dashboard/assets/firefox-1bWoP6pv.svg",
     "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/vite/traceViewer/playwright-logo.svg",
-    "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/vite/recorder/playwright-logo.svg",
-    "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/vite/dashboard/playwright-logo.svg",
-    "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/tools/dashboard/appIcon.png"
+    "work/1_2_2026-09-11_test_summary/node_modules/playwright-core/lib/vite/recorder/playwright-logo.svg"
   ]
 }

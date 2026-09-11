@@ -1,19 +1,19 @@
 # Охват проверки документа, заголовка и settings
 
-`audit_document.py` извлекает 22 схемы объектов и типы присутствующих полей непосредственно из текущего `docs/FC_INPUT_FORMAT.md`: header и все показанные настройки settings, включая вложенные eigen_solver/linear_solver/iter_opts. Номера строк сохраняются в диагностике. Списки и длины фиксированных векторов проверяются; bool не принимается за int/double, int допускается для double, float не допускается для int.
+`audit_document.py` извлекает 22 схемы объектов и типы присутствующих полей непосредственно из текущего `docs/FC_INPUT_FORMAT.md`: header и все показанные настройки settings, включая вложенные eigen_solver/linear_solver/iter_opts. Номера строк сохраняются в диагностике. Списки и длины фиксированных векторов проверяются; bool не принимается за int/double, int допускается для double, целочисленные float допускаются для int, дробные и нечисловые значения — нет.
 
 Проверяются верхние типы секций, неизвестные секции/поля, версия и контекст бинарного кодирования, положительные sizeof, unsigned short. Значения sizeof из примера не объявляются единственно допустимыми: документ требует согласованности с буфером, а не одной архитектуры.
 
 Проверяются перечисления settings с учётом явно неполного settings.type; диапазоны spectral_order/newmark_gamma, положительность явно ограниченных eigen-параметров, неотрицательная нижняя граница eigen target; nonlinear required при finite_deformations/arc_method; eigen required при eigenfrequencies/buckling; зависимости spectral transformations, lu/direct; динамическая схема и timestep; взаимоисключающие output/timestep/frequency поля; modal_result_filename для выбранного harmonic mode_superposition.
 
-Правила: DOC.SECTION_TYPE, DOC.FIELD_TYPE, DOC.UNSIGNED_SHORT, DOC.TYPE_WIDTH, DOC.MISSING_CONTEXT, DOC.UNKNOWN_FIELD, DOC.UNKNOWN_SECTION, DOC.UNKNOWN_VERSION, DOC.LEGACY_VERSION, DOC.LEGACY_SECTION, DOC.CONTACTS_CONFLICT, DOC.DIMENSIONS_CONFLICT, DOC.OPAQUE_SECTION; SET.ENUM, SET.UNLISTED_MODE, SET.REQUIRED, SET.POSITIVE, SET.EXCLUSIVE, SET.SPECTRAL_ORDER, SET.TARGET_RANGE, SET.LU_DIRECT, SET.GAMMA.
+Правила: DOC.SECTION_TYPE, DOC.FIELD_TYPE, DOC.UNSIGNED_SHORT, DOC.TYPE_WIDTH, DOC.MISSING_CONTEXT, DOC.UNKNOWN_FIELD, DOC.UNKNOWN_SECTION, DOC.UNKNOWN_VERSION, DOC.LEGACY_VERSION, DOC.LEGACY_SECTION, DOC.CONTACTS_CONFLICT, DOC.OPAQUE_SECTION; SET.ENUM, SET.UNLISTED_MODE, SET.REQUIRED, SET.POSITIVE, SET.EXCLUSIVE, SET.SPECTRAL_ORDER, SET.TARGET_RANGE, SET.LU_DIRECT, SET.GAMMA.
 
 ## Решения интерпретации
 
-- Текст «use exactly one» для output options проверяется буквально для активного static/dynamic. Отсутствие всех трёх полей — нарушение текста документа, даже если препроцессор подставляет своё значение. Это кандидат для уточнения спецификации, а не автоматический вывод о неработоспособности модели.
+- Output options опциональны для static/dynamic: допускается отсутствие всех трёх полей, запрещено одновременное задание нескольких. Условие time_step/steps_count при implicit не изменено. Eigen solver использует строку `auto`.
 - Null для указанного bool/object — расхождение с показанным типом. Документ не разрешает nullable для этих полей.
 - Недокументированные поля/режимы и противоречия документа — ambiguity, без выдумывания запрета расширений.
-- `settings.dimensions` присутствует в основной схеме и одновременно помечено не читаемым legacy-полем в строках 1974+. Каждое фактическое использование получает ambiguity. Это не ошибка значения `2D`/`3D`.
+- Противоречие документа по `settings.dimensions` не порождает находок файлов по решению пользователя. Перечисление значений `2D`/`3D` проверяется как прежде.
 - `contacts` назван активным в матрице, но не имеет схемы. Его содержимое не признано проверенным. `bcs` не описан; load_sets/restraint_sets явно отключены.
 - Необязательные отсутствующие поля из примеров не объявляются обязательными. Для явно обязательных условий учитывается выбранный режим. Зависимость обязательности от неизвестных режимов не выдумывается.
 
@@ -21,4 +21,4 @@
 
 Документ не задаёт полной схемы обязательности верхних секций, всех допустимых сочетаний физики и материалов, всех режимов settings.type, формата orientations/imported_sections/contacts/bcs и старой сетки. Аудит отмечает обнаруженные неизвестные конструкции; он не доказывает полноту формата, физическую корректность или возможность решения. Настройки файла ссылающиеся на внешний modal result проверяются по наличию указанного ключа; существование и содержимое внешнего файла не входят в описание формата.
 
-`run_audit.py` независимо проверяет UTF-8/JSON, запрещает не-JSON константы NaN/Infinity, обнаруживает повторные ключи, сверяет SHA-256 с предыдущим CSV, запускает все четыре области для каждого файла и отдельно учитывает сбой инструмента. Протокол содержит хеш спецификации, файлов и инструментов. Реальные загрузки FCModel/Fidesys повторно не выполняются.
+`run_audit.py` независимо проверяет UTF-8/JSON, запрещает не-JSON константы NaN/Infinity, обнаруживает повторные ключи, сверяет SHA-256 с исходным реестром roundtrip, запускает все четыре области для каждого файла и отдельно учитывает сбой инструмента. Протокол содержит хеш спецификации, файлов и инструментов. Реальные загрузки FCModel/Fidesys повторно не выполняются.

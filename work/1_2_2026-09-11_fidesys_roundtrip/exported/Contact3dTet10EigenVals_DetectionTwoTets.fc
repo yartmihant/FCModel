@@ -1,0 +1,162 @@
+{
+   "blocks" : 
+   [
+      {
+         "cs_id" : 1,
+         "id" : 1,
+         "material_id" : 0,
+         "property_id" : -1
+      },
+      {
+         "cs_id" : 1,
+         "id" : 2,
+         "material_id" : 0,
+         "property_id" : -1
+      }
+   ],
+   "coordinate_systems" : 
+   [
+      {
+         "dir1" : "AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA",
+         "dir2" : "AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAA",
+         "id" : 1,
+         "name" : "Global Cartesian",
+         "origin" : "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         "type" : "cartesian"
+      }
+   ],
+   "header" : 
+   {
+      "binary" : true,
+      "description" : "Fidesys Case Format",
+      "types" : 
+      {
+         "char" : 1,
+         "double" : 8,
+         "int" : 4,
+         "short_int" : 2
+      },
+      "version" : 3
+   },
+   "materials" : 
+   [
+      {
+         "common" : 
+         [
+            {
+               "const_dep" : [ "" ],
+               "const_dep_size" : [ 0 ],
+               "const_names" : [ 0 ],
+               "const_types" : [ 0 ],
+               "constants" : [ "AAAAAABxwUA=" ],
+               "type" : 0
+            }
+         ],
+         "elasticity" : 
+         [
+            {
+               "const_dep" : [ "", "" ],
+               "const_dep_size" : [ 0, 0 ],
+               "const_names" : [ 0, 1 ],
+               "const_types" : [ 0, 0 ],
+               "constants" : [ "AAAAUr49O0I=", "ZmZmZmZm1j8=" ],
+               "type" : 0
+            }
+         ],
+         "id" : 1,
+         "name" : "mat1"
+      }
+   ],
+   "mesh" : 
+   {
+      "elem_blocks" : "AQAAAAIAAAA=",
+      "elem_orders" : "AgAAAAIAAAA=",
+      "elem_parent_ids" : "AQAAAAIAAAA=",
+      "elem_types" : "AgI=",
+      "elemids" : "AQAAAAIAAAA=",
+      "elems" : "BgAAAAgAAAAFAAAABwAAAAoAAAAJAAAACwAAAA0AAAAMAAAADgAAAAIAAAAEAAAAAQAAAAMAAAAQAAAADwAAABEAAAATAAAAEgAAABQAAAA=",
+      "elems_count" : 2,
+      "nids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAA=",
+      "nodes" : "AAAAAAAAFMAAAAAAAAAUQAAAAAAAABTAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABTAAAAAAAAAFEAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUwAAAAAAAABRAAAAAAAAAwDwAAAAAAADAvAAAAAAAABRAAAAAAAAAwDwAAAAAAAAUwAAAAAAAAMA8AAAAAAAAFMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUwAAAAAAAABRAAAAAAAAAFMAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAAAAAABRAAAAAAAAAwLwAAAAAAADAPAAAAAAAABTAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwLwAAAAAAAAUQAAAAAAAAMC8AAAAAAAAFEAAAAAAAAAAAAAAAAAAABTAAAAAAAAAFEAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQAAAAAAAABTA",
+      "nodes_count" : 20
+   },
+   "settings" : 
+   {
+      "bc_tolerance" : 0.00050000000000000001,
+      "dimensions" : "3D",
+      "dynamics" : 
+      {
+         "result_output_iter" : 1
+      },
+      "eigen_solver" : 
+      {
+         "absolute_tolerance" : 0.0,
+         "campbell" : false,
+         "eps_max_iterations" : 300,
+         "linear_solver" : 
+         {
+            "method" : "auto",
+            "preconditioner" : "auto",
+            "solver" : "auto"
+         },
+         "number" : 10,
+         "relative_tolerance" : 1e-08,
+         "solver" : "auto",
+         "spectr_trans" : 
+         {
+            "name" : "auto"
+         }
+      },
+      "elasticity" : false,
+      "environment" : 
+      {
+         "temperature" : 0.0
+      },
+      "finite_deformations" : false,
+      "heat_transfer" : false,
+      "incompressibility" : false,
+      "linear_solver" : 
+      {
+         "iter_opts" : 
+         {
+            "epsilon" : 1.0000000000000001e-09,
+            "max_iterations" : 50000,
+            "preconditioner" : "auto",
+            "stopping_criteria" : 0.0
+         },
+         "method" : "auto",
+         "on_fail" : true,
+         "use_uzawa" : "auto"
+      },
+      "nonlinear_solver" : 
+      {
+         "arc_method" : false,
+         "line_search" : false,
+         "max_iterations" : 50,
+         "max_load_steps" : 10,
+         "min_load_steps" : 1,
+         "start_load_steps" : 1,
+         "target_iter" : 5,
+         "tolerance" : 0.001
+      },
+      "output" : 
+      {
+         "energy" : false,
+         "full_periodic" : false,
+         "intermediate_results" : true,
+         "log" : true,
+         "material" : false,
+         "normal_force" : false,
+         "record3d" : true,
+         "vtu" : true,
+         "without_smoothing" : false
+      },
+      "permission_write" : true,
+      "plasticity" : false,
+      "porefluid_transfer" : false,
+      "preload" : false,
+      "radiation_among_surfaces" : false,
+      "slm" : false,
+      "type" : "eigenfrequencies"
+   }
+}

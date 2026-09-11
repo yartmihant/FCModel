@@ -1,0 +1,12 @@
+/home/antonov/Base/Libs/FCModel/work/fidesys_roundtrip_audit.py
+  /home/antonov/Base/Libs/FCModel/work/fidesys_roundtrip_audit.py:112:53 - error: Оператор ">=" не поддерживается для типов "JSON" и "Literal[0]"
+    Оператор ">=" не поддерживается для типов "None" и "Literal[0]", если ожидаемый тип является "object"
+    Оператор ">=" не поддерживается для типов "str" и "Literal[0]", если ожидаемый тип является "object"
+    Оператор ">=" не поддерживается для типов "List[JSON]" и "Literal[0]", если ожидаемый тип является "object"
+    Оператор ">=" не поддерживается для типов "Dict[str, JSON]" и "Literal[0]", если ожидаемый тип является "object" (reportOperatorIssue)
+  /home/antonov/Base/Libs/FCModel/work/fidesys_roundtrip_audit.py:115:13 - error: Аргумент типа "dict[str, JSON]" нельзя присвоить параметру "value" типа "str | float | list[Any]" в функции "__setitem__"
+    "dict[str, JSON]" типа невозможно назначить тип "str | float | list[Any]"
+      "dict[str, JSON]" невозможно назначить "str"
+      "dict[str, JSON]" невозможно назначить "float"
+      "dict[str, JSON]" невозможно назначить "list[Any]" (reportArgumentType)
+2 errors, 0 warnings, 0 informations

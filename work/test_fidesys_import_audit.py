@@ -36,6 +36,17 @@ def test_echoed_python_and_true_do_not_prove_success() -> None:
     assert classify(parsed, False, 11) == "incomplete"
 
 
+def test_only_authorized_warning_is_ignored() -> None:
+    parsed = parse_output('''[warning] The distance between nodesets is not accurate.
+WARNING: The distance between nodesets is not accurate
+WARNING: Another warning.
+WARNING: The distance between nodesets is not accurate for another reason.
+ERROR: The distance between nodesets is not accurate.
+''')
+    assert parsed["warnings"] == ["Another warning.", "The distance between nodesets is not accurate for another reason."]
+    assert parsed["errors"] == ["The distance between nodesets is not accurate."]
+
+
 @pytest.mark.parametrize("timeout,code,errors,expected", [
     (False, 11, 0, "loaded_without_errors"),
     (False, 0, 0, "loaded_without_errors"),

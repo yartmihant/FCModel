@@ -8,9 +8,8 @@ against `docs/FC_INPUT_FORMAT.md`:
   sizes, array lengths, the explicitly flat `nodes_count*3` coordinate buffer,
   all element codes listed in the element tables (including shell, beam,
   spring, lump-mass and point codes), and known FEM connectivity arities.
-  `elem_types` is checked against the documented `header.types.int` width;
-  a corpus payload using char-sized codes is therefore reported as a format
-  violation rather than silently adopted. Unknown mesh fields are reported as
+  `elem_types` uses one unsigned byte per element, independently of
+  `header.types.int`, as approved in the specification correction. Unknown mesh fields are reported as
   ambiguity. Rules: `MESH.*`.
 - `coordinate_systems` (lines 974–987): record shape, id/type fields,
   coordinate buffer sizes, listed type names, and the documented global `id=1`.
@@ -21,7 +20,7 @@ against `docs/FC_INPUT_FORMAT.md`:
   `SET.*`.
 - `blocks` (lines 1012–1027): array/record shape, block id presence and
   uniqueness, coordinate/material/property references when their target tables
-  are present, sentinel `material_id=0`, ambiguous property sentinels, the
+  are present, sentinel `material_id=0`, documented property_id=-1 (no special properties), other ambiguous property sentinels, the
   alternative step-dependent material object, and integer `steps`. Rules:
   `BLOCK.*`.
 
@@ -42,10 +41,9 @@ optional sections are accepted; an empty coordinate-system section does not
 itself require a global record. A non-empty section without id=1 is reported
 as ambiguity, and id=1 with a non-Cartesian type is a violation. Plain
 connectivity is checked as flat packed data when numeric and known FEM arities
-are available; nested corpus layouts are reported as ambiguity. Binary files
-receive an explicit `MESH.BINARY_SEMANTICS_UNCHECKED` ambiguity because IDs,
-references and 1-based/unique semantics are not decoded under unspecified
-endianness.
+are available; nested corpus layouts are reported as ambiguity. This coverage limitation is documented here and no longer produces a
+per-file finding, as requested by the user. Integer-valued JSON floats are
+accepted for integer fields; binary widths are unchanged.
 
 ## Финальная интеграция
 

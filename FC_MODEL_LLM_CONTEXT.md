@@ -27,6 +27,8 @@ from fc_model.fc_materials import FCMaterial  # ✗
 
 - `.fc` files are JSON with Base64-encoded binary arrays, UTF-8.
 - Format version: 3.
+- Corpus calibration: the project owner accepts models that complete Fidesys import and FC export without errors as live/non-deprecated. The current 450-model set is listed in `work/1_2_2026-09-11_fidesys_roundtrip/alive_manifest.json`. Exact JSON equality is separate; remaining specification findings are calibration evidence, not grounds to override this accepted status.
+- Format rules approved on 2026-09-11: binary `mesh.elem_types` stores one `uint8` per element; material groups may contain multiple objects; static/dynamic output selection is optional and mutually exclusive; JSON `int` fields accept integer-valued floats (not bool or fractions); eigen solver uses `auto`. These are format rules, not a claim that the library validates every setting.
 - Top-level sections: `header`, `settings`, `mesh`, `blocks`, `coordinate_systems`, `materials`, `property_tables`, `loads`, `restraints`, `initial_sets`, `contact_constraints`, `coupling_constraints`, `periodic_constraints`, `receivers`, `sets`.
 
 ---
@@ -159,7 +161,7 @@ class FCBlock:
     id: int
     cs_id: int          # Coordinate system ID
     material_id: int    # Material ID
-    property_id: int    # Property table ID
+    property_id: int    # Property table ID; -1 means no special properties (non-beam/non-shell block)
     steps: Optional[List[int]]           # Active calculation steps
     material: Optional[Dict[str, Any]]   # Multi-step material assignment {"ids": [...], "steps": [...]}
 ```

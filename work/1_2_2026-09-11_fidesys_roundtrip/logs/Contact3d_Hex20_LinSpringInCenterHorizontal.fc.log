@@ -1,0 +1,55 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3d_Hex20_LinSpringInCenterHorizontal.fc\'')
+
+WARNING: (RefEdge::initialize) Curve 17 has zero arclength but is not a point_curve.
+[2026-09-11 18:42:40.406] [error] Unrecognized Identifier: 'constant_damping'
+
+ERROR: Unrecognized Identifier: 'constant_damping'
+[2026-09-11 18:42:40.409] [error] syntax error (<stdin>, line 63)
+
+ERROR: syntax error (<stdin>, line 63)
+[2026-09-11 18:42:40.412] [error] There is no such Spring properties.
+
+ERROR: There is no such Spring properties.
+[2026-09-11 18:42:40.412] [error] Command Failed.
+
+ERROR: Command Failed.
+WARNING: The distance between nodesets is not accurate.
+[2026-09-11 18:42:40.461] [error] Invalid element id 1.
+
+ERROR: Invalid element id 1.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 5, "nodes": 163, "elements": 17, "version": "2021.11"}
+%>result = cubit.cmd('export fidesyscase "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_fidesys_roundtrip/exported/Contact3d_Hex20_LinSpringInCenterHorizontal.fc" overwrite')
+
+Displacement 1 added to BCSet 100.
+Displacement 2 added to BCSet 100.
+Displacement 3 added to BCSet 100.
+Finished Command: export fidesyscase "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_fidesys_roundtrip/exported/Contact3d_Hex20_LinSpringInCenterHorizontal.fc" overwrite
+
+%>print("FCMODEL_EXPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "result": result}))
+
+FCMODEL_EXPORT_DONE={"errors": 5, "nodes": 163, "elements": 17, "result": true}
+3 Displacement's were deleted.
+...deleting 16 hexes and 0 faceUses from database...
+...deleting 48 faces from database...
+...deleting 97 edges from database...
+...deleting 163 nodes from database...
+[2026-09-11 18:42:40.522] [error] Errors found during session.
+
+ERROR: Errors found during session.

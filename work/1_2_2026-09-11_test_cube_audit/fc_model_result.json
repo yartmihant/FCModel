@@ -1,0 +1,21 @@
+{
+  "file": "test_cube.fc",
+  "sha256": "e55ea91746956b15d744a9ed537e93d12025eb2e4f03ef19f0648fed47af5f98",
+  "bytes": 122448,
+  "header": {
+    "binary": true,
+    "description": "Fidesys Case Format",
+    "types": {
+      "char": 1,
+      "double": 8,
+      "int": 4,
+      "short_int": 2
+    },
+    "version": 3
+  },
+  "status": "equal",
+  "differences": [],
+  "output": "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_test_cube_audit/fc_model/test_cube.fc",
+  "source_unchanged": true,
+  "differences_without_settings": []
+}

@@ -28,6 +28,11 @@ import json
 print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
 '''
 GENERIC_ERRORS = {"Command Failed.", "Errors found during session."}
+IGNORED_WARNINGS = {"The distance between nodesets is not accurate"}
+
+
+def ignored_warning(message: str) -> bool:
+    return message.strip().rstrip(".") in IGNORED_WARNINGS
 
 
 def parse_output(output: str) -> Dict[str, JSON]:
@@ -50,6 +55,8 @@ def parse_output(output: str) -> Dict[str, JSON]:
             assert found is not None
             target = warnings if found.group(1).lower() == "warning" else errors
             message = found.group(2).strip()
+            if target is warnings and ignored_warning(message):
+                continue
             if message not in target:
                 target.append(message)
         elif line.startswith("Fontconfig warning:") and line not in warnings:

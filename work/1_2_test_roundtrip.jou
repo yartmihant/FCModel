@@ -1,0 +1,2 @@
+import fidesyscase '/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact2dQuad4Quad8HomogeneousStress.fc' 
+export fidesyscase '/home/antonov/Base/Libs/FCModel/data/tmp/Contact2dQuad4Quad8HomogeneousStress_roundtrip.fc' overwrite

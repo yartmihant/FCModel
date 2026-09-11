@@ -1,0 +1,409 @@
+{
+  "started_utc": "2026-09-11T15:35:55.021208+00:00",
+  "baseline": "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_json_cleanup/roundtrip_results.json",
+  "baseline_sha256": "f91a9e4cd4324ce3954b116c0829071d93efa03e94c284ba110be75d2c18775e",
+  "source": "/home/antonov/Base/Libs/FCModel/data/fc_core_tests",
+  "selected_files": 3,
+  "executable": "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+  "executable_sha256": "ec7590bc6843d8bb099c7d4f3e259356ee6c5ecff913ee19be6cb403107d1e20",
+  "importer_sha256": "41a0993ef869b4f1fd9c7a9e1e36e1d22b75db0eb959063d897e13b9b822be00",
+  "checker_sha256": "ae71294f91d2f5392593eb181a6f4a07d3ccee5548cb294ec9e5eeeccc1ddc7b",
+  "workers": 3,
+  "timeout_seconds": 60,
+  "finished_utc": "2026-09-11T15:35:57.294081+00:00",
+  "counts": {
+    "roundtrip_passed": 2,
+    "import_error": 1
+  },
+  "json_counts": {
+    "different": 2,
+    "invalid_output": 1
+  },
+  "alive": 2,
+  "exported": 3,
+  "cross": {
+    "different / roundtrip_passed": 2,
+    "error / import_error": 1
+  },
+  "files": [
+    {
+      "file": "Contact2dQuad4Quad8HomogeneousStress.fc",
+      "sha256": "d3bbff5110169ff97ec139ef26873d3e11f507d20281d2914b2eacac0876a9a2",
+      "roundtrip_status": "different",
+      "duration_seconds": 2.269,
+      "timeout": false,
+      "returncode": 11,
+      "log": "logs/Contact2dQuad4Quad8HomogeneousStress.fc.log",
+      "output": "exported/Contact2dQuad4Quad8HomogeneousStress.fc",
+      "output_exists": true,
+      "output_valid": true,
+      "output_error": "",
+      "json_status": "different",
+      "differences": [
+        {
+          "path": "/bcs",
+          "kind": "removed",
+          "before": {
+            "type": "list",
+            "length": 1
+          }
+        },
+        {
+          "path": "/blocks",
+          "kind": "added",
+          "after": {
+            "type": "list",
+            "length": 2
+          }
+        },
+        {
+          "path": "/contacts",
+          "kind": "removed",
+          "before": {
+            "type": "list",
+            "length": 1
+          }
+        },
+        {
+          "path": "/coordinate_systems",
+          "kind": "added",
+          "after": {
+            "type": "list",
+            "length": 1
+          }
+        },
+        {
+          "path": "/load_sets",
+          "kind": "removed",
+          "before": {
+            "type": "list",
+            "length": 1
+          }
+        },
+        {
+          "path": "/loads/0/cs",
+          "kind": "added",
+          "after": 1
+        },
+        {
+          "path": "/mesh/elem_materials",
+          "kind": "removed",
+          "before": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAA"
+        },
+        {
+          "path": "/mesh/elem_properties",
+          "kind": "removed",
+          "before": "////////////////////////////////////////////////"
+        },
+        {
+          "path": "/mesh/nids",
+          "kind": "value_changed",
+          "before": {
+            "prefix": "AQAAAAMAAAAVAAAAEAAAAAUAAAAdAAAAGwAAABwAAAAEAAAAFAAAAAYAAAAeAAAAGgAAAAIAAAATAAAABwAAAB8AAAAZAAAACQAAABIAAAALAAAAIAAAABgA",
+            "length": 220,
+            "sha256": "327c273fceaa4c2da4227e62849c1d0f6e25e0d2ed3d3cde8385e9819feba73e"
+          },
+          "after": {
+            "prefix": "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcA",
+            "length": 220,
+            "sha256": "023293a4537451bd5c376bf5e5157fe00b8cf9f637124c2126e0bd675682db71"
+          }
+        },
+        {
+          "path": "/mesh/nodes",
+          "kind": "value_changed",
+          "before": {
+            "prefix": "AAAAAAAAJEAAAAAAAAAAAAAAAAAAAAAAq6qqqqqqIEAAAAAAAAAAAAAAAAAAAAAAq6qqqqqqIEAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAJEAAAAAAAAAAwAAA",
+            "length": 1312,
+            "sha256": "bc0f1530cbb4d570edbdb12523021fa7638f8b6c20666acf933adad810c32c75"
+          },
+          "after": {
+            "prefix": "AAAAAAAAJEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAAAAq6qqqqqqIEAAAAAAAAAAAAAAAAAAAAAAqqqqqqqqGkAAAAAAAAAAAAAA",
+            "length": 1312,
+            "sha256": "af30d41a9460834e912b714d9654e9b1c7af842ae77c77c60974ab6ccc6e711b"
+          }
+        },
+        {
+          "path": "/restraint_sets",
+          "kind": "removed",
+          "before": {
+            "type": "list",
+            "length": 1
+          }
+        },
+        {
+          "path": "/restraints/0/cs",
+          "kind": "added",
+          "after": 1
+        },
+        {
+          "path": "/restraints/1/cs",
+          "kind": "added",
+          "after": 1
+        },
+        {
+          "path": "/settings/compute_fields",
+          "kind": "removed",
+          "before": {
+            "type": "list",
+            "length": 3
+          }
+        },
+        {
+          "path": "/settings/contact",
+          "kind": "removed",
+          "before": false
+        },
+        {
+          "path": "/settings/environment",
+          "kind": "added",
+          "after": {
+            "type": "dict",
+            "length": 1
+          }
+        },
+        {
+          "path": "/settings/linear_solver/iter_opts/stopping_criteria",
+          "kind": "type_changed",
+          "before": 0,
+          "after": 0.0,
+          "before_type": "int",
+          "after_type": "float"
+        },
+        {
+          "path": "/settings/lumpmass",
+          "kind": "removed",
+          "before": false
+        },
+        {
+          "path": "/settings/nonlinear_solver/start_load_steps",
+          "kind": "added",
+          "after": 1
+        },
+        {
+          "path": "/settings/output/full_periodic",
+          "kind": "added",
+          "after": false
+        },
+        {
+          "path": "/settings/output/material",
+          "kind": "added",
+          "after": false
+        },
+        {
+          "path": "/settings/output/without_smoothing",
+          "kind": "added",
+          "after": false
+        },
+        {
+          "path": "/settings/output_cs",
+          "kind": "removed",
+          "before": {
+            "type": "list",
+            "length": 1
+          }
+        },
+        {
+          "path": "/settings/permission_write",
+          "kind": "value_changed",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/settings/radiation_among_surfaces",
+          "kind": "added",
+          "after": false
+        },
+        {
+          "path": "/settings/renum",
+          "kind": "removed",
+          "before": false
+        },
+        {
+          "path": "/settings/slm",
+          "kind": "added",
+          "after": false
+        },
+        {
+          "path": "/settings/viscosity",
+          "kind": "removed",
+          "before": false
+        }
+      ],
+      "command": [
+        "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+        "-nographics",
+        "-batch",
+        "-model",
+        "/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact2dQuad4Quad8HomogeneousStress.fc",
+        "-input",
+        "/tmp/fc-fidesys-roundtrip-e07bwgmy/export_fc.py"
+      ],
+      "import_stage": {
+        "errors": [],
+        "warnings": [],
+        "primary_errors": [],
+        "completion": {
+          "errors": 0,
+          "nodes": 41,
+          "elements": 9,
+          "version": "2021.11"
+        }
+      },
+      "export_stage": {
+        "errors": [],
+        "warnings": [],
+        "primary_errors": [],
+        "completion": null
+      },
+      "export_completion": {
+        "errors": 0,
+        "nodes": 41,
+        "elements": 9,
+        "result": true
+      },
+      "output_sha256": "80e07336809400b883488f2ecf235cba377eba70bfa6d2f57dddaca76fe96307",
+      "output_bytes": 7264,
+      "output_mesh": {
+        "nodes_count": 41,
+        "elems_count": 9
+      },
+      "status": "roundtrip_passed",
+      "alive": true,
+      "source_unchanged": true
+    },
+    {
+      "file": "Cube_static_direction_shell.fc",
+      "sha256": "4bb778f2ef08dcaea2f894660805bbd1851a14e02c7d9eeaf310d3274818fc57",
+      "roundtrip_status": "different",
+      "duration_seconds": 2.269,
+      "timeout": false,
+      "returncode": 11,
+      "log": "logs/Cube_static_direction_shell.fc.log",
+      "output": "exported/Cube_static_direction_shell.fc",
+      "output_exists": true,
+      "output_valid": true,
+      "output_error": "",
+      "json_status": "different",
+      "differences": [
+        {
+          "path": "/coordinate_systems/0/name",
+          "kind": "value_changed",
+          "before": "Глобальная декартова",
+          "after": "Global Cartesian"
+        },
+        {
+          "path": "/header/fidesys_version",
+          "kind": "removed",
+          "before": "CAE Fidesys 8.2.2111.7795"
+        }
+      ],
+      "command": [
+        "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+        "-nographics",
+        "-batch",
+        "-model",
+        "/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Cube_static_direction_shell.fc",
+        "-input",
+        "/tmp/fc-fidesys-roundtrip-09rd7s8o/export_fc.py"
+      ],
+      "import_stage": {
+        "errors": [],
+        "warnings": [],
+        "primary_errors": [],
+        "completion": {
+          "errors": 0,
+          "nodes": 16,
+          "elements": 9,
+          "version": "2021.11"
+        }
+      },
+      "export_stage": {
+        "errors": [],
+        "warnings": [],
+        "primary_errors": [],
+        "completion": null
+      },
+      "export_completion": {
+        "errors": 0,
+        "nodes": 16,
+        "elements": 9,
+        "result": true
+      },
+      "output_sha256": "d940729a19ade46a3026a8497b616a15966654a792b8e1ca7e694bf9108052c3",
+      "output_bytes": 7675,
+      "output_mesh": {
+        "nodes_count": 16,
+        "elems_count": 9
+      },
+      "status": "roundtrip_passed",
+      "alive": true,
+      "source_unchanged": true
+    },
+    {
+      "file": "cube_multi.fc",
+      "sha256": "cd55d4f51964299f381395f4eca7df09491893bbfcab2a2ee39c664b9ec607c4",
+      "roundtrip_status": "error",
+      "duration_seconds": 2.218,
+      "timeout": false,
+      "returncode": 11,
+      "log": "logs/cube_multi.fc.log",
+      "output": "exported/cube_multi.fc",
+      "output_exists": true,
+      "output_valid": false,
+      "output_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "json_status": "invalid_output",
+      "differences": [],
+      "command": [
+        "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+        "-nographics",
+        "-batch",
+        "-model",
+        "/home/antonov/Base/Libs/FCModel/data/fc_core_tests/cube_multi.fc",
+        "-input",
+        "/tmp/fc-fidesys-roundtrip-gb6mg30d/export_fc.py"
+      ],
+      "import_stage": {
+        "errors": [
+          "'mesh.elem_blocks' field is empty.",
+          "Command Failed."
+        ],
+        "warnings": [],
+        "primary_errors": [
+          "'mesh.elem_blocks' field is empty."
+        ],
+        "completion": {
+          "errors": 2,
+          "nodes": 0,
+          "elements": 0,
+          "version": "2021.11"
+        }
+      },
+      "export_stage": {
+        "errors": [
+          "No element blocks have been established!",
+          "Unable to find entities to write.",
+          "Command Failed.",
+          "Errors found during session."
+        ],
+        "warnings": [],
+        "primary_errors": [
+          "No element blocks have been established!",
+          "Unable to find entities to write."
+        ],
+        "completion": null
+      },
+      "export_completion": {
+        "errors": 6,
+        "nodes": 0,
+        "elements": 0,
+        "result": true
+      },
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_bytes": 0,
+      "status": "import_error",
+      "alive": false,
+      "source_unchanged": true
+    }
+  ]
+}

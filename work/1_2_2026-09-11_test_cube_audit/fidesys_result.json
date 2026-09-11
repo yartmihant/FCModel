@@ -1,0 +1,71 @@
+{
+  "file": "test_cube.fc",
+  "sha256": "e55ea91746956b15d744a9ed537e93d12025eb2e4f03ef19f0648fed47af5f98",
+  "roundtrip_status": "equal",
+  "duration_seconds": 2.318,
+  "timeout": false,
+  "returncode": 11,
+  "log": "logs/test_cube.fc.log",
+  "output": "exported/test_cube.fc",
+  "output_exists": true,
+  "output_valid": true,
+  "output_error": "",
+  "json_status": "different",
+  "differences": [
+    {
+      "path": "/coordinate_systems/0/name",
+      "kind": "value_changed",
+      "before": "Глобальная декартова",
+      "after": "Global Cartesian"
+    }
+  ],
+  "command": [
+    "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+    "-nographics",
+    "-batch",
+    "-model",
+    "/home/antonov/Base/Libs/FCModel/data/test_cube.fc",
+    "-input",
+    "/tmp/fc-fidesys-roundtrip-690zo6qw/export_fc.py"
+  ],
+  "import_stage": {
+    "errors": [],
+    "warnings": [],
+    "primary_errors": [],
+    "completion": {
+      "errors": 0,
+      "nodes": 1331,
+      "elements": 1000,
+      "version": "2021.11"
+    }
+  },
+  "export_stage": {
+    "errors": [],
+    "warnings": [],
+    "primary_errors": [],
+    "completion": null
+  },
+  "export_completion": {
+    "errors": 0,
+    "nodes": 1331,
+    "elements": 1000,
+    "result": true
+  },
+  "output_sha256": "46f734f3947039c85690c4f046b92539df7838b43e31aa4bd754da441bf24b3f",
+  "output_bytes": 122349,
+  "output_mesh": {
+    "nodes_count": 1331,
+    "elems_count": 1000
+  },
+  "status": "roundtrip_passed",
+  "alive": true,
+  "source_unchanged": true,
+  "differences_without_settings": [
+    {
+      "path": "/coordinate_systems/0/name",
+      "kind": "value_changed",
+      "before": "Глобальная декартова",
+      "after": "Global Cartesian"
+    }
+  ]
+}

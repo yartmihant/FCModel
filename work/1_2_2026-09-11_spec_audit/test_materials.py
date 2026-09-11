@@ -1,4 +1,5 @@
 import base64
+import json
 import sys
 from pathlib import Path
 
@@ -34,6 +35,7 @@ def test_valid_material_and_property_table_have_no_findings():
         }],
     }
     assert audit(data) == []
+    assert audit(json.loads(json.dumps(data), parse_int=float)) == []
 
 
 def test_rejects_bad_enum_and_component_lengths():
@@ -84,11 +86,26 @@ def test_checks_cardinality_unknown_fields_and_table_value_length():
                       "property_tables": [{"id": 1, "type": 5, "properties": {
                           "mass": 1.0, "mass_x": 2.0, "mass_distribution": 2}}]})
     rules = {item["rule"] for item in findings}
-    assert "MAT.GROUP_CARDINALITY" in rules
+    assert "MAT.GROUP_CARDINALITY" not in rules
     assert "MAT.UNKNOWN_FIELD" in rules
     assert "MAT.VALUE_LENGTH" in rules
     assert "PT.MASS_EXCLUSIVE" in rules
     assert "PT.MASS_DISTRIBUTION" in rules
+
+
+def test_multiple_valid_group_objects_are_accepted():
+    material = _material()
+    material["elasticity"].append(dict(material["elasticity"][0]))
+    assert audit({"header": {"binary": True, "types": {"double": 8}}, "materials": [material]}) == []
+
+
+def test_integer_valued_properties_preserve_enum_validation():
+    for value, invalid in [(1.0, False), (1.5, True), (True, True), (float("inf"), True)]:
+        result = audit({"property_tables": [{"id": 1, "type": 5, "properties": {"mass_distribution": value}}]})
+        assert any(f["rule"] == "PT.PROPERTY_FIELD" for f in result) is invalid
+    result = audit({"property_tables": [{"id": 1, "type": 5, "properties": {"mass_distribution": 2.0}}]})
+    assert not any(f["rule"] == "PT.PROPERTY_FIELD" for f in result)
+    assert any(f["rule"] == "PT.MASS_DISTRIBUTION" for f in result)
 
 
 def test_missing_width_scalar_table_code_and_unknown_group_schema():

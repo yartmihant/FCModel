@@ -1,4 +1,5 @@
 import base64
+import json
 
 from audit_conditions import audit
 
@@ -21,6 +22,7 @@ def test_valid_binary_load_and_restraint():
                         "dependency_type": [0]}],
     }
     assert audit(data) == []
+    assert audit(json.loads(json.dumps(data), parse_int=float)) == []
 
 
 def test_load_enum_and_component_errors():

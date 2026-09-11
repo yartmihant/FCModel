@@ -5,6 +5,8 @@ import re
 from pathlib import Path
 from typing import Dict, List, Tuple, Sequence
 
+from audit_types import is_integer
+
 SPEC = Path(__file__).resolve().parents[2] / "docs/FC_INPUT_FORMAT.md"
 Finding = Dict[str, object]
 
@@ -54,7 +56,7 @@ def matches(value: object, expected: str) -> bool:
     if " | " in expected:
         return any(matches(value, x) for x in expected.split(" | "))
     if expected in ("int", "unsigned short"):
-        return type(value) is int
+        return is_integer(value)
     if expected == "double":
         return numeric(value)
     if expected == "bool":
@@ -121,14 +123,14 @@ def audit(data: dict) -> List[Finding]:
     header = data.get("header", {})
     if isinstance(header, dict):
         version = header.get("version")
-        if type(version) is int and version < 3:
+        if isinstance(version, (int, float)) and is_integer(version) and version < 3:
             emit("DOC.LEGACY_VERSION", "legacy", "$.header.version", "Файл использует предыдущую версию формата.", version, "Текущая версия 3", 47)
-        elif type(version) is int and version > 3:
+        elif isinstance(version, (int, float)) and is_integer(version) and version > 3:
             emit("DOC.UNKNOWN_VERSION", "ambiguity", "$.header.version", "Версия не описана документом.", version, 3, 47)
         types = header.get("types")
         if isinstance(types, dict):
             for key, width in types.items():
-                if type(width) is int and width <= 0:
+                if is_integer(width) and width <= 0:
                     emit("DOC.TYPE_WIDTH", "violation", "$.header.types." + key, "Размер бинарного типа должен быть положительным.", width, "sizeof(type) > 0", 55)
         for key in ("version", "binary", "types"):
             if key not in header:
@@ -142,7 +144,7 @@ def audit(data: dict) -> List[Finding]:
         return value if isinstance(value, dict) else {}
 
     def enum(o: dict, path: str, key: str, allowed: Sequence[object], line: int, closed: bool = True) -> None:
-        if key in o and isinstance(o[key], (str, int)) and o[key] not in allowed:
+        if key in o and (isinstance(o[key], str) or is_integer(o[key])) and o[key] not in allowed:
             emit("SET.ENUM" if closed else "SET.UNLISTED_MODE", "violation" if closed else "ambiguity", path + "." + key, "Значение не входит в перечисление документа." if closed else "Режим отсутствует в явно неполном перечне спецификации.", o[key], allowed, line)
 
     def required(o: dict, path: str, keys: List[str], line: int) -> None:
@@ -162,12 +164,9 @@ def audit(data: dict) -> List[Finding]:
 
     enum(settings, "$.settings", "type", ["static", "dynamic", "eigenfrequencies", "buckling", "spectrum", "harmonic", "effectiveprops"], 1513, False)
     enum(settings, "$.settings", "dimensions", ["2D", "3D"], 1472)
-    # dimensions is simultaneously part of the current schema and marked unread legacy.
-    if "dimensions" in settings:
-        emit("DOC.DIMENSIONS_CONFLICT", "ambiguity", "$.settings.dimensions", "Основная схема описывает dimensions, legacy-раздел называет поле не читаемым; актуальность противоречива.", settings["dimensions"], "Уточнение противоречия документа", 1974)
     enum(settings, "$.settings", "plane_state", ["p-stress", "p-strain", "axisym_x", "axisym_y"], 1473)
     order = settings.get("spectral_order")
-    if type(order) is int and not 3 <= order <= 9:
+    if isinstance(order, (int, float)) and is_integer(order) and not 3 <= order <= 9:
         emit("SET.SPECTRAL_ORDER", "violation", "$.settings.spectral_order", "Порядок вне указанного диапазона.", order, "3..9", 1489)
     linear = obj("linear_solver")
     for key, choices in {"method": ["auto", "direct", "iterative"], "use_cuda": ["yes", "no", "auto"], "precision": ["single", "double", "auto"], "use_uzawa": ["auto", "yes", "no"]}.items():
@@ -186,7 +185,7 @@ def audit(data: dict) -> List[Finding]:
     if active_eigen:
         required(eigen, "$.settings.eigen_solver", ["solver", "relative_tolerance", "eps_max_iterations", "linear_solver"], 1570)
     if eigen:
-        enum(eigen, "$.settings.eigen_solver", "solver", ["Auto", "krylovschur", "arnoldi", "lanczos", "gd", "jd", "blocklanczos"], 1612)
+        enum(eigen, "$.settings.eigen_solver", "solver", ["auto", "krylovschur", "arnoldi", "lanczos", "gd", "jd", "blocklanczos"], 1612)
         enum(eigen, "$.settings.eigen_solver", "prime_solver", ["SLEPc", "BLOCK LANCZOS", "MKLES", "NECH"], 1621)
         if isinstance(eigen.get("number"), str):
             enum(eigen, "$.settings.eigen_solver", "number", ["all"], 1575)
@@ -219,12 +218,12 @@ def audit(data: dict) -> List[Finding]:
     options = ["result_output_iter", "result_output_time", "result_number"]
     static = obj("statics")
     if static or settings.get("type") == "static":
-        exclusive(static, "$.settings.statics", options, settings.get("type") == "static", 1685)
+        exclusive(static, "$.settings.statics", options, False, 1685)
     dynamic = obj("dynamics")
     if dynamic or settings.get("type") == "dynamic":
         enum(dynamic, "$.settings.dynamics", "method", ["full_solution", "mode_superposition"], 1708)
         enum(dynamic, "$.settings.dynamics", "scheme", ["explicit", "implicit"], 1709)
-        exclusive(dynamic, "$.settings.dynamics", options, settings.get("type") == "dynamic", 1711)
+        exclusive(dynamic, "$.settings.dynamics", options, False, 1711)
         exclusive(dynamic, "$.settings.dynamics", ["time_step", "steps_count"], dynamic.get("scheme") == "implicit", 1709)
         if dynamic.get("scheme") == "explicit":
             required(dynamic, "$.settings.dynamics", ["courant", "max_steps_count"], 1709)

@@ -1,0 +1,51 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/check2d.fc\'')
+
+[2026-09-11 18:45:04.487] [error] 'mesh.elem_orders' field is empty.
+
+ERROR: 'mesh.elem_orders' field is empty.
+[2026-09-11 18:45:04.487] [error] Command Failed.
+
+ERROR: Command Failed.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 2, "nodes": 0, "elements": 0, "version": "2021.11"}
+%>result = cubit.cmd('export fidesyscase "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_fidesys_roundtrip/exported/check2d.fc" overwrite')
+
+[2026-09-11 18:45:04.500] [error] No element blocks have been established!
+Use the block command to assign the meshed geometry to an element block.
+Or, check that the default block type is correct. Current setting: All
+
+[2026-09-11 18:45:04.500] [error] Unable to find entities to write.
+[2026-09-11 18:45:04.500] [error] No element blocks have been established!
+Use the block command to assign the meshed geometry to an element block.
+Or, check that the default block type is correct. Current setting: All
+ERROR: Unable to find entities to write.
+
+ERROR: No element blocks have been established!
+Use the block command to assign the meshed geometry to an element block.
+Or, check that the default block type is correct. Current setting: All
+ERROR: Unable to find entities to write.
+[2026-09-11 18:45:04.500] [error] Command Failed.
+
+ERROR: Command Failed.
+%>print("FCMODEL_EXPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "result": result}))
+
+FCMODEL_EXPORT_DONE={"errors": 6, "nodes": 0, "elements": 0, "result": true}
+[2026-09-11 18:45:04.536] [error] Errors found during session.
+
+ERROR: Errors found during session.

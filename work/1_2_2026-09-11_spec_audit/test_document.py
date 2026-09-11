@@ -15,6 +15,10 @@ def test_json_scalar_and_fixed_array_types():
     assert not matches(True, "double")
     assert matches([0, 1], "double | [double, double]")
     assert not matches([0], "double | [double, double]")
+    assert matches(2.0, "int")
+    assert not matches(2.5, "int")
+    assert not matches(float("inf"), "int")
+    assert not matches(float("nan"), "int")
 
 
 def test_valid_minimal_context_and_plain_array_mode():
@@ -36,6 +40,21 @@ def test_conditional_required_fields_and_exclusivity():
 
 def test_contradictions_and_legacy_do_not_become_violations():
     result = audit({"header": {"version": 2}, "settings": {"dimensions": "3D"}, "contacts": [], "load_sets": []})
-    assert any(f["rule"] == "DOC.DIMENSIONS_CONFLICT" and f["severity"] == "ambiguity" for f in result)
+    assert not any(f["rule"] == "DOC.DIMENSIONS_CONFLICT" for f in result)
     assert any(f["rule"] == "DOC.LEGACY_SECTION" and f["severity"] == "legacy" for f in result)
     assert not any(f["severity"] == "violation" for f in result)
+
+
+def test_output_selection_is_optional_but_still_exclusive():
+    for mode, section in [("static", "statics"), ("dynamic", "dynamics")]:
+        for options in [{}, {"result_number": 2.0}]:
+            result = audit({"settings": {"type": mode, section: options}})
+            assert not any(f["rule"] in {"SET.EXCLUSIVE", "DOC.FIELD_TYPE"} for f in result)
+        result = audit({"settings": {"type": mode, section: {"result_number": 2, "result_output_iter": 1}}})
+        assert any(f["rule"] == "SET.EXCLUSIVE" for f in result)
+
+
+def test_eigen_solver_auto_is_lowercase():
+    for value, invalid in [("auto", False), ("Auto", True)]:
+        result = audit({"settings": {"eigen_solver": {"solver": value}}})
+        assert any(f["rule"] == "SET.ENUM" for f in result) is invalid

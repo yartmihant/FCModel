@@ -1,8 +1,11 @@
 """Independent structural audit for condition and output sections."""
 from __future__ import annotations
 
+
 import base64
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple, cast
+
+from audit_types import is_integer as _is_int
 
 Finding = Dict[str, object]
 
@@ -30,10 +33,6 @@ def _f(rule: str, severity: str, path: str, message: str, actual: object,
     return {"rule": rule, "severity": severity, "path": path, "message": message,
             "actual": actual, "expected": expected,
             "spec": "docs/FC_INPUT_FORMAT.md:%d" % line}
-
-
-def _is_int(value: object) -> bool:
-    return isinstance(value, int) and not isinstance(value, bool)
 
 
 def _scalar_list(value: object) -> bool:

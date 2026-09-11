@@ -1,0 +1,13 @@
+{
+  "started_utc": "2026-09-11T15:42:45.265942+00:00",
+  "baseline": "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_json_cleanup/roundtrip_results.json",
+  "baseline_sha256": "f91a9e4cd4324ce3954b116c0829071d93efa03e94c284ba110be75d2c18775e",
+  "source": "/home/antonov/Base/Libs/FCModel/data/fc_core_tests",
+  "selected_files": 2,
+  "executable": "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+  "executable_sha256": "ec7590bc6843d8bb099c7d4f3e259356ee6c5ecff913ee19be6cb403107d1e20",
+  "importer_sha256": "41a0993ef869b4f1fd9c7a9e1e36e1d22b75db0eb959063d897e13b9b822be00",
+  "checker_sha256": "523fd8f4a5009a277e0c08ecb2a17c82095ee488cb240b22fc0aa2d2bf624b08",
+  "workers": 1,
+  "timeout_seconds": 90.0
+}

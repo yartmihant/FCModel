@@ -1,0 +1,107 @@
+{
+  "started_utc": "2026-09-11T15:42:45.265942+00:00",
+  "baseline": "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_json_cleanup/roundtrip_results.json",
+  "baseline_sha256": "f91a9e4cd4324ce3954b116c0829071d93efa03e94c284ba110be75d2c18775e",
+  "source": "/home/antonov/Base/Libs/FCModel/data/fc_core_tests",
+  "selected_files": 2,
+  "executable": "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+  "executable_sha256": "ec7590bc6843d8bb099c7d4f3e259356ee6c5ecff913ee19be6cb403107d1e20",
+  "importer_sha256": "41a0993ef869b4f1fd9c7a9e1e36e1d22b75db0eb959063d897e13b9b822be00",
+  "checker_sha256": "523fd8f4a5009a277e0c08ecb2a17c82095ee488cb240b22fc0aa2d2bf624b08",
+  "workers": 1,
+  "timeout_seconds": 90.0,
+  "finished_utc": "2026-09-11T15:42:51.981339+00:00",
+  "counts": {
+    "import_incomplete": 2
+  },
+  "json_counts": {
+    "not_available": 2
+  },
+  "alive": 0,
+  "exported": 0,
+  "cross": {
+    "error / import_incomplete": 2
+  },
+  "files": [
+    {
+      "file": "Contact2dQUAD9.fc",
+      "sha256": "297832b779d66d184c14626294690b13eda0490d6415777b3858f8ef0dbd2d5e",
+      "roundtrip_status": "error",
+      "duration_seconds": 3.146,
+      "timeout": false,
+      "returncode": 11,
+      "log": "logs/Contact2dQUAD9.fc.log",
+      "output": "exported/Contact2dQUAD9.fc",
+      "output_exists": false,
+      "output_valid": false,
+      "output_error": "Exported FC file was not created",
+      "json_status": "not_available",
+      "differences": [],
+      "command": [
+        "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+        "-nographics",
+        "-batch",
+        "-model",
+        "/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact2dQUAD9.fc",
+        "-input",
+        "/tmp/fc-fidesys-roundtrip-5qvzhf1o/export_fc.py"
+      ],
+      "import_stage": {
+        "errors": [],
+        "warnings": [],
+        "primary_errors": [],
+        "completion": null
+      },
+      "export_stage": {
+        "errors": [],
+        "warnings": [],
+        "primary_errors": [],
+        "completion": null
+      },
+      "export_completion": null,
+      "status": "import_incomplete",
+      "alive": false,
+      "source_unchanged": true
+    },
+    {
+      "file": "Contact3dHEX27.fc",
+      "sha256": "93addfb16f50a33dd806c8af2ab3836a2fc60975269dadfa4f6f6cb027bb9c48",
+      "roundtrip_status": "error",
+      "duration_seconds": 3.561,
+      "timeout": false,
+      "returncode": 11,
+      "log": "logs/Contact3dHEX27.fc.log",
+      "output": "exported/Contact3dHEX27.fc",
+      "output_exists": false,
+      "output_valid": false,
+      "output_error": "Exported FC file was not created",
+      "json_status": "not_available",
+      "differences": [],
+      "command": [
+        "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+        "-nographics",
+        "-batch",
+        "-model",
+        "/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3dHEX27.fc",
+        "-input",
+        "/tmp/fc-fidesys-roundtrip-ixetx59w/export_fc.py"
+      ],
+      "import_stage": {
+        "errors": [],
+        "warnings": [],
+        "primary_errors": [],
+        "completion": null
+      },
+      "export_stage": {
+        "errors": [],
+        "warnings": [],
+        "primary_errors": [],
+        "completion": null
+      },
+      "export_completion": null,
+      "status": "import_incomplete",
+      "alive": false,
+      "source_unchanged": true
+    }
+  ]
+}

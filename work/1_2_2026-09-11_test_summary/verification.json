@@ -1,6 +1,32 @@
 {
   "rows": 1130,
-  "columns": 50,
+  "columns": 45,
+  "removedColumns": [
+    "Roundtrip_место_ошибки",
+    "Fidesys_длительность_сек",
+    "Fidesys_код_launcher",
+    "SHA256",
+    "Путь_исходного_файла",
+    "Roundtrip_реестр",
+    "Roundtrip_конец_прогона_UTC",
+    "Fidesys_реестр",
+    "Fidesys_конец_прогона_UTC",
+    "Fidesys_полный_лог",
+    "Fidesys_лог_повторного_запуска",
+    "Спецификация_охват",
+    "Спецификация_документ",
+    "Спецификация_SHA256",
+    "Спецификация_реестр",
+    "Спецификация_конец_прогона_UTC",
+    "Спецификация_Luna_перепроверка",
+    "Fidesys_повторный_запуск",
+    "Спецификация_ошибок_проверки"
+  ],
+  "meshComparisonCounts": {
+    "equal": 1097,
+    "different": 31,
+    "unknown": 2
+  },
   "rtCounts": {
     "equal": 453,
     "error": 66,
@@ -8,26 +34,27 @@
   },
   "fiCounts": {
     "import_error": 678,
-    "loaded_without_errors": 450,
-    "incomplete": 2
+    "roundtrip_passed": 450,
+    "import_incomplete": 2
   },
   "cross": {
     "equal / import_error": 274,
     "error / import_error": 58,
-    "different / loaded_without_errors": 265,
+    "different / roundtrip_passed": 265,
     "different / import_error": 346,
-    "error / incomplete": 2,
-    "equal / loaded_without_errors": 179,
-    "error / loaded_without_errors": 6
+    "error / import_incomplete": 2,
+    "equal / roundtrip_passed": 179,
+    "error / roundtrip_passed": 6
   },
   "matchedSourceHashes": 1130,
   "delimiter": ",",
   "encoding": "UTF-8 with BOM",
-  "maxCellCharacters": 15949,
+  "maxCellCharacters": 31333,
   "output": "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_test_summary.csv",
   "specStatuses": {
-    "Выявлены нарушения": 1129,
-    "Нарушений не выявлено; есть legacy/неясности": 1
+    "Выявлены нарушения": 491,
+    "Нарушений не выявлено; есть legacy/неясности": 454,
+    "Нарушений не выявлено по выполненным правилам": 185
   },
-  "created_utc": "2026-09-11T13:11:17.879Z"
+  "created_utc": "2026-09-11T16:31:18.412Z"
 }

@@ -1,7 +1,6 @@
 """Audit every current corpus file; preserve provenance and structured evidence."""
 from __future__ import annotations
 
-import csv
 import hashlib
 import importlib
 import json
@@ -36,9 +35,9 @@ def no_duplicates(pairs: list) -> dict:
 
 def main() -> None:
     modules = {name: importlib.import_module("audit_" + name) for name in DOMAINS}
-    with CSV.open(encoding="utf-8-sig", newline="") as stream:
-        previous = list(csv.DictReader(stream))
-    previous_map = {row["Файл"]: row for row in previous}
+    baseline = ROOT / "work/1_2_2026-09-11_json_cleanup/roundtrip_results.json"
+    previous = json.loads(baseline.read_text())["files"]
+    previous_map = {row["file"]: row for row in previous}
     files = sorted((ROOT / "data/fc_core_tests").rglob("*.fc"))
     assert len(files) == len(previous_map) == 1130
     records: List[dict] = []
@@ -49,7 +48,7 @@ def main() -> None:
     for path in files:
         name = str(path.relative_to(ROOT / "data/fc_core_tests"))
         digest = sha(path)
-        assert digest == previous_map[name]["SHA256"], "Stale previous results: " + name
+        assert digest == previous_map[name]["sha256"], "Stale previous results: " + name
         findings: List[dict] = []
         completed = []
         try:
@@ -91,8 +90,9 @@ def main() -> None:
         assert sha(path) == digest
     report = dict(started_utc=started, finished_utc=datetime.now(timezone.utc).isoformat(),
                   spec="docs/FC_INPUT_FORMAT.md", spec_sha256=sha(SPEC),
-                  previous_csv_sha256=sha(CSV), files_count=len(records), domains=list(DOMAINS),
-                  checker_sha256={p.name: sha(p) for p in [HERE / "run_audit.py"] + [HERE / ("audit_" + x + ".py") for x in DOMAINS]},
+                  previous_csv_sha256=sha(CSV),
+                  baseline_roundtrip_sha256=sha(baseline), files_count=len(records), domains=list(DOMAINS),
+                  checker_sha256={p.name: sha(p) for p in [HERE / "run_audit.py", HERE / "audit_types.py"] + [HERE / ("audit_" + x + ".py") for x in DOMAINS]},
                   statuses=dict(statuses), finding_counts=dict(severity_counts), files_per_rule=dict(rule_counts.most_common()), files=records)
     (HERE / "results.json").write_text(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     print(json.dumps({k: v for k, v in report.items() if k not in ("files", "files_per_rule")}, ensure_ascii=False))

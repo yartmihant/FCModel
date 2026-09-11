@@ -1,0 +1,51 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact2dMixedSHeattrannsRectangleDoubleSplit_MPC.fc\'')
+
+[2026-09-11 18:38:03.581] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 18:38:03.581] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 18:38:03.583] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 18:38:03.583] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 18:38:03.586] [error] Invalid value specified.
+       Type 'modify?' for help.
+
+ERROR: Invalid value specified.
+       Type 'modify?' for help.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 5, "nodes": 658, "elements": 195, "version": "2021.11"}
+%>result = cubit.cmd('export fidesyscase "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_fidesys_roundtrip/exported/Contact2dMixedSHeattrannsRectangleDoubleSplit_MPC.fc" overwrite')
+
+Finished Command: export fidesyscase "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_fidesys_roundtrip/exported/Contact2dMixedSHeattrannsRectangleDoubleSplit_MPC.fc" overwrite
+
+%>print("FCMODEL_EXPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "result": result}))
+
+FCMODEL_EXPORT_DONE={"errors": 5, "nodes": 658, "elements": 195, "result": true}
+...deleting 20 tris and 60 edgeUses from database...
+...deleting 175 faces from database...
+...deleting 425 edges from database...
+...deleting 658 nodes from database...
+[2026-09-11 18:38:03.615] [error] Errors found during session.
+
+ERROR: Errors found during session.

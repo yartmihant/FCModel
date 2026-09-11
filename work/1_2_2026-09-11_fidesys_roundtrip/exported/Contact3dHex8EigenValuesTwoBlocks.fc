@@ -1,0 +1,182 @@
+{
+   "blocks" : 
+   [
+      {
+         "cs_id" : 1,
+         "id" : 1,
+         "material_id" : 0,
+         "property_id" : -1
+      },
+      {
+         "cs_id" : 1,
+         "id" : 2,
+         "material_id" : 0,
+         "property_id" : -1
+      }
+   ],
+   "contact_constraints" : 
+   [
+      {
+         "detection_tolerance" : 0.10000000000000001,
+         "distance" : 0.0,
+         "id" : 1,
+         "ignore_tied_stiffness" : false,
+         "master" : "GQAAAAUAAAAWAAAABQAAABMAAAAFAAAAGgAAAAUAAAAXAAAABQAAABQAAAAFAAAAGwAAAAUAAAAYAAAABQAAABUAAAAFAAAA",
+         "master_size" : 9,
+         "method" : "auto",
+         "name" : "Tied Normal 1",
+         "offset" : 0.0,
+         "search_radius" : 1.0,
+         "slave" : "IAAAAAQAAAAiAAAABAAAABwAAAAEAAAAHgAAAAQAAAA=",
+         "slave_size" : 4,
+         "thermo_penalty_mult" : 1.0,
+         "tolerance" : 0.00050000000000000001,
+         "type" : "tied_normal"
+      }
+   ],
+   "coordinate_systems" : 
+   [
+      {
+         "dir1" : "AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA",
+         "dir2" : "AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAA",
+         "id" : 1,
+         "name" : "Global Cartesian",
+         "origin" : "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         "type" : "cartesian"
+      }
+   ],
+   "header" : 
+   {
+      "binary" : true,
+      "description" : "Fidesys Case Format",
+      "types" : 
+      {
+         "char" : 1,
+         "double" : 8,
+         "int" : 4,
+         "short_int" : 2
+      },
+      "version" : 3
+   },
+   "materials" : 
+   [
+      {
+         "common" : 
+         [
+            {
+               "const_dep" : [ "" ],
+               "const_dep_size" : [ 0 ],
+               "const_names" : [ 0 ],
+               "const_types" : [ 0 ],
+               "constants" : [ "AAAAAAB4vkA=" ],
+               "type" : 0
+            }
+         ],
+         "elasticity" : 
+         [
+            {
+               "const_dep" : [ "", "" ],
+               "const_dep_size" : [ 0, 0 ],
+               "const_names" : [ 0, 1 ],
+               "const_types" : [ 0, 0 ],
+               "constants" : [ "AAAA6HZIR0I=", "MzMzMzMz0z8=" ],
+               "type" : 0
+            }
+         ],
+         "id" : 1,
+         "name" : "mat1"
+      }
+   ],
+   "mesh" : 
+   {
+      "elem_blocks" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAA=",
+      "elem_orders" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAA=",
+      "elem_parent_ids" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAA=",
+      "elem_types" : "AwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM=",
+      "elemids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcAAAAYAAAAGQAAABoAAAAbAAAAHAAAAB0AAAAeAAAAHwAAACAAAAAhAAAAIgAAACMAAAA=",
+      "elems" : "HQAAACEAAAAtAAAAKQAAAB4AAAAlAAAAOQAAADMAAAAhAAAAIAAAAC4AAAAtAAAAJQAAACQAAAA6AAAAOQAAACAAAAARAAAAFgAAAC4AAAAkAAAAEgAAABwAAAA6AAAAKQAAAC0AAAArAAAAKgAAADMAAAA5AAAAOwAAADQAAAAtAAAALgAAACwAAAArAAAAOQAAADoAAAA8AAAAOwAAAC4AAAAWAAAAFQAAACwAAAA6AAAAHAAAABsAAAA8AAAAKgAAACsAAAAnAAAAJgAAADQAAAA7AAAANwAAAC8AAAArAAAALAAAACgAAAAnAAAAOwAAADwAAAA4AAAANwAAACwAAAAVAAAAFAAAACgAAAA8AAAAGwAAABcAAAA4AAAAHgAAACUAAAA5AAAAMwAAAB8AAAAjAAAAPQAAADEAAAAlAAAAJAAAADoAAAA5AAAAIwAAACIAAAA+AAAAPQAAACQAAAASAAAAHAAAADoAAAAiAAAAEwAAABoAAAA+AAAAMwAAADkAAAA7AAAANAAAADEAAAA9AAAAPwAAADIAAAA5AAAAOgAAADwAAAA7AAAAPQAAAD4AAABAAAAAPwAAADoAAAAcAAAAGwAAADwAAAA+AAAAGgAAABkAAABAAAAANAAAADsAAAA3AAAALwAAADIAAAA/AAAANQAAADAAAAA7AAAAPAAAADgAAAA3AAAAPwAAAEAAAAA2AAAANQAAADwAAAAbAAAAFwAAADgAAABAAAAAGQAAABgAAAA2AAAAHwAAACMAAAA9AAAAMQAAAAEAAAAHAAAADgAAAAMAAAAjAAAAIgAAAD4AAAA9AAAABwAAAAYAAAAQAAAADgAAACIAAAATAAAAGgAAAD4AAAAGAAAABQAAAAoAAAAQAAAAMQAAAD0AAAA/AAAAMgAAAAMAAAAOAAAADQAAAAQAAAA9AAAAPgAAAEAAAAA/AAAADgAAABAAAAAPAAAADQAAAD4AAAAaAAAAGQAAAEAAAAAQAAAACgAAAAkAAAAPAAAAMgAAAD8AAAA1AAAAMAAAAAQAAAANAAAACwAAAAIAAAA/AAAAQAAAADYAAAA1AAAADQAAAA8AAAAMAAAACwAAAEAAAAAZAAAAGAAAADYAAAAPAAAACQAAAAgAAAAMAAAARgAAAFgAAABaAAAARwAAAEgAAABZAAAAWwAAAEkAAABYAAAAVAAAAFYAAABaAAAAWQAAAFUAAABXAAAAWwAAAEcAAABaAAAATgAAAEQAAABJAAAAWwAAAE8AAABFAAAAWgAAAFYAAABMAAAATgAAAFsAAABXAAAATQAAAE8AAABIAAAAWQAAAFsAAABJAAAAQQAAAFEAAABTAAAAQwAAAFkAAABVAAAAVwAAAFsAAABRAAAAUAAAAFIAAABTAAAASQAAAFsAAABPAAAARQAAAEMAAABTAAAASwAAAEIAAABbAAAAVwAAAE0AAABPAAAAUwAAAFIAAABKAAAASwAAAA==",
+      "elems_count" : 35,
+      "nids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcAAAAYAAAAGQAAABoAAAAbAAAAHAAAAB0AAAAeAAAAHwAAACAAAAAhAAAAIgAAACMAAAAkAAAAJQAAACYAAAAnAAAAKAAAACkAAAAqAAAAKwAAACwAAAAtAAAALgAAAC8AAAAwAAAAMQAAADIAAAAzAAAANAAAADUAAAA2AAAANwAAADgAAAA5AAAAOgAAADsAAAA8AAAAPQAAAD4AAAA/AAAAQAAAAEEAAABCAAAAQwAAAEQAAABFAAAARgAAAEcAAABIAAAASQAAAEoAAABLAAAATAAAAE0AAABOAAAATwAAAFAAAABRAAAAUgAAAFMAAABUAAAAVQAAAFYAAABXAAAAWAAAAFkAAABaAAAAWwAAAA==",
+      "nodes" : "AAAAAAAAFMAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAUwAAAAAAAAAAAqqqqqqqq+r8AAAAAAAAUwAAAAAAAAAAArKqqqqqq+j8AAAAAAAAUwAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAFMCqqqqqqqr6PwAAAAAAAAAAAAAAAAAAFMCsqqqqqqr6vwAAAAAAAAAAAAAAAAAAFEAAAAAAAAAUQAAAAAAAAAAAqqqqqqqq+j8AAAAAAAAUQAAAAAAAAAAArKqqqqqq+r8AAAAAAAAUQAAAAAAAAAAAAAAAAAAAFECqqqqqqqr6vwAAAAAAAAAAAAAAAAAAFECsqqqqqqr6PwAAAAAAAAAArKqqqqqq+j+rqqqqqqr6vwAAAAAAAAAAraqqqqqq+r+uqqqqqqr6vwAAAAAAAAAArqqqqqqq+j+pqqqqqqr6PwAAAAAAAAAAq6qqqqqq+r+sqqqqqqr6PwAAAAAAAAAAAAAAAAAAFMAAAAAAAAAUQAAAAAAAACRAAAAAAAAAFMAAAAAAAAAUQKqqqqqqqhpAAAAAAAAAFMAAAAAAAAAUQKqqqqqqqgpAAAAAAAAAFEAAAAAAAAAUQAAAAAAAACRAqqqqqqqq+j8AAAAAAAAUQAAAAAAAACRArKqqqqqq+r8AAAAAAAAUQAAAAAAAACRAAAAAAAAAFEAAAAAAAAAUQKqqqqqqqhpAAAAAAAAAFEAAAAAAAAAUQKqqqqqqqgpAqqqqqqqq+j8AAAAAAAAUQKmqqqqqqgpAsKqqqqqq+r8AAAAAAAAUQKqqqqqqqgpAqqqqqqqq+j8AAAAAAAAUQKmqqqqqqhpArKqqqqqq+r8AAAAAAAAUQKqqqqqqqhpAAAAAAAAAFMAAAAAAAAAUwAAAAAAAACRAAAAAAAAAFMAAAAAAAAAUwKqqqqqqqhpAAAAAAAAAFMAAAAAAAAAUwKqqqqqqqgpAAAAAAAAAFMCqqqqqqqr6PwAAAAAAACRAAAAAAAAAFMCsqqqqqqr6vwAAAAAAACRAAAAAAAAAFMCqqqqqqqr6P6mqqqqqqgpAAAAAAAAAFMCwqqqqqqr6v6qqqqqqqgpAAAAAAAAAFMCqqqqqqqr6P6mqqqqqqhpAAAAAAAAAFMCsqqqqqqr6v6qqqqqqqhpAAAAAAAAAFEAAAAAAAAAUwAAAAAAAACRAAAAAAAAAFECqqqqqqqr6vwAAAAAAACRAAAAAAAAAFECsqqqqqqr6PwAAAAAAACRAqqqqqqqq+r8AAAAAAAAUwAAAAAAAACRArKqqqqqq+j8AAAAAAAAUwAAAAAAAACRArKqqqqqq+j+qqqqqqqr6vwAAAAAAACRAq6qqqqqq+j+pqqqqqqr6PwAAAAAAACRAqqqqqqqq+r+vqqqqqqr6vwAAAAAAACRArKqqqqqq+r+sqqqqqqr6PwAAAAAAACRAAAAAAAAAFEAAAAAAAAAUwKqqqqqqqhpAAAAAAAAAFEAAAAAAAAAUwKqqqqqqqgpAqqqqqqqq+r8AAAAAAAAUwKmqqqqqqgpAsKqqqqqq+j8AAAAAAAAUwKqqqqqqqgpAqqqqqqqq+r8AAAAAAAAUwKmqqqqqqhpArKqqqqqq+j8AAAAAAAAUwKqqqqqqqhpAAAAAAAAAFECqqqqqqqr6v6mqqqqqqgpAAAAAAAAAFECwqqqqqqr6P6qqqqqqqgpAAAAAAAAAFECqqqqqqqr6v6mqqqqqqhpAAAAAAAAAFECsqqqqqqr6P6qqqqqqqhpAraqqqqqq+r+xqqqqqqr6v6iqqqqqqhpAq6qqqqqq+r+rqqqqqqr6P6aqqqqqqhpArKqqqqqq+j+sqqqqqqr6v6eqqqqqqhpAraqqqqqq+j+nqqqqqqr6P6iqqqqqqhpArKqqqqqq+r+wqqqqqqr6v6iqqqqqqgpArqqqqqqq+r+uqqqqqqr6P6aqqqqqqgpArqqqqqqq+j+qqqqqqqr6v6iqqqqqqgpArqqqqqqq+j+uqqqqqqr6P6iqqqqqqgpAAAAAAAAAFMAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAUwAAAAAAAACTAAAAAAAAAFEAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFEAAAAAAAAAUQAAAAAAAACTAAAAAAAAAFEAAAAAAAAAAAAAAAAAAACTAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABTAAAAAAAAAFEAAAAAAAAAAAAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAACTAAAAAAAAAFMAAAAAAAAAUwAAAAAAAABTAAAAAAAAAAAAAAAAAAAAUwAAAAAAAACTAAAAAAAAAAAAAAAAAAAAUwAAAAAAAABTAAAAAAAAAFMAAAAAAAAAUQAAAAAAAACTAAAAAAAAAFMAAAAAAAAAAAAAAAAAAACTAAAAAAAAAAAAAAAAAAAAUQAAAAAAAACTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACTAAAAAAAAAFMAAAAAAAAAUQAAAAAAAABTAAAAAAAAAFMAAAAAAAAAAAAAAAAAAABTAAAAAAAAAAAAAAAAAAAAUQAAAAAAAABTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABTA",
+      "nodes_count" : 91
+   },
+   "settings" : 
+   {
+      "bc_tolerance" : 0.00050000000000000001,
+      "dimensions" : "3D",
+      "dynamics" : 
+      {
+         "result_output_iter" : 1
+      },
+      "eigen_solver" : 
+      {
+         "absolute_tolerance" : 0.0,
+         "campbell" : false,
+         "eps_max_iterations" : 300,
+         "linear_solver" : 
+         {
+            "method" : "auto",
+            "preconditioner" : "auto",
+            "solver" : "auto"
+         },
+         "number" : 10,
+         "relative_tolerance" : 1e-08,
+         "solver" : "auto",
+         "spectr_trans" : 
+         {
+            "name" : "auto"
+         }
+      },
+      "elasticity" : false,
+      "environment" : 
+      {
+         "temperature" : 0.0
+      },
+      "finite_deformations" : false,
+      "heat_transfer" : false,
+      "incompressibility" : false,
+      "linear_solver" : 
+      {
+         "iter_opts" : 
+         {
+            "epsilon" : 1.0000000000000001e-09,
+            "max_iterations" : 50000,
+            "preconditioner" : "auto",
+            "stopping_criteria" : 0.0
+         },
+         "method" : "auto",
+         "on_fail" : true,
+         "use_uzawa" : "auto"
+      },
+      "nonlinear_solver" : 
+      {
+         "arc_method" : false,
+         "line_search" : false,
+         "max_iterations" : 50,
+         "max_load_steps" : 10,
+         "min_load_steps" : 1,
+         "start_load_steps" : 1,
+         "target_iter" : 5,
+         "tolerance" : 0.001
+      },
+      "output" : 
+      {
+         "energy" : false,
+         "full_periodic" : false,
+         "intermediate_results" : true,
+         "log" : true,
+         "material" : false,
+         "normal_force" : false,
+         "record3d" : true,
+         "vtu" : true,
+         "without_smoothing" : false
+      },
+      "permission_write" : true,
+      "plasticity" : false,
+      "porefluid_transfer" : false,
+      "preload" : false,
+      "radiation_among_surfaces" : false,
+      "slm" : false,
+      "type" : "eigenfrequencies"
+   }
+}
