@@ -1,0 +1,380 @@
+{
+   "bcs" : [
+      {
+         "id" : 0,
+         "load_factors" : [ 1 ],
+         "load_set_numbers" : [ 0 ],
+         "name" : "General BC",
+         "restraint_set_number" : 0
+      }
+   ],
+   "header" : {
+      "binary" : true,
+      "description" : "Fidesys Case Format",
+      "types" : {
+         "char" : 1,
+         "double" : 8,
+         "int" : 4,
+         "short_int" : 2
+      },
+      "version" : 2
+   },
+   "load_sets" : [
+      {
+         "id" : 0,
+         "loads" : [],
+         "name" : "Load Set",
+         "type" : 0
+      }
+   ],
+   "materials" : [
+      {
+         "const_dep" : [ "", "" ],
+         "const_dep_size" : [ 0, 0 ],
+         "const_names" : [ "poisson", "young" ],
+         "const_types" : [ 0, 0 ],
+         "constants" : [ "AAAAAAAAAAA=", "AAAAAAAA8D8=" ],
+         "description" : "",
+         "id" : 1,
+         "name" : "123",
+         "type" : 0
+      }
+   ],
+   "mesh" : {
+      "elem_blocks" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAA==",
+      "elem_materials" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAA==",
+      "elem_properties" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAA==",
+      "elem_types" : "WVlZWVlZWVlZWQ==",
+      "elemids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAA==",
+      "elems" : "AQAAAAIAAAACAAAAAwAAAAMAAAAEAAAABAAAAAUAAAAFAAAABgAAAAYAAAAHAAAABwAAAAgAAAAIAAAACQAAAAkAAAAKAAAACgAAAAsAAAA=",
+      "elems_count" : 10,
+      "nids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAA=",
+      "nodes" : "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJEAAAAAAAAAAAAAAAAAAAAAA",
+      "nodes_count" : 11
+   },
+   "property_tables" : [
+      {
+         "id" : 1,
+         "properties" : {
+            "A" : 3,
+            "It" : 0.79021600000000003,
+            "Ix" : 2.5,
+            "Iy" : 0.25,
+            "Iyz" : 0,
+            "Iz" : 2.25,
+            "Rectangle" : 1,
+            "angle" : 0,
+            "ey" : 0,
+            "ez" : 0,
+            "geometry" : {
+               "B" : 3,
+               "H" : 1
+            },
+            "max_y" : 1.5,
+            "max_z" : 0.5,
+            "section_type" : 0
+         },
+         "type" : 1
+      },
+      {
+         "id" : 2,
+         "properties" : {
+            "A" : 7.0685799999999999,
+            "Ellipse" : 1,
+            "It" : 7.9521600000000001,
+            "Ix" : 7.9521600000000001,
+            "Iy" : 3.9760800000000001,
+            "Iyz" : 0,
+            "Iz" : 3.9760800000000001,
+            "angle" : 0,
+            "ey" : 0,
+            "ez" : 0,
+            "geometry" : {
+               "a" : 3,
+               "b" : 3
+            },
+            "max_y" : 1.5,
+            "max_z" : 1.5,
+            "section_type" : 1
+         },
+         "type" : 1
+      },
+      {
+         "id" : 3,
+         "properties" : {
+            "A" : 1.3500000000000001,
+            "I-Beam" : 1,
+            "It" : 0.032583300000000003,
+            "Ix" : 0.97464799999999996,
+            "Iy" : 0.166273,
+            "Iyz" : 0,
+            "Iz" : 0.80837499999999995,
+            "angle" : 0,
+            "ey" : 0,
+            "ez" : 0,
+            "geometry" : {
+               "B1" : 3,
+               "B2" : 2,
+               "H" : 1,
+               "c1" : 0.29999999999999999,
+               "c2" : 0.20000000000000001,
+               "d" : 0.10000000000000001
+            },
+            "max_y" : 1.5,
+            "max_z" : 0.61296300000000004,
+            "section_type" : 2
+         },
+         "type" : 1
+      },
+      {
+         "id" : 4,
+         "properties" : {
+            "A" : 1.3500000000000001,
+            "Chan-Beam" : 1,
+            "It" : 0.032583300000000003,
+            "Ix" : 1.12476,
+            "Iy" : 0.166273,
+            "Iyz" : -0.114408,
+            "Iz" : 0.95848900000000004,
+            "angle" : 0,
+            "ey" : 0,
+            "ez" : 0,
+            "geometry" : {
+               "B1" : 3,
+               "B2" : 2,
+               "H" : 1,
+               "c1" : 0.29999999999999999,
+               "c2" : 0.20000000000000001,
+               "d" : 0.10000000000000001
+            },
+            "max_y" : 3,
+            "max_z" : 1,
+            "section_type" : 5
+         },
+         "type" : 1
+      },
+      {
+         "id" : 5,
+         "properties" : {
+            "A" : 0.96999999999999997,
+            "It" : 0.0272833,
+            "Ix" : 0.83770599999999995,
+            "Iy" : 0.026070400000000001,
+            "Iyz" : -0.0470876,
+            "Iz" : 0.811635,
+            "L-Beam" : 1,
+            "angle" : 0,
+            "ey" : 0,
+            "ez" : 0,
+            "geometry" : {
+               "B" : 3,
+               "H" : 1,
+               "c1" : 0.29999999999999999,
+               "d" : 0.10000000000000001
+            },
+            "max_y" : 2.9500000000000002,
+            "max_z" : 0.84999999999999998,
+            "section_type" : 6
+         },
+         "type" : 1
+      },
+      {
+         "id" : 6,
+         "properties" : {
+            "A" : 0.96999999999999997,
+            "It" : 0.0272833,
+            "Ix" : 0.70090399999999997,
+            "Iy" : 0.025845400000000001,
+            "Iyz" : 0,
+            "Iz" : 0.67505800000000005,
+            "T-Beam" : 1,
+            "angle" : 0,
+            "ey" : 0,
+            "ez" : 0,
+            "geometry" : {
+               "B" : 3,
+               "H" : 1,
+               "c1" : 0.29999999999999999,
+               "d" : 0.10000000000000001
+            },
+            "max_y" : 1.5,
+            "max_z" : 0.84999999999999998,
+            "section_type" : 8
+         },
+         "type" : 1
+      },
+      {
+         "id" : 7,
+         "properties" : {
+            "A" : 1.3500000000000001,
+            "It" : 0.032583300000000003,
+            "Ix" : 2.5941000000000001,
+            "Iy" : 0.166273,
+            "Iyz" : -0.50425900000000001,
+            "Iz" : 2.4278300000000002,
+            "Z-Beam" : 1,
+            "angle" : 0,
+            "ey" : 0,
+            "ez" : 0,
+            "geometry" : {
+               "B1" : 3,
+               "B2" : 2,
+               "H" : 1,
+               "c1" : 0.29999999999999999,
+               "c2" : 0.20000000000000001,
+               "d" : 0.10000000000000001
+            },
+            "max_y" : 2.9500000000000002,
+            "max_z" : 0.84999999999999998,
+            "section_type" : 7
+         },
+         "type" : 1
+      },
+      {
+         "id" : 8,
+         "properties" : {
+            "A" : 2.1899999999999999,
+            "Hollow Rectangle" : 1,
+            "It" : 0.62395599999999996,
+            "Ix" : 1.9963200000000001,
+            "Iy" : 0.241151,
+            "Iyz" : -0.0027698899999999997,
+            "Iz" : 1.7551699999999999,
+            "angle" : 0,
+            "ey" : 0,
+            "ez" : 0,
+            "geometry" : {
+               "B" : 3,
+               "H" : 1,
+               "c1" : 0.29999999999999999,
+               "c2" : 0.40000000000000002,
+               "d1" : 0.10000000000000001,
+               "d2" : 0.20000000000000001
+            },
+            "max_y" : 3,
+            "max_z" : 1,
+            "section_type" : 9
+         },
+         "type" : 1
+      },
+      {
+         "id" : 9,
+         "properties" : {
+            "A" : 1.53,
+            "Hat-Beam" : 1,
+            "It" : 0.1255,
+            "Ix" : 4.1109799999999996,
+            "Iy" : 0.092531500000000003,
+            "Iyz" : 0.0585503,
+            "Iz" : 4.0184499999999996,
+            "angle" : 0,
+            "ey" : 0,
+            "ez" : 0,
+            "geometry" : {
+               "B1" : 3,
+               "B2" : 2,
+               "B3" : 1,
+               "H" : 1,
+               "c1" : 0.29999999999999999,
+               "c2" : 0.20000000000000001,
+               "c3" : 0.10000000000000001,
+               "d1" : 0.10000000000000001,
+               "d2" : 0.10000000000000001
+            },
+            "max_y" : 5.7999999999999998,
+            "max_z" : 1,
+            "section_type" : 10
+         },
+         "type" : 1
+      },
+      {
+         "id" : 10,
+         "properties" : {
+            "A" : 2.15984,
+            "Circle With Offset Hole" : 1,
+            "It" : 4.1172000000000004,
+            "Ix" : 4.1172000000000004,
+            "Iy" : 2.0586000000000002,
+            "Iyz" : 0,
+            "Iz" : 2.0586000000000002,
+            "angle" : 0,
+            "ey" : 0,
+            "ez" : 0,
+            "geometry" : {
+               "D1" : 3,
+               "D2" : 2.5,
+               "e" : 0
+            },
+            "max_y" : 1.5,
+            "max_z" : 1.5,
+            "section_type" : 3
+         },
+         "type" : 1
+      }
+   ],
+   "restraint_sets" : [
+      {
+         "id" : 1,
+         "name" : "Restraint Set",
+         "restraints" : [ 1 ],
+         "type" : 0
+      }
+   ],
+   "restraints" : [
+      {
+         "apply_to" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAA=",
+         "apply_to_size" : 11,
+         "data" : [
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA="
+         ],
+         "dep_var_num" : [ "", "", "", "", "", "" ],
+         "dep_var_size" : [ 0, 0, 0, 0, 0, 0 ],
+         "dependency_type" : [ 0, 0, 0, 0, 0, 0 ],
+         "flag" : [ 1, 1, 1, 1, 1, 1 ],
+         "id" : 1,
+         "name" : ""
+      }
+   ],
+   "settings" : {
+      "compute_fields" : [ "stress", "strain", "displacement" ],
+      "contact" : false,
+      "dimensions" : "3D",
+      "elasticity" : true,
+      "finite_deformations" : false,
+      "heat_transfer" : false,
+      "incompressibility" : false,
+      "linear_solver" : {
+         "iter_opts" : {
+            "epsilon" : 1.0000000000000001e-09,
+            "max_iterations" : 50000,
+            "preconditioner" : "auto",
+            "stopping_criteria" : 0
+         },
+         "method" : "auto",
+         "on_fail" : true,
+         "use_uzawa" : "auto"
+      },
+      "nonlinear_solver" : {
+         "arc_method" : false,
+         "max_iterations" : 50,
+         "max_load_steps" : 10,
+         "min_load_steps" : 1,
+         "tolerance" : 0.001
+      },
+      "normal_force" : false,
+      "output_cs" : [ "cartesian" ],
+      "output_intermediate_results" : true,
+      "permission_write" : true,
+      "plasticity" : false,
+      "record3d" : true,
+      "renum" : false,
+      "spectral_element" : false,
+      "type" : "static",
+      "viscosity" : false
+   }
+}

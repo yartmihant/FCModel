@@ -1,0 +1,211 @@
+{
+   "blocks" : 
+   [
+      {
+         "cs_id" : 1,
+         "id" : 1,
+         "material_id" : 1,
+         "property_id" : -1
+      },
+      {
+         "cs_id" : 1,
+         "id" : 2,
+         "material_id" : 1,
+         "property_id" : -1
+      }
+   ],
+   "contact_constraints" : 
+   [
+      {
+         "detection_tolerance" : 0.10000000000000001,
+         "friction" : 0.10000000000000001,
+         "id" : 1,
+         "ignore_overlap" : false,
+         "ignore_tied_stiffness" : false,
+         "master" : "CgAAAAAAAAAJAAAAAAAAAAgAAAAAAAAABwAAAAAAAAAGAAAAAAAAAAUAAAAAAAAABAAAAAAAAAADAAAAAAAAAAIAAAAAAAAAAQAAAAEAAAAVAAAAAgAAABQAAAACAAAA",
+         "master_size" : 12,
+         "method" : "penalty",
+         "name" : "Contact 1",
+         "normal_stiffness" : 1.0,
+         "offset" : 0.0,
+         "preload" : 0.0,
+         "search_radius" : 1.0,
+         "slave" : "CgAAAAAAAAAJAAAAAAAAAAgAAAAAAAAABwAAAAAAAAAGAAAAAAAAAAUAAAAAAAAABAAAAAAAAAADAAAAAAAAAAIAAAAAAAAAAQAAAAEAAAAVAAAAAgAAABQAAAACAAAA",
+         "slave_size" : 12,
+         "tangent_stiffness" : 0.5,
+         "tolerance" : 0.00050000000000000001,
+         "type" : "general"
+      }
+   ],
+   "coordinate_systems" : 
+   [
+      {
+         "dir1" : "AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA",
+         "dir2" : "AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAA",
+         "id" : 1,
+         "name" : "\u0413\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u0430\u044f \u0434\u0435\u043a\u0430\u0440\u0442\u043e\u0432\u0430",
+         "origin" : "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         "type" : "cartesian"
+      }
+   ],
+   "header" : 
+   {
+      "binary" : true,
+      "description" : "Fidesys Case Format",
+      "types" : 
+      {
+         "char" : 1,
+         "double" : 8,
+         "int" : 4,
+         "short_int" : 2
+      },
+      "version" : 3
+   },
+   "loads" : 
+   [
+      {
+         "apply_to" : "all",
+         "apply_to_size" : 0,
+         "cs" : 1,
+         "data" : [ "", "AAAAAAAAJMA=", "" ],
+         "dep_var_num" : [ "", "", "" ],
+         "dep_var_size" : [ 0, 0, 0 ],
+         "dependency_type" : [ "", 0, "" ],
+         "id" : 1,
+         "name" : "gravity",
+         "type" : 44
+      }
+   ],
+   "materials" : 
+   [
+      {
+         "common" : 
+         [
+            {
+               "const_dep" : [ "" ],
+               "const_dep_size" : [ 0 ],
+               "const_names" : [ 0 ],
+               "const_types" : [ 0 ],
+               "constants" : [ "AAAAAACIw0A=" ],
+               "type" : 0
+            }
+         ],
+         "elasticity" : 
+         [
+            {
+               "const_dep" : [ "", "" ],
+               "const_dep_size" : [ 0, 0 ],
+               "const_names" : [ 0, 1 ],
+               "const_types" : [ 0, 0 ],
+               "constants" : [ "AAAA6HZIR0I=", "MzMzMzMz0z8=" ],
+               "type" : 0
+            }
+         ],
+         "id" : 1,
+         "name" : "steel"
+      }
+   ],
+   "mesh" : 
+   {
+      "elem_blocks" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAIAAAACAAAA",
+      "elem_orders" : "AwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAA",
+      "elem_parent_ids" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAIAAAACAAAA",
+      "elem_types" : "DQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0N",
+      "elemids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAA",
+      "elems" : "HAAAAAgAAAARAAAAHQAAADsAAAAvAAAAPAAAAEYAAAARAAAAEAAAACUAAAAdAAAALgAAAEcAAABFAAAAPAAAABAAAAAPAAAAJAAAACUAAAAtAAAASAAAAEQAAABHAAAADwAAAA4AAAAjAAAAJAAAACwAAABJAAAAQwAAAEgAAAAOAAAADQAAACIAAAAjAAAAKwAAAEoAAABCAAAASQAAAA0AAAAMAAAAIQAAACIAAAAqAAAASwAAAEEAAABKAAAADAAAAAsAAAAgAAAAIQAAACkAAABMAAAAQAAAAEsAAAALAAAACgAAAB8AAAAgAAAAKAAAAE0AAAA/AAAATAAAAAoAAAAJAAAAHgAAAB8AAAAnAAAATgAAAD4AAABNAAAACQAAAAcAAAATAAAAHgAAACYAAAAwAAAAPQAAAE4AAAATAAAAEgAAABQAAAAeAAAAMQAAADIAAABPAAAAPQAAAB4AAAAUAAAAFQAAAB8AAABPAAAAMwAAAFAAAAA+AAAAHwAAABUAAAAWAAAAIAAAAFAAAAA0AAAAUQAAAD8AAAAgAAAAFgAAABcAAAAhAAAAUQAAADUAAABSAAAAQAAAACEAAAAXAAAAGAAAACIAAABSAAAANgAAAFMAAABBAAAAIgAAABgAAAAZAAAAIwAAAFMAAAA3AAAAVAAAAEIAAAAjAAAAGQAAABoAAAAkAAAAVAAAADgAAABVAAAAQwAAACQAAAAaAAAAGwAAACUAAABVAAAAOQAAAFYAAABEAAAAJQAAABsAAAAcAAAAHQAAAFYAAAA6AAAARgAAAEUAAAABAAAAAwAAAAYAAAAFAAAAVwAAAF0AAABbAAAAXAAAAAMAAAACAAAABAAAAAYAAABYAAAAWQAAAFoAAABdAAAA",
+      "elems_count" : 21,
+      "nids" : "HAAAAAgAAAARAAAAHQAAADsAAAAvAAAAPAAAAEYAAAAQAAAAJQAAAC4AAABHAAAARQAAAA8AAAAkAAAALQAAAEgAAABEAAAADgAAACMAAAAsAAAASQAAAEMAAAANAAAAIgAAACsAAABKAAAAQgAAAAwAAAAhAAAAKgAAAEsAAABBAAAACwAAACAAAAApAAAATAAAAEAAAAAKAAAAHwAAACgAAABNAAAAPwAAAAkAAAAeAAAAJwAAAE4AAAA+AAAABwAAABMAAAAmAAAAMAAAAD0AAAASAAAAFAAAADEAAAAyAAAATwAAABUAAAAzAAAAUAAAABYAAAA0AAAAUQAAABcAAAA1AAAAUgAAABgAAAA2AAAAUwAAABkAAAA3AAAAVAAAABoAAAA4AAAAVQAAABsAAAA5AAAAVgAAADoAAAABAAAAAwAAAAYAAAAFAAAAVwAAAF0AAABbAAAAXAAAAAIAAAAEAAAAWAAAAFkAAABaAAAA",
+      "nodes" : "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",
+      "nodes_count" : 93
+   },
+   "restraints" : 
+   [
+      {
+         "apply_to" : "JgAAAAkAAAAnAAAACgAAACgAAAALAAAAKQAAAAwAAAAqAAAADQAAACsAAAAOAAAALAAAAA8AAAAtAAAAEAAAAC4AAAARAAAALwAAADAAAAATAAAAMQAAADIAAAAUAAAAMwAAABUAAAA0AAAAFgAAADUAAAAXAAAANgAAABgAAAA3AAAAGQAAADgAAAAaAAAAOQAAABsAAAA6AAAAHAAAADsAAAAHAAAACAAAABIAAAAdAAAAHgAAAB8AAAAgAAAAIQAAACIAAAAjAAAAJAAAACUAAAA8AAAAPQAAAD4AAAA/AAAAQAAAAEEAAABCAAAAQwAAAEQAAABFAAAARgAAAEcAAABIAAAASQAAAEoAAABLAAAATAAAAE0AAABOAAAATwAAAFAAAABRAAAAUgAAAFMAAABUAAAAVQAAAFYAAAA=",
+         "apply_to_size" : 80,
+         "cs" : 1,
+         "data" : 
+         [
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA="
+         ],
+         "dep_var_num" : [ "", "", "", "", "", "" ],
+         "dep_var_size" : [ 0, 0, 0, 0, 0, 0 ],
+         "dependency_type" : [ 0, 0, 0, 0, 0, 0 ],
+         "flag" : [ 1, 1, 1, 1, 1, 1 ],
+         "id" : 1,
+         "name" : ""
+      }
+   ],
+   "settings" : 
+   {
+      "bc_tolerance" : 0.00050000000000000001,
+      "dimensions" : "2D",
+      "dynamics" : 
+      {
+         "init_step" : 0,
+         "max_time" : 2.0,
+         "method" : "full_solution",
+         "newmark_gamma" : 0.0050000000000000001,
+         "result_output_iter" : 10,
+         "scheme" : "implicit",
+         "steps_count" : 500
+      },
+      "eigen_solver" : null,
+      "elasticity" : true,
+      "finite_deformations" : false,
+      "heat_transfer" : false,
+      "incompressibility" : false,
+      "linear_solver" : 
+      {
+         "iter_opts" : 
+         {
+            "epsilon" : 1.0000000000000001e-09,
+            "max_iterations" : 50000,
+            "preconditioner" : "auto",
+            "stopping_criteria" : 0.0
+         },
+         "method" : "auto",
+         "on_fail" : true,
+         "use_uzawa" : "auto"
+      },
+      "nonlinear_solver" : 
+      {
+         "arc_method" : false,
+         "line_search" : false,
+         "max_iterations" : 50,
+         "max_load_steps" : 10,
+         "min_load_steps" : 1,
+         "target_iter" : 5,
+         "tolerance" : 0.001
+      },
+      "output" : 
+      {
+         "energy" : true,
+         "full_periodic" : false,
+         "intermediate_results" : true,
+         "log" : true,
+         "material" : false,
+         "normal_force" : false,
+         "record3d" : true,
+         "vtu" : true
+      },
+      "permission_write" : true,
+      "plane_state" : "p-strain",
+      "plasticity" : false,
+      "porefluid_transfer" : false,
+      "slm" : false,
+      "statics" : 
+      {
+         "steps_count" : 1
+      },
+      "test_opts" : null,
+      "thermal_expansion" : false,
+      "type" : "dynamic",
+      "viscosity" : false
+   }
+}

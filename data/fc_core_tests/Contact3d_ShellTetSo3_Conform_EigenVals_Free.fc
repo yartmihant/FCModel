@@ -1,0 +1,282 @@
+{
+   "blocks" : 
+   [
+      {
+         "cs_id" : 1,
+         "id" : 1,
+         "material_id" : 1,
+         "property_id" : 1
+      },
+      {
+         "cs_id" : 1,
+         "id" : 2,
+         "material_id" : 1,
+         "property_id" : 1
+      },
+      {
+         "cs_id" : 1,
+         "id" : 3,
+         "material_id" : 1,
+         "property_id" : 1
+      },
+      {
+         "cs_id" : 1,
+         "id" : 4,
+         "material_id" : 1,
+         "property_id" : 1
+      }
+   ],
+   "contact_constraints" : 
+   [
+      {
+         "detection_tolerance" : 0.10000000000000001,
+         "friction" : 0.0,
+         "id" : 1,
+         "ignore_overlap" : false,
+         "master" : "AwAAAAEAAAACAAAAAgAAABEAAAABAAAAFgAAAAEAAAA=",
+         "master_size" : 4,
+         "method" : "mpc",
+         "name" : "Contact 1",
+         "normal_stiffness" : 1.0,
+         "offset" : 0.0,
+         "preload" : 0.0,
+         "search_radius" : 1.0,
+         "slave" : "AwAAAAEAAAACAAAAAgAAABEAAAABAAAAFgAAAAEAAAA=",
+         "slave_size" : 4,
+         "tangent_stiffness" : 0.5,
+         "tolerance" : 0.00050000000000000001,
+         "type" : "tied"
+      },
+      {
+         "detection_tolerance" : 0.10000000000000001,
+         "friction" : 0.0,
+         "id" : 2,
+         "ignore_overlap" : false,
+         "master" : "BgAAAAIAAAADAAAAAAAAAAwAAAAAAAAACQAAAAAAAAA=",
+         "master_size" : 4,
+         "method" : "mpc",
+         "name" : "Contact 2",
+         "normal_stiffness" : 1.0,
+         "offset" : 0.0,
+         "preload" : 0.0,
+         "search_radius" : 1.0,
+         "slave" : "BgAAAAIAAAADAAAAAAAAAAwAAAAAAAAACQAAAAAAAAA=",
+         "slave_size" : 4,
+         "tangent_stiffness" : 0.5,
+         "tolerance" : 0.00050000000000000001,
+         "type" : "tied"
+      },
+      {
+         "detection_tolerance" : 0.10000000000000001,
+         "friction" : 0.0,
+         "id" : 3,
+         "ignore_overlap" : false,
+         "master" : "CwAAAAEAAAAKAAAAAgAAABkAAAABAAAAHgAAAAEAAAA=",
+         "master_size" : 4,
+         "method" : "mpc",
+         "name" : "Contact 3",
+         "normal_stiffness" : 1.0,
+         "offset" : 0.0,
+         "preload" : 0.0,
+         "search_radius" : 1.0,
+         "slave" : "CwAAAAEAAAAKAAAAAgAAABkAAAABAAAAHgAAAAEAAAA=",
+         "slave_size" : 4,
+         "tangent_stiffness" : 0.5,
+         "tolerance" : 0.00050000000000000001,
+         "type" : "tied"
+      },
+      {
+         "detection_tolerance" : 0.10000000000000001,
+         "friction" : 0.0,
+         "id" : 4,
+         "ignore_overlap" : false,
+         "master" : "HAAAAAAAAAAZAAAAAAAAABYAAAACAAAAEwAAAAAAAAA=",
+         "master_size" : 4,
+         "method" : "mpc",
+         "name" : "Contact 4",
+         "normal_stiffness" : 1.0,
+         "offset" : 0.0,
+         "preload" : 0.0,
+         "search_radius" : 1.0,
+         "slave" : "HAAAAAAAAAAZAAAAAAAAABYAAAACAAAAEwAAAAAAAAA=",
+         "slave_size" : 4,
+         "tangent_stiffness" : 0.5,
+         "tolerance" : 0.00050000000000000001,
+         "type" : "tied"
+      }
+   ],
+   "coordinate_systems" : 
+   [
+      {
+         "dir1" : "AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA",
+         "dir2" : "AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAA",
+         "id" : 1,
+         "name" : "\u0413\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u0430\u044f \u0434\u0435\u043a\u0430\u0440\u0442\u043e\u0432\u0430",
+         "origin" : "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         "type" : "cartesian"
+      }
+   ],
+   "header" : 
+   {
+      "binary" : true,
+      "description" : "Fidesys Case Format",
+      "types" : 
+      {
+         "char" : 1,
+         "double" : 8,
+         "int" : 4,
+         "short_int" : 2
+      },
+      "version" : 3
+   },
+   "materials" : 
+   [
+      {
+         "common" : 
+         [
+            {
+               "const_dep" : [ "" ],
+               "const_dep_size" : [ 0 ],
+               "const_names" : [ 0 ],
+               "const_types" : [ 0 ],
+               "constants" : [ "AAAAAABAv0A=" ],
+               "type" : 0
+            }
+         ],
+         "elasticity" : 
+         [
+            {
+               "const_dep" : [ "", "" ],
+               "const_dep_size" : [ 0, 0 ],
+               "const_names" : [ 0, 1 ],
+               "const_types" : [ 0, 0 ],
+               "constants" : [ "AAAA6HZIR0I=", "MzMzMzMz0z8=" ],
+               "type" : 0
+            }
+         ],
+         "id" : 1,
+         "name" : "mat1"
+      }
+   ],
+   "mesh" : 
+   {
+      "elem_blocks" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAA=",
+      "elem_orders" : "AwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAA=",
+      "elem_parent_ids" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAA=",
+      "elem_types" : "Hh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4=",
+      "elemids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcAAAAYAAAAGQAAABoAAAAbAAAAHAAAAB0AAAAeAAAAHwAAACAAAAA=",
+      "elems" : "IAAAAB8AAAAiAAAAWAAAAFkAAABdAAAAHQAAACQAAAAeAAAAXgAAAF8AAABWAAAAIwAAABwAAAAeAAAAXAAAAFUAAABgAAAAHQAAACAAAAAkAAAAVwAAAGEAAABeAAAAIwAAACQAAAAiAAAAYgAAAGMAAABkAAAAIwAAACIAAAAhAAAAZAAAAFoAAABbAAAAJAAAACAAAAAiAAAAYQAAAF0AAABjAAAAJAAAACMAAAAeAAAAYgAAAGAAAABfAAAAFwAAABYAAAAZAAAASAAAAEkAAABNAAAAFAAAABsAAAAVAAAATgAAAE8AAABGAAAAGgAAABMAAAAVAAAATAAAAEUAAABQAAAAFAAAABcAAAAbAAAARwAAAFEAAABOAAAAGgAAABsAAAAZAAAAUgAAAFMAAABUAAAAGgAAABkAAAAYAAAAVAAAAEoAAABLAAAAGwAAABcAAAAZAAAAUQAAAE0AAABTAAAAGwAAABoAAAAVAAAAUgAAAFAAAABPAAAADgAAAA0AAAAQAAAAOAAAADkAAAA9AAAACwAAABIAAAAMAAAAPgAAAD8AAAA2AAAAEQAAAAoAAAAMAAAAPAAAADUAAABAAAAACwAAAA4AAAASAAAANwAAAEEAAAA+AAAAEQAAABIAAAAQAAAAQgAAAEMAAABEAAAAEQAAABAAAAAPAAAARAAAADoAAAA7AAAAEgAAAA4AAAAQAAAAQQAAAD0AAABDAAAAEgAAABEAAAAMAAAAQgAAAEAAAAA/AAAABQAAAAQAAAAHAAAAKAAAACkAAAAtAAAAAgAAAAkAAAADAAAALgAAAC8AAAAmAAAACAAAAAEAAAADAAAALAAAACUAAAAwAAAAAgAAAAUAAAAJAAAAJwAAADEAAAAuAAAACAAAAAkAAAAHAAAAMgAAADMAAAA0AAAACAAAAAcAAAAGAAAANAAAACoAAAArAAAACQAAAAUAAAAHAAAAMQAAAC0AAAAzAAAACQAAAAgAAAADAAAAMgAAADAAAAAvAAAA",
+      "elems_count" : 32,
+      "nids" : "IAAAAB8AAAAiAAAAWAAAAFkAAABdAAAAHQAAACQAAAAeAAAAXgAAAF8AAABWAAAAIwAAABwAAABcAAAAVQAAAGAAAABXAAAAYQAAAGIAAABjAAAAZAAAACEAAABaAAAAWwAAABcAAAAWAAAAGQAAAEgAAABJAAAATQAAABQAAAAbAAAAFQAAAE4AAABPAAAARgAAABoAAAATAAAATAAAAEUAAABQAAAARwAAAFEAAABSAAAAUwAAAFQAAAAYAAAASgAAAEsAAAAOAAAADQAAABAAAAA4AAAAOQAAAD0AAAALAAAAEgAAAAwAAAA+AAAAPwAAADYAAAARAAAACgAAADwAAAA1AAAAQAAAADcAAABBAAAAQgAAAEMAAABEAAAADwAAADoAAAA7AAAABQAAAAQAAAAHAAAAKAAAACkAAAAtAAAAAgAAAAkAAAADAAAALgAAAC8AAAAmAAAACAAAAAEAAAAsAAAAJQAAADAAAAAnAAAAMQAAADIAAAAzAAAANAAAAAYAAAAqAAAAKwAAAA==",
+      "nodes" : "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AAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD0PwAAAAAAAAAAAAAAAAAA9D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA9D8AAAAAAAD0PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQAAAAAAAAAAAYHxzqPKTAkCkg4xXDWwFQAAAAAAAAAAAAAAAAAAABEAAAAAAAAAUQAAAAAAAAAAAYHxzqPKT8j/SQcarBrYOQAAAAAAAAAAAML45VPlJA0DSQcarBrYOQAAAAAAAAAAAAAAAAAAA9D8AAAAAAAAUQAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAFEAAAAAAAAAOQAAAAAAAAAAAAAAAAAAADkAAAAAAAAAUQAAAAAAAAAAAAAAAAAAADkAAAAAAAAAOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAAAAAAAAAAYHxzqPKT8j/SQcarBrYEQAAAAAAAAAAAML45VPlJDUDSQcarBrYEQAAAAAAAAAAAML45VPlJA0Ckg4xXDWz1PwAAAAAAAAAAAAAAAAAADkAAAAAAAAD0PwAAAAAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEAAAAAAAAD0PwAAAAAAAAAA",
+      "nodes_count" : 100
+   },
+   "property_tables" : 
+   [
+      {
+         "direction_normal" : true,
+         "id" : 1,
+         "properties" : 
+         {
+            "e" : 0.5,
+            "t" : 0.050000000000000003
+         },
+         "type" : 0
+      }
+   ],
+   "restraints" : 
+   [
+      {
+         "apply_to" : "VQAAAB4AAABWAAAAVwAAACAAAABYAAAAWQAAACIAAABaAAAAWwAAACMAAABcAAAARQAAABUAAABGAAAARwAAABcAAABIAAAASQAAABkAAABKAAAASwAAABoAAABMAAAANQAAAAwAAAA2AAAANwAAAA4AAAA4AAAAOQAAABAAAAA6AAAAOwAAABEAAAA8AAAAJQAAAAMAAAAmAAAAJwAAAAUAAAAoAAAAKQAAAAcAAAAqAAAAKwAAAAgAAAAsAAAAHAAAAB0AAAAfAAAAIQAAABMAAAAUAAAAFgAAABgAAAAKAAAACwAAAA0AAAAPAAAAAQAAAAIAAAAEAAAABgAAACQAAABdAAAAXgAAAF8AAABgAAAAYQAAAGIAAABjAAAAZAAAABsAAABNAAAATgAAAE8AAABQAAAAUQAAAFIAAABTAAAAVAAAABIAAAA9AAAAPgAAAD8AAABAAAAAQQAAAEIAAABDAAAARAAAAAkAAAAtAAAALgAAAC8AAAAwAAAAMQAAADIAAAAzAAAANAAAAA==",
+         "apply_to_size" : 100,
+         "cs" : 1,
+         "data" : 
+         [
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA="
+         ],
+         "dep_var_num" : [ "", "", "", "", "", "" ],
+         "dep_var_size" : [ 0, 0, 0, 0, 0, 0 ],
+         "dependency_type" : [ 0, 0, 0, 0, 0, 0 ],
+         "flag" : [ 1, 1, 0, 0, 0, 1 ],
+         "id" : 1,
+         "name" : ""
+      }
+   ],
+   "settings" : 
+   {
+      "bc_tolerance" : 0.00050000000000000001,
+      "dimensions" : "3D",
+      "eigen_solver" : 
+      {
+         "absolute_tolerance" : 0.10000000000000001,
+         "eps_max_iterations" : 100,
+         "linear_solver" : 
+         {
+            "method" : "auto",
+            "preconditioner" : "auto",
+            "solver" : "auto"
+         },
+         "number" : 10,
+         "relative_tolerance" : 1e-08,
+         "solver" : "auto",
+         "spectr_trans" : 
+         {
+            "name" : "auto"
+         }
+      },
+      "elasticity" : false,
+      "finite_deformations" : false,
+      "heat_transfer" : false,
+      "incompressibility" : false,
+      "linear_solver" : 
+      {
+         "iter_opts" : 
+         {
+            "epsilon" : 1.0000000000000001e-09,
+            "max_iterations" : 50000,
+            "preconditioner" : "auto",
+            "stopping_criteria" : 0.0
+         },
+         "method" : "auto",
+         "on_fail" : true,
+         "use_uzawa" : "auto"
+      },
+      "nonlinear_solver" : 
+      {
+         "arc_method" : false,
+         "line_search" : false,
+         "max_iterations" : 50,
+         "max_load_steps" : 10,
+         "min_load_steps" : 1,
+         "target_iter" : 5,
+         "tolerance" : 0.001
+      },
+      "output" : 
+      {
+         "energy" : false,
+         "intermediate_results" : true,
+         "log" : true,
+         "material" : false,
+         "normal_force" : false,
+         "record3d" : true,
+         "vtu" : true
+      },
+      "permission_write" : false,
+      "plasticity" : false,
+      "porefluid_transfer" : false,
+      "preload" : false,
+      "slm" : false,
+      "statics" : 
+      {
+         "steps_count" : 1
+      },
+      "thermal_expansion" : false,
+      "type" : "eigenfrequencies",
+      "viscosity" : false
+   }
+}

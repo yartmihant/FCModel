@@ -1,0 +1,155 @@
+{
+   "bcs" : [
+      {
+         "id" : 0,
+         "load_factors" : [ 1.0 ],
+         "load_set_numbers" : [ 0 ],
+         "name" : "General BC",
+         "restraint_set_number" : 0
+      }
+   ],
+   "header" : {
+      "binary" : true,
+      "description" : "Fidesys Case Format v1",
+      "project_name" : "Untitled",
+      "types" : {
+         "char" : 1,
+         "double" : 8,
+         "int" : 4,
+         "short_int" : 2
+      },
+      "version" : 1
+   },
+   "load_sets" : [
+      {
+         "id" : 0,
+         "loads" : [ 2 ],
+         "name" : "Load Set",
+         "type" : 0
+      }
+   ],
+   "loads" : [
+      {
+         "apply_to" : "FQAAAA==",
+         "apply_to_size" : 1,
+         "data" : "AAAAAAAAAAAAAAAAAECPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         "id" : 2,
+         "n_time_steps" : 1,
+         "name" : "Force",
+         "num_time_steps" : 1,
+         "time_var_num" : "AAAAAAAAAAA=",
+         "type" : 5
+      }
+   ],
+   "materials" : [
+      {
+         "constants" : {
+            "density" : 4000.0,
+            "poisson" : 0.30,
+            "young" : 100000000000.0
+         },
+         "description" : "",
+         "id" : 1,
+         "name" : "mat1",
+         "type" : 0
+      }
+   ],
+   "mesh" : {
+      "elem_materials" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAA==",
+      "elem_properties" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAA==",
+      "elem_types" : "BQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQ==",
+      "elemids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcAAAAYAAAAGQAAABoAAAAbAAAAHAAAAB0AAAAeAAAAHwAAACAAAAAhAAAAIgAAACMAAAAkAAAAJQAAACYAAAAnAAAAKAAAAA==",
+      "elems" : "AQAAAAIAAAACAAAAAwAAAAMAAAAEAAAABAAAAAUAAAAFAAAABgAAAAYAAAAHAAAABwAAAAgAAAAIAAAACQAAAAkAAAAKAAAACgAAAAsAAAALAAAADAAAAAwAAAANAAAADQAAAA4AAAAOAAAADwAAAA8AAAAQAAAAEAAAABEAAAARAAAAEgAAABIAAAATAAAAEwAAABQAAAAUAAAAFQAAABUAAAAWAAAAFgAAABcAAAAXAAAAGAAAABgAAAAZAAAAGQAAABoAAAAaAAAAGwAAABsAAAAcAAAAHAAAAB0AAAAdAAAAHgAAAB4AAAAfAAAAHwAAACAAAAAgAAAAIQAAACEAAAAiAAAAIgAAACMAAAAjAAAAJAAAACQAAAAlAAAAJQAAACYAAAAmAAAAJwAAACcAAAAoAAAAKAAAACkAAAA=",
+      "elems_count" : 40,
+      "nids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcAAAAYAAAAGQAAABoAAAAbAAAAHAAAAB0AAAAeAAAAHwAAACAAAAAhAAAAIgAAACMAAAAkAAAAJQAAACYAAAAnAAAAKAAAACkAAAA=",
+      "nodes" : "AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAArmAmLr/m7z9Ijjky5RW0PwAAAAAAAAAAXOQvlCSb7z90U6hnCwbEPwAAAAAAAAAAzhv3hacd7z/K+5SlieHNPwAAAAAAAAAA/lREEw5v7j9O6S8378bTPwAAAAAAAAAARo0yz2uQ7T9iqa6m4n3YPwAAAAAAAAAAbCw9HSCD7D8A3kQrLg7dPwAAAAAAAAAAQAWlBtRI6z+cLvXoTrjgPwAAAAAAAAAAqPSXm3fj6T9eWnUEI8/iPwAAAAAAAAAAEu895D5V6D/u7gBGR8jkPwAAAAAAAAAAzDt/Zp6g5j/MO39mnqDmPwAAAAAAAAAA7u4ARkfI5D8S7z3kPlXoPwAAAAAAAAAAXlp1BCPP4j+o9Jebd+PpPwAAAAAAAAAAnC716E644D9ABaUG1EjrPwAAAAAAAAAAAt5EKy4O3T9sLD0dIIPsPwAAAAAAAAAAZKmupuJ92D9GjTLPa5DtPwAAAAAAAAAAUOkvN+/G0z/+VEQTDm/uPwAAAAAAAAAAzvuUpYnhzT/OG/eFpx3vPwAAAAAAAAAAdlOoZwsGxD9c5C+UJJvvPwAAAAAAAAAATI45MuUVtD+uYCYuv+bvPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAARI45MuUVtL+uYCYuv+bvPwAAAAAAAAAAclOoZwsGxL9c5C+UJJvvPwAAAAAAAAAAyPuUpYnhzb/OG/eFpx3vPwAAAAAAAAAATukvN+/G078AVUQTDm/uPwAAAAAAAAAAYqmupuJ92L9GjTLPa5DtPwAAAAAAAAAA/t1EKy4O3b9sLD0dIIPsPwAAAAAAAAAAnC716E644L9ABaUG1EjrPwAAAAAAAAAAXFp1BCPP4r+o9Jebd+PpPwAAAAAAAAAA7O4ARkfI5L8S7z3kPlXoPwAAAAAAAAAAzDt/Zp6g5r/MO39mnqDmPwAAAAAAAAAAEu895D5V6L/u7gBGR8jkPwAAAAAAAAAApvSXm3fj6b9eWnUEI8/iPwAAAAAAAAAAQAWlBtRI67+cLvXoTrjgPwAAAAAAAAAAbCw9HSCD7L8C3kQrLg7dPwAAAAAAAAAARo0yz2uQ7b9kqa6m4n3YPwAAAAAAAAAA/lREEw5v7r9Q6S8378bTPwAAAAAAAAAAzhv3hacd77/Q+5SlieHNPwAAAAAAAAAAWuQvlCSb7794U6hnCwbEPwAAAAAAAAAArmAmLr/m779Sjjky5RW0PwAAAAAAAAAAAAAAAAAA8L8AAAAAAAAAAAAAAAAAAAAA",
+      "nodes_count" : 41
+   },
+   "property_tables" : [
+      {
+         "id" : 1,
+         "properties" : {
+            "A" : 3.141590000000000e-06,
+            "It" : 1.570800000000000e-12,
+            "Ix" : 1.570800000000000e-12,
+            "Iy" : 7.853980000000000e-13,
+            "Iyz" : 0.0,
+            "Iz" : 7.853980000000000e-13,
+            "angle" : 0.0,
+            "ey" : 0.0,
+            "ez" : 0.0,
+            "geometry" : {
+               "a" : 0.0020,
+               "b" : 0.0020
+            },
+            "max_y" : 0.0010,
+            "max_z" : 0.0010,
+            "section_type" : 1
+         },
+         "type" : 1
+      }
+   ],
+   "restraint_sets" : [
+      {
+         "id" : 0,
+         "name" : "Restraint Set",
+         "restraints" : [ 1 ],
+         "type" : 0
+      }
+   ],
+   "restraints" : [
+      {
+         "apply_to" : "AQAAACkAAAA=",
+         "apply_to_size" : 2,
+         "data" : "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         "flag" : [ 1, 1, 1, 1, 0, 0 ],
+         "id" : 1,
+         "name" : "",
+         "num_time_steps" : 1,
+         "switches" : "AQABAAEAAQAAAAAA",
+         "time_var_num" : "AAAAAAAAAAA="
+      }
+   ],
+   "settings" : {
+      "compute_fields" : [ "stress", "strain", "displacement" ],
+      "dimensions" : "3D",
+      "eigen_solver" : {
+	     "absolute_tolerance" : 0.1,
+         "eigen_solver" : "krylovschur",
+         "eps_max_iterations" : 100,
+         "linear_absolute_tolerance" : 1.000000000000000e-50,
+         "linear_divergence_tolerance" : 10000.0,
+         "linear_max_iterations" : 100000,
+         "linear_relative_tolerance" : 1.000000000000000e-08,
+         "linear_solver" : "direct",
+         "number" : 10,
+         "preconditioner" : "lu",
+		 "relative_tolerance" : 1e-08,
+         "spectr_trans" : {
+            "name" : "shift_invert",
+            "value" : 0.0
+         },
+         "target" : 0.0
+      },
+      "elasticity" : true,
+      "finite_deformations" : false,
+      "heat_transfer" : false,
+      "linear_solver" : {
+         "iter_opts" : {
+            "epsilon" : 1.000000000000000e-05,
+            "max_iterations" : 50000,
+            "preconditioner" : "auto",
+            "stopping_criteria" : 0.0
+         },
+         "method" : "auto"
+      },
+      "normal_force" : false,
+      "output_cs" : [ "cartesian" ],
+      "output_intermediate_results" : true,
+      "periodic_bc" : false,
+      "plasticity" : false,
+      "renum" : false,
+      "spectral_element" : false,
+      "type" : "stability"
+   }
+}

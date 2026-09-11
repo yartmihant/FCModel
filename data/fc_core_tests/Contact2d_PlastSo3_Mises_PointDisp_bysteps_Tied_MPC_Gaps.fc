@@ -1,0 +1,334 @@
+{
+   "blocks" : 
+   [
+      {
+         "cs_id" : 1,
+         "id" : 1,
+         "material_id" : 1,
+         "property_id" : -1
+      }
+   ],
+   "contact_constraints" : 
+   [
+      {
+         "detection_tolerance" : 0.10000000000000001,
+         "friction" : 0.0,
+         "id" : 1,
+         "ignore_overlap" : false,
+         "ignore_tied_stiffness" : false,
+         "master" : "DAAAAAEAAAAKAAAAAAAAAAsAAAACAAAAEAAAAAEAAAAOAAAAAAAAAA==",
+         "master_size" : 5,
+         "method" : "auto",
+         "name" : "Contact 1",
+         "normal_stiffness" : 1.0,
+         "offset" : 0.0,
+         "preload" : 0.0,
+         "search_radius" : 1.0,
+         "slave" : "DAAAAAEAAAAKAAAAAAAAAAsAAAACAAAAEAAAAAEAAAAOAAAAAAAAAA==",
+         "slave_size" : 5,
+         "tangent_stiffness" : 0.5,
+         "tolerance" : 0.0089999999999999993,
+         "type" : "tied"
+      },
+      {
+         "detection_tolerance" : 0.10000000000000001,
+         "friction" : 0.0,
+         "id" : 2,
+         "ignore_overlap" : false,
+         "ignore_tied_stiffness" : false,
+         "master" : "BQAAAAAAAAACAAAAAwAAAAkAAAAAAAAABwAAAAAAAAAMAAAAAgAAAA==",
+         "master_size" : 5,
+         "method" : "auto",
+         "name" : "Contact 2",
+         "normal_stiffness" : 1.0,
+         "offset" : 0.0,
+         "preload" : 0.0,
+         "search_radius" : 1.0,
+         "slave" : "BQAAAAAAAAACAAAAAwAAAAkAAAAAAAAABwAAAAAAAAAMAAAAAgAAAA==",
+         "slave_size" : 5,
+         "tangent_stiffness" : 0.5,
+         "tolerance" : 0.0089999999999999993,
+         "type" : "tied"
+      },
+      {
+         "detection_tolerance" : 0.10000000000000001,
+         "friction" : 0.0,
+         "id" : 3,
+         "ignore_overlap" : false,
+         "ignore_tied_stiffness" : false,
+         "master" : "EQAAAAEAAAAWAAAAAgAAABgAAAABAAAAAQAAAAIAAAACAAAAAAAAAA==",
+         "master_size" : 5,
+         "method" : "auto",
+         "name" : "Contact 3",
+         "normal_stiffness" : 1.0,
+         "offset" : 0.0,
+         "preload" : 0.0,
+         "search_radius" : 1.0,
+         "slave" : "EQAAAAEAAAAWAAAAAgAAABgAAAABAAAAAQAAAAIAAAACAAAAAAAAAA==",
+         "slave_size" : 5,
+         "tangent_stiffness" : 0.5,
+         "tolerance" : 0.0089999999999999993,
+         "type" : "tied"
+      },
+      {
+         "detection_tolerance" : 0.10000000000000001,
+         "friction" : 0.0,
+         "id" : 4,
+         "ignore_overlap" : false,
+         "ignore_tied_stiffness" : false,
+         "master" : "EAAAAAAAAAAPAAAAAQAAABgAAAACAAAAGQAAAAIAAAAUAAAAAQAAAA==",
+         "master_size" : 5,
+         "method" : "auto",
+         "name" : "Contact 4",
+         "normal_stiffness" : 1.0,
+         "offset" : 0.0,
+         "preload" : 0.0,
+         "search_radius" : 1.0,
+         "slave" : "EAAAAAAAAAAPAAAAAQAAABgAAAACAAAAGQAAAAIAAAAUAAAAAQAAAA==",
+         "slave_size" : 5,
+         "tangent_stiffness" : 0.5,
+         "tolerance" : 0.0089999999999999993,
+         "type" : "tied"
+      }
+   ],
+   "coordinate_systems" : 
+   [
+      {
+         "dir1" : "AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA",
+         "dir2" : "AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAA",
+         "id" : 1,
+         "name" : "Global Cartesian",
+         "origin" : "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         "type" : "cartesian"
+      }
+   ],
+   "header" : 
+   {
+      "binary" : true,
+      "description" : "Fidesys Case Format",
+      "types" : 
+      {
+         "char" : 1,
+         "double" : 8,
+         "int" : 4,
+         "short_int" : 2
+      },
+      "version" : 3
+   },
+   "materials" : 
+   [
+      {
+         "elasticity" : 
+         [
+            {
+               "const_dep" : [ "", "" ],
+               "const_dep_size" : [ 0, 0 ],
+               "const_names" : [ 0, 1 ],
+               "const_types" : [ 0, 0 ],
+               "constants" : [ "AAAAAICEDkE=", "AAAAAAAA0D8=" ],
+               "type" : 0
+            }
+         ],
+         "id" : 1,
+         "name" : "",
+         "plasticity" : 
+         [
+            {
+               "const_dep" : [ "" ],
+               "const_dep_size" : [ 0 ],
+               "const_names" : [ 0 ],
+               "const_types" : [ 0 ],
+               "constants" : [ "AAAAAAAAFEA=" ],
+               "type" : 0
+            }
+         ]
+      }
+   ],
+   "mesh" : 
+   {
+      "elem_blocks" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAA==",
+      "elem_orders" : "AwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAA==",
+      "elem_parent_ids" : "DQAAAA0AAAANAAAADQAAAA0AAAATAAAAEwAAABMAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAAA==",
+      "elem_types" : "DQ0NDQ0NDQ0LCwsLCwsLCwsLCwsLCwsLCw==",
+      "elemids" : "AQAAAAIAAAADAAAABAAAAAUAAAAOAAAADwAAABAAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcAAAAYAAAAGQAAAA==",
+      "elems" : "FgAAABkAAAAdAAAAFwAAACgAAAAvAAAALQAAACcAAAAbAAAAHQAAAB4AAAAcAAAALgAAADAAAAAxAAAALAAAAB0AAAAZAAAAHwAAAB4AAAAvAAAAMgAAADMAAAAwAAAAGAAAABoAAAAfAAAAGQAAACoAAAA0AAAAMgAAACkAAAAaAAAAHAAAAB4AAAAfAAAAKwAAADEAAAAzAAAANAAAACUAAAAhAAAAIgAAACYAAABLAAAARwAAAEwAAABOAAAAIgAAACAAAAAkAAAAJgAAAEYAAABJAAAATQAAAEwAAAAkAAAAIwAAACUAAAAmAAAASAAAAEoAAABOAAAATQAAAA8AAAAUAAAAFQAAAD8AAAA3AAAAQAAAABIAAAARAAAAEwAAAD0AAABBAAAAQgAAAA4AAAASAAAAFAAAAEMAAABEAAAARQAAABEAAAAQAAAAEwAAADwAAAA1AAAAQQAAAA8AAAAOAAAAFAAAADoAAABFAAAAPwAAAA8AAAAVAAAADQAAAEAAAAA4AAAAOwAAABIAAAAOAAAADAAAAEMAAAA5AAAAPgAAABIAAAATAAAAFAAAAEIAAAA2AAAARAAAAAkAAAABAAAAAwAAAFAAAABUAAAAWgAAAAsAAAAFAAAACAAAAFsAAABPAAAAUwAAAAoAAAAJAAAAAwAAAFEAAABaAAAAXAAAAAsAAAAHAAAABQAAAF0AAABZAAAAWwAAAAcAAAALAAAACgAAAF0AAABSAAAAXgAAAAQAAAAKAAAAAwAAAF8AAABcAAAAVQAAAAYAAAAKAAAABAAAAGAAAABfAAAAYQAAAAYAAAAEAAAAAgAAAGEAAABWAAAAVwAAAAcAAAAKAAAABgAAAF4AAABgAAAAWAAAAA==",
+      "elems_count" : 25,
+      "nids" : "FgAAABkAAAAdAAAAFwAAACgAAAAvAAAALQAAACcAAAAbAAAAHgAAABwAAAAuAAAAMAAAADEAAAAsAAAAHwAAADIAAAAzAAAAGAAAABoAAAAqAAAANAAAACkAAAArAAAAJQAAACEAAAAiAAAAJgAAAEsAAABHAAAATAAAAE4AAAAgAAAAJAAAAEYAAABJAAAATQAAACMAAABIAAAASgAAAA8AAAAUAAAAFQAAAD8AAAA3AAAAQAAAABIAAAARAAAAEwAAAD0AAABBAAAAQgAAAA4AAABDAAAARAAAAEUAAAAQAAAAPAAAADUAAAA6AAAADQAAADgAAAA7AAAADAAAADkAAAA+AAAANgAAAAkAAAABAAAAAwAAAFAAAABUAAAAWgAAAAsAAAAFAAAACAAAAFsAAABPAAAAUwAAAAoAAABRAAAAXAAAAAcAAABdAAAAWQAAAFIAAABeAAAABAAAAF8AAABVAAAABgAAAGAAAABhAAAAAgAAAFYAAABXAAAAWAAAAA==",
+      "nodes" : "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",
+      "nodes_count" : 97
+   },
+   "restraints" : 
+   [
+      {
+         "apply_to" : "GAAAABoAAAAQAAAADQAAACoAAAA1AAAAEwAAADYAAAAUAAAANwAAABUAAAA4AAAA",
+         "apply_to_size" : 12,
+         "cs" : 1,
+         "data" : 
+         [
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA="
+         ],
+         "dep_var_num" : [ "", "", "", "", "", "" ],
+         "dep_var_size" : [ 0, 0, 0, 0, 0, 0 ],
+         "dependency_type" : [ 0, 0, 0, 0, 0, 0 ],
+         "flag" : [ 1, 0, 0, 0, 0, 0 ],
+         "id" : 1,
+         "name" : ""
+      },
+      {
+         "apply_to" : "IAAAACEAAAAIAAAABQAAAEYAAAAiAAAARwAAAE8AAAA=",
+         "apply_to_size" : 8,
+         "cs" : 1,
+         "data" : 
+         [
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA="
+         ],
+         "dep_var_num" : [ "", "", "", "", "", "" ],
+         "dep_var_size" : [ 0, 0, 0, 0, 0, 0 ],
+         "dependency_type" : [ 0, 0, 0, 0, 0, 0 ],
+         "flag" : [ 0, 1, 0, 0, 0, 0 ],
+         "id" : 2,
+         "name" : ""
+      },
+      {
+         "apply_to" : "AQAAAAgAAAAWAAAAFwAAAFAAAAAJAAAAUQAAAAoAAABSAAAACwAAAFMAAAAnAAAA",
+         "apply_to_size" : 12,
+         "cs" : 1,
+         "data" : 
+         [
+            "AAAAAAAAAAAtQxzr4jb6Pi1DHOviNgo/LUMc6+I2Cj8tQxzr4jYKPy1DHOviNvo+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA="
+         ],
+         "dep_var_num" : 
+         [
+            [
+               "AAAAAAAAAAAAAAAAAADwPwAAAAAAAABAAAAAAAAACEAAAAAAAAAQQAAAAAAAABRAAAAAAAAAGEAAAAAAAAAcQAAAAAAAACBA"
+            ],
+            "",
+            "",
+            "",
+            "",
+            ""
+         ],
+         "dep_var_size" : [ 9, 0, 0, 0, 0, 0 ],
+         "dependency_type" : 
+         [
+            [ 4 ],
+            0,
+            0,
+            0,
+            0,
+            0
+         ],
+         "flag" : [ 1, 0, 0, 0, 0, 0 ],
+         "id" : 3,
+         "name" : ""
+      },
+      {
+         "apply_to" : "FgAAACgAAAAZAAAAKQAAABgAAAA=",
+         "apply_to_size" : 5,
+         "cs" : 1,
+         "data" : 
+         [
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALUMc6+I2+j4tQxzr4jYKPy1DHOviNgo/LUMc6+I2Cj8tQxzr4jb6PgAAAAAAAAAA",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA="
+         ],
+         "dep_var_num" : 
+         [
+            "",
+            [
+               "AAAAAAAAAAAAAAAAAADwPwAAAAAAAABAAAAAAAAACEAAAAAAAAAQQAAAAAAAABRAAAAAAAAAGEAAAAAAAAAcQAAAAAAAACBA"
+            ],
+            "",
+            "",
+            "",
+            ""
+         ],
+         "dep_var_size" : [ 0, 9, 0, 0, 0, 0 ],
+         "dependency_type" : 
+         [
+            0,
+            [ 4 ],
+            0,
+            0,
+            0,
+            0
+         ],
+         "flag" : [ 0, 1, 0, 0, 0, 0 ],
+         "id" : 4,
+         "name" : ""
+      }
+   ],
+   "settings" : 
+   {
+      "bc_tolerance" : 0.00050000000000000001,
+      "dimensions" : "2D",
+      "elasticity" : true,
+      "finite_deformations" : false,
+      "heat_transfer" : false,
+      "incompressibility" : false,
+      "linear_solver" : 
+      {
+         "iter_opts" : 
+         {
+            "epsilon" : 1.0000000000000001e-09,
+            "max_iterations" : 50000,
+            "preconditioner" : "auto",
+            "stopping_criteria" : 0.0
+         },
+         "method" : "auto",
+         "on_fail" : true,
+         "use_uzawa" : "auto"
+      },
+      "nonlinear_solver" : 
+      {
+         "arc_method" : false,
+         "line_search" : false,
+         "max_iterations" : 50,
+         "max_load_steps" : 10,
+         "min_load_steps" : 1,
+         "target_iter" : 5,
+         "tolerance" : 0.001
+      },
+      "output" : 
+      {
+         "energy" : false,
+         "full_periodic" : false,
+         "intermediate_results" : true,
+         "log" : true,
+         "material" : false,
+         "normal_force" : false,
+         "record3d" : false,
+         "vtu" : true
+      },
+      "permission_write" : false,
+      "plane_state" : "p-strain",
+      "plasticity" : true,
+      "porefluid_transfer" : false,
+      "slm" : false,
+      "statics" : 
+      {
+         "steps_count" : 8
+      },
+      "thermal_expansion" : false,
+      "type" : "static",
+      "viscosity" : false
+   }
+}

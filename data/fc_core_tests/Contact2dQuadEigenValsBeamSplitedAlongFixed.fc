@@ -1,0 +1,155 @@
+{
+   "contact_constraints" : [
+      {
+         "friction" : 0,
+         "id" : 1,
+         "ignore_overlap" : false,
+         "master" : "AQAAAAAAAAACAAAAAAAAAAMAAAAAAAAABAAAAAAAAAAFAAAAAAAAAAYAAAAAAAAABwAAAAAAAAAIAAAAAAAAAAkAAAAAAAAACgAAAAAAAAALAAAAAAAAAAwAAAAAAAAADQAAAAAAAAAOAAAAAAAAAA==",
+         "master_size" : 14,
+         "method" : "auto",
+         "name" : "Contact 1",
+         "tolerance" : 1,
+         "slave" : "HAAAAAAAAAAbAAAAAAAAABoAAAAAAAAAGQAAAAAAAAAYAAAAAAAAABcAAAAAAAAAFgAAAAAAAAAVAAAAAAAAABQAAAAAAAAAEwAAAAAAAAASAAAAAAAAABEAAAAAAAAAEAAAAAAAAAAPAAAAAAAAAA==",
+         "slave_size" : 14,
+         "type" : "tied"
+      }
+   ],
+   "header" : {
+      "binary" : true,
+      "description" : "Fidesys Case Format",
+      "types" : {
+         "char" : 1,
+         "double" : 8,
+         "int" : 4,
+         "short_int" : 2
+      },
+      "version" : 3
+   },
+   "materials" : [
+      {
+         "common" : [
+            {
+               "const_dep" : [ "" ],
+               "const_dep_size" : [ 0 ],
+               "const_names" : [ 0 ],
+               "const_types" : [ 0 ],
+               "constants" : [ "AAAAAAB4vkA=" ],
+               "type" : 0
+            }
+         ],
+         "elasticity" : [
+            {
+               "const_dep" : [ "", "" ],
+               "const_dep_size" : [ 0, 0 ],
+               "const_names" : [ 0, 1 ],
+               "const_types" : [ 0, 0 ],
+               "constants" : [ "AAAABGv0REI=", "MzMzMzMz0z8=" ],
+               "type" : 0
+            }
+         ],
+         "id" : 1,
+         "name" : "Material 1"
+      }
+   ],
+   "mesh" : {
+      "elem_blocks" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAA==",
+      "elem_materials" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAA==",
+      "elem_orders" : "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAA==",
+      "elem_parent_ids" : "AgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAA==",
+      "elem_properties" : "/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////w==",
+      "elem_types" : "DAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDA==",
+      "elemids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcAAAAYAAAAGQAAABoAAAAbAAAAHAAAAA==",
+      "elems" : "AQAAAAMAAAAeAAAAEQAAAAMAAAAEAAAAHQAAAB4AAAAEAAAABQAAABwAAAAdAAAABQAAAAYAAAAbAAAAHAAAAAYAAAAHAAAAGgAAABsAAAAHAAAACAAAABkAAAAaAAAACAAAAAkAAAAYAAAAGQAAAAkAAAAKAAAAFwAAABgAAAAKAAAACwAAABYAAAAXAAAACwAAAAwAAAAVAAAAFgAAAAwAAAANAAAAFAAAABUAAAANAAAADgAAABMAAAAUAAAADgAAAA8AAAASAAAAEwAAAA8AAAACAAAAEAAAABIAAAAgAAAALQAAADwAAAAvAAAALQAAACwAAAA7AAAAPAAAACwAAAArAAAAOgAAADsAAAArAAAAKgAAADkAAAA6AAAAKgAAACkAAAA4AAAAOQAAACkAAAAoAAAANwAAADgAAAAoAAAAJwAAADYAAAA3AAAAJwAAACYAAAA1AAAANgAAACYAAAAlAAAANAAAADUAAAAlAAAAJAAAADMAAAA0AAAAJAAAACMAAAAyAAAAMwAAACMAAAAiAAAAMQAAADIAAAAiAAAAIQAAADAAAAAxAAAAIQAAAB8AAAAuAAAAMAAAAA==",
+      "elems_count" : 28,
+      "nids" : "AQAAAAMAAAAeAAAAEQAAAAQAAAAdAAAABQAAABwAAAAGAAAAGwAAAAcAAAAaAAAACAAAABkAAAAJAAAAGAAAAAoAAAAXAAAACwAAABYAAAAMAAAAFQAAAA0AAAAUAAAADgAAABMAAAAPAAAAEgAAAAIAAAAQAAAAIAAAAC0AAAA8AAAALwAAACwAAAA7AAAAKwAAADoAAAAqAAAAOQAAACkAAAA4AAAAKAAAADcAAAAnAAAANgAAACYAAAA1AAAAJQAAADQAAAAkAAAAMwAAACMAAAAyAAAAIgAAADEAAAAhAAAAMAAAAB8AAAAuAAAA",
+      "nodes" : "ZmZmZmZmxj8AAAAAAAAAAAAAAAAAAAAANDMzMzMzwz8AAAAAAAAAAAAAAAAAAAAAMjMzMzMzwz97FK5H4Xp0vwAAAAAAAAAAZmZmZmZmxj97FK5H4Xp0vwAAAAAAAAAAAAAAAAAAwD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAwD97FK5H4Xp0vwAAAAAAAAAAoJmZmZmZuT8AAAAAAAAAAAAAAAAAAAAAmJmZmZmZuT97FK5H4Xp0vwAAAAAAAAAAODMzMzMzsz8AAAAAAAAAAAAAAAAAAAAAMjMzMzMzsz97FK5H4Xp0vwAAAAAAAAAAoJmZmZmZqT8AAAAAAAAAAAAAAAAAAAAAmJmZmZmZqT97FK5H4Xp0vwAAAAAAAAAAoJmZmZmZmT8AAAAAAAAAAAAAAAAAAAAAmJmZmZmZmT97FK5H4Xp0vwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB7FK5H4Xp0vwAAAAAAAAAAkJmZmZmZmb8AAAAAAAAAAAAAAAAAAAAAmJmZmZmZmb97FK5H4Xp0vwAAAAAAAAAAkJmZmZmZqb8AAAAAAAAAAAAAAAAAAAAAmpmZmZmZqb97FK5H4Xp0vwAAAAAAAAAAMDMzMzMzs78AAAAAAAAAAAAAAAAAAAAAMzMzMzMzs797FK5H4Xp0vwAAAAAAAAAAmJmZmZmZub8AAAAAAAAAAAAAAAAAAAAAmZmZmZmZub97FK5H4Xp0vwAAAAAAAAAAAAAAAAAAwL8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAwL97FK5H4Xp0vwAAAAAAAAAAMjMzMzMzw78AAAAAAAAAAAAAAAAAAAAAMzMzMzMzw797FK5H4Xp0vwAAAAAAAAAAZmZmZmZmxr8AAAAAAAAAAAAAAAAAAAAAZmZmZmZmxr97FK5H4Xp0vwAAAAAAAAAAZmZmZmZmxr8AAAAAAAAAAAAAAAAAAAAAMjMzMzMzw78AAAAAAAAAAAAAAAAAAAAAMjMzMzMzw797FK5H4Xp0PwAAAAAAAAAAZmZmZmZmxr97FK5H4Xp0PwAAAAAAAAAAAAAAAAAAwL8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAwL97FK5H4Xp0PwAAAAAAAAAAmJmZmZmZub8AAAAAAAAAAAAAAAAAAAAAmJmZmZmZub97FK5H4Xp0PwAAAAAAAAAAMDMzMzMzs78AAAAAAAAAAAAAAAAAAAAAMjMzMzMzs797FK5H4Xp0PwAAAAAAAAAAkJmZmZmZqb8AAAAAAAAAAAAAAAAAAAAAmJmZmZmZqb97FK5H4Xp0PwAAAAAAAAAAkJmZmZmZmb8AAAAAAAAAAAAAAAAAAAAAmJmZmZmZmb97FK5H4Xp0PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB7FK5H4Xp0PwAAAAAAAAAAoJmZmZmZmT8AAAAAAAAAAAAAAAAAAAAAmJmZmZmZmT97FK5H4Xp0PwAAAAAAAAAAoJmZmZmZqT8AAAAAAAAAAAAAAAAAAAAAmpmZmZmZqT97FK5H4Xp0PwAAAAAAAAAAODMzMzMzsz8AAAAAAAAAAAAAAAAAAAAAMzMzMzMzsz97FK5H4Xp0PwAAAAAAAAAAoJmZmZmZuT8AAAAAAAAAAAAAAAAAAAAAmZmZmZmZuT97FK5H4Xp0PwAAAAAAAAAAAAAAAAAAwD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAwD97FK5H4Xp0PwAAAAAAAAAANDMzMzMzwz8AAAAAAAAAAAAAAAAAAAAAMzMzMzMzwz97FK5H4Xp0PwAAAAAAAAAAZmZmZmZmxj8AAAAAAAAAAAAAAAAAAAAAZmZmZmZmxj97FK5H4Xp0PwAAAAAAAAAA",
+      "nodes_count" : 60
+   },
+   "restraint_sets" : [
+      {
+         "id" : 1,
+         "name" : "Restraint Set",
+         "restraints" : [ 1 ],
+         "type" : 0
+      }
+   ],
+   "restraints" : [
+      {
+         "apply_to" : "AgAAABAAAAAvAAAAIAAAABEAAAABAAAAHwAAAC4AAAA=",
+         "apply_to_size" : 8,
+         "data" : [
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA="
+         ],
+         "dep_var_num" : [ "", "", "", "", "", "" ],
+         "dep_var_size" : [ 0, 0, 0, 0, 0, 0 ],
+         "dependency_type" : [ 0, 0, 0, 0, 0, 0 ],
+         "flag" : [ 1, 1, 1, 1, 1, 1 ],
+         "id" : 1,
+         "name" : ""
+      }
+   ],
+   "settings" : {
+      "bc_tolerance" : 0.00050000000000000001,
+      "dimensions" : "2D",
+      "eigen_solver" : {
+         "absolute_tolerance" : 0.10000000000000001,
+         "eps_max_iterations" : 100,
+         "linear_solver" : {
+            "method" : "auto",
+            "preconditioner" : "auto",
+            "solver" : "auto"
+         },
+         "number" : 10,
+         "relative_tolerance" : 1e-08,
+         "solver" : "auto",
+         "spectr_trans" : {
+            "name" : "auto"
+         }
+      },
+      "elasticity" : false,
+      "finite_deformations" : false,
+      "heat_transfer" : false,
+      "incompressibility" : false,
+      "linear_solver" : {
+         "iter_opts" : {
+            "epsilon" : 1.0000000000000001e-09,
+            "max_iterations" : 50000,
+            "preconditioner" : "auto",
+            "stopping_criteria" : 0
+         },
+         "method" : "auto",
+         "on_fail" : true,
+         "use_uzawa" : "auto"
+      },
+      "nonlinear_solver" : {
+         "arc_method" : false,
+         "line_search" : false,
+         "max_iterations" : 50,
+         "max_load_steps" : 10,
+         "min_load_steps" : 1,
+         "target_iter" : 5,
+         "tolerance" : 0.001
+      },
+      "output" : {
+         "energy" : false,
+         "intermediate_results" : true,
+         "log" : true,
+         "material" : false,
+         "normal_force" : false,
+         "record3d" : true,
+         "vtu" : true
+      },
+      "permission_write" : false,
+      "plane_state" : "p-stress",
+      "plasticity" : false,
+      "porefluid_transfer" : false,
+      "preload" : false,
+      "type" : "eigenfrequencies",
+      "viscosity" : false
+   }
+}

@@ -1,0 +1,371 @@
+{
+   "contacts" : [
+      {
+         "abs_gap_off" : 9.9999999999999997e+199,
+         "detection_tolerance" : 0.10000000000000001,
+         "friction" : 0,
+         "id" : 1,
+         "ignore_overlap" : false,
+         "master" : "AQAAAAAAAAA=",
+         "master_size" : 1,
+         "method" : "penalty",
+         "normal_stiffness" : 1,
+         "tolerance" : 0.00050000000000000001,
+         "rel_gap_off" : 1,
+         "search_radius" : 1,
+         "slave" : "AgAAAAIAAAA=",
+         "slave_size" : 1,
+         "tangent_stiffness" : 0.5,
+         "tied" : false
+      }
+   ],
+   "coordinate_systems" : [
+      {
+         "dir1" : "AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA",
+         "dir2" : "AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAA",
+         "id" : 1,
+         "name" : "Global Cartesian",
+         "origin" : "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         "type" : "cartesian"
+      }
+   ],
+   "header" : {
+      "binary" : true,
+      "description" : "Fidesys Case Format",
+      "types" : {
+         "char" : 1,
+         "double" : 8,
+         "int" : 4,
+         "short_int" : 2
+      },
+      "version" : 3
+   },
+   "load_sets" : [
+      {
+         "id" : 0,
+         "loads" : [ 3 ],
+         "name" : "Load Set",
+         "type" : 0
+      }
+   ],
+   "loads" : [
+      {
+         "apply_to" : "BgAAAAUAAAA=",
+         "apply_to_size" : 2,
+         "cs" : 1,
+         "data" : [
+            "AAAAAAAAAIA=",
+            "mpmZmZmZub8=",
+            "AAAAAAAAAIA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA="
+         ],
+         "dependency_type" : [ 0, 0, 0, 0, 0, 0 ],
+         "id" : 3,
+         "name" : "Force",
+         "type" : 5
+      }
+   ],
+   "materials" : [
+      {
+         "id" : 1,
+         "name" : "mat1"
+      },
+      {
+         "id" : 2,
+         "name" : "mat2"
+      },
+      {
+         "common" : [
+            {
+               "const_dep" : [ "" ],
+               "const_dep_size" : [ 0 ],
+               "const_names" : [ 0 ],
+               "const_types" : [ 0 ],
+               "constants" : [ "AAAAAABAv0A=" ],
+               "type" : 0
+            }
+         ],
+         "elasticity" : [
+            {
+               "const_dep" : [ "", "" ],
+               "const_dep_size" : [ 0, 0 ],
+               "const_names" : [ 0, 1 ],
+               "const_types" : [ 0, 0 ],
+               "constants" : [ "AAAA6HZIR0I=", "MzMzMzMz0z8=" ],
+               "type" : 0
+            }
+         ],
+         "hardening" : [
+            {
+               "const_dep" : [ "" ],
+               "const_dep_size" : [ 0 ],
+               "const_names" : [ 2 ],
+               "const_types" : [ 0 ],
+               "constants" : [ "mpmZmZmZ2T8=" ],
+               "type" : 0
+            }
+         ],
+         "id" : 101,
+         "name" : "Углеродистая сталь",
+         "plasticity" : [
+            {
+               "const_dep" : [ "" ],
+               "const_dep_size" : [ 0 ],
+               "const_names" : [ 1 ],
+               "const_types" : [ 0 ],
+               "constants" : [ "AAAAgHTSukE=" ],
+               "type" : 0
+            },
+            {
+               "const_dep" : [ "" ],
+               "const_dep_size" : [ 0 ],
+               "const_names" : [ 0 ],
+               "const_types" : [ 0 ],
+               "constants" : [ "AAAAANASo0E=" ],
+               "type" : 0
+            }
+         ],
+         "thermal" : [
+            {
+               "const_dep" : [ "" ],
+               "const_dep_size" : [ 0 ],
+               "const_names" : [ 2 ],
+               "const_types" : [ 0 ],
+               "constants" : [ "AAAAAABAf0A=" ],
+               "type" : 0
+            },
+            {
+               "const_dep" : [ "", "" ],
+               "const_dep_size" : [ 0, 0 ],
+               "const_names" : [ 1, 0 ],
+               "const_types" : [ 0, 0 ],
+               "constants" : [ "CtejcD0Kpz8=", "VOQQcXMq6T4=" ],
+               "type" : 0
+            }
+         ]
+      },
+      {
+         "elasticity" : [
+            {
+               "const_dep" : [ "", "", "", "", "" ],
+               "const_dep_size" : [ 0, 0, 0, 0, 0 ],
+               "const_names" : [ 7, 2, 8, 9, 10 ],
+               "const_types" : [ 0, 0, 0, 0, 0 ],
+               "constants" : [
+                  "AAAAzIKcOUI=",
+                  "AAAApDa4MkI=",
+                  "AAAAAGXNHcI=",
+                  "AAAAvojGSsI=",
+                  "AAAAvAUzT8I="
+               ],
+               "type" : 4
+            }
+         ],
+         "id" : 102,
+         "name" : "Сталь ГОСТ 4543-71"
+      },
+      {
+         "elasticity" : [
+            {
+               "const_dep" : [ "", "", "" ],
+               "const_dep_size" : [ 0, 0, 0 ],
+               "const_names" : [ 27, 28, 29 ],
+               "const_types" : [ 0, 0, 0 ],
+               "constants" : [ "AAAAAEDg68A=", "AAAAAFwHMEE=", "AAAA4D2sh0E=" ],
+               "type" : 11
+            }
+         ],
+         "id" : 103,
+         "name" : "Резина"
+      },
+      {
+         "elasticity" : [
+            {
+               "const_dep" : [ "", "", "", "", "", "", "", "", "" ],
+               "const_dep_size" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+               "const_names" : [ 11, 12, 13, 24, 26, 25, 21, 23, 22 ],
+               "const_types" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+               "constants" : [
+                  "AAAAggWNLUI=",
+                  "AAAAIAU+8EE=",
+                  "AAAAIAU+8EE=",
+                  "CtejcD0K1z8=",
+                  "exSuR+F6lD8=",
+                  "mpmZmZmZ2T8=",
+                  "AAAA4CF76UE=",
+                  "AAAA4CF76UE=",
+                  "AAAA8CV450E="
+               ],
+               "type" : 1
+            }
+         ],
+         "id" : 104,
+         "name" : "Кевлар"
+      },
+      {
+         "elasticity" : [
+            {
+               "const_dep" : [ "", "", "", "", "" ],
+               "const_dep_size" : [ 0, 0, 0, 0, 0 ],
+               "const_names" : [ 16, 17, 18, 19, 20 ],
+               "const_types" : [ 0, 0, 0, 0, 0 ],
+               "constants" : [
+                  "AACA0O9MOEI=",
+                  "AADAWsetQEI=",
+                  "uB6F61G43j8=",
+                  "SOF6FK5H0T8=",
+                  "AAAABGv0JEI="
+               ],
+               "type" : 2
+            }
+         ],
+         "id" : 105,
+         "name" : "Титан"
+      },
+      {
+         "common" : [
+            {
+               "const_dep" : [ "" ],
+               "const_dep_size" : [ 0 ],
+               "const_names" : [ 0 ],
+               "const_types" : [ 0 ],
+               "constants" : [ "AAAAAACwnUA=" ],
+               "type" : 0
+            }
+         ],
+         "elasticity" : [
+            {
+               "const_dep" : [ "", "" ],
+               "const_dep_size" : [ 0, 0 ],
+               "const_names" : [ 0, 1 ],
+               "const_types" : [ 0, 0 ],
+               "constants" : [ "AAAAAITXp0E=", "MzMzMzMz0z8=" ],
+               "type" : 0
+            }
+         ],
+         "id" : 106,
+         "name" : "Грунт",
+         "plasticity" : [
+            {
+               "const_dep" : [ "", "", "" ],
+               "const_dep_size" : [ 0, 0, 0 ],
+               "const_names" : [ 9, 10, 11 ],
+               "const_types" : [ 0, 0, 0 ],
+               "constants" : [ "AAAAAABS3EA=", "AAAAAAAANEA=", "AAAAAAAAJEA=" ],
+               "type" : 1
+            }
+         ]
+      }
+   ],
+   "mesh" : {
+      "elem_blocks" : "AQAAAAIAAAA=",
+      "elem_coords" : "AQAAAAEAAAA=",
+      "elem_materials" : "AQAAAAIAAAA=",
+      "elem_orders" : "AQAAAAEAAAA=",
+      "elem_parent_ids" : "AQAAAAIAAAA=",
+      "elem_properties" : "//////////8=",
+      "elem_types" : "DAw=",
+      "elemids" : "AQAAAAIAAAA=",
+      "elems" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAA=",
+      "elems_count" : 2,
+      "nids" : "AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAA=",
+      "nodes" : "AAAAAAAA4D8AAAAAAADgPwAAAAAAAAAAAAAAAAAA4L8AAAAAAADgPwAAAAAAAAAAAAAAAAAA4L8AAAAAAADgvwAAAAAAAAAAAAAAAAAA4D8AAAAAAADgvwAAAAAAAAAAAAAAAAAA0D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA0L8AAAAAAADwPwAAAAAAAAAAAAAAAAAA0L8AAAAAAADgPwAAAAAAAAAAAAAAAAAA0D8AAAAAAADgPwAAAAAAAAAA",
+      "nodes_count" : 8
+   },
+   "restraint_sets" : [
+      {
+         "id" : 1,
+         "name" : "Restraint Set",
+         "restraints" : [ 1, 2 ],
+         "type" : 0
+      }
+   ],
+   "restraints" : [
+      {
+         "apply_to" : "AwAAAAQAAAA=",
+         "apply_to_size" : 2,
+         "cs" : 1,
+         "data" : [
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA="
+         ],
+         "dep_var_num" : [ "", "", "", "", "", "" ],
+         "dep_var_size" : [ 0, 0, 0, 0, 0, 0 ],
+         "dependency_type" : [ 0, 0, 0, 0, 0, 0 ],
+         "flag" : [ 1, 1, 1, 0, 0, 0 ],
+         "id" : 1,
+         "name" : ""
+      },
+      {
+         "apply_to" : "BQAAAAYAAAA=",
+         "apply_to_size" : 2,
+         "cs" : 1,
+         "data" : [
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA=",
+            "AAAAAAAAAAA="
+         ],
+         "dep_var_num" : [ "", "", "", "", "", "" ],
+         "dep_var_size" : [ 0, 0, 0, 0, 0, 0 ],
+         "dependency_type" : [ 0, 0, 0, 0, 0, 0 ],
+         "flag" : [ 1, 0, 1, 0, 0, 0 ],
+         "id" : 2,
+         "name" : ""
+      }
+   ],
+   "settings" : {
+      "bc_tolerance" : 0.00050000000000000001,
+      "dimensions" : "2D",
+      "elasticity" : true,
+      "finite_deformations" : false,
+      "heat_transfer" : false,
+      "incompressibility" : false,
+      "linear_solver" : {
+         "iter_opts" : {
+            "epsilon" : 1.0000000000000001e-09,
+            "max_iterations" : 50000,
+            "preconditioner" : "auto",
+            "stopping_criteria" : 0
+         },
+         "method" : "auto",
+         "on_fail" : true,
+         "use_uzawa" : "auto"
+      },
+      "nonlinear_solver" : {
+         "arc_method" : false,
+         "line_search" : false,
+         "max_iterations" : 50,
+         "max_load_steps" : 10,
+         "min_load_steps" : 1,
+         "target_iter" : 5,
+         "tolerance" : 0.001
+      },
+      "output" : {
+         "energy" : false,
+         "intermediate_results" : true,
+         "log" : true,
+         "material" : false,
+         "normal_force" : false,
+         "record3d" : true,
+         "vtu" : true
+      },
+      "permission_write" : false,
+      "plane_state" : "p-strain",
+      "plasticity" : false,
+      "porefluid_transfer" : false,
+      "statics" : {
+         "steps_count" : 1
+      },
+      "type" : "static",
+      "viscosity" : false
+   }
+}
