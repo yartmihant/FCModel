@@ -1,0 +1,28 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/EfPrCond_CubeTrans_Mix1_per.fc\'')
+
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 0, "nodes": 1209, "elements": 3669, "version": "2021.11"}
+...deleting 164 pyramids from database...
+...deleting 618 wedges from database...
+...deleting 2743 tets from database...
+...deleting 428 tris and 1284 edgeUses from database...
+...deleting 144 hexes and 0 faceUses from database...
+...deleting 232 faces from database...
+...deleting 1106 edges from database...
+...deleting 1209 nodes from database...

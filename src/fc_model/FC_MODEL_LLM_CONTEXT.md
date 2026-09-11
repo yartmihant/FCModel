@@ -473,7 +473,7 @@ settings = {
 }
 ```
 
-See `docs/FidesysCase.md` for the full specification of each solver sub-section.
+See `docs/FC_INPUT_FORMAT.md` for the full specification of each solver sub-section.
 
 ---
 
@@ -619,10 +619,9 @@ m.settings = {
 
 ## Library extensions beyond spec
 
-These types are present in the library but not in `docs/FidesysCase.md`:
+These types are present in the library but not in `docs/FC_INPUT_FORMAT.md`:
 - Element types: `BAR2`(42), `BAR3`(43), `CABLE2`(44), `CABLE3`(45)
 - Material property types: `VOIGT_ISOTROPIC`, `VOIGT_ORTHOTROPIC`, `VP`, `VS`
-- Material group: `swelling`
 
 They are valid extensions and work correctly with encode/decode.
 
@@ -632,7 +631,7 @@ They are valid extensions and work correctly with encode/decode.
 
 - Entry point: `src/fc_model/__init__.py` — all public classes, constants, `__all__`.
 - Domain modules: `fc_mesh.py`, `fc_materials.py`, `fc_data.py`, `fc_value.py`, `fc_blocks.py`, `fc_conditions.py`, `fc_constraint.py`, `fc_property_tables.py`, `fc_set.py`, `fc_receivers.py`, `fc_coordinate_system.py`.
-- Specification: `docs/FidesysCase.md`.
+- Specification: `docs/FC_INPUT_FORMAT.md` (canonical); synchronized package copy: `src/fc_model/FC_INPUT_FORMAT.md`. Earlier Wiki notes are supplementary and do not override the newer specification.
 - Tests: `tests/` directory — unit tests and roundtrip tests with real `.fc` files.
 
 ## Ready-to-use context block for LLM prompts

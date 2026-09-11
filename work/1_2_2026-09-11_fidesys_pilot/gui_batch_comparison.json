@@ -1,0 +1,58 @@
+[
+  {
+    "file": "Cube_static_direction_shell.fc",
+    "gui_log": "work/1_2_2026-09-11_fidesys_pilot/Cube_static_direction_shell.fc.log",
+    "batch_log": "work/1_2_2026-09-11_fidesys_pilot/Cube_static_direction_shell.fc.cubit_probe.log",
+    "matching_primary_errors": true,
+    "normalization": "Ignore generated command line numbers",
+    "gui_primary_errors": [],
+    "batch_primary_errors": []
+  },
+  {
+    "file": "cube_multi.fc",
+    "gui_log": "work/1_2_2026-09-11_fidesys_pilot/cube_multi.fc.log",
+    "batch_log": "work/1_2_2026-09-11_fidesys_pilot/cube_multi.fc.cubit_probe.log",
+    "matching_primary_errors": true,
+    "normalization": "Ignore generated command line numbers",
+    "gui_primary_errors": [
+      "'mesh.elem_blocks' field is empty."
+    ],
+    "batch_primary_errors": [
+      "'mesh.elem_blocks' field is empty."
+    ]
+  },
+  {
+    "file": "Contact2dQuad4CGS4_01.fc",
+    "gui_log": "work/1_2_2026-09-11_fidesys_pilot/Contact2dQuad4CGS4_01.fc.gui.log",
+    "batch_log": "work/1_2_2026-09-11_fidesys_calibration/logs/Contact2dQuad4CGS4_01.fc.log",
+    "matching_primary_errors": true,
+    "normalization": "Ignore generated command line numbers",
+    "gui_primary_errors": [
+      "Unrecognized Identifier: 'constant_damping'",
+      "syntax error (<stdin>, line 73)",
+      "There is no such Spring properties.",
+      "Master entity is empty.",
+      "Invalid element id 721."
+    ],
+    "batch_primary_errors": [
+      "Unrecognized Identifier: 'constant_damping'",
+      "syntax error (<stdin>, line 63)",
+      "There is no such Spring properties.",
+      "Master entity is empty.",
+      "Invalid element id 721."
+    ]
+  },
+  {
+    "file": "Contact2dMixed_Shell_Thermo_Tied_MPC.fc",
+    "gui_log": "work/1_2_2026-09-11_fidesys_pilot/Contact2dMixed_Shell_Thermo_Tied_MPC.fc.gui.log",
+    "batch_log": "work/1_2_2026-09-11_fidesys_calibration/logs/Contact2dMixed_Shell_Thermo_Tied_MPC.fc.log",
+    "matching_primary_errors": true,
+    "normalization": "Ignore generated command line numbers",
+    "gui_primary_errors": [
+      "Master entity is empty."
+    ],
+    "batch_primary_errors": [
+      "Master entity is empty."
+    ]
+  }
+]

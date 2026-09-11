@@ -1,0 +1,107 @@
+{
+  "started_utc": "2026-09-11T12:32:44.836446+00:00",
+  "baseline": "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_json_cleanup/roundtrip_results.json",
+  "baseline_sha256": "f91a9e4cd4324ce3954b116c0829071d93efa03e94c284ba110be75d2c18775e",
+  "executable": "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+  "executable_sha256": "ec7590bc6843d8bb099c7d4f3e259356ee6c5ecff913ee19be6cb403107d1e20",
+  "source": "/home/antonov/Base/Libs/FCModel/data/fc_core_tests",
+  "workers": 1,
+  "timeout_seconds": 60,
+  "probe": "import cubit\nimport json\nprint(\"FCMODEL_IMPORT_DONE=\" + json.dumps({\"errors\": cubit.get_error_count(), \"nodes\": cubit.get_node_count(), \"elements\": cubit.get_element_count(), \"version\": cubit.get_version()}))\n",
+  "selected_files": 2,
+  "finished_utc": "2026-09-11T12:32:49.430214+00:00",
+  "counts": {
+    "import_error": 2
+  },
+  "roundtrip_by_import": {
+    "equal": {
+      "import_error": 2
+    }
+  },
+  "primary_errors_by_roundtrip": {
+    "Invalid element id 3.": {
+      "equal": 1
+    },
+    "Unrecognized Identifier: 'pure_lagrangian'": {
+      "equal": 1
+    },
+    "syntax error (<stdin>, line 54)": {
+      "equal": 1
+    }
+  },
+  "roundtrip_patterns_by_import": {},
+  "files": [
+    {
+      "file": "Contact2dQuad8_CGS1_regular_notconform_nogap_tension_PL.fc",
+      "sha256": "96bfbd8862bdd22eaa6f8d0bba8a1bb50662b533a64f9a240953dba4fe75d0c7",
+      "source_unchanged": true,
+      "roundtrip_status": "equal",
+      "status": "import_error",
+      "duration_seconds": 2.321,
+      "returncode": 11,
+      "timeout": false,
+      "log": "logs/Contact2dQuad8_CGS1_regular_notconform_nogap_tension_PL.fc.log",
+      "command": [
+        "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+        "-nographics",
+        "-batch",
+        "-model",
+        "/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact2dQuad8_CGS1_regular_notconform_nogap_tension_PL.fc",
+        "-input",
+        "/tmp/fc-fidesys-import-3qbquu51/after_import.py"
+      ],
+      "errors": [
+        "Unrecognized Identifier: 'pure_lagrangian'",
+        "syntax error (<stdin>, line 54)",
+        "Errors found during session."
+      ],
+      "warnings": [],
+      "primary_errors": [
+        "Unrecognized Identifier: 'pure_lagrangian'",
+        "syntax error (<stdin>, line 54)"
+      ],
+      "completion": {
+        "errors": 2,
+        "nodes": 58,
+        "elements": 12,
+        "version": "2021.11"
+      },
+      "roundtrip_difference_patterns": []
+    },
+    {
+      "file": "Contact3dHex8_Tied_RBE2_findefs_Penalty.fc",
+      "sha256": "02dc2c251bda4eafd153b70bcbbaad8168d194cdcdbb4e74fc2a878167d6780e",
+      "source_unchanged": true,
+      "roundtrip_status": "equal",
+      "status": "import_error",
+      "duration_seconds": 2.27,
+      "returncode": 11,
+      "timeout": false,
+      "log": "logs/Contact3dHex8_Tied_RBE2_findefs_Penalty.fc.log",
+      "command": [
+        "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+        "-nographics",
+        "-batch",
+        "-model",
+        "/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3dHex8_Tied_RBE2_findefs_Penalty.fc",
+        "-input",
+        "/tmp/fc-fidesys-import-ueapk33q/after_import.py"
+      ],
+      "errors": [
+        "Invalid element id 3.",
+        "Errors found during session."
+      ],
+      "warnings": [],
+      "primary_errors": [
+        "Invalid element id 3."
+      ],
+      "completion": {
+        "errors": 1,
+        "nodes": 17,
+        "elements": 3,
+        "version": "2021.11"
+      },
+      "roundtrip_difference_patterns": []
+    }
+  ]
+}

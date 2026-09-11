@@ -1,0 +1,115 @@
+/home/antonov/Base/Libs/FCModel/tests/test_compress.py
+  /home/antonov/Base/Libs/FCModel/tests/test_compress.py:416:55 - error: Аргумент типа "Literal[0]" нельзя присвоить параметру "type_val" типа "str" в функции "__init__"
+    "Literal[0]" невозможно назначить "str" (reportArgumentType)
+  /home/antonov/Base/Libs/FCModel/tests/test_compress.py:431:54 - error: Аргумент типа "Literal[0]" нельзя присвоить параметру "type_val" типа "str" в функции "__init__"
+    "Literal[0]" невозможно назначить "str" (reportArgumentType)
+/home/antonov/Base/Libs/FCModel/tests/test_conditions.py
+  /home/antonov/Base/Libs/FCModel/tests/test_conditions.py:127:30 - error: Не удалось получить доступ к элементу в TypedDict
+    "restraints" не является обязательным ключом в "FCSrcModel", поэтому доступ может вызвать исключение во время выполнения (reportTypedDictNotRequiredAccess)
+  /home/antonov/Base/Libs/FCModel/tests/test_conditions.py:171:16 - error: Не удалось получить доступ к элементу в TypedDict
+    "initial_sets" не является обязательным ключом в "FCSrcModel", поэтому доступ может вызвать исключение во время выполнения (reportTypedDictNotRequiredAccess)
+/home/antonov/Base/Libs/FCModel/tests/test_data.py
+  /home/antonov/Base/Libs/FCModel/tests/test_data.py:13:46 - error: Аргумент типа "NDArray[generic] | str" нельзя присвоить параметру "x" типа "_ArrayLikeNumber_co | _ArrayLikeObject_co" в функции "assert_array_almost_equal"
+    "NDArray[generic] | str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+      "str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+        "str" несовместим с протоколом "_SupportsArray[dtype[bool_ | number[Any]]]"
+          "__array__" отсутствует.
+        "str" несовместим с протоколом "_NestedSequence[_SupportsArray[dtype[bool_ | number[Any]]]]"
+          Не удалось привязать метод "__getitem__", "str" не может быть назначен параметру "self"
+            "str" невозможно назначить "LiteralString"
+          "__getitem__" является несовместимым типом
+    ... (reportArgumentType)
+  /home/antonov/Base/Libs/FCModel/tests/test_data.py:17:46 - error: Аргумент типа "NDArray[generic] | str" нельзя присвоить параметру "x" типа "_ArrayLikeNumber_co | _ArrayLikeObject_co" в функции "assert_array_almost_equal"
+    "NDArray[generic] | str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+      "str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+        "str" несовместим с протоколом "_SupportsArray[dtype[bool_ | number[Any]]]"
+          "__array__" отсутствует.
+        "str" несовместим с протоколом "_NestedSequence[_SupportsArray[dtype[bool_ | number[Any]]]]"
+          Не удалось привязать метод "__getitem__", "str" не может быть назначен параметру "self"
+            "str" невозможно назначить "LiteralString"
+          "__getitem__" является несовместимым типом
+    ... (reportArgumentType)
+  /home/antonov/Base/Libs/FCModel/tests/test_data.py:21:46 - error: Аргумент типа "NDArray[generic] | str" нельзя присвоить параметру "x" типа "_ArrayLikeNumber_co | _ArrayLikeObject_co" в функции "assert_array_almost_equal"
+    "NDArray[generic] | str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+      "str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+        "str" несовместим с протоколом "_SupportsArray[dtype[bool_ | number[Any]]]"
+          "__array__" отсутствует.
+        "str" несовместим с протоколом "_NestedSequence[_SupportsArray[dtype[bool_ | number[Any]]]]"
+          Не удалось привязать метод "__getitem__", "str" не может быть назначен параметру "self"
+            "str" невозможно назначить "LiteralString"
+          "__getitem__" является несовместимым типом
+    ... (reportArgumentType)
+  /home/antonov/Base/Libs/FCModel/tests/test_data.py:44:46 - error: Аргумент типа "NDArray[generic] | str" нельзя присвоить параметру "x" типа "_ArrayLikeNumber_co | _ArrayLikeObject_co" в функции "assert_array_almost_equal"
+    "NDArray[generic] | str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+      "str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+        "str" несовместим с протоколом "_SupportsArray[dtype[bool_ | number[Any]]]"
+          "__array__" отсутствует.
+        "str" несовместим с протоколом "_NestedSequence[_SupportsArray[dtype[bool_ | number[Any]]]]"
+          Не удалось привязать метод "__getitem__", "str" не может быть назначен параметру "self"
+            "str" невозможно назначить "LiteralString"
+          "__getitem__" является несовместимым типом
+    ... (reportArgumentType)
+  /home/antonov/Base/Libs/FCModel/tests/test_data.py:75:46 - error: Аргумент типа "NDArray[generic] | str" нельзя присвоить параметру "x" типа "_ArrayLikeNumber_co | _ArrayLikeObject_co" в функции "assert_array_almost_equal"
+    "NDArray[generic] | str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+      "str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+        "str" несовместим с протоколом "_SupportsArray[dtype[bool_ | number[Any]]]"
+          "__array__" отсутствует.
+        "str" несовместим с протоколом "_NestedSequence[_SupportsArray[dtype[bool_ | number[Any]]]]"
+          Не удалось привязать метод "__getitem__", "str" не может быть назначен параметру "self"
+            "str" невозможно назначить "LiteralString"
+          "__getitem__" является несовместимым типом
+    ... (reportArgumentType)
+  /home/antonov/Base/Libs/FCModel/tests/test_data.py:76:46 - error: Аргумент типа "NDArray[generic] | str" нельзя присвоить параметру "x" типа "_ArrayLikeNumber_co | _ArrayLikeObject_co" в функции "assert_array_almost_equal"
+    "NDArray[generic] | str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+      "str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+        "str" несовместим с протоколом "_SupportsArray[dtype[bool_ | number[Any]]]"
+          "__array__" отсутствует.
+        "str" несовместим с протоколом "_NestedSequence[_SupportsArray[dtype[bool_ | number[Any]]]]"
+          Не удалось привязать метод "__getitem__", "str" не может быть назначен параметру "self"
+            "str" невозможно назначить "LiteralString"
+          "__getitem__" является несовместимым типом
+    ... (reportArgumentType)
+/home/antonov/Base/Libs/FCModel/tests/test_materials.py
+  /home/antonov/Base/Libs/FCModel/tests/test_materials.py:32:46 - error: Аргумент типа "NDArray[generic] | str" нельзя присвоить параметру "x" типа "_ArrayLikeNumber_co | _ArrayLikeObject_co" в функции "assert_array_almost_equal"
+    "NDArray[generic] | str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+      "str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+        "str" несовместим с протоколом "_SupportsArray[dtype[bool_ | number[Any]]]"
+          "__array__" отсутствует.
+        "str" несовместим с протоколом "_NestedSequence[_SupportsArray[dtype[bool_ | number[Any]]]]"
+          Не удалось привязать метод "__getitem__", "str" не может быть назначен параметру "self"
+            "str" невозможно назначить "LiteralString"
+          "__getitem__" является несовместимым типом
+    ... (reportArgumentType)
+  /home/antonov/Base/Libs/FCModel/tests/test_materials.py:37:46 - error: Аргумент типа "NDArray[generic] | str" нельзя присвоить параметру "x" типа "_ArrayLikeNumber_co | _ArrayLikeObject_co" в функции "assert_array_almost_equal"
+    "NDArray[generic] | str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+      "str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+        "str" несовместим с протоколом "_SupportsArray[dtype[bool_ | number[Any]]]"
+          "__array__" отсутствует.
+        "str" несовместим с протоколом "_NestedSequence[_SupportsArray[dtype[bool_ | number[Any]]]]"
+          Не удалось привязать метод "__getitem__", "str" не может быть назначен параметру "self"
+            "str" невозможно назначить "LiteralString"
+          "__getitem__" является несовместимым типом
+    ... (reportArgumentType)
+/home/antonov/Base/Libs/FCModel/tests/test_model.py
+  /home/antonov/Base/Libs/FCModel/tests/test_model.py:196:16 - error: Не удалось получить доступ к элементу в TypedDict
+    "steps" не является обязательным ключом в "FCSrcBlock", поэтому доступ может вызвать исключение во время выполнения (reportTypedDictNotRequiredAccess)
+  /home/antonov/Base/Libs/FCModel/tests/test_model.py:205:16 - error: Объект типа "None" не подлежит подписке (reportOptionalSubscript)
+  /home/antonov/Base/Libs/FCModel/tests/test_model.py:206:16 - error: Объект типа "None" не подлежит подписке (reportOptionalSubscript)
+/home/antonov/Base/Libs/FCModel/tests/test_value.py
+  /home/antonov/Base/Libs/FCModel/tests/test_value.py:50:46 - error: Аргумент типа "NDArray[generic] | str" нельзя присвоить параметру "x" типа "_ArrayLikeNumber_co | _ArrayLikeObject_co" в функции "assert_array_almost_equal"
+    "NDArray[generic] | str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+      "str" типа невозможно назначить тип "_ArrayLikeNumber_co | _ArrayLikeObject_co"
+        "str" несовместим с протоколом "_SupportsArray[dtype[bool_ | number[Any]]]"
+          "__array__" отсутствует.
+        "str" несовместим с протоколом "_NestedSequence[_SupportsArray[dtype[bool_ | number[Any]]]]"
+          Не удалось привязать метод "__getitem__", "str" не может быть назначен параметру "self"
+            "str" невозможно назначить "LiteralString"
+          "__getitem__" является несовместимым типом
+    ... (reportArgumentType)
+  /home/antonov/Base/Libs/FCModel/tests/test_value.py:77:23 - error: Не удается получить доступ к атрибуту "shape" для класса "str"
+    Атрибут "shape" неизвестен (reportAttributeAccessIssue)
+  /home/antonov/Base/Libs/FCModel/tests/test_value.py:83:23 - error: Не удается получить доступ к атрибуту "shape" для класса "str"
+    Атрибут "shape" неизвестен (reportAttributeAccessIssue)
+  /home/antonov/Base/Libs/FCModel/tests/test_value.py:89:23 - error: Не удается получить доступ к атрибуту "shape" для класса "str"
+    Атрибут "shape" неизвестен (reportAttributeAccessIssue)
+19 errors, 0 warnings, 0 informations

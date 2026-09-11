@@ -1,0 +1,28 @@
+{
+  "checked_utc": "2026-09-11T12:21:35.723480+00:00",
+  "source_sha256_matches": 1131,
+  "logs_reparsed_and_matched": 1131,
+  "all_aggregates_match": true,
+  "loaded_without_errors_have_nonempty_mesh": true,
+  "remaining_preprocessor_processes": [],
+  "counts": {
+    "import_error": 679,
+    "loaded_without_errors": 450,
+    "incomplete": 2
+  },
+  "roundtrip_by_import": {
+    "equal": {
+      "import_error": 272,
+      "loaded_without_errors": 179
+    },
+    "error": {
+      "import_error": 61,
+      "incomplete": 2,
+      "loaded_without_errors": 6
+    },
+    "different": {
+      "loaded_without_errors": 265,
+      "import_error": 346
+    }
+  }
+}

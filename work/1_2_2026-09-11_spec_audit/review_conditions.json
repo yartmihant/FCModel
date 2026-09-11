@@ -1,0 +1,66 @@
+[
+  {
+    "file": "data/fc_core_tests/Beam21_HookDamp_VM76.fc",
+    "reviewed_paths": ["$.header", "$.settings", "$.materials[0]", "$.property_tables[0]"],
+    "findings_confirmed": [
+      {
+        "path": "$.property_tables[0].properties.mesh_quality",
+        "rule": "PROPERTY_TABLE.TYPE",
+        "severity": "violation",
+        "actual": "2.0 (JSON number represented as float)",
+        "expected": "int",
+        "spec": "docs/FC_INPUT_FORMAT.md:899"
+      },
+      {
+        "path": "$.property_tables[0].properties.warping_dof",
+        "rule": "PROPERTY_TABLE.TYPE",
+        "severity": "violation",
+        "actual": "1.0 (JSON number represented as float)",
+        "expected": "int",
+        "spec": "docs/FC_INPUT_FORMAT.md:899"
+      }
+    ],
+    "missed_rules": [
+      "Material component Base64/const_dep alignment and property-table geometry field types are outside audit_conditions.py."
+    ],
+    "notes": "header version=3, binary=true and declared widths are internally present; grouped material layout is current. property_tables type=1 and section_type=1 are documented. settings.type=harmonic, harmonic.steps_count=250 and damping fields match documented forms."
+  },
+  {
+    "file": "data/fc_core_tests/BeamPropertiesTest.fc",
+    "reviewed_paths": ["$.header", "$.settings", "$.materials[0]", "$.property_tables[0:10]"],
+    "findings_confirmed": [],
+    "missed_rules": [
+      "Version 2 flat material constants should be reported as documented legacy by a materials audit.",
+      "Property-table nested geometry and section_type-specific field/type checks are outside audit_conditions.py."
+    ],
+    "notes": "header.version=2 is explicitly a legacy constants layout. All observed BEAM section_type values (0,1,2,3,5,6,7,8,9,10) occur in the documented table; property_tables.type=1 is BEAM. settings.type=static and nonlinear_solver fields shown are structurally documented. Top-level load_sets/restraint_sets/bcs were not reviewed because they are outside the assigned paths."
+  },
+  {
+    "file": "data/fc_core_tests/Contact3dHex8_Tied_RBE2_findefs_Penalty.fc",
+    "reviewed_paths": ["$.header", "$.settings", "$.materials[0]", "$.contact_constraints[0]", "$.coupling_constraints[0]"],
+    "findings_confirmed": [
+      {
+        "path": "$.contact_constraints[0]",
+        "rule": "CONTACT.PENALTY_DAMPING",
+        "severity": "ambiguity",
+        "actual": "method=penalty; damping absent",
+        "expected": "compatibility/sentinel rule names damping required, but main contact schema omits damping",
+        "spec": "docs/FC_INPUT_FORMAT.md:1332,2158"
+      }
+    ],
+    "missed_rules": [
+      "Nested settings/material/property checks belong to their own audits; no additional condition rule was missed."
+    ],
+    "notes": "contact type=tied and method=penalty are documented; master/slave payloads and sizes agree as pair payloads, normal_stiffness and tangent_stiffness are present. coupling type=2 DISTANCE has no extra fields, as specified."
+  },
+  {
+    "file": "data/fc_core_tests/13923_dynamic.fc",
+    "reviewed_paths": ["$.header", "$.settings", "$.materials[0]", "$.contact_constraints[0]", "$.initial_sets[0]"],
+    "findings_confirmed": [],
+    "missed_rules": [
+      "Nested lagrange_settings field types and optionality are outside the current condition audit; the schema does not mark every listed field required.",
+      "Grouped material component payload checks belong to the materials audit."
+    ],
+    "notes": "settings.type=dynamic, dimensions=2D, plane_state=p-strain and dynamics.scheme=implicit are documented. newmark_gamma=0.4 is at the documented inclusive upper bound. initial_sets type=1 has a six-entry flag. pure_lagrangian has lagrange_settings; absent optional-looking settings keys were not treated as violations."
+  }
+]

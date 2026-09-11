@@ -1,0 +1,56 @@
+[
+  {
+    "pattern": [
+      3,
+      true,
+      false
+    ],
+    "files_count": 1109,
+    "example": {
+      "file": "EfPrCond_CubeOrtho_Mix1_per.fc",
+      "bytes": 502,
+      "elems_count": 502,
+      "int_bytes": 4
+    }
+  },
+  {
+    "pattern": [
+      1,
+      true,
+      false
+    ],
+    "files_count": 4,
+    "example": {
+      "file": "cube_multi.fc",
+      "bytes": 96,
+      "elems_count": 96,
+      "int_bytes": 4
+    }
+  },
+  {
+    "pattern": [
+      2,
+      true,
+      false
+    ],
+    "files_count": 5,
+    "example": {
+      "file": "BeamPropertiesTest.fc",
+      "bytes": 10,
+      "elems_count": 10,
+      "int_bytes": 4
+    }
+  },
+  {
+    "pattern": [
+      3,
+      "plain_nested_nodes"
+    ],
+    "files_count": 12,
+    "example": {
+      "file": "contb2h8.fc",
+      "nodes_count": 8449,
+      "top_length": 8449
+    }
+  }
+]

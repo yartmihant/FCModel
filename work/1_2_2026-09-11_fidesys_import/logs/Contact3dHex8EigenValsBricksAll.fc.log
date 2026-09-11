@@ -1,0 +1,24 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3dHex8EigenValsBricksAll.fc\'')
+
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 0, "nodes": 2662, "elements": 2000, "version": "2021.11"}
+...deleting 2000 hexes and 0 faceUses from database...
+...deleting 1200 faces from database...
+...deleting 2400 edges from database...
+...deleting 2662 nodes from database...

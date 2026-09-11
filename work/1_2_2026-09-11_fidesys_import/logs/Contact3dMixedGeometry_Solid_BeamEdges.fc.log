@@ -1,0 +1,33 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3dMixedGeometry_Solid_BeamEdges.fc\'')
+
+WARNING: The distance between nodesets is not accurate.
+[2026-09-11 15:14:13.412] [error] Invalid element id 1.
+
+ERROR: Invalid element id 1.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 1, "nodes": 101, "elements": 32, "version": "2021.11"}
+2 Displacement's were deleted.
+2 Temperature's were deleted.
+...deleting 8 hexes and 0 faceUses from database...
+...deleting 24 faces from database...
+...deleting 72 edges from database...
+...deleting 101 nodes from database...
+[2026-09-11 15:14:13.469] [error] Errors found during session.
+
+ERROR: Errors found during session.

@@ -1,0 +1,40 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3d_Plast_Mises_Lame_Tied_MPC.fc\'')
+
+WARNING: The distance between nodesets is not accurate.
+[2026-09-11 15:15:28.924] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 15:15:28.924] [error] Command Failed.
+
+ERROR: Command Failed.
+WARNING: The distance between nodesets is not accurate.
+WARNING: The distance between nodesets is not accurate.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 2, "nodes": 12444, "elements": 4536, "version": "2021.11"}
+3 Displacement's were deleted.
+1 Pressure was deleted.
+...deleting 3989 tets from database...
+...deleting 2820 tris and 8460 edgeUses from database...
+...deleting 547 hexes and 0 faceUses from database...
+...deleting 1226 faces from database...
+...deleting 6682 edges from database...
+...deleting 12444 nodes from database...
+[2026-09-11 15:15:29.025] [error] Errors found during session.
+
+ERROR: Errors found during session.

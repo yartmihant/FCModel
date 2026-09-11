@@ -1,0 +1,33 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact2dQuad4_CGS2_Frictionless_TiedNormal_PL.fc\'')
+
+[2026-09-11 15:11:00.821] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:11:00.821] [error] syntax error (<stdin>, line 64)
+
+ERROR: syntax error (<stdin>, line 64)
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 2, "nodes": 252, "elements": 204, "version": "2021.11"}
+5 Displacement's were deleted.
+...deleting 204 faces from database...
+...deleting 454 edges from database...
+...deleting 252 nodes from database...
+[2026-09-11 15:11:00.872] [error] Errors found during session.
+
+ERROR: Errors found during session.

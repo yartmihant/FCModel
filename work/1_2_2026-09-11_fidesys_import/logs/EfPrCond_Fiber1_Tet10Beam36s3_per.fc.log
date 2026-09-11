@@ -1,0 +1,32 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/EfPrCond_Fiber1_Tet10Beam36s3_per.fc\'')
+
+WARNING: (RefEdge::initialize) Curve 5 has zero arclength but is not a point_curve.
+WARNING: (RefEdge::initialize) Curve 12 has zero arclength but is not a point_curve.
+[2026-09-11 15:17:20.709] [error] Invalid element id 1.
+
+ERROR: Invalid element id 1.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 1, "nodes": 887, "elements": 516, "version": "2021.11"}
+...deleting 512 tets from database...
+...deleting 176 tris and 528 edgeUses from database...
+...deleting 268 edges from database...
+...deleting 887 nodes from database...
+[2026-09-11 15:17:20.756] [error] Errors found during session.
+
+ERROR: Errors found during session.

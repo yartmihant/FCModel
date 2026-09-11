@@ -1,0 +1,19 @@
+Fontconfig warning: "/usr/share/fontconfig/conf.avail/05-reset-dirs-sample.conf", line 6: unknown element "reset-dirs"
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libcubitcompgui.ccg from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+[2026-09-11 15:12:28.070] [error] Unrecognized Identifier: 'constant_damping'
+
+[2026-09-11 15:12:28.072] [error] syntax error (<stdin>, line 73)
+
+[2026-09-11 15:12:28.080] [error] There is no such Spring properties.
+
+[2026-09-11 15:12:28.080] [error] Command Failed.
+
+[2026-09-11 15:12:28.243] [error] Master entity is empty.
+
+[2026-09-11 15:12:28.244] [error] Command Failed.
+
+[2026-09-11 15:12:28.286] [error] Invalid element id 721.
+

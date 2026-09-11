@@ -2,12 +2,19 @@
 
 This document describes the JSON structure consumed by `Core/Kernel/FCParser.cpp`.
 
+## Document authority and provenance
+
+`docs/FC_INPUT_FORMAT.md` is the canonical format reference for this project; `src/fc_model/FC_INPUT_FORMAT.md` is its synchronized package copy. The newer parser-oriented description takes precedence over the former Fidesys Wiki specification, previously stored as `docs/FidesysCase.md`.
+
+The Wiki source was https://clare.office.saldlab.com/wiki/Формат_Fidesys_Case. Its non-conflicting material constants, beam geometry definitions, and analysis type names have been retained here. The transferred fields `shear_coefficient_zy`, `max_overlap`, `full_periodic`, and `model_properties` are supported and included in their respective schemas. Component encoding and corrected material examples below are grounded in the Python library implementation. These additions do not establish complete support by the Python library or verify the current C++ parser. Existing parser/writer line references are not pinned to a source revision.
+
 ## Overview
 
 - File extension: `.fc`
 - Encoding: UTF-8
 - Container format: JSON
 - Binary mode support: arrays can be stored as Base64-encoded binary blobs when `header.binary = true`
+- In the Python library, numerical value and argument buffers are Base64-encoded. Their JSON containers and metadata arrays (for example, `const_names`, `const_types`, and `const_dep_size`) remain JSON arrays. Array type notation describes decoded contents; the encoding boundary is specified per field below.
 
 ---
 
@@ -515,10 +522,10 @@ Each group is an array of one element. The element shape:
 {
   "type":          "<int>",          // Group sub-type (see type tables below)
   "const_names":   "[int]",          // Property index array (see const_names tables below)
-  "const_types":   "[[int]]",        // Dependency type per property (inner array for multi-dim; see const_types)
+  "const_types":   "[int | [int]]",  // Code per constant/formula; code array per table (including one-column tables)
   "const_dep_size":"[int]",          // Number of argument rows per property (0 for CONSTANT/FORMULA)
-  "constants":     "[Base64|string]",// Property values: Base64 array for TABULAR_*, formula string for FORMULA
-  "const_dep":     "[Base64]",       // Tabular argument values (Base64 per property); empty string for CONSTANT/FORMULA
+  "constants":     "[Base64|string]",// JSON array: one Base64 value buffer per property, or plain formula string
+  "const_dep":     "[string | [Base64]]", // Per property: empty string for CONSTANT/FORMULA, Base64 column array for TABLE
 }
 ```
 
@@ -687,8 +694,16 @@ Notes:
 | 6 | PERMEABILITY_XX | BIOT_ORTHOTROPIC |
 | 7 | PERMEABILITY_XY | BIOT_ORTHOTROPIC |
 | 8 | PERMEABILITY_XZ | BIOT_ORTHOTROPIC |
+| 9 | PERMEABILITY_YX | BIOT_ORTHOTROPIC |
+| 10 | PERMEABILITY_YY | BIOT_ORTHOTROPIC |
+| 11 | PERMEABILITY_YZ | BIOT_ORTHOTROPIC |
+| 12 | PERMEABILITY_ZX | BIOT_ORTHOTROPIC |
+| 13 | PERMEABILITY_ZY | BIOT_ORTHOTROPIC |
+| 14 | PERMEABILITY_ZZ | BIOT_ORTHOTROPIC |
 | 15 | PERMEABILITY_T | BIOT_TRANSVERSAL_ISOTROPIC |
 | 16 | PERMEABILITY_TT | BIOT_TRANSVERSAL_ISOTROPIC |
+| 17 | PERMEABILITY_TL | BIOT_TRANSVERSAL_ISOTROPIC |
+| 18 | PERMEABILITY_L | BIOT_TRANSVERSAL_ISOTROPIC |
 | 19 | FLUID_DENSITY | all |
 | 20 | BIOT_MODULUS | all |
 | 21 | BIOT_ALPHA_X | BIOT_ORTHOTROPIC |
@@ -721,6 +736,7 @@ Notes:
 | 3 | HARDENING | MULTILINEAR |
 | 6 | TENSILE_STRAIN_COMPR | LINEAR |
 | 10 | E_TAN_COMPR | LINEAR |
+| 11 | HARDENING_COMPR | MULTILINEAR |
 | 41 | HARDENING_COHES | MULTILINEAR |
 
 **creep (NORTON)**
@@ -741,6 +757,46 @@ Notes:
 | 3 | STRESS_XY |
 | 4 | STRESS_YZ |
 | 5 | STRESS_XZ |
+| 6 | STRAIN_XX |
+| 7 | STRAIN_YY |
+| 8 | STRAIN_ZZ |
+| 9 | STRAIN_XY |
+| 10 | STRAIN_YZ |
+| 11 | STRAIN_XZ |
+| 12 | PSI_XX |
+| 13 | PSI_YY |
+| 14 | PSI_ZZ |
+| 15 | PSI_XY |
+| 16 | PSI_YZ |
+| 17 | PSI_XZ |
+| 18 | PSI_YX |
+| 19 | PSI_ZY |
+| 20 | PSI_ZX |
+| 21 | GRADIENT_XX |
+| 22 | GRADIENT_YY |
+| 23 | GRADIENT_ZZ |
+| 24 | GRADIENT_XY |
+| 25 | GRADIENT_YZ |
+| 26 | GRADIENT_XZ |
+| 27 | GRADIENT_YX |
+| 28 | GRADIENT_ZY |
+| 29 | GRADIENT_ZX |
+| 30 | PLASTIC_STRAIN_XX |
+| 31 | PLASTIC_STRAIN_YY |
+| 32 | PLASTIC_STRAIN_ZZ |
+| 33 | PLASTIC_STRAIN_XY |
+| 34 | PLASTIC_STRAIN_YZ |
+| 35 | PLASTIC_STRAIN_XZ |
+| 36 | FINGER_STRAIN_XX |
+| 37 | FINGER_STRAIN_YY |
+| 38 | FINGER_STRAIN_ZZ |
+| 39 | FINGER_STRAIN_XY |
+| 40 | FINGER_STRAIN_YZ |
+| 41 | FINGER_STRAIN_XZ |
+| 42 | PLASTIC_STRAIN_MISES |
+| 43 | THERMAL_STRESS_XX |
+| 44 | THERMAL_STRESS_YY |
+| 45 | THERMAL_STRESS_ZZ |
 | 46 | THERMAL_STRESS_XY |
 | 47 | THERMAL_STRESS_YZ |
 | 48 | THERMAL_STRESS_XZ |
@@ -862,6 +918,7 @@ Notes:
   "max_z":                "<double>", // Signed distance from centroid to extreme fiber along Z
   "shear_coefficient_yy": "<double>", // Shear correction factor YY
   "shear_coefficient_zz": "<double>", // Shear correction factor ZZ
+  "shear_coefficient_zy": "<double>", // Shear correction factor ZY
   "shear_center_y":       "<double>", // Shear center Y coordinate
   "shear_center_z":       "<double>"  // Shear center Z coordinate
 }
@@ -883,6 +940,36 @@ Notes:
 | 9 | RECTANGLE_WITH_A_CUT |
 | 10 | HAT_BEAM |
 | 12 | PIPE |
+
+### geometry (BEAM)
+
+The earlier specification defines `property_tables[i].properties.geometry` for the geometry of meshed beam sections and their 3D representation. The entries below supplement the section type list; `POINT` uses the manual section properties described above. All listed geometry values have type `double`; field names are case-sensitive. Existing `imported_section_id` behavior remains as described above.
+
+| section_type | Shape | Geometry fields and meanings |
+|--------------|-------|-----------------------------|
+| 0 | RECTANGLE | `B`: width; `H`: height |
+| 1 | ELLIPSE | `a`: major axis; `b`: minor axis |
+| 2 | I_BEAM | `B1`: lower width; `B2`: upper width; `H`: height; `c1`: lower thickness; `c2`: upper thickness; `d`: wall thickness |
+| 3 | CIRCLE_WITH_A_CUT | `D1`: outer diameter; `D2`: inner diameter; `e`: hole offset |
+| 5 | C_BEAM | `H`: height; `B1`: lower width; `B2`: upper width; `c1`: lower thickness; `c2`: upper thickness; `d`: wall thickness |
+| 6 | L_BEAM | `H`: height; `B`: lower width; `d`: upper thickness; `c1`: lower thickness |
+| 7 | Z_BEAM | `H`: height; `B1`: lower width; `B2`: upper width; `c1`: lower thickness; `c2`: upper thickness; `d`: wall thickness |
+| 8 | T_BEAM | `H`: height; `B`: lower width; `d`: upper thickness; `c1`: lower thickness |
+| 9 | RECTANGLE_WITH_A_CUT | `H`: height; `B`: width; `d1`: left thickness; `d2`: right thickness; `c1`: lower thickness; `c2`: upper thickness |
+| 10 | HAT_BEAM | `H`: height; `B3`: upper width; `B1`: lower-left width; `B2`: lower-right width; `d1`: left thickness; `d2`: right thickness; `c3`: upper thickness; `c1`: lower-left thickness; `c2`: lower-right thickness |
+| 12 | PIPE | `d1`: outer diameter; `d2`: inner diameter; `p1`: external pressure; `p2`: internal pressure |
+
+Example of a BEAM `properties` object containing rectangular geometry (illustrative dimensions in the model's length units):
+
+```json
+{
+  "section_type": 0,
+  "geometry": {
+    "B": 0.1,
+    "H": 0.2
+  }
+}
+```
 
 ## coordinate_systems
 
@@ -1249,6 +1336,7 @@ No extra fields. Coupling established purely by master/slave node pairs.
     "min_angle":            "<double>", // Min contact detection angle [deg] (default 45)
     "detection_tolerance":  "<double>", // Parametric detection tolerance
     "search_radius":        "<double>", // Pinball search radius multiplier (> 0)
+    "max_overlap":          "<double>", // Maximum penetration
     "normal_stiffness":     "<double>", // Penalty normal stiffness multiplier (> 0; method="penalty")
     "tangent_stiffness":    "<double>", // Penalty tangential stiffness multiplier
     "thermo_penalty_mult":  "<double>", // Thermal penalty multiplier
@@ -1421,6 +1509,20 @@ Used when `method` is `"pure_lagrangian"` or `"aug_lagrangian"`:
   "effectiveprops":           "{...}"      // Effective properties analysis settings
 }
 ```
+
+### settings.type
+
+Analysis type names retained from the earlier specification are listed below. This is not an exhaustive list of analysis modes supported by every parser version; it does not change the method names in `settings.dynamics` or `settings.harmonic`.
+
+| Value | Analysis |
+|-------|----------|
+| `static` | Static analysis |
+| `dynamic` | Transient dynamic analysis |
+| `eigenfrequencies` | Eigenfrequency analysis |
+| `buckling` | Buckling analysis |
+| `spectrum` | Spectrum analysis |
+| `harmonic` | Harmonic response analysis |
+| `effectiveprops` | Effective properties analysis |
 
 ### settings.linear_solver
 
@@ -1630,6 +1732,8 @@ Output options are mutually exclusive: use exactly one of `result_output_iter`, 
   "log":                  "<bool>",  // Write solver log file
   "normal_force":         "<bool>",  // Output contact normal forces
   "record3d":             "<bool>",  // Output 3D result records
+  "full_periodic":        "<bool>",  // Output the full model for periodic boundary conditions
+  "model_properties":     "<bool>",  // Output model properties
   "vtu":                  "<bool>",  // Write VTU output files
   "without_smoothing":    "<bool>",  // Skip result smoothing (output raw Gauss-point values)
   "multiblock_off":       "<bool>",  // Disable multiblock (partitioned) VTK output
@@ -1715,6 +1819,20 @@ For BCs/material tables, parser accepts:
 
 In binary mode, payload arrays are decoded according to `header.types` and field-specific expected type.
 
+### Component encoding in the Python library
+
+Verified against `FCMaterial.encode/decode` (`fc_materials.py`), `FCData.encode/decode` (`fc_data.py`), `FCValue.encode/decode` (`fc_value.py`), and the component loops in `fc_conditions.py`. `FCModel.save()` writes the resulting structure directly with `json.dump`; there is no later packing of all properties into one buffer. This describes the current Python implementation, not an independent verification of `Core/Kernel/FCParser.cpp`.
+
+- A material group's `constants` is a JSON array of strings, one entry per property. Each numerical value array, including a scalar represented as a one-element array, is encoded separately in Base64. A formula is stored as a plain string in its own entry.
+- `const_names`, `const_dep_size`, and the outer `const_types` array remain JSON arrays. Their entries describe the corresponding property; they are not concatenated with its numerical buffer.
+- For a constant or formula, `const_types[i]` is an integer code and `const_dep[i]` is an empty string. `const_dep_size[i]` is zero.
+- For a table, `const_types[i]` is an array of dependency codes, even for a single argument column. `const_dep[i]` is a JSON array of Base64 strings, one per argument column in the same order. `constants[i]` contains the separately encoded dependent values; `const_dep_size[i]` is the number of rows.
+- Loads, restraints, and initial conditions use the same `FCData` representation: `data[i]` corresponds to `constants[i]`, `dependency_type[i]` to `const_types[i]`, `dep_var_num[i]` to `const_dep[i]`, and `dep_var_size[i]` to `const_dep_size[i]`.
+- Empty numerical components encode as `""`; formulas remain strings. The earlier specification also describes `dependency_type[i] = ""` for inactive load/restraint components and requires initial-condition `data` to align with `flag`; those are component-layout rules, not instructions to encode the outer JSON containers.
+- `dep_var_num` holds argument payloads, while `dep_var_size` holds row counts. The earlier descriptions that called both fields row counts are incorrect.
+
+Thus Base64 encoding applies separately to each numerical payload. A single combined Base64 string for the whole `constants` field does not match `FCMaterial`'s per-property reader/writer. The material examples below use the implemented layout.
+
 ## Compatibility notes
 
 - Parser keeps backward compatibility with older material/property layouts, but new integrations should prefer v3 grouped format.
@@ -1752,29 +1870,92 @@ This section documents fields and structures that have been superseded, renamed,
 ```
 
 **Replacement (v3 grouped layout):**
+
+The following complete example is produced by `FCMaterial.encode()` (Base64 float64 payloads shown for a little-endian host):
+
 ```json
 {
-  "materials": [{
-    "id": 1,
-    "name": "Steel",
-    "elasticity": [{
-      "type": 0,
-      "const_names": [0, 1],
-      "const_types": [0, 0],
-      "const_dep_size": [0, 0],
-      "constants": "base64_[210e9, 0.3]",
-      "const_dep": ["", ""]
-    }],
-    "common": [{
-      "type": 0,
-      "const_names": [0],
-      "const_types": [0],
-      "const_dep_size": [0],
-      "constants": "base64_[7850]",
-      "const_dep": [""]
-    }],
-    ...
-  }]
+  "materials": [
+    {
+      "id": 1,
+      "name": "Steel",
+      "elasticity": [
+        {
+          "const_dep": [
+            "",
+            ""
+          ],
+          "const_dep_size": [
+            0,
+            0
+          ],
+          "const_names": [
+            0,
+            1
+          ],
+          "const_types": [
+            0,
+            0
+          ],
+          "constants": [
+            "AAAA2nxySEI=",
+            "MzMzMzMz0z8="
+          ],
+          "type": 0
+        }
+      ],
+      "common": [
+        {
+          "const_dep": [
+            ""
+          ],
+          "const_dep_size": [
+            0
+          ],
+          "const_names": [
+            0
+          ],
+          "const_types": [
+            0
+          ],
+          "constants": [
+            "AAAAAACqvkA="
+          ],
+          "type": 0
+        }
+      ],
+      "thermal": [
+        {
+          "const_dep": [
+            "",
+            "",
+            ""
+          ],
+          "const_dep_size": [
+            0,
+            0,
+            0
+          ],
+          "const_names": [
+            1,
+            2,
+            3
+          ],
+          "const_types": [
+            0,
+            0,
+            0
+          ],
+          "constants": [
+            "AAAAAAAASUA=",
+            "AAAAAAAAfkA=",
+            "AAAAAAAA4D8="
+          ],
+          "type": 0
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -1931,16 +2112,40 @@ Determines how property values in `constants` array and `const_dep` array are in
 | `12` | TABULAR_MODE_ID | Varies by mode/eigenvalue index | Mode-dependent map in `const_dep[i]` | Distribute constant per mode (transient/harmonic) |
 
 **Example: Hook elasticity with temperature-dependent Young's modulus**
+
+Two argument rows: temperature `[20.0, 100.0]`, Young's modulus `[210e9, 200e9]`, and constant Poisson ratio `0.3`. The values below are generated by `FCMaterial.encode()` (Base64 float64 payloads on a little-endian host). The outer arrays and the single-column nesting are literal JSON.
+
 ```json
 {
-  "elasticity": [{
-    "type": 0,
-    "const_names": [0, 1],
-    "const_types": [5, 0],
-    "const_dep_size": [10, 0],
-    "constants": "base64_[E_val_0, E_val_1, ..., E_val_9, nu]",
-    "const_dep": ["base64_[T_0, T_1, ..., T_9]", ""]
-  }]
+  "elasticity": [
+    {
+      "const_dep": [
+        [
+          "AAAAAAAANEAAAAAAAABZQA=="
+        ],
+        ""
+      ],
+      "const_dep_size": [
+        2,
+        0
+      ],
+      "const_names": [
+        0,
+        1
+      ],
+      "const_types": [
+        [
+          5
+        ],
+        0
+      ],
+      "constants": [
+        "AAAA2nxySEIAAADodkhHQg==",
+        "MzMzMzMz0z8="
+      ],
+      "type": 0
+    }
+  ]
 }
 ```
 

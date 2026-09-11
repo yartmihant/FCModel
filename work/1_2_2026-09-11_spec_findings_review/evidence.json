@@ -1,0 +1,5856 @@
+{
+  "spec_sha256": "7460478b06a3d1f8c2e6401343d8cc90fd84c45a05c8abe8b7383a3be4313bad",
+  "groups": [
+    {
+      "rule": "MESH.ARRAY_SIZE",
+      "files": 605,
+      "fidesys_without_errors": 281,
+      "paths": {
+        "$.mesh.elem_types": 593,
+        "$.mesh.nodes": 12
+      },
+      "examples": [
+        "Contact2dMixedHeattrannsRectangleSplit_Auto.fc",
+        "Contact2d_Plast_Mises_PointDisp_bysteps_Tied_MPC_Gaps.fc"
+      ]
+    },
+    {
+      "rule": "MESH.BUFFER_SIZE",
+      "files": 516,
+      "fidesys_without_errors": 169,
+      "paths": {
+        "$.mesh.elem_types": 516
+      },
+      "examples": [
+        "13923_dynamic.fc",
+        "Cube_static_direction_shell.fc"
+      ]
+    },
+    {
+      "rule": "SET.EXCLUSIVE",
+      "files": 781,
+      "fidesys_without_errors": 190,
+      "paths": {
+        "$.settings.statics": 780,
+        "$.settings.dynamics": 1
+      },
+      "examples": [
+        "Contact2d_Plast_Mises_PointDisp_bysteps_Tied_MPC_Gaps.fc",
+        "Contact2d_ps_Plast_Mises_PointDisp_bysteps_Tied_MPC.fc"
+      ]
+    },
+    {
+      "rule": "DOC.FIELD_TYPE",
+      "files": 434,
+      "fidesys_without_errors": 237,
+      "paths": {
+        "$.settings.test_opts": 301,
+        "$.settings.environment": 97,
+        "$.settings.preload": 72,
+        "$.settings.eigen_solver": 61,
+        "$.settings.dynamics": 32,
+        "$.settings.eigen_solver.number": 1,
+        "$.settings.eigen_solver.linear_solver": 1
+      },
+      "examples": [
+        "Contact2dMixedBriks_Homogeneous_Compression_ParantIdCheck.fc",
+        "Contact3dHex20CylInCylAllRigidMove_Homogeneous.fc"
+      ]
+    },
+    {
+      "rule": "MAT.GROUP_CARDINALITY",
+      "files": 375,
+      "fidesys_without_errors": 91,
+      "paths": {
+        "$.materials[].thermal": 375,
+        "$.materials[].plasticity": 9
+      },
+      "examples": [
+        "Contact3dHex20CylinderTied_MPC.fc",
+        "Contact3dHexS_Gauss_GLL.fc"
+      ]
+    },
+    {
+      "rule": "PT.UNKNOWN_FIELD",
+      "files": 370,
+      "fidesys_without_errors": 87,
+      "paths": {
+        "$.property_tables[].properties.t": 168,
+        "$.property_tables[].properties.Rectangle": 121,
+        "$.property_tables[].properties._Vy": 109,
+        "$.property_tables[].properties._Iyy": 109,
+        "$.property_tables[].properties._Vz": 109,
+        "$.property_tables[].properties._Area": 109,
+        "$.property_tables[].properties._Ixx": 109,
+        "$.property_tables[].properties._J": 109,
+        "$.property_tables[].properties._Vx": 109,
+        "$.property_tables[].properties.linear_spring": 93,
+        "$.property_tables[].properties.linear_damping": 93,
+        "$.property_tables[].properties.constant_damping": 91,
+        "$.property_tables[].properties.stiffness_torsion": 83,
+        "$.property_tables[].properties.mass_linear": 83,
+        "$.property_tables[].properties.combined_spring": 58,
+        "$.property_tables[].properties.I-Beam": 17,
+        "$.property_tables[].properties.Ellipse": 14,
+        "$.property_tables[].thickness_integration_rule": 2,
+        "$.property_tables[].thickness_integration_points": 2,
+        "$.property_tables[].properties.L-Beam": 1,
+        "$.property_tables[].properties.Z-Beam": 1,
+        "$.property_tables[].properties.T-Beam": 1,
+        "$.property_tables[].properties.Circle With Offset Hole": 1,
+        "$.property_tables[].properties.Chan-Beam": 1,
+        "$.property_tables[].properties.Hat-Beam": 1,
+        "$.property_tables[].properties.Hollow Rectangle": 1
+      },
+      "examples": [
+        "Contact3dHex8ShellEigenValues.fc",
+        "Beam21_HookDamp_VM76.fc"
+      ]
+    },
+    {
+      "rule": "DOC.UNKNOWN_FIELD",
+      "files": 354,
+      "fidesys_without_errors": 207,
+      "paths": {
+        "$.settings.coupled": 130,
+        "$.settings.output.temperature": 97,
+        "$.settings.compute_fields": 92,
+        "$.settings.renum": 92,
+        "$.settings.output_cs": 92,
+        "$.settings.contact": 91,
+        "$.header.fidesys_version": 21,
+        "$.settings.eigen_solver.preload": 9,
+        "$.settings.output_intermediate_results": 9,
+        "$.settings.normal_force": 9,
+        "$.settings.record3d": 5,
+        "$.settings.outputVtu": 3,
+        "$.settings.outputLog": 3,
+        "$.header.project_name": 3,
+        "$.settings.buckling": 2,
+        "$.settings.nonlinear_solver.tolerance_abs_variable": 2,
+        "$.settings.nonlinear_solver.tolerance_thermo": 1,
+        "$.settings.nonlinear_solver.use_predictor": 1,
+        "$.settings.eigen_solver.spectr_trans.value": 1,
+        "$.settings.eigen_solver.eigen_solver": 1,
+        "$.settings.eigen_solver.linear_divergence_tolerance": 1,
+        "$.settings.eigen_solver.linear_relative_tolerance": 1,
+        "$.settings.eigen_solver.linear_max_iterations": 1,
+        "$.settings.eigen_solver.linear_absolute_tolerance": 1,
+        "$.settings.eigen_solver.preconditioner": 1
+      },
+      "examples": [
+        "EfPrCond_CubeHooke_Hex20_nonper.fc",
+        "Contact3dHex20CylInCylAllRigidMove_Homogeneous.fc"
+      ]
+    },
+    {
+      "rule": "MESH.UNKNOWN_FIELD",
+      "files": 234,
+      "fidesys_without_errors": 171,
+      "paths": {
+        "$.mesh.elem_properties": 234,
+        "$.mesh.elem_materials": 234,
+        "$.mesh.elem_coords": 145
+      },
+      "examples": [
+        "Contact2dMixedBriks_Homogeneous_Compression_ParantIdCheck.fc",
+        "Contact2dQuad4.fc"
+      ]
+    },
+    {
+      "rule": "CONTACT.PENALTY_DAMPING",
+      "files": 185,
+      "fidesys_without_errors": 24,
+      "paths": {
+        "$.contact_constraints[]": 185
+      },
+      "examples": [
+        "Contact3dHex8_Detection_Penalty.fc",
+        "Contact3dHex8_TiedTangent_Penalty.fc"
+      ]
+    },
+    {
+      "rule": "REF.DUPLICATE_ID",
+      "files": 179,
+      "fidesys_without_errors": 27,
+      "paths": {
+        "$.property_tables[].id": 179
+      },
+      "examples": [
+        "Contact3dBeam3_Hook_ThermalExpansion_MPC.fc",
+        "Contact3dBeamNodesS_Tied_Bending.fc"
+      ]
+    },
+    {
+      "rule": "PT.PROPERTY_FIELD",
+      "files": 170,
+      "fidesys_without_errors": 40,
+      "paths": {
+        "$.property_tables[].properties.mesh_quality": 124,
+        "$.property_tables[].properties.warping_dof": 124,
+        "$.property_tables[].properties.mass_distribution": 58
+      },
+      "examples": [
+        "Beam21_HookDamp_VM76.fc",
+        "Contact3dBeam2_DE_InitialStress_MPC.fc"
+      ]
+    },
+    {
+      "rule": "BLOCK.PROPERTY_SENTINEL",
+      "files": 151,
+      "fidesys_without_errors": 18,
+      "paths": {
+        "$.blocks[].property_id": 151
+      },
+      "examples": [
+        "Contact3dMixedGeometryS_Solid_ShellEdges.fc",
+        "Contact3dMixedGeometryS_Solid_ShellSurface.fc"
+      ]
+    },
+    {
+      "rule": "PT.TYPE",
+      "files": 109,
+      "fidesys_without_errors": 26,
+      "paths": {
+        "$.property_tables[].type": 109
+      },
+      "examples": [
+        "Contact3dBeam3_Hook_ThermalExpansion_MPC.fc",
+        "Contact3dBeamNodesS_Tied_Bending.fc"
+      ]
+    },
+    {
+      "rule": "SET.ENUM",
+      "files": 84,
+      "fidesys_without_errors": 54,
+      "paths": {
+        "$.settings.eigen_solver.solver": 84
+      },
+      "examples": [
+        "Contact3dDetectionS.fc",
+        "Contact3dHex20EigenValsCylInCylAll.fc"
+      ]
+    },
+    {
+      "rule": "BLOCK.MATERIAL_ZERO",
+      "files": 56,
+      "fidesys_without_errors": 9,
+      "paths": {
+        "$.blocks[].material_id": 56
+      },
+      "examples": [
+        "Cube_static_direction_shell.fc",
+        "Cube_dyn_direction_shell.fc"
+      ]
+    },
+    {
+      "rule": "MESH.NODE_LAYOUT",
+      "files": 12,
+      "fidesys_without_errors": 0,
+      "paths": {
+        "$.mesh.nodes": 12
+      },
+      "examples": [
+        "Contact2dQuad4_CGS1Shift_regular_conform_Tied_MPC.fc",
+        "Contact2d_PlastSo3_Mises_PointDisp_bysteps_Conform_Tied_MPC.fc"
+      ]
+    },
+    {
+      "rule": "MAT.GROUP_ARRAY",
+      "files": 22,
+      "fidesys_without_errors": 0,
+      "paths": {
+        "$.materials[].elasticity": 22,
+        "$.materials[].common": 21
+      },
+      "examples": [
+        "Beam21_HookDamp_CodeAsterSDLL100.fc",
+        "Beam21_HookDamp_SDLL100.fc"
+      ]
+    },
+    {
+      "rule": "PT.LAYERS_TYPE",
+      "files": 21,
+      "fidesys_without_errors": 8,
+      "paths": {
+        "$.property_tables[].layers": 21
+      },
+      "examples": [
+        "Cube_static_direction_shell.fc",
+        "Cube_dyn_direction_shell.fc"
+      ]
+    },
+    {
+      "rule": "SET.SPECTRAL_ORDER",
+      "files": 17,
+      "fidesys_without_errors": 0,
+      "paths": {
+        "$.settings.spectral_order": 17
+      },
+      "examples": [
+        "Contact2dQuad8SFrictionless.fc",
+        "Contact2dQuadSEigienVals.fc"
+      ]
+    },
+    {
+      "rule": "DOC.DIMENSIONS_CONFLICT",
+      "files": 1130,
+      "fidesys_without_errors": 450,
+      "paths": {
+        "$.settings.dimensions": 1130
+      },
+      "examples": [
+        "Contact2d_Plast_Mises_PointDisp_bysteps_Tied_MPC_Gaps.fc",
+        "Contact2d_ps_Plast_Mises_PointDisp_bysteps_Tied_MPC.fc"
+      ]
+    },
+    {
+      "rule": "MESH.BINARY_SEMANTICS_UNCHECKED",
+      "files": 1118,
+      "fidesys_without_errors": 450,
+      "paths": {
+        "$.mesh": 1118
+      },
+      "examples": [
+        "Contact2d_Plast_Mises_PointDisp_bysteps_Tied_MPC_Gaps.fc",
+        "Contact2d_ps_Plast_Mises_PointDisp_bysteps_Tied_MPC.fc"
+      ]
+    }
+  ],
+  "selected_files": 29,
+  "fresh_statuses": {
+    "equal": 10,
+    "error": 7,
+    "different": 12
+  },
+  "source_hashes_verified": 1130,
+  "duplicate_files": 179,
+  "files_with_duplicate_type_and_id": 0,
+  "files_with_negative_property_id": 667,
+  "files_with_null_type_findings": 432,
+  "integral_float_property_findings": 307,
+  "nonintegral_property_findings": [],
+  "probes": [
+    {
+      "file": "13923_dynamic.fc",
+      "sha256": "241d9ad24265c9bdf3994080dd0ddbbcc19f5cdafdf60a11f8544da548a11df5",
+      "previous_roundtrip": "equal",
+      "fidesys_status": "import_error",
+      "fidesys_errors": [
+        "Unrecognized Identifier: 'pure_lagrangian'",
+        "syntax error (<stdin>, line 46)",
+        "Errors found during session."
+      ],
+      "fidesys_completion": {
+        "errors": 2,
+        "nodes": 72,
+        "elements": 50,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "2D",
+        "dynamics": {
+          "max_time": 0.5,
+          "method": "full_solution",
+          "newmark_gamma": 0.4,
+          "result_output_iter": 1,
+          "scheme": "implicit",
+          "steps_count": 100
+        },
+        "eigen_solver": null,
+        "elasticity": true,
+        "environment": {
+          "temperature": 0.0
+        },
+        "finite_deformations": true,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 100,
+          "max_load_steps": 1000,
+          "min_load_steps": 1,
+          "start_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "full_periodic": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": false,
+          "vtu": true,
+          "without_smoothing": false
+        },
+        "permission_write": true,
+        "plane_state": "p-strain",
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "preload": false,
+        "radiation_among_surfaces": false,
+        "slm": false,
+        "type": "dynamic"
+      },
+      "findings_reviewed": [
+        {
+          "rule": "MESH.BUFFER_SIZE",
+          "path": "$.mesh.elem_types",
+          "original_actual": 50,
+          "value_in_file": "DAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAw="
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 50,
+        "decoded_uint8_count": 50,
+        "unique_codes": [
+          12
+        ],
+        "bytes": 50,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "equal",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": true,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": null,
+      "output_elem_types_base64_chars": 68,
+      "material_probes": [
+        {
+          "id": 1,
+          "multi_groups": {
+            "thermal": [
+              {
+                "type": 0,
+                "const_names": [
+                  2
+                ]
+              },
+              {
+                "type": 0,
+                "const_names": [
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          "groups_preserved": {
+            "thermal": true
+          }
+        }
+      ],
+      "property_probes": [],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": -1
+        }
+      ],
+      "contacts": [
+        {
+          "lagrange_settings": {
+            "stability_normal": 1e-20,
+            "stability_tangent": 1e-20,
+            "tangent_rate": 1.0,
+            "criteria_smoothing": 0.0,
+            "use_tangent": false,
+            "use_stick_predictor": false,
+            "tensile_stress_limit": 0.0
+          },
+          "detection_tolerance": 0.1,
+          "distance": 0.10000000000000009,
+          "friction": 0.0,
+          "id": 1,
+          "ignore_overlap": false,
+          "ignore_tied_stiffness": false,
+          "master": "FQAAAAMAAAAQAAAAAwAAAAsAAAADAAAABgAAAAMAAAABAAAAAwAAAA==",
+          "master_size": 5,
+          "method": "pure_lagrangian",
+          "name": "Общий (без трения) 1",
+          "normal_stiffness": 1.0,
+          "offset": 0.0,
+          "search_radius": 1.0,
+          "slave": "HgAAAAEAAAAjAAAAAQAAACgAAAABAAAALQAAAAEAAAAyAAAAAQAAAA==",
+          "slave_size": 5,
+          "tangent_stiffness": 0.5,
+          "thermo_penalty_mult": 1.0,
+          "tolerance": 0.0005,
+          "type": "general"
+        }
+      ]
+    },
+    {
+      "file": "Beam21_HookDamp_CodeAsterSDLL100.fc",
+      "sha256": "3d4a88ad5d5dd2565d0558250f848565dc7575e481912eca20494cbfa4e87f19",
+      "previous_roundtrip": "error",
+      "fidesys_status": "import_error",
+      "fidesys_errors": [
+        "Encountered an uncaught exception 'in Json::Value::find(begin, end): requires objectValue or nullValue'.  Command failed.",
+        "Errors found during session."
+      ],
+      "fidesys_completion": {
+        "errors": 1,
+        "nodes": 0,
+        "elements": 0,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "compute_fields": [
+          "stress",
+          "strain",
+          "displacement"
+        ],
+        "contact": false,
+        "dimensions": "3D",
+        "dynamics": {
+          "result_output_iter": 1
+        },
+        "eigen_solver": {
+          "absolute_tolerance": 0.1,
+          "eps_max_iterations": 100,
+          "linear_solver": {
+            "method": "auto",
+            "preconditioner": "auto",
+            "solver": "auto"
+          },
+          "number": 10,
+          "relative_tolerance": 1e-08,
+          "solver": "auto",
+          "spectr_trans": {
+            "name": "auto"
+          },
+          "target": 0
+        },
+        "elasticity": true,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "lumpmass": false,
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "intermediate_results": true,
+          "log": true,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "output_cs": [
+          "cartesian"
+        ],
+        "permission_write": false,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "renum": false,
+        "spectral_element": false,
+        "type": "eigenfrequencies",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "MAT.GROUP_ARRAY",
+          "path": "$.materials[0].common",
+          "original_actual": "dict",
+          "value_in_file": {
+            "const_dep": [
+              ""
+            ],
+            "const_dep_size": [
+              0
+            ],
+            "const_names": [
+              0
+            ],
+            "const_types": [
+              0
+            ],
+            "constants": [
+              "AAAAAGDjRkE="
+            ],
+            "type": 0
+          }
+        },
+        {
+          "rule": "MAT.GROUP_ARRAY",
+          "path": "$.materials[0].elasticity",
+          "original_actual": "dict",
+          "value_in_file": {
+            "const_dep": [
+              "",
+              ""
+            ],
+            "const_dep_size": [
+              0,
+              0
+            ],
+            "const_names": [
+              0,
+              1
+            ],
+            "const_types": [
+              0,
+              0
+            ],
+            "constants": [
+              "AADgHb76NkI=",
+              "AAAAAAAAAAA="
+            ],
+            "type": 0
+          }
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 1,
+        "decoded_uint8_count": 1,
+        "unique_codes": [
+          36
+        ],
+        "bytes": 1,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "error",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'str' object has no attribute 'get'"
+      },
+      "material_probes": [],
+      "property_probes": [
+        {
+          "input": {
+            "id": 1,
+            "properties": {
+              "A": 0.00785398,
+              "It": 9.81748e-06,
+              "Ix": 9.81748e-06,
+              "Iy": 4.90874e-06,
+              "Iyz": 0,
+              "Iz": 4.90874e-06,
+              "angle": 0,
+              "ey": 0,
+              "ez": 0,
+              "geometry": {
+                "a": 0.1,
+                "b": 0.1
+              },
+              "max_y": 0.05,
+              "max_z": 0.05,
+              "section_type": 1
+            },
+            "type": 1
+          },
+          "output": {
+            "id": 1,
+            "type": 1,
+            "properties": {
+              "A": 0.00785398,
+              "It": 9.81748e-06,
+              "Ix": 9.81748e-06,
+              "Iy": 4.90874e-06,
+              "Iyz": 0,
+              "Iz": 4.90874e-06,
+              "angle": 0,
+              "ey": 0,
+              "ez": 0,
+              "geometry": {
+                "a": 0.1,
+                "b": 0.1
+              },
+              "max_y": 0.05,
+              "max_z": 0.05,
+              "section_type": 1
+            },
+            "additional_properties": {}
+          },
+          "removed_fields": [],
+          "properties_preserved": true
+        }
+      ],
+      "blocks": null,
+      "contacts": null
+    },
+    {
+      "file": "Beam21_HookDamp_SDLL100.fc",
+      "sha256": "7e0ed9583ecc7934c8a682cbfc487a0a54f50f44a5ac69d59b533f19e8efc0e7",
+      "previous_roundtrip": "error",
+      "fidesys_status": "import_error",
+      "fidesys_errors": [
+        "Encountered an uncaught exception 'in Json::Value::find(begin, end): requires objectValue or nullValue'.  Command failed.",
+        "Errors found during session."
+      ],
+      "fidesys_completion": {
+        "errors": 1,
+        "nodes": 0,
+        "elements": 0,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "compute_fields": [
+          "stress",
+          "strain",
+          "displacement"
+        ],
+        "contact": false,
+        "damping": {
+          "mass_matrix": 5,
+          "stiffness_matrix": 0.0005,
+          "structural": 0
+        },
+        "dimensions": "3D",
+        "dynamics": {
+          "max_time": 0.02,
+          "method": "mode_superposition",
+          "newmark_gamma": 0.005,
+          "result_output_iter": 1,
+          "scheme": "implicit",
+          "steps_count": 2000
+        },
+        "eigen_solver": {
+          "absolute_tolerance": 0.1,
+          "eps_max_iterations": 100,
+          "linear_solver": {
+            "method": "auto",
+            "preconditioner": "auto",
+            "solver": "auto"
+          },
+          "number": 10,
+          "relative_tolerance": 1e-08,
+          "solver": "auto",
+          "spectr_trans": {
+            "name": "auto"
+          },
+          "target": 0
+        },
+        "elasticity": true,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "lumpmass": false,
+        "nonlinear_solver": {
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "intermediate_results": true,
+          "log": true,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "output_cs": [
+          "cartesian"
+        ],
+        "permission_write": false,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "renum": false,
+        "spectral_element": false,
+        "type": "dynamic",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "MAT.GROUP_ARRAY",
+          "path": "$.materials[0].common",
+          "original_actual": "dict",
+          "value_in_file": {
+            "const_dep": [
+              ""
+            ],
+            "const_dep_size": [
+              0
+            ],
+            "const_names": [
+              0
+            ],
+            "const_types": [
+              0
+            ],
+            "constants": [
+              "AAAAAGDjRkE="
+            ],
+            "type": 0
+          }
+        },
+        {
+          "rule": "MAT.GROUP_ARRAY",
+          "path": "$.materials[0].elasticity",
+          "original_actual": "dict",
+          "value_in_file": {
+            "const_dep": [
+              "",
+              ""
+            ],
+            "const_dep_size": [
+              0,
+              0
+            ],
+            "const_names": [
+              0,
+              1
+            ],
+            "const_types": [
+              0,
+              0
+            ],
+            "constants": [
+              "AADgHb76NkI=",
+              "AAAAAAAAAAA="
+            ],
+            "type": 0
+          }
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 1,
+        "decoded_uint8_count": 1,
+        "unique_codes": [
+          36
+        ],
+        "bytes": 1,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "error",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'str' object has no attribute 'get'"
+      },
+      "material_probes": [],
+      "property_probes": [
+        {
+          "input": {
+            "id": 1,
+            "properties": {
+              "A": 0.00785398,
+              "It": 9.81748e-06,
+              "Ix": 9.81748e-06,
+              "Iy": 4.90874e-06,
+              "Iyz": 0,
+              "Iz": 4.90874e-06,
+              "angle": 0,
+              "ey": 0,
+              "ez": 0,
+              "geometry": {
+                "a": 0.1,
+                "b": 0.1
+              },
+              "max_y": 0.05,
+              "max_z": 0.05,
+              "section_type": 1
+            },
+            "type": 1
+          },
+          "output": {
+            "id": 1,
+            "type": 1,
+            "properties": {
+              "A": 0.00785398,
+              "It": 9.81748e-06,
+              "Ix": 9.81748e-06,
+              "Iy": 4.90874e-06,
+              "Iyz": 0,
+              "Iz": 4.90874e-06,
+              "angle": 0,
+              "ey": 0,
+              "ez": 0,
+              "geometry": {
+                "a": 0.1,
+                "b": 0.1
+              },
+              "max_y": 0.05,
+              "max_z": 0.05,
+              "section_type": 1
+            },
+            "additional_properties": {}
+          },
+          "removed_fields": [],
+          "properties_preserved": true
+        }
+      ],
+      "blocks": null,
+      "contacts": null
+    },
+    {
+      "file": "Beam21_HookDamp_VM76.fc",
+      "sha256": "4185fb4412e5d7609c642526a1c195399bb85d167dca1154f771ee45b3d593ed",
+      "previous_roundtrip": "different",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 31,
+        "elements": 30,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "damping": {
+          "mass_matrix": 0.0,
+          "stiffness_matrix": 0.0,
+          "structural": 0.02,
+          "use": true
+        },
+        "dimensions": "3D",
+        "eigen_solver": {
+          "absolute_tolerance": 0.1,
+          "eps_max_iterations": 100,
+          "linear_solver": {
+            "method": "auto",
+            "preconditioner": "auto",
+            "solver": "auto"
+          },
+          "number": 10.0,
+          "relative_tolerance": 1e-08,
+          "solver": "auto",
+          "spectr_trans": {
+            "name": "auto"
+          },
+          "target": [
+            0.0,
+            2000.0
+          ]
+        },
+        "elasticity": true,
+        "environment": {
+          "temperature": 0.0
+        },
+        "finite_deformations": false,
+        "harmonic": {
+          "method": "mode_superposition",
+          "steps_count": 250
+        },
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "full_periodic": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": false,
+          "trackingForce": false,
+          "vtu": true,
+          "without_smoothing": false
+        },
+        "permission_write": true,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "preload": true,
+        "radiation_among_surfaces": false,
+        "slm": false,
+        "type": "harmonic"
+      },
+      "findings_reviewed": [
+        {
+          "rule": "PT.UNKNOWN_FIELD",
+          "path": "$.property_tables[0].properties.Ellipse",
+          "original_actual": "unknown",
+          "value_in_file": 1
+        },
+        {
+          "rule": "PT.PROPERTY_FIELD",
+          "path": "$.property_tables[0].properties.mesh_quality",
+          "original_actual": "float",
+          "value_in_file": 2.0
+        },
+        {
+          "rule": "PT.PROPERTY_FIELD",
+          "path": "$.property_tables[0].properties.warping_dof",
+          "original_actual": "float",
+          "value_in_file": 1.0
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 30,
+        "decoded_uint8_count": 30,
+        "unique_codes": [
+          89
+        ],
+        "bytes": 30,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "different",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": false,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": [
+        {
+          "id": 1,
+          "type": 1,
+          "properties": {
+            "Ellipse": 1,
+            "angle": 0.0,
+            "ey": 0.000127,
+            "ez": 0.000127,
+            "geometry": {
+              "a": 0.000254,
+              "b": 0.000254
+            },
+            "mesh_quality": 2.0,
+            "section_type": 1,
+            "warping_dof": 1.0
+          },
+          "additional_properties": {}
+        }
+      ],
+      "output_elem_types_base64_chars": 40,
+      "material_probes": [],
+      "property_probes": [
+        {
+          "input": {
+            "id": 1,
+            "properties": {
+              "Ellipse": 1,
+              "angle": 0.0,
+              "ey": 0.000127,
+              "ez": 0.000127,
+              "geometry": {
+                "a": 0.000254,
+                "b": 0.000254
+              },
+              "mesh_quality": 2.0,
+              "section_type": 1,
+              "warping_dof": 1.0
+            },
+            "type": 1
+          },
+          "output": {
+            "id": 1,
+            "type": 1,
+            "properties": {
+              "Ellipse": 1,
+              "angle": 0.0,
+              "ey": 0.000127,
+              "ez": 0.000127,
+              "geometry": {
+                "a": 0.000254,
+                "b": 0.000254
+              },
+              "mesh_quality": 2.0,
+              "section_type": 1,
+              "warping_dof": 1.0
+            },
+            "additional_properties": {}
+          },
+          "removed_fields": [],
+          "properties_preserved": true
+        }
+      ],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": 1
+        }
+      ],
+      "contacts": null
+    },
+    {
+      "file": "Contact2dMixedBriks_Homogeneous_Compression_ParantIdCheck.fc",
+      "sha256": "4ccd9dfbb760bcbd966d50d1a13bea1c0efbcf0b55e257edf4bf512681ed661e",
+      "previous_roundtrip": "different",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 16,
+        "elements": 10,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "compute_fields": [
+          "stress",
+          "strain",
+          "displacement"
+        ],
+        "contact": false,
+        "dimensions": "2D",
+        "dynamics": {
+          "result_output_iter": 1
+        },
+        "elasticity": true,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "lumpmass": false,
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "intermediate_results": true,
+          "log": true,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "output_cs": [
+          "cartesian"
+        ],
+        "permission_write": false,
+        "plane_state": "p-strain",
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "renum": false,
+        "test_opts": null,
+        "type": "static",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "MESH.UNKNOWN_FIELD",
+          "path": "$.mesh.elem_materials",
+          "original_actual": "elem_materials",
+          "value_in_file": "AQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAA=="
+        },
+        {
+          "rule": "MESH.UNKNOWN_FIELD",
+          "path": "$.mesh.elem_properties",
+          "original_actual": "elem_properties",
+          "value_in_file": "/////////////////////////////////////////////////////w=="
+        },
+        {
+          "rule": "DOC.FIELD_TYPE",
+          "path": "$.settings.test_opts",
+          "original_actual": null,
+          "value_in_file": null
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 10,
+        "decoded_uint8_count": 10,
+        "unique_codes": [
+          10,
+          12
+        ],
+        "bytes": 10,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "different",
+      "preservation": {
+        "mesh": false,
+        "settings": true,
+        "materials": true,
+        "property_tables": true,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": null,
+      "output_elem_types_base64_chars": 16,
+      "material_probes": [],
+      "property_probes": [],
+      "blocks": null,
+      "contacts": null
+    },
+    {
+      "file": "Contact2dMixedHeattrannsRectangleSplit_Auto.fc",
+      "sha256": "565e4a415f3270ebc4e692b42a84636a7d2b17ed40fa2c6e6c389759549d07cd",
+      "previous_roundtrip": "different",
+      "fidesys_status": "import_error",
+      "fidesys_errors": [
+        "Master entity is empty.",
+        "Command Failed.",
+        "Errors found during session."
+      ],
+      "fidesys_completion": {
+        "errors": 2,
+        "nodes": 49,
+        "elements": 44,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "2D",
+        "elasticity": false,
+        "finite_deformations": false,
+        "heat_transfer": true,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "permission_write": false,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "statics": {
+          "steps_count": 1
+        },
+        "type": "static",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "MESH.ARRAY_SIZE",
+          "path": "$.mesh.elem_types",
+          "original_actual": 11,
+          "value_in_file": "DAwMDAwMDAwMDAwMDAwKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo="
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 44,
+        "decoded_uint8_count": 44,
+        "unique_codes": [
+          10,
+          12
+        ],
+        "bytes": 44,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "different",
+      "preservation": {
+        "mesh": false,
+        "settings": true,
+        "materials": true,
+        "property_tables": true,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": null,
+      "output_elem_types_base64_chars": 60,
+      "material_probes": [],
+      "property_probes": [],
+      "blocks": null,
+      "contacts": [
+        {
+          "friction": 0,
+          "id": 1,
+          "ignore_overlap": false,
+          "master": "JQAAAAAAAAAkAAAAAAAAACMAAAAAAAAAIgAAAAAAAAAhAAAAAAAAACAAAAAAAAAAHwAAAAAAAAA=",
+          "master_size": 7,
+          "method": "auto",
+          "name": "Contact 1",
+          "tolerance": 0.01,
+          "slave": "GgAAAAAAAAAIAAAAAQAAAAYAAAABAAAAAgAAAAIAAAALAAAAAQAAAAQAAAABAAAAAwAAAAIAAAA=",
+          "slave_size": 7,
+          "type": "tied"
+        }
+      ]
+    },
+    {
+      "file": "Contact2dQuad4.fc",
+      "sha256": "d88c928e0e954dca75dc6bcee5b786d2a3d8120f0aeacb950d201a28313ffd82",
+      "previous_roundtrip": "different",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 32,
+        "elements": 18,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "compute_fields": [
+          "stress",
+          "strain",
+          "displacement"
+        ],
+        "contact": false,
+        "dimensions": "2D",
+        "dynamics": {
+          "result_output_iter": 1
+        },
+        "elasticity": true,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "lumpmass": false,
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 100,
+          "max_load_steps": 10,
+          "min_load_steps": 10,
+          "target_iter": 5,
+          "tolerance": 1e-06
+        },
+        "output": {
+          "energy": false,
+          "intermediate_results": true,
+          "log": true,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "output_cs": [
+          "cartesian"
+        ],
+        "permission_write": false,
+        "plane_state": "p-strain",
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "renum": false,
+        "type": "static",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "MESH.UNKNOWN_FIELD",
+          "path": "$.mesh.elem_materials",
+          "original_actual": "elem_materials",
+          "value_in_file": "////////////////////////////////////////////////////////////////////////////////////////////////"
+        },
+        {
+          "rule": "MESH.UNKNOWN_FIELD",
+          "path": "$.mesh.elem_properties",
+          "original_actual": "elem_properties",
+          "value_in_file": "////////////////////////////////////////////////////////////////////////////////////////////////"
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 18,
+        "decoded_uint8_count": 18,
+        "unique_codes": [
+          12
+        ],
+        "bytes": 18,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "different",
+      "preservation": {
+        "mesh": false,
+        "settings": true,
+        "materials": true,
+        "property_tables": true,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": null,
+      "output_elem_types_base64_chars": 24,
+      "material_probes": [],
+      "property_probes": [],
+      "blocks": null,
+      "contacts": null
+    },
+    {
+      "file": "Contact2dQuad4_CGS1Shift_regular_conform_Tied_MPC.fc",
+      "sha256": "9bd0beaa9b5173cd227b44d868b0d164a30e8c209bd56be8f63c56a14d337189",
+      "previous_roundtrip": "error",
+      "fidesys_status": "import_error",
+      "fidesys_errors": [
+        "Master entity is empty.",
+        "Command Failed.",
+        "Errors found during session."
+      ],
+      "fidesys_completion": {
+        "errors": 2,
+        "nodes": 30,
+        "elements": 16,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": false,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "2D",
+        "elasticity": true,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "permission_write": false,
+        "plane_state": "p-strain",
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "slm": false,
+        "statics": {
+          "steps_count": 1
+        },
+        "type": "static",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "MESH.NODE_LAYOUT",
+          "path": "$.mesh.nodes",
+          "original_actual": "nested/non-numeric",
+          "value_in_file": {
+            "type": "list",
+            "items": 30
+          }
+        }
+      ],
+      "plain_mesh": {
+        "nodes": {
+          "items": 30,
+          "first": [
+            -0.5,
+            0.0,
+            0.0
+          ]
+        },
+        "elems": {
+          "items": 16,
+          "first": [
+            20,
+            27,
+            28,
+            21
+          ]
+        },
+        "elem_types": {
+          "items": 16,
+          "first": 12
+        }
+      },
+      "fresh_roundtrip": "error",
+      "exception": {
+        "type": "TypeError",
+        "message": "argument should be a bytes-like object or ASCII string, not 'list'"
+      },
+      "material_probes": [],
+      "property_probes": [],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": -1
+        },
+        {
+          "cs_id": 1,
+          "id": 2,
+          "material_id": 1,
+          "property_id": -1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "friction": 100.0,
+          "id": 1,
+          "ignore_overlap": false,
+          "master": [
+            [
+              12,
+              0
+            ],
+            [
+              11,
+              0
+            ],
+            [
+              10,
+              0
+            ],
+            [
+              9,
+              0
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          "master_size": 8,
+          "method": "mpc",
+          "name": "Contact 1",
+          "normal_stiffness": 1.0,
+          "offset": 0.0,
+          "preload": 0.0,
+          "search_radius": 1.0,
+          "slave": [
+            [
+              12,
+              0
+            ],
+            [
+              11,
+              0
+            ],
+            [
+              10,
+              0
+            ],
+            [
+              9,
+              0
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          "slave_size": 8,
+          "tangent_stiffness": 0.5,
+          "tolerance": 0.0005,
+          "type": "tied"
+        }
+      ]
+    },
+    {
+      "file": "Contact2dQuad8SFrictionless.fc",
+      "sha256": "119b06130932a51acb2360549697787ed8aed41fd6350f62e7669eec32f06e6c",
+      "previous_roundtrip": "error",
+      "fidesys_status": "import_error",
+      "fidesys_errors": [
+        "Encountered an uncaught exception 'in Json::Value::find(begin, end): requires objectValue or nullValue'.  Command failed.",
+        "Errors found during session."
+      ],
+      "fidesys_completion": {
+        "errors": 1,
+        "nodes": 0,
+        "elements": 0,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "compute_fields": [
+          "stress",
+          "strain",
+          "displacement"
+        ],
+        "contact": false,
+        "dimensions": "2D",
+        "dynamics": {
+          "result_output_iter": 1
+        },
+        "elasticity": true,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "lumpmass": false,
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "intermediate_results": true,
+          "log": true,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "output_cs": [
+          "cartesian"
+        ],
+        "permission_write": false,
+        "plane_state": "p-strain",
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "renum": false,
+        "spectral_element": true,
+        "spectral_order": 2,
+        "type": "static",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "SET.SPECTRAL_ORDER",
+          "path": "$.settings.spectral_order",
+          "original_actual": 2,
+          "value_in_file": 2
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 2,
+        "decoded_uint8_count": 2,
+        "unique_codes": [
+          13
+        ],
+        "bytes": 2,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "error",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'str' object has no attribute 'get'"
+      },
+      "material_probes": [],
+      "property_probes": [],
+      "blocks": null,
+      "contacts": null
+    },
+    {
+      "file": "Contact2dQuadSEigienVals.fc",
+      "sha256": "cb142555995bf2428787e13d457bee362fe048ad3a14fafb08e6f1bb44483640",
+      "previous_roundtrip": "error",
+      "fidesys_status": "import_error",
+      "fidesys_errors": [
+        "Encountered an uncaught exception 'in Json::Value::find(begin, end): requires objectValue or nullValue'.  Command failed.",
+        "Errors found during session."
+      ],
+      "fidesys_completion": {
+        "errors": 1,
+        "nodes": 0,
+        "elements": 0,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "compute_fields": [
+          "stress",
+          "strain",
+          "displacement"
+        ],
+        "contact": false,
+        "dimensions": "2D",
+        "dynamics": {
+          "result_output_iter": 1
+        },
+        "eigen_solver": {
+          "absolute_tolerance": 0.1,
+          "eps_max_iterations": 100,
+          "linear_solver": {
+            "method": "auto",
+            "preconditioner": "auto",
+            "solver": "auto"
+          },
+          "number": 10,
+          "relative_tolerance": 1e-08,
+          "solver": "auto",
+          "spectr_trans": {
+            "name": "auto"
+          }
+        },
+        "elasticity": true,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "lumpmass": false,
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 100,
+          "max_load_steps": 10,
+          "min_load_steps": 2,
+          "target_iter": 5,
+          "tolerance": 1e-05
+        },
+        "output": {
+          "energy": false,
+          "intermediate_results": true,
+          "log": true,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "output_cs": [
+          "cartesian"
+        ],
+        "permission_write": false,
+        "plane_state": "p-strain",
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "preload": true,
+        "renum": false,
+        "spectral_element": true,
+        "spectral_order": 1,
+        "type": "eigenfrequencies",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "SET.SPECTRAL_ORDER",
+          "path": "$.settings.spectral_order",
+          "original_actual": 1,
+          "value_in_file": 1
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 200,
+        "decoded_uint8_count": 200,
+        "unique_codes": [
+          12
+        ],
+        "bytes": 200,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "error",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'str' object has no attribute 'get'"
+      },
+      "material_probes": [],
+      "property_probes": [],
+      "blocks": null,
+      "contacts": null
+    },
+    {
+      "file": "Contact2d_PlastSo3_Mises_PointDisp_bysteps_Conform_Tied_MPC.fc",
+      "sha256": "f5c1efb37df4ebf9a59e934b116a6da95211ba09df970ef463f24590f65b5560",
+      "previous_roundtrip": "error",
+      "fidesys_status": "import_error",
+      "fidesys_errors": [
+        "Master entity is empty.",
+        "Command Failed.",
+        "Errors found during session."
+      ],
+      "fidesys_completion": {
+        "errors": 2,
+        "nodes": 26,
+        "elements": 4,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": false,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "2D",
+        "elasticity": true,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "full_periodic": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "permission_write": false,
+        "plane_state": "p-strain",
+        "plasticity": true,
+        "porefluid_transfer": false,
+        "slm": false,
+        "statics": {
+          "steps_count": 8
+        },
+        "thermal_expansion": false,
+        "type": "static",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "MESH.NODE_LAYOUT",
+          "path": "$.mesh.nodes",
+          "original_actual": "nested/non-numeric",
+          "value_in_file": {
+            "type": "list",
+            "items": 26
+          }
+        }
+      ],
+      "plain_mesh": {
+        "nodes": {
+          "items": 26,
+          "first": [
+            -0.5,
+            0.0,
+            0.0
+          ]
+        },
+        "elems": {
+          "items": 4,
+          "first": [
+            1,
+            3,
+            6,
+            5,
+            13,
+            19,
+            17,
+            18
+          ]
+        },
+        "elem_types": {
+          "items": 4,
+          "first": 13
+        }
+      },
+      "fresh_roundtrip": "error",
+      "exception": {
+        "type": "TypeError",
+        "message": "argument should be a bytes-like object or ASCII string, not 'list'"
+      },
+      "material_probes": [],
+      "property_probes": [],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": -1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "friction": 0.0,
+          "id": 1,
+          "ignore_overlap": false,
+          "master": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "master_size": 4,
+          "method": "auto",
+          "name": "Contact 1",
+          "normal_stiffness": 1.0,
+          "offset": 0.0,
+          "preload": 0.0,
+          "search_radius": 1.0,
+          "slave": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "slave_size": 4,
+          "tangent_stiffness": 0.5,
+          "tolerance": 0.08,
+          "type": "tied"
+        }
+      ]
+    },
+    {
+      "file": "Contact2d_Plast_Mises_PointDisp_bysteps_Tied_MPC_Gaps.fc",
+      "sha256": "c45d3b417435b72d002d4d6808c2c0850d45d90877fcb2be58e48e1b19e54c23",
+      "previous_roundtrip": "equal",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 182,
+        "elements": 52,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "2D",
+        "elasticity": true,
+        "environment": {
+          "temperature": 0.0
+        },
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "start_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "full_periodic": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": false,
+          "trackingForce": false,
+          "vtu": true,
+          "without_smoothing": false
+        },
+        "permission_write": true,
+        "plane_state": "p-strain",
+        "plasticity": true,
+        "porefluid_transfer": false,
+        "radiation_among_surfaces": false,
+        "slm": false,
+        "statics": {
+          "steps_count": 8
+        },
+        "thermal_gap_settings": {
+          "end_temp": 3000.0,
+          "impact_eps": 0.01,
+          "scatangle_eps": 0.01,
+          "start_temp": 0.0,
+          "step_temp": 1.0,
+          "velocity_eps": 0.01
+        },
+        "type": "static"
+      },
+      "findings_reviewed": [
+        {
+          "rule": "MESH.BINARY_SEMANTICS_UNCHECKED",
+          "path": "$.mesh",
+          "original_actual": "binary buffers",
+          "value_in_file": {
+            "elem_blocks": {
+              "type": "string",
+              "chars": 280,
+              "sha256": "e753a2c5fdd7739b3383164b15ef5fd3761715e3ef48f441a6c84d541f713c7a"
+            },
+            "elem_orders": {
+              "type": "string",
+              "chars": 280,
+              "sha256": "6d939be3582e767748f8e4118c4a1ce238a369069a82346c8917fd39198fe62a"
+            },
+            "elem_parent_ids": {
+              "type": "string",
+              "chars": 280,
+              "sha256": "4960d068ad046868b45f9a08fc0217e5125cea4f85954aa1a4df3dcc4d3b1364"
+            },
+            "elem_types": "DQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCw==",
+            "elemids": {
+              "type": "string",
+              "chars": 280,
+              "sha256": "d53bb35d6933a6d337c1370cf1efed5d47ebb12f02adbe3dd8ce898e2ca6fe91"
+            },
+            "elems": {
+              "type": "string",
+              "chars": 1900,
+              "sha256": "67438ee0a7c43215e2ebfea1b42c21e093ef484a290b9ce942804b45e8a3029b"
+            },
+            "elems_count": 52,
+            "nids": {
+              "type": "string",
+              "chars": 972,
+              "sha256": "66e62e9fde14143471a314cc304cc652d89d55566f8461b0c8887c78c8714b0e"
+            },
+            "nodes": {
+              "type": "string",
+              "chars": 5824,
+              "sha256": "47c6f983581c3c7acb0022312e057b1c615455be6786a7eac27b58d4d6803981"
+            },
+            "nodes_count": 182
+          }
+        },
+        {
+          "rule": "DOC.DIMENSIONS_CONFLICT",
+          "path": "$.settings.dimensions",
+          "original_actual": "2D",
+          "value_in_file": "2D"
+        },
+        {
+          "rule": "MESH.ARRAY_SIZE",
+          "path": "$.mesh.elem_types",
+          "original_actual": 13,
+          "value_in_file": "DQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCw=="
+        },
+        {
+          "rule": "SET.EXCLUSIVE",
+          "path": "$.settings.statics",
+          "original_actual": [],
+          "value_in_file": {
+            "steps_count": 8
+          }
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 52,
+        "decoded_uint8_count": 52,
+        "unique_codes": [
+          11,
+          13
+        ],
+        "bytes": 52,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "equal",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": true,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": null,
+      "output_elem_types_base64_chars": 72,
+      "material_probes": [],
+      "property_probes": [],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": -1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "distance": 0.010606601717798217,
+          "id": 1,
+          "ignore_tied_stiffness": false,
+          "master": "DAAAAAAAAAALAAAAAQAAAA0AAAAAAAAAEQAAAAIAAAA=",
+          "master_size": 4,
+          "method": "auto",
+          "name": "Contact 1",
+          "offset": 0.0,
+          "search_radius": 1.0,
+          "slave": "IgAAAAEAAAAkAAAAAQAAABkAAAAAAAAAGgAAAAAAAAA=",
+          "slave_size": 4,
+          "tolerance": 0.015,
+          "type": "tied"
+        },
+        {
+          "detection_tolerance": 0.1,
+          "distance": 0.004036036763977828,
+          "id": 2,
+          "ignore_tied_stiffness": false,
+          "master": "AwAAAAAAAAAEAAAAAAAAAAUAAAAAAAAABgAAAAAAAAA=",
+          "master_size": 4,
+          "method": "auto",
+          "name": "Contact 2",
+          "offset": 0.0,
+          "search_radius": 1.0,
+          "slave": "DgAAAAAAAAAYAAAAAQAAABUAAAABAAAADAAAAAEAAAA=",
+          "slave_size": 4,
+          "tolerance": 0.015,
+          "type": "tied"
+        },
+        {
+          "detection_tolerance": 0.1,
+          "distance": 0.007071067811865472,
+          "id": 3,
+          "ignore_tied_stiffness": false,
+          "master": "JQAAAAEAAAAnAAAAAgAAADEAAAABAAAALgAAAAEAAAA=",
+          "master_size": 4,
+          "method": "auto",
+          "name": "Contact 3",
+          "offset": 0.0,
+          "search_radius": 1.0,
+          "slave": "AQAAAAIAAAAHAAAAAwAAAAkAAAACAAAABgAAAAEAAAA=",
+          "slave_size": 4,
+          "tolerance": 0.015,
+          "type": "tied"
+        },
+        {
+          "detection_tolerance": 0.1,
+          "distance": 0.007399400733959436,
+          "id": 4,
+          "ignore_tied_stiffness": false,
+          "master": "LgAAAAIAAAAvAAAAAgAAADAAAAACAAAAKQAAAAEAAAA=",
+          "master_size": 4,
+          "method": "auto",
+          "name": "Contact 4",
+          "offset": 0.0,
+          "search_radius": 1.0,
+          "slave": "IgAAAAAAAAAhAAAAAAAAACAAAAABAAAAHgAAAAEAAAA=",
+          "slave_size": 4,
+          "tolerance": 0.015,
+          "type": "tied"
+        }
+      ]
+    },
+    {
+      "file": "Contact2d_ps_Plast_Mises_PointDisp_bysteps_Tied_MPC.fc",
+      "sha256": "4778ed1b20aa2f1c39783c30266fb7c87b39d5b9d629aab117ba5a2a99016ea3",
+      "previous_roundtrip": "equal",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 163,
+        "elements": 47,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "2D",
+        "elasticity": true,
+        "environment": {
+          "temperature": 0.0
+        },
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 10,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 10,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "full_periodic": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": false,
+          "trackingForce": false,
+          "vtu": true,
+          "without_smoothing": false
+        },
+        "permission_write": true,
+        "plane_state": "p-stress",
+        "plasticity": true,
+        "porefluid_transfer": false,
+        "radiation_among_surfaces": false,
+        "slm": false,
+        "statics": {
+          "steps_count": 40
+        },
+        "thermal_gap_settings": {
+          "end_temp": 3000.0,
+          "impact_eps": 0.01,
+          "scatangle_eps": 0.01,
+          "start_temp": 0.0,
+          "step_temp": 1.0,
+          "velocity_eps": 0.01
+        },
+        "type": "static"
+      },
+      "findings_reviewed": [
+        {
+          "rule": "MESH.BINARY_SEMANTICS_UNCHECKED",
+          "path": "$.mesh",
+          "original_actual": "binary buffers",
+          "value_in_file": {
+            "elem_blocks": {
+              "type": "string",
+              "chars": 252,
+              "sha256": "d588128bf69086f086f2ac3ca6996376be0e7dc3b26cfc2c5fe3b6071c34e629"
+            },
+            "elem_orders": {
+              "type": "string",
+              "chars": 252,
+              "sha256": "796dbbb577f8e17a2851c2f16003c7663911c31dfa6420f611cfe5d063caa354"
+            },
+            "elem_parent_ids": {
+              "type": "string",
+              "chars": 252,
+              "sha256": "b13db81e53b0384c9291d8cb356026215cdae4ff3333dc3da9d00b3cae666766"
+            },
+            "elem_types": "DQ0NDQ0NDQ0NDQ0NDQ0NDQ0LCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCws=",
+            "elemids": {
+              "type": "string",
+              "chars": 252,
+              "sha256": "4765c2ba422464a961c3779f7805c96ec57dfaaa0b861cfd4dbd3eb5f3760375"
+            },
+            "elems": {
+              "type": "string",
+              "chars": 1688,
+              "sha256": "485aeb89a65ad02e2e2e7b7b95d6d786515faa31cda3e53424455820d9be73bc"
+            },
+            "elems_count": 47,
+            "nids": {
+              "type": "string",
+              "chars": 872,
+              "sha256": "5c9c8999909ac3b1300b0e813409407317751c9a5e249f8cc96ec1dc7483fcf3"
+            },
+            "nodes": {
+              "type": "string",
+              "chars": 5216,
+              "sha256": "b71cc9c1932bb98fa27d642d5eb30fa8ab8462123f2c341af69e6702101c37e4"
+            },
+            "nodes_count": 163
+          }
+        },
+        {
+          "rule": "DOC.DIMENSIONS_CONFLICT",
+          "path": "$.settings.dimensions",
+          "original_actual": "2D",
+          "value_in_file": "2D"
+        },
+        {
+          "rule": "SET.EXCLUSIVE",
+          "path": "$.settings.statics",
+          "original_actual": [],
+          "value_in_file": {
+            "steps_count": 40
+          }
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 47,
+        "decoded_uint8_count": 47,
+        "unique_codes": [
+          11,
+          13
+        ],
+        "bytes": 47,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "equal",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": true,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": null,
+      "output_elem_types_base64_chars": 64,
+      "material_probes": [],
+      "property_probes": [],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": -1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "distance": 0.0,
+          "id": 1,
+          "ignore_tied_stiffness": false,
+          "master": "AgAAAAAAAAABAAAAAAAAAAgAAAABAAAACgAAAAEAAAAJAAAAAQAAABEAAAABAAAACwAAAAIAAAA=",
+          "master_size": 7,
+          "method": "auto",
+          "name": "Contact 1",
+          "offset": 0.0,
+          "search_radius": 1.0,
+          "slave": "GQAAAAAAAAAdAAAAAQAAABsAAAACAAAAHAAAAAIAAAAtAAAAAwAAACoAAAADAAAAJwAAAAMAAAA=",
+          "slave_size": 7,
+          "tolerance": 0.08,
+          "type": "tied"
+        },
+        {
+          "detection_tolerance": 0.1,
+          "distance": 0.0,
+          "id": 2,
+          "ignore_tied_stiffness": false,
+          "master": "KQAAAAAAAAAoAAAAAAAAACcAAAAAAAAA",
+          "master_size": 3,
+          "method": "auto",
+          "name": "Contact 2",
+          "offset": 0.0,
+          "search_radius": 1.0,
+          "slave": "GgAAAAEAAAAXAAAAAgAAACMAAAABAAAAGQAAAAIAAAA=",
+          "slave_size": 4,
+          "tolerance": 0.04,
+          "type": "tied"
+        },
+        {
+          "detection_tolerance": 0.1,
+          "distance": 0.0,
+          "id": 3,
+          "ignore_tied_stiffness": false,
+          "master": "AgAAAAEAAAAEAAAAAQAAAAUAAAAAAAAA",
+          "master_size": 3,
+          "method": "auto",
+          "name": "Contact 3",
+          "offset": 0.0,
+          "search_radius": 1.0,
+          "slave": "CwAAAAEAAAAOAAAAAQAAAA0AAAABAAAADAAAAAEAAAA=",
+          "slave_size": 4,
+          "tolerance": 0.04,
+          "type": "tied"
+        }
+      ]
+    },
+    {
+      "file": "Contact3dBeam2_DE_InitialStress_MPC.fc",
+      "sha256": "b4cac24700ef530934b8d28147dec806768d0f107aa318a43bffb124ec024f61",
+      "previous_roundtrip": "different",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 6,
+        "elements": 2,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "3D",
+        "dynamics": {
+          "courant": 0.8,
+          "max_steps_count": 2,
+          "max_time": 1000000.0,
+          "method": "full_solution",
+          "result_output_iter": 1,
+          "scheme": "explicit"
+        },
+        "eigen_solver": null,
+        "elasticity": true,
+        "environment": {
+          "temperature": 0.0
+        },
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 100,
+          "max_load_steps": 1000,
+          "min_load_steps": 1,
+          "start_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "full_periodic": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": false,
+          "vtu": true,
+          "without_smoothing": false
+        },
+        "permission_write": false,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "preload": false,
+        "radiation_among_surfaces": false,
+        "slm": false,
+        "thermal_gap_settings": {
+          "end_temp": 3000.0,
+          "impact_eps": 0.01,
+          "scatangle_eps": 0.01,
+          "start_temp": 0.0,
+          "step_temp": 1.0,
+          "velocity_eps": 0.01
+        },
+        "type": "dynamic"
+      },
+      "findings_reviewed": [
+        {
+          "rule": "PT.PROPERTY_FIELD",
+          "path": "$.property_tables[0].properties.mesh_quality",
+          "original_actual": "float",
+          "value_in_file": 6.0
+        },
+        {
+          "rule": "PT.PROPERTY_FIELD",
+          "path": "$.property_tables[0].properties.warping_dof",
+          "original_actual": "float",
+          "value_in_file": 1.0
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 2,
+        "decoded_uint8_count": 2,
+        "unique_codes": [
+          90
+        ],
+        "bytes": 2,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "different",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": false,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": [
+        {
+          "id": 1,
+          "type": 1,
+          "properties": {
+            "Rectangle": 1,
+            "angle": 0.0,
+            "ey": 0.0,
+            "ez": 0.0,
+            "geometry": {
+              "B": 0.1,
+              "H": 0.1
+            },
+            "mesh_quality": 6.0,
+            "section_type": 0,
+            "warping_dof": 1.0
+          },
+          "additional_properties": {}
+        }
+      ],
+      "output_elem_types_base64_chars": 4,
+      "material_probes": [],
+      "property_probes": [
+        {
+          "input": {
+            "id": 1,
+            "properties": {
+              "Rectangle": 1,
+              "angle": 0.0,
+              "ey": 0.0,
+              "ez": 0.0,
+              "geometry": {
+                "B": 0.1,
+                "H": 0.1
+              },
+              "mesh_quality": 6.0,
+              "section_type": 0,
+              "warping_dof": 1.0
+            },
+            "type": 1
+          },
+          "output": {
+            "id": 1,
+            "type": 1,
+            "properties": {
+              "Rectangle": 1,
+              "angle": 0.0,
+              "ey": 0.0,
+              "ez": 0.0,
+              "geometry": {
+                "B": 0.1,
+                "H": 0.1
+              },
+              "mesh_quality": 6.0,
+              "section_type": 0,
+              "warping_dof": 1.0
+            },
+            "additional_properties": {}
+          },
+          "removed_fields": [],
+          "properties_preserved": true
+        }
+      ],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": 1
+        },
+        {
+          "cs_id": 1,
+          "id": 2,
+          "material_id": 1,
+          "property_id": 1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "distance": 0.0,
+          "id": 1,
+          "ignore_tied_stiffness": false,
+          "master": "AgAAAP7///8=",
+          "master_size": 1,
+          "method": "auto",
+          "name": "Contact 1",
+          "offset": 0.0,
+          "search_radius": 1.0,
+          "slave": "BAAAAP7///8=",
+          "slave_size": 1,
+          "thermo_penalty_mult": 1.0,
+          "tolerance": 1.0,
+          "type": "tied"
+        }
+      ]
+    },
+    {
+      "file": "Contact3dBeam3_Hook_ThermalExpansion_MPC.fc",
+      "sha256": "686a121a8532991c61d03a370c5fbc78a46fdf67117cd61b005ec8bcc0eb7458",
+      "previous_roundtrip": "different",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 6,
+        "elements": 2,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "3D",
+        "elasticity": true,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "full_periodic": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "permission_write": false,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "slm": false,
+        "statics": {
+          "steps_count": 1
+        },
+        "thermal_expansion": false,
+        "type": "static",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "REF.DUPLICATE_ID",
+          "path": "$.property_tables[1].id",
+          "original_actual": {
+            "id": 1,
+            "first_index": 0
+          },
+          "value_in_file": 1
+        },
+        {
+          "rule": "PT.TYPE",
+          "path": "$.property_tables[1].type",
+          "original_actual": -1,
+          "value_in_file": -1
+        },
+        {
+          "rule": "PT.TYPE",
+          "path": "$.property_tables[2].type",
+          "original_actual": -1,
+          "value_in_file": -1
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 2,
+        "decoded_uint8_count": 2,
+        "unique_codes": [
+          90
+        ],
+        "bytes": 2,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "different",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": false,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": [
+        {
+          "id": 1,
+          "type": 0,
+          "properties": {
+            "_Area": 3.141592653589793,
+            "_Ixx": 0.7853981633974483,
+            "_Iyy": 0.7853981633974483,
+            "_J": 1.5707963267948966,
+            "_Vx": 0.0,
+            "_Vy": 0.0,
+            "_Vz": 0.0
+          },
+          "additional_properties": {}
+        },
+        {
+          "id": 2,
+          "type": 0,
+          "properties": {
+            "_Area": 3.141592653589793,
+            "_Ixx": 0.7853981633974483,
+            "_Iyy": 0.7853981633974483,
+            "_J": 1.5707963267948966,
+            "_Vx": 0.0,
+            "_Vy": 0.0,
+            "_Vz": 0.0
+          },
+          "additional_properties": {}
+        }
+      ],
+      "output_elem_types_base64_chars": 4,
+      "material_probes": [],
+      "property_probes": [
+        {
+          "input": {
+            "id": 1,
+            "properties": {
+              "Rectangle": 1,
+              "angle": 0.0,
+              "ey": 0.0,
+              "ez": 0.0,
+              "geometry": {
+                "B": 2.23607,
+                "H": 2.23607
+              },
+              "mesh_quality": 6.0,
+              "section_type": 0,
+              "warping_dof": 1.0
+            },
+            "type": 1
+          },
+          "output": {
+            "id": 1,
+            "type": 1,
+            "properties": {
+              "Rectangle": 1,
+              "angle": 0.0,
+              "ey": 0.0,
+              "ez": 0.0,
+              "geometry": {
+                "B": 2.23607,
+                "H": 2.23607
+              },
+              "mesh_quality": 6.0,
+              "section_type": 0,
+              "warping_dof": 1.0
+            },
+            "additional_properties": {}
+          },
+          "removed_fields": [],
+          "properties_preserved": true
+        },
+        {
+          "input": {
+            "id": 1,
+            "properties": {
+              "_Area": 3.141592653589793,
+              "_Ixx": 0.7853981633974483,
+              "_Iyy": 0.7853981633974483,
+              "_J": 1.5707963267948966,
+              "_Vx": 0.0,
+              "_Vy": 0.0,
+              "_Vz": 0.0
+            },
+            "type": -1
+          },
+          "output": {
+            "id": 1,
+            "type": 0,
+            "properties": {
+              "_Area": 3.141592653589793,
+              "_Ixx": 0.7853981633974483,
+              "_Iyy": 0.7853981633974483,
+              "_J": 1.5707963267948966,
+              "_Vx": 0.0,
+              "_Vy": 0.0,
+              "_Vz": 0.0
+            },
+            "additional_properties": {}
+          },
+          "removed_fields": [],
+          "properties_preserved": true
+        },
+        {
+          "input": {
+            "id": 2,
+            "properties": {
+              "_Area": 3.141592653589793,
+              "_Ixx": 0.7853981633974483,
+              "_Iyy": 0.7853981633974483,
+              "_J": 1.5707963267948966,
+              "_Vx": 0.0,
+              "_Vy": 0.0,
+              "_Vz": 0.0
+            },
+            "type": -1
+          },
+          "output": {
+            "id": 2,
+            "type": 0,
+            "properties": {
+              "_Area": 3.141592653589793,
+              "_Ixx": 0.7853981633974483,
+              "_Iyy": 0.7853981633974483,
+              "_J": 1.5707963267948966,
+              "_Vx": 0.0,
+              "_Vy": 0.0,
+              "_Vz": 0.0
+            },
+            "additional_properties": {}
+          },
+          "removed_fields": [],
+          "properties_preserved": true
+        }
+      ],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": 1
+        },
+        {
+          "cs_id": 1,
+          "id": 2,
+          "material_id": 1,
+          "property_id": 1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "friction": 0.0,
+          "id": 1,
+          "ignore_overlap": false,
+          "master": "AgAAAP7///8DAAAA/v///w==",
+          "master_size": 2,
+          "method": "mpc",
+          "name": "Contact 1",
+          "normal_stiffness": 1.0,
+          "offset": 0.0,
+          "preload": 0.0,
+          "search_radius": 1.0,
+          "slave": "AgAAAP7///8DAAAA/v///w==",
+          "slave_size": 2,
+          "tangent_stiffness": 0.5,
+          "tolerance": 0.0005,
+          "type": "tied"
+        }
+      ]
+    },
+    {
+      "file": "Contact3dBeamNodesS_Tied_Bending.fc",
+      "sha256": "77f5228e544a2f4e2e2d3cf8561d71395438fccb8eda3ff8bdee3d6e637f8cf6",
+      "previous_roundtrip": "different",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 66,
+        "elements": 32,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "3D",
+        "elasticity": true,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "permission_write": false,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "slm": false,
+        "statics": {
+          "steps_count": 1
+        },
+        "type": "static",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "REF.DUPLICATE_ID",
+          "path": "$.property_tables[1].id",
+          "original_actual": {
+            "id": 1,
+            "first_index": 0
+          },
+          "value_in_file": 1
+        },
+        {
+          "rule": "PT.TYPE",
+          "path": "$.property_tables[1].type",
+          "original_actual": -1,
+          "value_in_file": -1
+        },
+        {
+          "rule": "PT.TYPE",
+          "path": "$.property_tables[2].type",
+          "original_actual": -1,
+          "value_in_file": -1
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 32,
+        "decoded_uint8_count": 32,
+        "unique_codes": [
+          90
+        ],
+        "bytes": 32,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "different",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": false,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": [
+        {
+          "id": 1,
+          "type": 0,
+          "properties": {
+            "_Area": 3.141592653589793,
+            "_Ixx": 0.7853981633974483,
+            "_Iyy": 0.7853981633974483,
+            "_J": 1.5707963267948966,
+            "_Vx": 0.0,
+            "_Vy": 0.0,
+            "_Vz": 0.0
+          },
+          "additional_properties": {}
+        },
+        {
+          "id": 2,
+          "type": 0,
+          "properties": {
+            "_Area": 3.141592653589793,
+            "_Ixx": 0.7853981633974483,
+            "_Iyy": 0.7853981633974483,
+            "_J": 1.5707963267948966,
+            "_Vx": 0.0,
+            "_Vy": -0.0,
+            "_Vz": 0.0
+          },
+          "additional_properties": {}
+        }
+      ],
+      "output_elem_types_base64_chars": 44,
+      "material_probes": [
+        {
+          "id": 1,
+          "multi_groups": {
+            "thermal": [
+              {
+                "type": 0,
+                "const_names": [
+                  2
+                ]
+              },
+              {
+                "type": 0,
+                "const_names": [
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          "groups_preserved": {
+            "thermal": true
+          }
+        }
+      ],
+      "property_probes": [
+        {
+          "input": {
+            "id": 1,
+            "properties": {
+              "Rectangle": 1,
+              "angle": 0.0,
+              "ey": 0.0,
+              "ez": 0.0,
+              "geometry": {
+                "B": 0.1,
+                "H": 0.1
+              },
+              "mesh_quality": 6.0,
+              "section_type": 0,
+              "warping_dof": 1.0
+            },
+            "type": 1
+          },
+          "output": {
+            "id": 1,
+            "type": 1,
+            "properties": {
+              "Rectangle": 1,
+              "angle": 0.0,
+              "ey": 0.0,
+              "ez": 0.0,
+              "geometry": {
+                "B": 0.1,
+                "H": 0.1
+              },
+              "mesh_quality": 6.0,
+              "section_type": 0,
+              "warping_dof": 1.0
+            },
+            "additional_properties": {}
+          },
+          "removed_fields": [],
+          "properties_preserved": true
+        },
+        {
+          "input": {
+            "id": 1,
+            "properties": {
+              "_Area": 3.141592653589793,
+              "_Ixx": 0.7853981633974483,
+              "_Iyy": 0.7853981633974483,
+              "_J": 1.5707963267948966,
+              "_Vx": 0.0,
+              "_Vy": 0.0,
+              "_Vz": 0.0
+            },
+            "type": -1
+          },
+          "output": {
+            "id": 1,
+            "type": 0,
+            "properties": {
+              "_Area": 3.141592653589793,
+              "_Ixx": 0.7853981633974483,
+              "_Iyy": 0.7853981633974483,
+              "_J": 1.5707963267948966,
+              "_Vx": 0.0,
+              "_Vy": 0.0,
+              "_Vz": 0.0
+            },
+            "additional_properties": {}
+          },
+          "removed_fields": [],
+          "properties_preserved": true
+        },
+        {
+          "input": {
+            "id": 2,
+            "properties": {
+              "_Area": 3.141592653589793,
+              "_Ixx": 0.7853981633974483,
+              "_Iyy": 0.7853981633974483,
+              "_J": 1.5707963267948966,
+              "_Vx": 0.0,
+              "_Vy": -0.0,
+              "_Vz": 0.0
+            },
+            "type": -1
+          },
+          "output": {
+            "id": 2,
+            "type": 0,
+            "properties": {
+              "_Area": 3.141592653589793,
+              "_Ixx": 0.7853981633974483,
+              "_Iyy": 0.7853981633974483,
+              "_J": 1.5707963267948966,
+              "_Vx": 0.0,
+              "_Vy": -0.0,
+              "_Vz": 0.0
+            },
+            "additional_properties": {}
+          },
+          "removed_fields": [],
+          "properties_preserved": true
+        }
+      ],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": 1
+        },
+        {
+          "cs_id": 1,
+          "id": 2,
+          "material_id": 1,
+          "property_id": 1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "friction": 0.0,
+          "id": 1,
+          "ignore_overlap": false,
+          "master": "AQAAAP7///8SAAAA/v///w==",
+          "master_size": 2,
+          "method": "auto",
+          "name": "Contact 1",
+          "normal_stiffness": 1.0,
+          "offset": 0.0,
+          "preload": 0.0,
+          "search_radius": 1.0,
+          "slave": "AQAAAP7///8SAAAA/v///w==",
+          "slave_size": 2,
+          "tangent_stiffness": 0.5,
+          "tolerance": 0.0005,
+          "type": "tied"
+        }
+      ]
+    },
+    {
+      "file": "Contact3dDetectionS.fc",
+      "sha256": "e0c58dd3546b26a4ccfbf7ced85a3acced3782693055664dd589c7d7071b1e75",
+      "previous_roundtrip": "equal",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 49,
+        "elements": 12,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "3D",
+        "eigen_solver": {
+          "absolute_tolerance": 0.1,
+          "eps_max_iterations": 100,
+          "linear_solver": {
+            "method": "auto",
+            "preconditioner": "auto",
+            "solver": "auto"
+          },
+          "number": 10,
+          "relative_tolerance": 1e-08,
+          "solver": "auto",
+          "spectr_trans": {
+            "name": "auto"
+          }
+        },
+        "elasticity": false,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "permission_write": false,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "preload": false,
+        "slm": false,
+        "statics": {
+          "steps_count": 1
+        },
+        "type": "eigenfrequencies",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "SET.ENUM",
+          "path": "$.settings.eigen_solver.solver",
+          "original_actual": "auto",
+          "value_in_file": "auto"
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 12,
+        "decoded_uint8_count": 12,
+        "unique_codes": [
+          2,
+          7,
+          9
+        ],
+        "bytes": 12,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "equal",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": true,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": null,
+      "output_elem_types_base64_chars": 16,
+      "material_probes": [],
+      "property_probes": [],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": -1
+        },
+        {
+          "cs_id": 1,
+          "id": 2,
+          "material_id": 1,
+          "property_id": -1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "friction": 0.0,
+          "id": 1,
+          "ignore_overlap": false,
+          "master": "AQAAAAIAAAAMAAAAAAAAAA==",
+          "master_size": 2,
+          "method": "auto",
+          "name": "Contact 1",
+          "normal_stiffness": 1.0,
+          "offset": 0.0,
+          "preload": 0.0,
+          "search_radius": 1.0,
+          "slave": "AQAAAAIAAAAMAAAAAAAAAA==",
+          "slave_size": 2,
+          "tangent_stiffness": 0.5,
+          "tolerance": 100.0,
+          "type": "tied"
+        }
+      ]
+    },
+    {
+      "file": "Contact3dHex20CylInCylAllRigidMove_Homogeneous.fc",
+      "sha256": "168b9aa9e15c16dfee265c2a109ec0160bd2d7538ef2bd4c40d2ac9b0eab3cba",
+      "previous_roundtrip": "equal",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 7525,
+        "elements": 3033,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "3D",
+        "elasticity": true,
+        "environment": null,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 100,
+          "max_load_steps": 1000,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "full_periodic": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": false,
+          "temperature": 0.0,
+          "vtu": true
+        },
+        "permission_write": false,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "slm": false,
+        "thermal_expansion": false,
+        "type": "static"
+      },
+      "findings_reviewed": [
+        {
+          "rule": "DOC.UNKNOWN_FIELD",
+          "path": "$.settings.output.temperature",
+          "original_actual": 0.0,
+          "value_in_file": 0.0
+        },
+        {
+          "rule": "DOC.FIELD_TYPE",
+          "path": "$.settings.environment",
+          "original_actual": null,
+          "value_in_file": null
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 3033,
+        "decoded_uint8_count": 3033,
+        "unique_codes": [
+          2,
+          4
+        ],
+        "bytes": 3033,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "equal",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": true,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": null,
+      "output_elem_types_base64_chars": 4044,
+      "material_probes": [],
+      "property_probes": [],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": -1
+        },
+        {
+          "cs_id": 1,
+          "id": 2,
+          "material_id": 1,
+          "property_id": -1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "id": 1,
+          "ignore_tied_stiffness": false,
+          "master": {
+            "type": "string",
+            "chars": 10732,
+            "sha256": "364830b71b35a600609802665a01b5e37d63d74134f099487abfc84961c3410f"
+          },
+          "master_size": 1006,
+          "method": "auto",
+          "name": "Contact 1",
+          "offset": 0.0,
+          "search_radius": 1.0,
+          "slave": {
+            "type": "string",
+            "chars": 10732,
+            "sha256": "364830b71b35a600609802665a01b5e37d63d74134f099487abfc84961c3410f"
+          },
+          "slave_size": 1006,
+          "tolerance": 0.07,
+          "type": "tied"
+        }
+      ]
+    },
+    {
+      "file": "Contact3dHex20CylinderTied_MPC.fc",
+      "sha256": "20374b0f64b46c2953530d10c619e49fe035c8f52b23ca655c8f8e4431fe47de",
+      "previous_roundtrip": "equal",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 1070,
+        "elements": 165,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "3D",
+        "elasticity": true,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "permission_write": false,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "slm": false,
+        "statics": {
+          "steps_count": 1
+        },
+        "type": "static",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "MAT.GROUP_CARDINALITY",
+          "path": "$.materials[0].thermal",
+          "original_actual": 2,
+          "value_in_file": [
+            {
+              "const_dep": [
+                ""
+              ],
+              "const_dep_size": [
+                0
+              ],
+              "const_names": [
+                2
+              ],
+              "const_types": [
+                0
+              ],
+              "constants": [
+                "AAAAAABAf0A="
+              ],
+              "type": 0
+            },
+            {
+              "const_dep": [
+                "",
+                ""
+              ],
+              "const_dep_size": [
+                0,
+                0
+              ],
+              "const_names": [
+                1,
+                0
+              ],
+              "const_types": [
+                0,
+                0
+              ],
+              "constants": [
+                "AAAAAACARkA=",
+                "VOQQcXMq6T4="
+              ],
+              "type": 0
+            }
+          ]
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 165,
+        "decoded_uint8_count": 165,
+        "unique_codes": [
+          4
+        ],
+        "bytes": 165,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "equal",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": true,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": null,
+      "output_elem_types_base64_chars": 220,
+      "material_probes": [
+        {
+          "id": 1,
+          "multi_groups": {
+            "thermal": [
+              {
+                "type": 0,
+                "const_names": [
+                  2
+                ]
+              },
+              {
+                "type": 0,
+                "const_names": [
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          "groups_preserved": {
+            "thermal": true
+          }
+        }
+      ],
+      "property_probes": [],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": -1
+        },
+        {
+          "cs_id": 1,
+          "id": 2,
+          "material_id": 1,
+          "property_id": -1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "friction": 0.0,
+          "id": 1,
+          "ignore_overlap": true,
+          "master": {
+            "type": "string",
+            "chars": 588,
+            "sha256": "71714006fc83b7adacb25a62b7b0db5f2d2d770f5246cf1e1d5958234fdc723d"
+          },
+          "master_size": 55,
+          "method": "mpc",
+          "name": "Contact 1",
+          "normal_stiffness": 1.0,
+          "offset": 0.0,
+          "preload": 0.0,
+          "search_radius": 1.0,
+          "slave": {
+            "type": "string",
+            "chars": 588,
+            "sha256": "71714006fc83b7adacb25a62b7b0db5f2d2d770f5246cf1e1d5958234fdc723d"
+          },
+          "slave_size": 55,
+          "tangent_stiffness": 0.5,
+          "tolerance": 0.0005,
+          "type": "tied"
+        }
+      ]
+    },
+    {
+      "file": "Contact3dHex20EigenValsCylInCylAll.fc",
+      "sha256": "80c50cbc69e1508ea7c0ba8167d5741d5c53052bc0292dff04218a2271222945",
+      "previous_roundtrip": "equal",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 7525,
+        "elements": 3033,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "3D",
+        "eigen_solver": {
+          "absolute_tolerance": 0.1,
+          "eps_max_iterations": 100,
+          "linear_solver": {
+            "method": "auto",
+            "preconditioner": "auto",
+            "solver": "auto"
+          },
+          "number": 10,
+          "relative_tolerance": 1e-08,
+          "solver": "auto",
+          "spectr_trans": {
+            "name": "auto"
+          }
+        },
+        "elasticity": false,
+        "environment": null,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 100,
+          "max_load_steps": 1000,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "full_periodic": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": false,
+          "temperature": 0.0,
+          "vtu": true
+        },
+        "permission_write": false,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "preload": false,
+        "slm": false,
+        "thermal_expansion": false,
+        "type": "eigenfrequencies"
+      },
+      "findings_reviewed": [
+        {
+          "rule": "SET.ENUM",
+          "path": "$.settings.eigen_solver.solver",
+          "original_actual": "auto",
+          "value_in_file": "auto"
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 3033,
+        "decoded_uint8_count": 3033,
+        "unique_codes": [
+          2,
+          4
+        ],
+        "bytes": 3033,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "equal",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": true,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": null,
+      "output_elem_types_base64_chars": 4044,
+      "material_probes": [],
+      "property_probes": [],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": -1
+        },
+        {
+          "cs_id": 1,
+          "id": 2,
+          "material_id": 1,
+          "property_id": -1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "id": 1,
+          "ignore_tied_stiffness": false,
+          "master": {
+            "type": "string",
+            "chars": 10732,
+            "sha256": "364830b71b35a600609802665a01b5e37d63d74134f099487abfc84961c3410f"
+          },
+          "master_size": 1006,
+          "method": "auto",
+          "name": "Contact 1",
+          "offset": 0.0,
+          "search_radius": 1.0,
+          "slave": {
+            "type": "string",
+            "chars": 10732,
+            "sha256": "364830b71b35a600609802665a01b5e37d63d74134f099487abfc84961c3410f"
+          },
+          "slave_size": 1006,
+          "tolerance": 0.05,
+          "type": "tied"
+        }
+      ]
+    },
+    {
+      "file": "Contact3dHex8ShellEigenValues.fc",
+      "sha256": "c399f7fba8fab607a7d2562744a93484bf2b82db4d474d682020191ffbcc29c1",
+      "previous_roundtrip": "error",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 100,
+        "elements": 52,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "compute_fields": [
+          "stress",
+          "strain",
+          "displacement"
+        ],
+        "contact": false,
+        "dimensions": "3D",
+        "dynamics": {
+          "result_output_iter": 1
+        },
+        "eigen_solver": {
+          "absolute_tolerance": 0.1,
+          "eps_max_iterations": 100,
+          "linear_solver": {
+            "method": "auto",
+            "preconditioner": "auto",
+            "solver": "auto"
+          },
+          "number": 15,
+          "relative_tolerance": 1e-08,
+          "solver": "auto",
+          "spectr_trans": {
+            "name": "auto"
+          }
+        },
+        "elasticity": false,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "lumpmass": false,
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "intermediate_results": true,
+          "log": true,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "output_cs": [
+          "cartesian"
+        ],
+        "permission_write": false,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "preload": false,
+        "renum": false,
+        "type": "eigenfrequencies",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "PT.UNKNOWN_FIELD",
+          "path": "$.property_tables[0].properties.t",
+          "original_actual": "unknown",
+          "value_in_file": 0.2
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 52,
+        "decoded_uint8_count": 52,
+        "unique_codes": [
+          3,
+          31
+        ],
+        "bytes": 52,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "error",
+      "exception": {
+        "type": "KeyError",
+        "message": "'name'"
+      },
+      "material_probes": [],
+      "property_probes": [
+        {
+          "input": {
+            "id": 2,
+            "properties": {
+              "e": 0.5,
+              "t": 0.2
+            },
+            "type": 0
+          },
+          "output": {
+            "id": 2,
+            "type": 0,
+            "properties": {
+              "e": 0.5,
+              "t": 0.2
+            },
+            "additional_properties": {}
+          },
+          "removed_fields": [],
+          "properties_preserved": true
+        }
+      ],
+      "blocks": null,
+      "contacts": [
+        {
+          "friction": 0,
+          "id": 0,
+          "ignore_overlap": false,
+          "master": {
+            "type": "string",
+            "chars": 268,
+            "sha256": "aaff60e2a8530ccb3ef4754c7f0c2e03d9371e61e2e91bfc739d6d7199d5c3e1"
+          },
+          "master_size": 25,
+          "method": "auto",
+          "tolerance": 0.0005,
+          "slave": "GwAAAAIAAAAYAAAAAgAAABUAAAACAAAAEgAAAAIAAAAPAAAAAgAAAAwAAAACAAAACQAAAAIAAAAGAAAAAgAAAAMAAAACAAAA",
+          "slave_size": 9,
+          "type": "tied_normal"
+        }
+      ]
+    },
+    {
+      "file": "Contact3dHex8_Detection_Penalty.fc",
+      "sha256": "c61734be9b2e4c962615a5a03327c67b5310db2aae1cfd44435b4e284201be79",
+      "previous_roundtrip": "equal",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 70,
+        "elements": 19,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "3D",
+        "elasticity": true,
+        "environment": {
+          "temperature": 0.0
+        },
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 100,
+          "max_load_steps": 1000,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "full_periodic": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": false,
+          "trackingForce": false,
+          "vtu": true,
+          "without_smoothing": false
+        },
+        "permission_write": true,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "slm": false,
+        "type": "static"
+      },
+      "findings_reviewed": [
+        {
+          "rule": "CONTACT.PENALTY_DAMPING",
+          "path": "$.contact_constraints[0]",
+          "original_actual": "missing",
+          "value_in_file": {
+            "detection_tolerance": 0.1,
+            "id": 1,
+            "ignore_tied_stiffness": false,
+            "master": "",
+            "master_size": 0,
+            "method": "penalty",
+            "name": "Contact 1",
+            "normal_stiffness": 1.0,
+            "offset": 0.0,
+            "search_radius": 1.0,
+            "slave": "",
+            "slave_size": 0,
+            "tangent_stiffness": 0.5,
+            "tolerance": 0.0005,
+            "type": "tied"
+          }
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 19,
+        "decoded_uint8_count": 19,
+        "unique_codes": [
+          3
+        ],
+        "bytes": 19,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "equal",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": true,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": null,
+      "output_elem_types_base64_chars": 28,
+      "material_probes": [],
+      "property_probes": [],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": -1
+        },
+        {
+          "cs_id": 1,
+          "id": 2,
+          "material_id": 1,
+          "property_id": -1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "id": 1,
+          "ignore_tied_stiffness": false,
+          "master": "",
+          "master_size": 0,
+          "method": "penalty",
+          "name": "Contact 1",
+          "normal_stiffness": 1.0,
+          "offset": 0.0,
+          "search_radius": 1.0,
+          "slave": "",
+          "slave_size": 0,
+          "tangent_stiffness": 0.5,
+          "tolerance": 0.0005,
+          "type": "tied"
+        }
+      ]
+    },
+    {
+      "file": "Contact3dHex8_TiedTangent_Penalty.fc",
+      "sha256": "40391426d07dbb9d25e809885fea2193b18228e27e05e4cd76ef791e884a9cee",
+      "previous_roundtrip": "equal",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 250,
+        "elements": 128,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "3D",
+        "elasticity": true,
+        "environment": null,
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 100,
+          "max_load_steps": 1000,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "full_periodic": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": false,
+          "temperature": 0.0,
+          "vtu": true
+        },
+        "permission_write": true,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "slm": false,
+        "thermal_expansion": false,
+        "type": "static"
+      },
+      "findings_reviewed": [
+        {
+          "rule": "CONTACT.PENALTY_DAMPING",
+          "path": "$.contact_constraints[0]",
+          "original_actual": "missing",
+          "value_in_file": {
+            "detection_tolerance": 0.1,
+            "friction": 0.0,
+            "id": 2,
+            "ignore_overlap": false,
+            "ignore_tied_stiffness": false,
+            "master": {
+              "type": "string",
+              "chars": 344,
+              "sha256": "4d71c1e966179976a5ad5d7e9f9a340bcda681502b0dcf5e57826ebfd0e654bf"
+            },
+            "master_size": 32,
+            "method": "penalty",
+            "name": "Contact 2",
+            "normal_stiffness": 1.0,
+            "offset": 0.0,
+            "preload": 0.0,
+            "search_radius": 1.0,
+            "slave": {
+              "type": "string",
+              "chars": 344,
+              "sha256": "4d71c1e966179976a5ad5d7e9f9a340bcda681502b0dcf5e57826ebfd0e654bf"
+            },
+            "slave_size": 32,
+            "tangent_stiffness": 0.5,
+            "tolerance": 0.0005,
+            "type": "tied_tangent"
+          }
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 128,
+        "decoded_uint8_count": 128,
+        "unique_codes": [
+          3
+        ],
+        "bytes": 128,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "equal",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": true,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": null,
+      "output_elem_types_base64_chars": 172,
+      "material_probes": [],
+      "property_probes": [],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": -1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "friction": 0.0,
+          "id": 2,
+          "ignore_overlap": false,
+          "ignore_tied_stiffness": false,
+          "master": {
+            "type": "string",
+            "chars": 344,
+            "sha256": "4d71c1e966179976a5ad5d7e9f9a340bcda681502b0dcf5e57826ebfd0e654bf"
+          },
+          "master_size": 32,
+          "method": "penalty",
+          "name": "Contact 2",
+          "normal_stiffness": 1.0,
+          "offset": 0.0,
+          "preload": 0.0,
+          "search_radius": 1.0,
+          "slave": {
+            "type": "string",
+            "chars": 344,
+            "sha256": "4d71c1e966179976a5ad5d7e9f9a340bcda681502b0dcf5e57826ebfd0e654bf"
+          },
+          "slave_size": 32,
+          "tangent_stiffness": 0.5,
+          "tolerance": 0.0005,
+          "type": "tied_tangent"
+        }
+      ]
+    },
+    {
+      "file": "Contact3dHexS_Gauss_GLL.fc",
+      "sha256": "1765ff51e69a8a142f70babc5ada6b7ef33b51888cfc6a6bc4ebead566bc29a2",
+      "previous_roundtrip": "equal",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 567,
+        "elements": 56,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "3D",
+        "elasticity": false,
+        "finite_deformations": false,
+        "heat_transfer": true,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "permission_write": false,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "slm": false,
+        "statics": {
+          "steps_count": 1
+        },
+        "type": "static",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "MAT.GROUP_CARDINALITY",
+          "path": "$.materials[0].thermal",
+          "original_actual": 2,
+          "value_in_file": [
+            {
+              "const_dep": [
+                ""
+              ],
+              "const_dep_size": [
+                0
+              ],
+              "const_names": [
+                2
+              ],
+              "const_types": [
+                0
+              ],
+              "constants": [
+                "AAAAAABAf0A="
+              ],
+              "type": 0
+            },
+            {
+              "const_dep": [
+                "",
+                ""
+              ],
+              "const_dep_size": [
+                0,
+                0
+              ],
+              "const_names": [
+                1,
+                0
+              ],
+              "const_types": [
+                0,
+                0
+              ],
+              "constants": [
+                "AAAAAACARkA=",
+                "LUMc6+I2Gj8="
+              ],
+              "type": 0
+            }
+          ]
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 56,
+        "decoded_uint8_count": 56,
+        "unique_codes": [
+          4
+        ],
+        "bytes": 56,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "equal",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": true,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": null,
+      "output_elem_types_base64_chars": 76,
+      "material_probes": [
+        {
+          "id": 1,
+          "multi_groups": {
+            "thermal": [
+              {
+                "type": 0,
+                "const_names": [
+                  2
+                ]
+              },
+              {
+                "type": 0,
+                "const_names": [
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          "groups_preserved": {
+            "thermal": true
+          }
+        }
+      ],
+      "property_probes": [],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": -1
+        },
+        {
+          "cs_id": 1,
+          "id": 2,
+          "material_id": 1,
+          "property_id": -1
+        },
+        {
+          "cs_id": 1,
+          "id": 3,
+          "material_id": 1,
+          "property_id": -1
+        },
+        {
+          "cs_id": 1,
+          "id": 4,
+          "material_id": 1,
+          "property_id": -1
+        },
+        {
+          "cs_id": 1,
+          "id": 5,
+          "material_id": 1,
+          "property_id": -1
+        },
+        {
+          "cs_id": 1,
+          "id": 6,
+          "material_id": 1,
+          "property_id": -1
+        },
+        {
+          "cs_id": 1,
+          "id": 7,
+          "material_id": 1,
+          "property_id": -1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "friction": 0,
+          "id": 1,
+          "ignore_overlap": false,
+          "master": "BQAAAAQAAAAHAAAABAAAAAEAAAAEAAAAAwAAAAQAAAAQAAAAAgAAAA4AAAACAAAADAAAAAIAAAAKAAAAAgAAAA==",
+          "master_size": 8,
+          "method": "penalty",
+          "name": "Contact 1",
+          "normal_stiffness": 1,
+          "offset": 0,
+          "preload": 0,
+          "search_radius": 1,
+          "slave": "BQAAAAQAAAAHAAAABAAAAAEAAAAEAAAAAwAAAAQAAAAQAAAAAgAAAA4AAAACAAAADAAAAAIAAAAKAAAAAgAAAA==",
+          "slave_size": 8,
+          "tangent_stiffness": 0.5,
+          "tolerance": 0.0005,
+          "type": "general"
+        },
+        {
+          "detection_tolerance": 0.1,
+          "friction": 0,
+          "id": 2,
+          "ignore_overlap": false,
+          "master": "CAAAAAIAAAAGAAAAAgAAAAQAAAACAAAAAgAAAAIAAAAVAAAABAAAABcAAAAEAAAAEQAAAAQAAAATAAAABAAAAA==",
+          "master_size": 8,
+          "method": "penalty",
+          "name": "Contact 2",
+          "normal_stiffness": 1,
+          "offset": 0,
+          "preload": 0,
+          "search_radius": 1,
+          "slave": "CAAAAAIAAAAGAAAAAgAAAAQAAAACAAAAAgAAAAIAAAAVAAAABAAAABcAAAAEAAAAEQAAAAQAAAATAAAABAAAAA==",
+          "slave_size": 8,
+          "tangent_stiffness": 0.5,
+          "tolerance": 0.0005,
+          "type": "general"
+        },
+        {
+          "detection_tolerance": 0.1,
+          "friction": 0,
+          "id": 3,
+          "ignore_overlap": false,
+          "master": "BwAAAAMAAAAIAAAAAwAAAAMAAAADAAAABAAAAAMAAAAZAAAAAQAAABoAAAABAAAAHQAAAAEAAAAeAAAAAQAAAA==",
+          "master_size": 8,
+          "method": "penalty",
+          "name": "Contact 3",
+          "normal_stiffness": 1,
+          "offset": 0,
+          "preload": 0,
+          "search_radius": 1,
+          "slave": "BwAAAAMAAAAIAAAAAwAAAAMAAAADAAAABAAAAAMAAAAZAAAAAQAAABoAAAABAAAAHQAAAAEAAAAeAAAAAQAAAA==",
+          "slave_size": 8,
+          "tangent_stiffness": 0.5,
+          "tolerance": 0.0005,
+          "type": "general"
+        },
+        {
+          "detection_tolerance": 0.1,
+          "friction": 0,
+          "id": 4,
+          "ignore_overlap": false,
+          "master": "AQAAAAEAAAACAAAAAQAAAAUAAAABAAAABgAAAAEAAAAnAAAAAwAAACgAAAADAAAAIwAAAAMAAAAkAAAAAwAAAA==",
+          "master_size": 8,
+          "method": "penalty",
+          "name": "Contact 4",
+          "normal_stiffness": 1,
+          "offset": 0,
+          "preload": 0,
+          "search_radius": 1,
+          "slave": "AQAAAAEAAAACAAAAAQAAAAUAAAABAAAABgAAAAEAAAAnAAAAAwAAACgAAAADAAAAIwAAAAMAAAAkAAAAAwAAAA==",
+          "slave_size": 8,
+          "tangent_stiffness": 0.5,
+          "tolerance": 0.0005,
+          "type": "general"
+        },
+        {
+          "detection_tolerance": 0.1,
+          "friction": 0,
+          "id": 5,
+          "ignore_overlap": false,
+          "master": "BQAAAAUAAAAGAAAABQAAAAcAAAAFAAAACAAAAAUAAAArAAAAAAAAACwAAAAAAAAAKQAAAAAAAAAqAAAAAAAAAA==",
+          "master_size": 8,
+          "method": "penalty",
+          "name": "Contact 5",
+          "normal_stiffness": 1,
+          "offset": 0,
+          "preload": 0,
+          "search_radius": 1,
+          "slave": "BQAAAAUAAAAGAAAABQAAAAcAAAAFAAAACAAAAAUAAAArAAAAAAAAACwAAAAAAAAAKQAAAAAAAAAqAAAAAAAAAA==",
+          "slave_size": 8,
+          "tangent_stiffness": 0.5,
+          "tolerance": 0.0005,
+          "type": "general"
+        },
+        {
+          "detection_tolerance": 0.1,
+          "friction": 0,
+          "id": 6,
+          "ignore_overlap": false,
+          "master": "AwAAAAAAAAAEAAAAAAAAAAEAAAAAAAAAAgAAAAAAAAA1AAAABQAAADYAAAAFAAAANwAAAAUAAAA4AAAABQAAAA==",
+          "master_size": 8,
+          "method": "penalty",
+          "name": "Contact 6",
+          "normal_stiffness": 1,
+          "offset": 0,
+          "preload": 0,
+          "search_radius": 1,
+          "slave": "AwAAAAAAAAAEAAAAAAAAAAEAAAAAAAAAAgAAAAAAAAA1AAAABQAAADYAAAAFAAAANwAAAAUAAAA4AAAABQAAAA==",
+          "slave_size": 8,
+          "tangent_stiffness": 0.5,
+          "tolerance": 0.0005,
+          "type": "general"
+        }
+      ]
+    },
+    {
+      "file": "Contact3dMixedGeometryS_Solid_ShellEdges.fc",
+      "sha256": "e06b74388832acee066b508e38344b6120a2cd62dd096e02f6bf239546d2c522",
+      "previous_roundtrip": "different",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 155,
+        "elements": 32,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "3D",
+        "elasticity": true,
+        "finite_deformations": false,
+        "heat_transfer": true,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "full_periodic": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "permission_write": false,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "slm": false,
+        "statics": {
+          "steps_count": 1
+        },
+        "thermal_expansion": false,
+        "type": "static",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "BLOCK.PROPERTY_SENTINEL",
+          "path": "$.blocks[0].property_id",
+          "original_actual": -1,
+          "value_in_file": -1
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 32,
+        "decoded_uint8_count": 32,
+        "unique_codes": [
+          4,
+          32
+        ],
+        "bytes": 32,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "different",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": false,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": [
+        {
+          "id": 1,
+          "type": 0,
+          "properties": {
+            "e": 0.5,
+            "t": 0.2
+          },
+          "additional_properties": {}
+        }
+      ],
+      "output_elem_types_base64_chars": 44,
+      "material_probes": [
+        {
+          "id": 1,
+          "multi_groups": {
+            "thermal": [
+              {
+                "type": 0,
+                "const_names": [
+                  2
+                ]
+              },
+              {
+                "type": 0,
+                "const_names": [
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          "groups_preserved": {
+            "thermal": true
+          }
+        }
+      ],
+      "property_probes": [
+        {
+          "input": {
+            "direction_normal": true,
+            "id": 1,
+            "properties": {
+              "e": 0.5,
+              "t": 0.2
+            },
+            "type": 0
+          },
+          "output": {
+            "id": 1,
+            "type": 0,
+            "properties": {
+              "e": 0.5,
+              "t": 0.2
+            },
+            "additional_properties": {}
+          },
+          "removed_fields": [
+            "direction_normal"
+          ],
+          "properties_preserved": true
+        }
+      ],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": -1
+        },
+        {
+          "cs_id": 1,
+          "id": 2,
+          "material_id": 1,
+          "property_id": 1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "friction": 0.0,
+          "id": 1,
+          "ignore_overlap": false,
+          "master": {
+            "type": "string",
+            "chars": 216,
+            "sha256": "03fa412ea0586751b2570106abc94069d4d1f56bceec03244a8bacde68f7741f"
+          },
+          "master_size": 20,
+          "method": "auto",
+          "name": "Contact 1",
+          "normal_stiffness": 1.0,
+          "offset": 0.0,
+          "preload": 0.0,
+          "search_radius": 1.0,
+          "slave": {
+            "type": "string",
+            "chars": 216,
+            "sha256": "03fa412ea0586751b2570106abc94069d4d1f56bceec03244a8bacde68f7741f"
+          },
+          "slave_size": 20,
+          "tangent_stiffness": 0.5,
+          "tolerance": 0.0005,
+          "type": "tied"
+        }
+      ]
+    },
+    {
+      "file": "Contact3dMixedGeometryS_Solid_ShellSurface.fc",
+      "sha256": "ae85f5cbd02f38d4654c1cb43db58c6b73506fdd1de27fe4693759479c15772c",
+      "previous_roundtrip": "different",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 715,
+        "elements": 160,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "3D",
+        "elasticity": true,
+        "finite_deformations": false,
+        "heat_transfer": true,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "full_periodic": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": true
+        },
+        "permission_write": false,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "slm": false,
+        "statics": {
+          "steps_count": 1
+        },
+        "thermal_expansion": false,
+        "type": "static",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "BLOCK.PROPERTY_SENTINEL",
+          "path": "$.blocks[0].property_id",
+          "original_actual": -1,
+          "value_in_file": -1
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 160,
+        "decoded_uint8_count": 160,
+        "unique_codes": [
+          4,
+          32
+        ],
+        "bytes": 160,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "different",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": false,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": [
+        {
+          "id": 1,
+          "type": 0,
+          "properties": {
+            "e": 0.5,
+            "t": 0.05
+          },
+          "additional_properties": {}
+        }
+      ],
+      "output_elem_types_base64_chars": 216,
+      "material_probes": [
+        {
+          "id": 1,
+          "multi_groups": {
+            "thermal": [
+              {
+                "type": 0,
+                "const_names": [
+                  2
+                ]
+              },
+              {
+                "type": 0,
+                "const_names": [
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          "groups_preserved": {
+            "thermal": true
+          }
+        }
+      ],
+      "property_probes": [
+        {
+          "input": {
+            "direction_normal": true,
+            "id": 1,
+            "properties": {
+              "e": 0.5,
+              "t": 0.05
+            },
+            "type": 0
+          },
+          "output": {
+            "id": 1,
+            "type": 0,
+            "properties": {
+              "e": 0.5,
+              "t": 0.05
+            },
+            "additional_properties": {}
+          },
+          "removed_fields": [
+            "direction_normal"
+          ],
+          "properties_preserved": true
+        }
+      ],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 1,
+          "property_id": -1
+        },
+        {
+          "cs_id": 1,
+          "id": 2,
+          "material_id": 1,
+          "property_id": 1
+        }
+      ],
+      "contacts": [
+        {
+          "detection_tolerance": 0.1,
+          "friction": 0.0,
+          "id": 1,
+          "ignore_overlap": false,
+          "master": {
+            "type": "string",
+            "chars": 2048,
+            "sha256": "503f33ab7ad984700f70bc5924313acb316c950df54ce305accf6333b0ac5821"
+          },
+          "master_size": 192,
+          "method": "auto",
+          "name": "Contact 1",
+          "normal_stiffness": 1.0,
+          "offset": 0.0,
+          "preload": 0.0,
+          "search_radius": 1.0,
+          "slave": {
+            "type": "string",
+            "chars": 2048,
+            "sha256": "503f33ab7ad984700f70bc5924313acb316c950df54ce305accf6333b0ac5821"
+          },
+          "slave_size": 192,
+          "tangent_stiffness": 0.5,
+          "tolerance": 0.0005,
+          "type": "tied"
+        }
+      ]
+    },
+    {
+      "file": "Cube_dyn_direction_shell.fc",
+      "sha256": "3f4825be51b667c849dac694c2a9f94e90a7f0eab4d23e0280dbced22ecfaed3",
+      "previous_roundtrip": "different",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 16,
+        "elements": 9,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "fidesys_version": "CAE Fidesys 8.2.2111.7795",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "3D",
+        "dynamics": {
+          "max_time": 100.0,
+          "method": "full_solution",
+          "newmark_gamma": 0.1,
+          "result_output_iter": 1,
+          "scheme": "implicit",
+          "steps_count": 10
+        },
+        "eigen_solver": null,
+        "elasticity": true,
+        "environment": {
+          "temperature": 0.0
+        },
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 100,
+          "max_load_steps": 1000,
+          "min_load_steps": 1,
+          "start_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "full_periodic": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": false,
+          "vtu": true,
+          "without_smoothing": false
+        },
+        "permission_write": true,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "preload": false,
+        "radiation_among_surfaces": false,
+        "slm": false,
+        "type": "dynamic"
+      },
+      "findings_reviewed": [
+        {
+          "rule": "BLOCK.MATERIAL_ZERO",
+          "path": "$.blocks[0].material_id",
+          "original_actual": 0,
+          "value_in_file": 0
+        },
+        {
+          "rule": "PT.LAYERS_TYPE",
+          "path": "$.property_tables[0].layers",
+          "original_actual": "dict",
+          "value_in_file": {
+            "properties": [
+              {
+                "angle": 0.0,
+                "material_id": 1,
+                "t": 0.1
+              }
+            ]
+          }
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 9,
+        "decoded_uint8_count": 9,
+        "unique_codes": [
+          31
+        ],
+        "bytes": 9,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "different",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": false,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": [
+        {
+          "id": 1,
+          "type": 0,
+          "properties": {
+            "e": 0.5
+          },
+          "additional_properties": {}
+        }
+      ],
+      "output_elem_types_base64_chars": 12,
+      "material_probes": [
+        {
+          "id": 1,
+          "multi_groups": {
+            "thermal": [
+              {
+                "type": 0,
+                "const_names": [
+                  2
+                ]
+              },
+              {
+                "type": 0,
+                "const_names": [
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          "groups_preserved": {
+            "thermal": true
+          }
+        }
+      ],
+      "property_probes": [
+        {
+          "input": {
+            "direction_normal": true,
+            "id": 1,
+            "layers": {
+              "properties": [
+                {
+                  "angle": 0.0,
+                  "material_id": 1,
+                  "t": 0.1
+                }
+              ]
+            },
+            "properties": {
+              "e": 0.5
+            },
+            "thickness_change": true,
+            "thickness_integration_points": 3,
+            "thickness_integration_rule": "gauss",
+            "type": 0
+          },
+          "output": {
+            "id": 1,
+            "type": 0,
+            "properties": {
+              "e": 0.5
+            },
+            "additional_properties": {}
+          },
+          "removed_fields": [
+            "direction_normal",
+            "layers",
+            "thickness_change",
+            "thickness_integration_points",
+            "thickness_integration_rule"
+          ],
+          "properties_preserved": true
+        }
+      ],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 0,
+          "property_id": 1
+        }
+      ],
+      "contacts": null
+    },
+    {
+      "file": "Cube_static_direction_shell.fc",
+      "sha256": "4bb778f2ef08dcaea2f894660805bbd1851a14e02c7d9eeaf310d3274818fc57",
+      "previous_roundtrip": "different",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 16,
+        "elements": 9,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "fidesys_version": "CAE Fidesys 8.2.2111.7795",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0.0005,
+        "dimensions": "3D",
+        "elasticity": true,
+        "environment": {
+          "temperature": 0.0
+        },
+        "finite_deformations": false,
+        "heat_transfer": false,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0.0
+          },
+          "method": "auto",
+          "on_fail": true,
+          "use_uzawa": "auto"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 100,
+          "max_load_steps": 1000,
+          "min_load_steps": 1,
+          "start_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "full_periodic": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": false,
+          "vtu": true,
+          "without_smoothing": false
+        },
+        "permission_write": true,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "radiation_among_surfaces": false,
+        "slm": false,
+        "type": "static"
+      },
+      "findings_reviewed": [
+        {
+          "rule": "BLOCK.MATERIAL_ZERO",
+          "path": "$.blocks[0].material_id",
+          "original_actual": 0,
+          "value_in_file": 0
+        },
+        {
+          "rule": "MESH.BUFFER_SIZE",
+          "path": "$.mesh.elem_types",
+          "original_actual": 9,
+          "value_in_file": "Hx8fHx8fHx8f"
+        },
+        {
+          "rule": "PT.LAYERS_TYPE",
+          "path": "$.property_tables[0].layers",
+          "original_actual": "dict",
+          "value_in_file": {
+            "properties": [
+              {
+                "angle": 0.0,
+                "material_id": 1,
+                "t": 0.1
+              }
+            ]
+          }
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 9,
+        "decoded_uint8_count": 9,
+        "unique_codes": [
+          31
+        ],
+        "bytes": 9,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "different",
+      "preservation": {
+        "mesh": true,
+        "settings": true,
+        "materials": true,
+        "property_tables": false,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": [
+        {
+          "id": 1,
+          "type": 0,
+          "properties": {
+            "e": 0.5
+          },
+          "additional_properties": {}
+        }
+      ],
+      "output_elem_types_base64_chars": 12,
+      "material_probes": [
+        {
+          "id": 1,
+          "multi_groups": {
+            "thermal": [
+              {
+                "type": 0,
+                "const_names": [
+                  2
+                ]
+              },
+              {
+                "type": 0,
+                "const_names": [
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          "groups_preserved": {
+            "thermal": true
+          }
+        }
+      ],
+      "property_probes": [
+        {
+          "input": {
+            "direction_normal": true,
+            "id": 1,
+            "layers": {
+              "properties": [
+                {
+                  "angle": 0.0,
+                  "material_id": 1,
+                  "t": 0.1
+                }
+              ]
+            },
+            "properties": {
+              "e": 0.5
+            },
+            "thickness_change": true,
+            "thickness_integration_points": 3,
+            "thickness_integration_rule": "gauss",
+            "type": 0
+          },
+          "output": {
+            "id": 1,
+            "type": 0,
+            "properties": {
+              "e": 0.5
+            },
+            "additional_properties": {}
+          },
+          "removed_fields": [
+            "direction_normal",
+            "layers",
+            "thickness_change",
+            "thickness_integration_points",
+            "thickness_integration_rule"
+          ],
+          "properties_preserved": true
+        }
+      ],
+      "blocks": [
+        {
+          "cs_id": 1,
+          "id": 1,
+          "material_id": 0,
+          "property_id": 1
+        }
+      ],
+      "contacts": null
+    },
+    {
+      "file": "EfPrCond_CubeHooke_Hex20_nonper.fc",
+      "sha256": "6ed7997facd2b802b2d88a810c402ca3dd8b5028df5ea846227a373da430f4d8",
+      "previous_roundtrip": "different",
+      "fidesys_status": "loaded_without_errors",
+      "fidesys_errors": [],
+      "fidesys_completion": {
+        "errors": 0,
+        "nodes": 81,
+        "elements": 8,
+        "version": "2021.11"
+      },
+      "header": {
+        "binary": true,
+        "description": "Fidesys Case Format",
+        "types": {
+          "char": 1,
+          "double": 8,
+          "int": 4,
+          "short_int": 2
+        },
+        "version": 3
+      },
+      "settings": {
+        "bc_tolerance": 0,
+        "coupled": false,
+        "dimensions": "3D",
+        "elasticity": false,
+        "finite_deformations": false,
+        "heat_transfer": true,
+        "incompressibility": false,
+        "linear_solver": {
+          "iter_opts": {
+            "epsilon": 1e-09,
+            "max_iterations": 50000,
+            "preconditioner": "auto",
+            "stopping_criteria": 0
+          },
+          "method": "direct",
+          "on_fail": true,
+          "use_uzawa": "no"
+        },
+        "nonlinear_solver": {
+          "arc_method": false,
+          "line_search": false,
+          "max_iterations": 50,
+          "max_load_steps": 10,
+          "min_load_steps": 1,
+          "target_iter": 5,
+          "tolerance": 0.001
+        },
+        "output": {
+          "energy": false,
+          "intermediate_results": true,
+          "log": true,
+          "material": false,
+          "normal_force": false,
+          "record3d": true,
+          "vtu": false
+        },
+        "periodic_bc": false,
+        "permission_write": false,
+        "plasticity": false,
+        "porefluid_transfer": false,
+        "statics": {
+          "steps_count": 1
+        },
+        "test_opts": null,
+        "type": "effectiveprops",
+        "viscosity": false
+      },
+      "findings_reviewed": [
+        {
+          "rule": "DOC.UNKNOWN_FIELD",
+          "path": "$.settings.coupled",
+          "original_actual": false,
+          "value_in_file": false
+        }
+      ],
+      "mesh_type_probe": {
+        "elems_count": 8,
+        "decoded_uint8_count": 8,
+        "unique_codes": [
+          4
+        ],
+        "bytes": 8,
+        "declared_int_bytes": 4
+      },
+      "fresh_roundtrip": "different",
+      "preservation": {
+        "mesh": false,
+        "settings": true,
+        "materials": true,
+        "property_tables": true,
+        "blocks": true,
+        "contact_constraints": true
+      },
+      "output_property_tables": null,
+      "output_elem_types_base64_chars": 12,
+      "material_probes": [],
+      "property_probes": [],
+      "blocks": null,
+      "contacts": null
+    }
+  ]
+}

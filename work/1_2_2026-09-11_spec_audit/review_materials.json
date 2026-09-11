@@ -1,0 +1,30 @@
+[
+  {
+    "file": "Contact3dHex8EigenValuesTwoBlocks.fc",
+    "reviewed_paths": ["$.header", "$.settings.eigen_solver", "$.materials", "$.bcs", "$.contact_constraints"],
+    "findings_confirmed": [],
+    "missed_rules": ["top-level bcs/contact semantics belong to other audit modules"],
+    "notes": "binary=true with declared sizes (double=8, int=4, short_int=2); eigen_solver.number=10 and eigenfrequencies mode are documented. Material audit returned no findings. Contact master/slave payloads were not decoded beyond presence/size because this is outside materials coverage."
+  },
+  {
+    "file": "Contact3dHex8ShellEigenValues.fc",
+    "reviewed_paths": ["$.header", "$.settings.eigen_solver", "$.materials", "$.property_tables", "$.bcs", "$.contact_constraints"],
+    "findings_confirmed": ["$.property_tables[0].properties.t is an undocumented property key and is reported as ambiguity"],
+    "missed_rules": ["top-level bcs/contact semantics belong to other audit modules"],
+    "notes": "binary=true with declared sizes; eigenfrequency settings are documented. The shell property table contains e=0.5 plus t=0.2; t is not in the published SHELL properties schema, so the ambiguity is retained."
+  },
+  {
+    "file": "Cube_dyn_direction_vector_findefs_vel.fc",
+    "reviewed_paths": ["$.header", "$.settings.dynamics", "$.settings.output", "$.materials", "$.restraints"],
+    "findings_confirmed": ["$.materials[0].thermal has two grouped components, a direct v3 cardinality violation under the literal schema"],
+    "missed_rules": ["direction restraint flags and Base64 node-target semantics are assigned to conditions audit"],
+    "notes": "binary=true with declared sizes; implicit dynamics and finite_deformations settings are documented. The four restraints use dependency_type/dep_var_size consistently for constant components."
+  },
+  {
+    "file": "Contact2dQuad8_CGS1_regular_notconform_nogap_tension_PL.fc",
+    "reviewed_paths": ["$.header", "$.settings", "$.materials", "$.loads", "$.restraints", "$.contact_constraints", "$.blocks"],
+    "findings_confirmed": [],
+    "missed_rules": ["contact, loads, restraints, blocks and top-level settings are outside materials coverage"],
+    "notes": "binary=true with declared sizes; material and property-table sections are clean under this module. Contact uses pure_lagrangian with lagrange_settings, and load/restraint component containers visibly follow the documented dependency layout."
+  }
+]

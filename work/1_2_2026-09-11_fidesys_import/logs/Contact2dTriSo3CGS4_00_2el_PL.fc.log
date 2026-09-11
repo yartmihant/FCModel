@@ -1,0 +1,48 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact2dTriSo3CGS4_00_2el_PL.fc\'')
+
+[2026-09-11 15:12:17.512] [error] Unrecognized Identifier: 'constant_damping'
+
+ERROR: Unrecognized Identifier: 'constant_damping'
+[2026-09-11 15:12:17.512] [error] syntax error (<stdin>, line 63)
+
+ERROR: syntax error (<stdin>, line 63)
+[2026-09-11 15:12:17.514] [error] There is no such Spring properties.
+
+ERROR: There is no such Spring properties.
+[2026-09-11 15:12:17.514] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 15:12:17.548] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:12:17.548] [error] syntax error (<stdin>, line 86)
+
+ERROR: syntax error (<stdin>, line 86)
+[2026-09-11 15:12:17.558] [error] Invalid element id 7.
+
+ERROR: Invalid element id 7.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 7, "nodes": 20, "elements": 8, "version": "2021.11"}
+2 Displacement's were deleted.
+...deleting 4 tris and 12 edgeUses from database...
+...deleting 12 edges from database...
+...deleting 20 nodes from database...
+[2026-09-11 15:12:17.609] [error] Errors found during session.
+
+ERROR: Errors found during session.

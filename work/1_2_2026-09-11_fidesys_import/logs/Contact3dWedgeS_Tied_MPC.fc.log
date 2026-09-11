@@ -1,0 +1,45 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3dWedgeS_Tied_MPC.fc\'')
+
+[2026-09-11 15:14:50.288] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 15:14:50.288] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 15:14:50.289] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 15:14:50.289] [error] Command Failed.
+
+ERROR: Command Failed.
+WARNING: The distance between nodesets is not accurate.
+WARNING: The distance between nodesets is not accurate.
+WARNING: The distance between nodesets is not accurate.
+WARNING: The distance between nodesets is not accurate.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 4, "nodes": 154, "elements": 14, "version": "2021.11"}
+2 Temperature's were deleted.
+...deleting 14 wedges from database...
+...deleting 28 tris and 84 edgeUses from database...
+...deleting 28 faces from database...
+...deleting 98 edges from database...
+...deleting 154 nodes from database...
+[2026-09-11 15:14:50.339] [error] Errors found during session.
+
+ERROR: Errors found during session.

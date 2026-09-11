@@ -1,0 +1,28 @@
+{
+  "changed_utc": "2026-09-11T12:32:22.109410+00:00",
+  "changes": [
+    {
+      "file": "Contact2dQuad8_CGS1_regular_notconform_nogap_tension_PL.fc",
+      "action": "removed_one_trailing_comma",
+      "before_sha256": "8472ff52d523abf2dbc79c5bc387e754dbcf1219f6ca6a85f9c118f74c227c7b",
+      "after_sha256": "96bfbd8862bdd22eaa6f8d0bba8a1bb50662b533a64f9a240953dba4fe75d0c7",
+      "before_bytes": 8647,
+      "after_bytes": 8646
+    },
+    {
+      "file": "Contact3dHex8_Tied_RBE2_findefs_Penalty.fc",
+      "action": "removed_one_trailing_comma",
+      "before_sha256": "050581decd6d338e09aff333550f6bd9a996f8451e87a72ab43ae3b2513475d5",
+      "after_sha256": "02dc2c251bda4eafd153b70bcbbaad8168d194cdcdbb4e74fc2a878167d6780e",
+      "before_bytes": 7525,
+      "after_bytes": 7524
+    },
+    {
+      "file": "EfPrCond_OrthogReinforced_Tet10_per.fc",
+      "action": "deleted",
+      "before_sha256": "8b852989bf95bdbd71ca38db4d6640cbafe8000d31f24958921acc35292bd73e",
+      "before_bytes": 1194325,
+      "reason": "File ends inside mesh.nodes Base64 string; missing coordinates and remaining JSON. Available Tet10s3 sibling has different nodes/IDs and cannot supply a verified replacement."
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "started_utc": "2026-09-11T12:16:19.893432+00:00",
+  "baseline": "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_core_roundtrip_results.json",
+  "baseline_sha256": "6d0215686e3680b61ae2dea5eb3ac9cce2a800d0e17771a7a080f8ce61b07016",
+  "executable": "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+  "executable_sha256": "ec7590bc6843d8bb099c7d4f3e259356ee6c5ecff913ee19be6cb403107d1e20",
+  "source": "/home/antonov/Base/Libs/FCModel/data/fc_core_tests",
+  "workers": 1,
+  "timeout_seconds": 90.0,
+  "probe": "import cubit\nimport json\nprint(\"FCMODEL_IMPORT_DONE=\" + json.dumps({\"errors\": cubit.get_error_count(), \"nodes\": cubit.get_node_count(), \"elements\": cubit.get_element_count(), \"version\": cubit.get_version()}))\n",
+  "selected_files": 2,
+  "finished_utc": "2026-09-11T12:16:26.312072+00:00",
+  "counts": {
+    "incomplete": 2
+  },
+  "roundtrip_by_import": {
+    "error": {
+      "incomplete": 2
+    }
+  },
+  "primary_errors_by_roundtrip": {},
+  "roundtrip_patterns_by_import": {},
+  "files": [
+    {
+      "file": "Contact2dQUAD9.fc",
+      "sha256": "297832b779d66d184c14626294690b13eda0490d6415777b3858f8ef0dbd2d5e",
+      "source_unchanged": true,
+      "roundtrip_status": "error",
+      "status": "incomplete",
+      "duration_seconds": 3.183,
+      "returncode": 11,
+      "timeout": false,
+      "log": "logs/Contact2dQUAD9.fc.log",
+      "command": [
+        "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+        "-nographics",
+        "-batch",
+        "-model",
+        "/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact2dQUAD9.fc",
+        "-input",
+        "/tmp/fc-fidesys-import-02ys23tp/after_import.py"
+      ],
+      "errors": [],
+      "warnings": [],
+      "primary_errors": [],
+      "completion": null,
+      "roundtrip_stage": "load",
+      "roundtrip_error_type": "KeyError",
+      "roundtrip_error": "14",
+      "roundtrip_location": "fc_mesh.py:86",
+      "roundtrip_difference_patterns": []
+    },
+    {
+      "file": "Contact3dHEX27.fc",
+      "sha256": "93addfb16f50a33dd806c8af2ab3836a2fc60975269dadfa4f6f6cb027bb9c48",
+      "source_unchanged": true,
+      "roundtrip_status": "error",
+      "status": "incomplete",
+      "duration_seconds": 3.232,
+      "returncode": 11,
+      "timeout": false,
+      "log": "logs/Contact3dHEX27.fc.log",
+      "command": [
+        "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+        "-nographics",
+        "-batch",
+        "-model",
+        "/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3dHEX27.fc",
+        "-input",
+        "/tmp/fc-fidesys-import-0jlkk9rx/after_import.py"
+      ],
+      "errors": [],
+      "warnings": [],
+      "primary_errors": [],
+      "completion": null,
+      "roundtrip_stage": "load",
+      "roundtrip_error_type": "KeyError",
+      "roundtrip_error": "5",
+      "roundtrip_location": "fc_mesh.py:86",
+      "roundtrip_difference_patterns": []
+    }
+  ]
+}

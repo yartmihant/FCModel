@@ -1,0 +1,22 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/cube_multi.fc\'')
+
+[2026-09-11 15:00:50.138] [error] 'mesh.elem_blocks' field is empty.
+
+ERROR: 'mesh.elem_blocks' field is empty.
+[2026-09-11 15:00:50.138] [error] Command Failed.
+
+ERROR: Command Failed.
+True
+[2026-09-11 15:00:50.148] [error] Errors found during session.
+
+ERROR: Errors found during session.

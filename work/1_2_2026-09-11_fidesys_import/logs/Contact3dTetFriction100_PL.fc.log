@@ -1,0 +1,34 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3dTetFriction100_PL.fc\'')
+
+[2026-09-11 15:14:37.413] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:14:37.413] [error] syntax error (<stdin>, line 58)
+
+ERROR: syntax error (<stdin>, line 58)
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 2, "nodes": 27, "elements": 59, "version": "2021.11"}
+4 Displacement's were deleted.
+...deleting 59 tets from database...
+...deleting 30 tris and 90 edgeUses from database...
+...deleting 45 edges from database...
+...deleting 27 nodes from database...
+[2026-09-11 15:14:37.497] [error] Errors found during session.
+
+ERROR: Errors found during session.

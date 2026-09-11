@@ -1,0 +1,48 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact2dQuad8CGS4_03_2el_Penalty.fc\'')
+
+[2026-09-11 15:11:08.554] [error] Unrecognized Identifier: 'constant_damping'
+
+ERROR: Unrecognized Identifier: 'constant_damping'
+[2026-09-11 15:11:08.554] [error] syntax error (<stdin>, line 54)
+
+ERROR: syntax error (<stdin>, line 54)
+[2026-09-11 15:11:08.555] [error] There is no such Spring properties.
+
+ERROR: There is no such Spring properties.
+[2026-09-11 15:11:08.555] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 15:11:08.582] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 15:11:08.583] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 15:11:08.593] [error] Invalid element id 3.
+
+ERROR: Invalid element id 3.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 7, "nodes": 18, "elements": 4, "version": "2021.11"}
+2 Displacement's were deleted.
+...deleting 2 faces from database...
+...deleting 10 edges from database...
+...deleting 18 nodes from database...
+[2026-09-11 15:11:08.626] [error] Errors found during session.
+
+ERROR: Errors found during session.

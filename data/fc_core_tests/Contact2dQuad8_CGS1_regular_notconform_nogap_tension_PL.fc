@@ -217,6 +217,6 @@
 	  "test_opts" : 
       {
          "output_iteration_results" : true
-      },
+      }
    }
 }

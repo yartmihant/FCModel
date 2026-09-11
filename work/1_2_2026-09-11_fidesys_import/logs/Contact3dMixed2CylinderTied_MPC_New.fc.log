@@ -1,0 +1,37 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3dMixed2CylinderTied_MPC_New.fc\'')
+
+[2026-09-11 15:13:47.762] [error] Slave entity is empty.
+
+ERROR: Slave entity is empty.
+[2026-09-11 15:13:47.762] [error] Command Failed.
+
+ERROR: Command Failed.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 2, "nodes": 13719, "elements": 7253, "version": "2021.11"}
+4 Displacement's were deleted.
+2 Pressure's were deleted.
+...deleting 6581 tets from database...
+...deleting 1404 tris and 4212 edgeUses from database...
+...deleting 672 hexes and 0 faceUses from database...
+...deleting 488 faces from database...
+...deleting 3082 edges from database...
+...deleting 13719 nodes from database...
+[2026-09-11 15:13:47.867] [error] Errors found during session.
+
+ERROR: Errors found during session.

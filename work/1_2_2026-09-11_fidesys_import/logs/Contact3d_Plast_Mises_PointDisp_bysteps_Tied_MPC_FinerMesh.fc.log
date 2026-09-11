@@ -1,0 +1,50 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3d_Plast_Mises_PointDisp_bysteps_Tied_MPC_FinerMesh.fc\'')
+
+WARNING: The distance between nodesets is not accurate.
+WARNING: The distance between nodesets is not accurate.
+[2026-09-11 15:15:31.088] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 15:15:31.088] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 15:15:31.090] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 15:15:31.090] [error] Command Failed.
+
+ERROR: Command Failed.
+WARNING: The distance between nodesets is not accurate.
+WARNING: The distance between nodesets is not accurate.
+WARNING: The distance between nodesets is not accurate.
+WARNING: The distance between nodesets is not accurate.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 4, "nodes": 4605, "elements": 2073, "version": "2021.11"}
+6 Displacement's were deleted.
+...deleting 12 pyramids from database...
+...deleting 160 wedges from database...
+...deleting 1805 tets from database...
+...deleting 822 tris and 2466 edgeUses from database...
+...deleting 96 hexes and 0 faceUses from database...
+...deleting 276 faces from database...
+...deleting 1785 edges from database...
+...deleting 4605 nodes from database...
+[2026-09-11 15:15:31.146] [error] Errors found during session.
+
+ERROR: Errors found during session.

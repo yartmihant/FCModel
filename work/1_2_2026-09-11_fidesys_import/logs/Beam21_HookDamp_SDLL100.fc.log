@@ -1,0 +1,26 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Beam21_HookDamp_SDLL100.fc\'')
+
+[2026-09-11 15:10:27.730] [error] Encountered an uncaught exception 'in Json::Value::find(begin, end): requires objectValue or nullValue'.  Command failed.
+
+ERROR: Encountered an uncaught exception 'in Json::Value::find(begin, end): requires objectValue or nullValue'.  Command failed.
+False
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 1, "nodes": 0, "elements": 0, "version": "2021.11"}
+[2026-09-11 15:10:27.744] [error] Errors found during session.
+
+ERROR: Errors found during session.

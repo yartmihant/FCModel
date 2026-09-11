@@ -1,0 +1,29 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Beam21_Hook_VM76.fc\'')
+
+[2026-09-11 15:10:27.815] [error] 'mesh.elem_orders' field is empty.
+
+ERROR: 'mesh.elem_orders' field is empty.
+[2026-09-11 15:10:27.815] [error] Command Failed.
+
+ERROR: Command Failed.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 2, "nodes": 0, "elements": 0, "version": "2021.11"}
+[2026-09-11 15:10:27.842] [error] Errors found during session.
+
+ERROR: Errors found during session.

@@ -1,0 +1,32 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact2dQuad4_car_Nl_100.fc\'')
+
+[2026-09-11 15:11:05.857] [error] Bad base64_encode('loads[0].apply_to').
+
+ERROR: Bad base64_encode('loads[0].apply_to').
+[2026-09-11 15:11:05.857] [error] Command Failed.
+
+ERROR: Command Failed.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 2, "nodes": 600, "elements": 313, "version": "2021.11"}
+...deleting 313 faces from database...
+...deleting 911 edges from database...
+...deleting 600 nodes from database...
+[2026-09-11 15:11:05.903] [error] Errors found during session.
+
+ERROR: Errors found during session.

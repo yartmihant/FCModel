@@ -1,0 +1,12 @@
+{
+  "started_utc": "2026-09-11T12:10:26.219728+00:00",
+  "baseline": "/home/antonov/Base/Libs/FCModel/work/1_2_2026-09-11_core_roundtrip_results.json",
+  "baseline_sha256": "6d0215686e3680b61ae2dea5eb3ac9cce2a800d0e17771a7a080f8ce61b07016",
+  "executable": "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+  "executable_sha256": "ec7590bc6843d8bb099c7d4f3e259356ee6c5ecff913ee19be6cb403107d1e20",
+  "source": "/home/antonov/Base/Libs/FCModel/data/fc_core_tests",
+  "workers": 8,
+  "timeout_seconds": 60,
+  "probe": "import cubit\nimport json\nprint(\"FCMODEL_IMPORT_DONE=\" + json.dumps({\"errors\": cubit.get_error_count(), \"nodes\": cubit.get_node_count(), \"elements\": cubit.get_element_count(), \"version\": cubit.get_version()}))\n",
+  "selected_files": 1131
+}

@@ -1,0 +1,64 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3dTetS_Tied_MPC.fc\'')
+
+[2026-09-11 15:14:46.123] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 15:14:46.123] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 15:14:46.125] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 15:14:46.125] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 15:14:46.126] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 15:14:46.126] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 15:14:46.128] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 15:14:46.128] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 15:14:46.130] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 15:14:46.130] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 15:14:46.131] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 15:14:46.131] [error] Command Failed.
+
+ERROR: Command Failed.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 12, "nodes": 1323, "elements": 672, "version": "2021.11"}
+2 Temperature's were deleted.
+...deleting 672 tets from database...
+...deleting 336 tris and 1008 edgeUses from database...
+...deleting 504 edges from database...
+...deleting 1323 nodes from database...
+[2026-09-11 15:14:46.298] [error] Errors found during session.
+
+ERROR: Errors found during session.

@@ -1,0 +1,20 @@
+{
+  "rows": 1130,
+  "columns": 50,
+  "old_columns_preserved": 33,
+  "hashes_verified": 1130,
+  "all_four_domains_completed": 1130,
+  "statuses": {
+    "Выявлены нарушения": 1129,
+    "Нарушений не выявлено; есть legacy/неясности": 1
+  },
+  "findings": {
+    "ambiguity": 7120,
+    "violation": 3458,
+    "legacy": 172
+  },
+  "review_protocol_files": 12,
+  "max_csv_cell_chars": 15949,
+  "csv_bytes": 10559610,
+  "result": "passed"
+}

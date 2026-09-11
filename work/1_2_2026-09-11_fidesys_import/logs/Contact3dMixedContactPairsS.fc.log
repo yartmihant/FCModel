@@ -1,0 +1,28 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3dMixedContactPairsS.fc\'')
+
+WARNING: The distance between nodesets is not accurate.
+WARNING: The distance between nodesets is not accurate.
+WARNING: The distance between nodesets is not accurate.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 0, "nodes": 444, "elements": 48, "version": "2021.11"}
+2 Temperature's were deleted.
+...deleting 48 hexes and 0 faceUses from database...
+...deleting 128 faces from database...
+...deleting 256 edges from database...
+...deleting 444 nodes from database...

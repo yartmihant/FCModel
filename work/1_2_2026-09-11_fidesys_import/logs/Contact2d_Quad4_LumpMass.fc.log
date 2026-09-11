@@ -1,0 +1,46 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact2d_Quad4_LumpMass.fc\'')
+
+WARNING: The distance between nodesets is not accurate.
+[2026-09-11 15:12:44.646] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 15:12:44.648] [error] Command Failed.
+
+ERROR: Command Failed.
+WARNING: The distance between nodesets is not accurate.
+[2026-09-11 15:12:44.650] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 15:12:44.651] [error] Command Failed.
+
+ERROR: Command Failed.
+[2026-09-11 15:12:44.658] [error] Invalid element id 37.
+
+ERROR: Invalid element id 37.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 5, "nodes": 56, "elements": 41, "version": "2021.11"}
+1 Displacement was deleted.
+1 Force was deleted.
+...deleting 22 tris and 66 edgeUses from database...
+...deleting 14 faces from database...
+...deleting 83 edges from database...
+...deleting 56 nodes from database...
+[2026-09-11 15:12:44.704] [error] Errors found during session.
+
+ERROR: Errors found during session.

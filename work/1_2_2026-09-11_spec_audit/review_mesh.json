@@ -1,0 +1,49 @@
+[
+  {
+    "file": "data/fc_core_tests/Cube_static_direction_shell.fc",
+    "reviewed_paths": ["$.header", "$.mesh", "$.coordinate_systems", "$.blocks"],
+    "findings_confirmed": [
+      "MESH.BUFFER_SIZE $.mesh.elem_types: header.types.int is 4 while the raw elem_types buffer is char-sized",
+      "BLOCK.MATERIAL_ZERO $.blocks[0].material_id: documented sentinel/error unless the material alternative is present",
+      "MESH.BINARY_SEMANTICS_UNCHECKED $.mesh: integer references and 1-based uniqueness were not decoded because endian is unspecified"
+    ],
+    "missed_rules": [],
+    "notes": "Version 3 binary mesh has all current arrays; one Cartesian id=1 coordinate system is present. No sets. The block has property_id=1 and material_id=0 without a material alternative, so the material sentinel finding is supported by the sentinel section."
+  },
+  {
+    "file": "data/fc_core_tests/cube_multi.fc",
+    "reviewed_paths": ["$.header", "$.mesh"],
+    "findings_confirmed": [
+      "MESH.LEGACY_LAYOUT $.mesh: header.version=1 is the documented old packed layout",
+      "MESH.LEGACY_LAYOUT_FIELDS $.mesh: old field set is not specified by the current document",
+      "MESH.ARRAY_SIZE $.mesh.elem_types: current int-width interpretation does not match the legacy payload",
+      "MESH.BINARY_SEMANTICS_UNCHECKED $.mesh"
+    ],
+    "missed_rules": [],
+    "notes": "Legacy file has elem_materials and elem_properties instead of current block assignments; these are retained as an ambiguity boundary rather than forced into the v3 schema. coordinate_systems and blocks are absent."
+  },
+  {
+    "file": "data/fc_core_tests/Contact2dQUAD9.fc",
+    "reviewed_paths": ["$.header", "$.mesh"],
+    "findings_confirmed": [
+      "MESH.BUFFER_SIZE $.mesh.elem_types: raw code buffer is char-sized versus documented int width",
+      "MESH.UNKNOWN_FIELD $.mesh.elem_materials",
+      "MESH.UNKNOWN_FIELD $.mesh.elem_properties",
+      "MESH.BINARY_SEMANTICS_UNCHECKED $.mesh"
+    ],
+    "missed_rules": ["Binary element code values and connectivity references are not semantically decoded due to unspecified endian."],
+    "notes": "Version 3 binary mesh includes extra legacy-style elem_materials/elem_properties fields. The current document does not define these fields in v3 mesh, so ambiguity is appropriate."
+  },
+  {
+    "file": "data/fc_core_tests/Contact3dHEX27.fc",
+    "reviewed_paths": ["$.header", "$.mesh"],
+    "findings_confirmed": [
+      "MESH.ARRAY_SIZE $.mesh.elem_types: raw code buffer count under documented int width differs from elems_count",
+      "MESH.UNKNOWN_FIELD $.mesh.elem_materials",
+      "MESH.UNKNOWN_FIELD $.mesh.elem_properties",
+      "MESH.BINARY_SEMANTICS_UNCHECKED $.mesh"
+    ],
+    "missed_rules": ["HEX27 connectivity arity cannot be checked without decoding the binary payload; code is outside the explicitly listed current element table."],
+    "notes": "Version 3 binary file has no coordinate_systems or blocks. The HEX27 name in the filename is not treated as proof of a code table entry; the audit remains document-grounded."
+  }
+]

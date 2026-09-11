@@ -1,0 +1,272 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.0.3, pluggy-1.6.0 -- /usr/bin/python
+cachedir: .pytest_cache
+rootdir: /home/antonov/Base/Libs/FCModel
+configfile: pyproject.toml
+collecting ... collected 196 items
+
+tests/test_compress.py::TestCompressBasic::test_compress_empty_model PASSED [  0%]
+tests/test_compress.py::TestCompressBasic::test_compress_already_canonical PASSED [  1%]
+tests/test_compress.py::TestCompressCoordinateSystems::test_cs_reindexed PASSED [  1%]
+tests/test_compress.py::TestCompressCoordinateSystems::test_cs_refs_updated_in_blocks PASSED [  2%]
+tests/test_compress.py::TestCompressCoordinateSystems::test_cs_refs_updated_in_load PASSED [  2%]
+tests/test_compress.py::TestCompressCoordinateSystems::test_cs_refs_updated_in_restraint PASSED [  3%]
+tests/test_compress.py::TestCompressCoordinateSystems::test_cs_refs_updated_in_initial_set PASSED [  3%]
+tests/test_compress.py::TestCompressMaterials::test_materials_reindexed PASSED [  4%]
+tests/test_compress.py::TestCompressMaterials::test_material_refs_in_blocks PASSED [  4%]
+tests/test_compress.py::TestCompressMaterials::test_material_multistep_refs PASSED [  5%]
+tests/test_compress.py::TestCompressPropertyTables::test_pt_reindexed PASSED [  5%]
+tests/test_compress.py::TestCompressPropertyTables::test_pt_refs_in_blocks PASSED [  6%]
+tests/test_compress.py::TestCompressBlocks::test_blocks_reindexed PASSED [  6%]
+tests/test_compress.py::TestCompressBlocks::test_element_block_refs PASSED [  7%]
+tests/test_compress.py::TestCompressNodes::test_nodes_reindexed PASSED   [  7%]
+tests/test_compress.py::TestCompressNodes::test_element_nodes_remapped PASSED [  8%]
+tests/test_compress.py::TestCompressNodes::test_load_apply_remapped FAILED [  8%]
+tests/test_compress.py::TestCompressNodes::test_restraint_apply_remapped PASSED [  9%]
+tests/test_compress.py::TestCompressNodes::test_initial_set_apply_remapped PASSED [  9%]
+tests/test_compress.py::TestCompressNodes::test_constraint_master_slave_remapped PASSED [ 10%]
+tests/test_compress.py::TestCompressNodes::test_receiver_apply_remapped PASSED [ 10%]
+tests/test_compress.py::TestCompressNodes::test_nodeset_apply_remapped PASSED [ 11%]
+tests/test_compress.py::TestCompressNodes::test_xyz_preserved PASSED     [ 11%]
+tests/test_compress.py::TestCompressElements::test_elements_reindexed PASSED [ 12%]
+tests/test_compress.py::TestCompressElements::test_parent_id_remapped PASSED [ 12%]
+tests/test_compress.py::TestCompressElements::test_sideset_apply_remapped PASSED [ 13%]
+tests/test_compress.py::TestCompressAutonomousIDs::test_load_ids PASSED  [ 13%]
+tests/test_compress.py::TestCompressAutonomousIDs::test_restraint_ids PASSED [ 14%]
+tests/test_compress.py::TestCompressAutonomousIDs::test_initial_set_ids PASSED [ 14%]
+tests/test_compress.py::TestCompressAutonomousIDs::test_constraint_ids PASSED [ 15%]
+tests/test_compress.py::TestCompressAutonomousIDs::test_receiver_ids PASSED [ 15%]
+tests/test_compress.py::TestCompressSets::test_nodeset_keys_reindexed PASSED [ 16%]
+tests/test_compress.py::TestCompressSets::test_sideset_keys_reindexed PASSED [ 16%]
+tests/test_compress.py::TestCompressFormulaApply::test_formula_apply_not_changed PASSED [ 17%]
+tests/test_compress.py::TestCompressRoundTrip::test_compress_then_encode_decode PASSED [ 17%]
+tests/test_compress.py::TestCompressRoundTrip::test_compress_real_file PASSED [ 18%]
+tests/test_compress.py::TestCompressRoundTrip::test_idempotent PASSED    [ 18%]
+tests/test_compress.py::TestCompressCouplingPeriodicConstraints::test_coupling_constraint_remapped PASSED [ 19%]
+tests/test_compress.py::TestCompressCouplingPeriodicConstraints::test_periodic_constraint_remapped PASSED [ 19%]
+tests/test_compress.py::TestCompressMultipleAutonomous::test_multiple_loads_renumbered PASSED [ 20%]
+tests/test_compress.py::TestCompressMultipleAutonomous::test_multiple_restraints_renumbered PASSED [ 20%]
+tests/test_compress.py::TestCompressMultipleAutonomous::test_multiple_initial_sets_renumbered PASSED [ 21%]
+tests/test_compress.py::TestCompressMultipleAutonomous::test_multiple_receivers_renumbered PASSED [ 21%]
+tests/test_compress.py::TestCompressTabularData::test_tabular_node_id_remapped PASSED [ 22%]
+tests/test_compress.py::TestCompressTabularData::test_tabular_element_id_remapped PASSED [ 22%]
+tests/test_compress.py::TestCompressTabularData::test_tabular_node_id_in_load PASSED [ 23%]
+tests/test_compress.py::TestCompressTabularData::test_constant_data_not_affected PASSED [ 23%]
+tests/test_compress.py::TestCompressMultipleElementTypes::test_mixed_element_types PASSED [ 24%]
+tests/test_compress.py::TestCompressMultipleElementTypes::test_element_order_preserved PASSED [ 25%]
+tests/test_compress.py::TestCompressEmptyCollections::test_no_materials PASSED [ 25%]
+tests/test_compress.py::TestCompressEmptyCollections::test_no_blocks PASSED [ 26%]
+tests/test_compress.py::TestCompressEmptyCollections::test_no_property_tables PASSED [ 26%]
+tests/test_compress.py::TestCompressEmptyCollections::test_no_loads_restraints_initial_sets PASSED [ 27%]
+tests/test_compress.py::TestCompressEmptyCollections::test_no_constraints PASSED [ 27%]
+tests/test_compress.py::TestCompressEmptyCollections::test_no_receivers PASSED [ 28%]
+tests/test_compress.py::TestCompressEmptyCollections::test_no_nodesets_sidesets PASSED [ 28%]
+tests/test_compress.py::TestCompressEmptyCollections::test_empty_apply_array PASSED [ 29%]
+tests/test_compress.py::TestCompressMultipleSets::test_multiple_nodesets PASSED [ 29%]
+tests/test_compress.py::TestCompressMultipleSets::test_multiple_sidesets PASSED [ 30%]
+tests/test_compress.py::TestCompressCsIdZero::test_cs_id_zero_unchanged PASSED [ 30%]
+tests/test_compress.py::TestCompressParentIdZero::test_parent_id_zero_stays_zero PASSED [ 31%]
+tests/test_compress.py::TestCompressRealFiles::test_ultracube_compress_roundtrip PASSED [ 31%]
+tests/test_compress.py::TestCompressRealFiles::test_cube_sidesets_compress_roundtrip PASSED [ 32%]
+tests/test_compress.py::TestCompressRealFiles::test_all_fc_files_compress_without_error PASSED [ 32%]
+tests/test_compress.py::TestCompressDataIntegrity::test_node_xyz_order_matches_new_ids PASSED [ 33%]
+tests/test_compress.py::TestCompressDataIntegrity::test_element_node_connectivity_preserved PASSED [ 33%]
+tests/test_compress.py::TestCompressDataIntegrity::test_block_material_steps_untouched PASSED [ 34%]
+tests/test_conditions.py::TestFCLoadEncodeDecode::test_roundtrip_via_model PASSED [ 34%]
+tests/test_conditions.py::TestFCLoadEncodeDecode::test_with_node_ids PASSED [ 35%]
+tests/test_conditions.py::TestFCLoadEncodeDecode::test_cs_id_preserved PASSED [ 35%]
+tests/test_conditions.py::TestFCLoadEncodeDecode::test_auto_increment_ids PASSED [ 36%]
+tests/test_conditions.py::TestFCRestraintEncodeDecode::test_roundtrip_via_model PASSED [ 36%]
+tests/test_conditions.py::TestFCRestraintEncodeDecode::test_step_field_preserved PASSED [ 37%]
+tests/test_conditions.py::TestFCRestraintEncodeDecode::test_step_none_not_emitted PASSED [ 37%]
+tests/test_conditions.py::TestFCInitialSetEncodeDecode::test_roundtrip_via_model PASSED [ 38%]
+tests/test_conditions.py::TestFCInitialSetEncodeDecode::test_flags_are_ints PASSED [ 38%]
+tests/test_conditions.py::TestConditionConstants::test_loads_keys_codes_inverse PASSED [ 39%]
+tests/test_conditions.py::TestConditionConstants::test_restraint_flags_inverse PASSED [ 39%]
+tests/test_conditions.py::TestConditionConstants::test_initial_set_types_inverse PASSED [ 40%]
+tests/test_conditions.py::TestConditionConstants::test_loads_types_complete PASSED [ 40%]
+tests/test_conditions.py::TestConditionConstants::test_restraint_flags_complete PASSED [ 41%]
+tests/test_constants.py::TestDependencyTypes::test_inverse PASSED        [ 41%]
+tests/test_constants.py::TestDependencyTypes::test_known_values PASSED   [ 42%]
+tests/test_constants.py::TestPropertyTableTypes::test_inverse PASSED     [ 42%]
+tests/test_constants.py::TestPropertyTableTypes::test_known_values PASSED [ 43%]
+tests/test_constants.py::TestBeamSectionTypes::test_inverse PASSED       [ 43%]
+tests/test_constants.py::TestBeamSectionTypes::test_known_values PASSED  [ 44%]
+tests/test_constants.py::TestBeamSectionTypes::test_count PASSED         [ 44%]
+tests/test_constants.py::TestContactAndCoupling::test_contact_types PASSED [ 45%]
+tests/test_constants.py::TestContactAndCoupling::test_contact_methods PASSED [ 45%]
+tests/test_constants.py::TestContactAndCoupling::test_coupling_inverse PASSED [ 46%]
+tests/test_constants.py::TestContactAndCoupling::test_coupling_known PASSED [ 46%]
+tests/test_constants.py::TestContactAndCoupling::test_periodic_inverse PASSED [ 47%]
+tests/test_constants.py::TestContactAndCoupling::test_periodic_known PASSED [ 47%]
+tests/test_constants.py::TestReceiverTypes::test_inverse PASSED          [ 48%]
+tests/test_constants.py::TestReceiverTypes::test_known PASSED            [ 48%]
+tests/test_constants.py::TestCoordinateSystemTypes::test_known PASSED    [ 49%]
+tests/test_constants.py::TestElementTypesCompleteness::test_all_spec_solid_fem PASSED [ 50%]
+tests/test_constants.py::TestElementTypesCompleteness::test_all_spec_solid_sem PASSED [ 50%]
+tests/test_constants.py::TestElementTypesCompleteness::test_all_spec_shell PASSED [ 51%]
+tests/test_constants.py::TestElementTypesCompleteness::test_all_spec_beam_spring_mass PASSED [ 51%]
+tests/test_constants.py::TestElementTypesCompleteness::test_node_count_positive PASSED [ 52%]
+tests/test_constants.py::TestLoadTypesCompleteness::test_face_loads PASSED [ 52%]
+tests/test_constants.py::TestLoadTypesCompleteness::test_segment_loads PASSED [ 53%]
+tests/test_constants.py::TestLoadTypesCompleteness::test_node_loads PASSED [ 53%]
+tests/test_constants.py::TestLoadTypesCompleteness::test_volume_loads PASSED [ 54%]
+tests/test_cube_sideset.py::test_cube_sideset_roundtrip PASSED           [ 54%]
+tests/test_data.py::TestFCDataConstant::test_scalar PASSED               [ 55%]
+tests/test_data.py::TestFCDataConstant::test_int_scalar PASSED           [ 55%]
+tests/test_data.py::TestFCDataConstant::test_list PASSED                 [ 56%]
+tests/test_data.py::TestFCDataConstant::test_empty_table PASSED          [ 56%]
+tests/test_data.py::TestFCDataFormula::test_formula PASSED               [ 57%]
+tests/test_data.py::TestFCDataEncodeDecode::test_constant_roundtrip PASSED [ 57%]
+tests/test_data.py::TestFCDataEncodeDecode::test_formula_roundtrip PASSED [ 58%]
+tests/test_data.py::TestFCDataEncodeDecode::test_tabular_roundtrip PASSED [ 58%]
+tests/test_data.py::TestFCDataRepr::test_constant_repr PASSED            [ 59%]
+tests/test_data.py::TestFCDataRepr::test_formula_repr PASSED             [ 59%]
+tests/test_data.py::TestFCDataRepr::test_table_repr PASSED               [ 60%]
+tests/test_materials.py::TestFCMaterialConstruction::test_empty PASSED   [ 60%]
+tests/test_materials.py::TestFCMaterialConstruction::test_defaults PASSED [ 61%]
+tests/test_materials.py::TestFCMaterialAddProperty::test_add_constant_scalar PASSED [ 61%]
+tests/test_materials.py::TestFCMaterialAddProperty::test_add_constant_list PASSED [ 62%]
+tests/test_materials.py::TestFCMaterialAddProperty::test_add_formula PASSED [ 62%]
+tests/test_materials.py::TestFCMaterialAddProperty::test_add_default_type PASSED [ 63%]
+tests/test_materials.py::TestFCMaterialAddProperty::test_grouping_by_type PASSED [ 63%]
+tests/test_materials.py::TestFCMaterialAddProperty::test_different_types_separate_lists PASSED [ 64%]
+tests/test_materials.py::TestFCMaterialAddProperty::test_add_list_with_string_raises PASSED [ 64%]
+tests/test_materials.py::TestFCMaterialEncodeDecode::test_roundtrip PASSED [ 65%]
+tests/test_materials.py::TestFCMaterialEncodeDecode::test_empty_material_roundtrip PASSED [ 65%]
+tests/test_materials.py::TestFCMaterialProperty::test_str PASSED         [ 66%]
+tests/test_materials.py::TestFCMaterialProperty::test_repr PASSED        [ 66%]
+tests/test_materials.py::TestMaterialConstants::test_names_keys_codes_inverse PASSED [ 67%]
+tests/test_materials.py::TestMaterialConstants::test_types_keys_codes_inverse PASSED [ 67%]
+tests/test_materials.py::TestMaterialConstants::test_all_groups_present PASSED [ 68%]
+tests/test_mesh.py::TestFCMeshConstruction::test_empty PASSED            [ 68%]
+tests/test_mesh.py::TestFCMeshConstruction::test_bool_nonempty PASSED    [ 69%]
+tests/test_mesh.py::TestFCMeshElementAccess::test_len PASSED             [ 69%]
+tests/test_mesh.py::TestFCMeshElementAccess::test_iter PASSED            [ 70%]
+tests/test_mesh.py::TestFCMeshElementAccess::test_contains_by_id PASSED  [ 70%]
+tests/test_mesh.py::TestFCMeshElementAccess::test_getitem_by_id PASSED   [ 71%]
+tests/test_mesh.py::TestFCMeshElementAccess::test_getitem_by_type PASSED [ 71%]
+tests/test_mesh.py::TestFCMeshElementAccess::test_getitem_missing_raises PASSED [ 72%]
+tests/test_mesh.py::TestFCMeshElementAccess::test_setitem PASSED         [ 72%]
+tests/test_mesh.py::TestFCMeshElementAccess::test_add_auto_id PASSED     [ 73%]
+tests/test_mesh.py::TestFCMeshElementAccess::test_max_id PASSED          [ 73%]
+tests/test_mesh.py::TestFCMeshElementAccess::test_nodes_list PASSED      [ 74%]
+tests/test_mesh.py::TestFCMeshCompress::test_compress_reindexes PASSED   [ 75%]
+tests/test_mesh.py::TestFCMeshEncodeDecode::test_roundtrip PASSED        [ 75%]
+tests/test_mesh.py::TestFCMeshEncodeDecode::test_decode_nodes_count_mismatch_raises PASSED [ 76%]
+tests/test_mesh.py::TestElementConstants::test_keyid_keyname_consistent PASSED [ 76%]
+tests/test_mesh.py::TestElementConstants::test_keyname_keyid_consistent PASSED [ 77%]
+tests/test_mesh.py::TestElementConstants::test_tetra4_properties FAILED  [ 77%]
+tests/test_mesh.py::TestElementConstants::test_hex8_properties PASSED    [ 78%]
+tests/test_mesh.py::TestElementConstants::test_element_type_schema_has_new_keys_only PASSED [ 78%]
+tests/test_mesh.py::TestElementConstants::test_quad8_geometry PASSED     [ 79%]
+tests/test_mesh.py::TestElementConstants::test_hex20_geometry PASSED     [ 79%]
+tests/test_mesh.py::TestElementConstants::test_wedge15_and_pyr13_geometry PASSED [ 80%]
+tests/test_model.py::TestFCModelConstruction::test_empty_model PASSED    [ 80%]
+tests/test_model.py::TestFCModelConstruction::test_default_coordinate_system PASSED [ 81%]
+tests/test_model.py::TestFCModelHelpers::test_add_material PASSED        [ 81%]
+tests/test_model.py::TestFCModelHelpers::test_add_material_auto_ids PASSED [ 82%]
+tests/test_model.py::TestFCModelHelpers::test_add_material_property PASSED [ 82%]
+tests/test_model.py::TestFCModelHelpers::test_add_coordinate_system PASSED [ 83%]
+tests/test_model.py::TestFCModelHelpers::test_add_load PASSED            [ 83%]
+tests/test_model.py::TestFCModelHelpers::test_add_restraint PASSED       [ 84%]
+tests/test_model.py::TestFCModelHelpers::test_add_initial_set PASSED     [ 84%]
+tests/test_model.py::TestFCModelHelpers::test_add_nodeset PASSED         [ 85%]
+tests/test_model.py::TestFCModelHelpers::test_add_sideset PASSED         [ 85%]
+tests/test_model.py::TestFCModelEncodeDecode::test_empty_roundtrip PASSED [ 86%]
+tests/test_model.py::TestFCModelEncodeDecode::test_full_roundtrip PASSED [ 86%]
+tests/test_model.py::TestFCModelFileIO::test_load_save_simple_cube PASSED [ 87%]
+tests/test_model.py::TestFCModelFileIO::test_load_save_ultracube_roundtrip PASSED [ 87%]
+tests/test_model.py::TestFCModelBlocks::test_block_encode_decode PASSED  [ 88%]
+tests/test_model.py::TestFCModelBlocks::test_block_with_steps PASSED     [ 88%]
+tests/test_model.py::TestFCModelBlocks::test_block_with_material_multistep PASSED [ 89%]
+tests/test_model.py::TestFCModelConstraints::test_constraint_encode_decode PASSED [ 89%]
+tests/test_model.py::TestFCModelCoordinateSystem::test_encode_decode PASSED [ 90%]
+tests/test_model.py::TestFCModelPropertyTable::test_encode_decode PASSED [ 90%]
+tests/test_model.py::TestFCModelPropertyTable::test_name_empty_not_emitted PASSED [ 91%]
+tests/test_model.py::TestFCModelReceiver::test_encode_decode PASSED      [ 91%]
+tests/test_model.py::TestFCModelReceiver::test_output_step_none_not_emitted PASSED [ 92%]
+tests/test_model.py::TestFCModelSet::test_nodeset_encode_decode PASSED   [ 92%]
+tests/test_round_trip.py::test_ultracube_roundtrip PASSED                [ 93%]
+tests/test_value.py::TestFCValueConstruction::test_array_from_int32 PASSED [ 93%]
+tests/test_value.py::TestFCValueConstruction::test_array_from_float64 PASSED [ 94%]
+tests/test_value.py::TestFCValueConstruction::test_formula PASSED        [ 94%]
+tests/test_value.py::TestFCValueConstruction::test_null PASSED           [ 95%]
+tests/test_value.py::TestFCValueEncodeDecode::test_roundtrip_int32 PASSED [ 95%]
+tests/test_value.py::TestFCValueEncodeDecode::test_roundtrip_float64 PASSED [ 96%]
+tests/test_value.py::TestFCValueEncodeDecode::test_decode_empty_string PASSED [ 96%]
+tests/test_value.py::TestFCValueEncodeDecode::test_decode_formula_string PASSED [ 97%]
+tests/test_value.py::TestFCValueEncodeDecode::test_encode_formula PASSED [ 97%]
+tests/test_value.py::TestFCValueEncodeDecode::test_decode_explicit_formula_type PASSED [ 98%]
+tests/test_value.py::TestFCValueReshape::test_reshape_2d PASSED          [ 98%]
+tests/test_value.py::TestFCValueReshape::test_reshape_no_op_when_size_zero PASSED [ 99%]
+tests/test_value.py::TestFCValueReshape::test_reshape_indivisible_no_op PASSED [100%]
+
+=================================== FAILURES ===================================
+__________________ TestCompressNodes.test_load_apply_remapped __________________
+
+self = <test_compress.TestCompressNodes object at 0x7ad0914d7da0>
+
+    def test_load_apply_remapped(self):
+        m = _make_model_with_gaps()
+        m.compress()
+        load = m.loads[0]
+        assert load.apply.type == 'array'
+        data = load.apply.data
+        assert isinstance(data, np.ndarray)
+        # [10,20,30] -> [1,2,3]
+>       np.testing.assert_array_equal(data.ravel(), [1, 2, 3])
+
+tests/test_compress.py:231: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (<built-in function eq>, array([10, 20, 30], dtype=int32), [1, 2, 3])
+kwds = {'err_msg': '', 'header': 'Arrays are not equal', 'strict': False, 'verbose': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+                   ^^^^^^^^^^^^^^^^^^^
+E           AssertionError: 
+E           Arrays are not equal
+E           
+E           Mismatched elements: 3 / 3 (100%)
+E           Max absolute difference: 27
+E           Max relative difference: 9.
+E            x: array([10, 20, 30], dtype=int32)
+E            y: array([1, 2, 3])
+
+/usr/lib/python3.12/contextlib.py:81: AssertionError
+_________________ TestElementConstants.test_tetra4_properties __________________
+
+self = <test_mesh.TestElementConstants object at 0x7ad09135aa50>
+
+    def test_tetra4_properties(self):
+        t = FC_ELEMENT_TYPES_KEYNAME['TETRA4']
+        assert t['code'] == 1
+        assert t['dim'] == 3
+        assert t['nodes_count'] == 4
+        assert t['order'] == 1
+>       assert t['nodes_coords'] == [
+            [0.0, 1.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 1.0, 0.0],
+            [0.0, 0.0, 0.0, 1.0],
+        ]
+E       AssertionError: assert [[0.0, 1.0, 0....0, 0.0, 0.0]] == [[0.0, 1.0, 0....0, 0.0, 1.0]]
+E         
+E         At index 0 diff: [0.0, 1.0, 0.0] != [0.0, 1.0, 0.0, 0.0]
+E         
+E         Full diff:
+E           [
+E               [
+E                   0.0,...
+E         
+E         ...Full output truncated (23 lines hidden), use '-vv' to show
+
+tests/test_mesh.py:170: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_compress.py::TestCompressNodes::test_load_apply_remapped - ...
+FAILED tests/test_mesh.py::TestElementConstants::test_tetra4_properties - Ass...
+======================== 2 failed, 194 passed in 0.26s =========================

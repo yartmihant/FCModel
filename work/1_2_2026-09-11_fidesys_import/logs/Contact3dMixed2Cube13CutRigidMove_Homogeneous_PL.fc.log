@@ -1,0 +1,194 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3dMixed2Cube13CutRigidMove_Homogeneous_PL.fc\'')
+
+[2026-09-11 15:13:46.586] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.586] [error] syntax error (<stdin>, line 39)
+
+ERROR: syntax error (<stdin>, line 39)
+[2026-09-11 15:13:46.587] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.587] [error] syntax error (<stdin>, line 40)
+
+ERROR: syntax error (<stdin>, line 40)
+[2026-09-11 15:13:46.589] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.589] [error] syntax error (<stdin>, line 41)
+
+ERROR: syntax error (<stdin>, line 41)
+[2026-09-11 15:13:46.591] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.591] [error] syntax error (<stdin>, line 42)
+
+ERROR: syntax error (<stdin>, line 42)
+[2026-09-11 15:13:46.593] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.593] [error] syntax error (<stdin>, line 43)
+
+ERROR: syntax error (<stdin>, line 43)
+[2026-09-11 15:13:46.595] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.595] [error] syntax error (<stdin>, line 44)
+
+ERROR: syntax error (<stdin>, line 44)
+[2026-09-11 15:13:46.597] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.597] [error] syntax error (<stdin>, line 45)
+
+ERROR: syntax error (<stdin>, line 45)
+[2026-09-11 15:13:46.599] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.599] [error] syntax error (<stdin>, line 46)
+
+ERROR: syntax error (<stdin>, line 46)
+[2026-09-11 15:13:46.601] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.601] [error] syntax error (<stdin>, line 47)
+
+ERROR: syntax error (<stdin>, line 47)
+[2026-09-11 15:13:46.603] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.603] [error] syntax error (<stdin>, line 48)
+
+ERROR: syntax error (<stdin>, line 48)
+[2026-09-11 15:13:46.604] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.604] [error] syntax error (<stdin>, line 49)
+
+ERROR: syntax error (<stdin>, line 49)
+[2026-09-11 15:13:46.606] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.606] [error] syntax error (<stdin>, line 50)
+
+ERROR: syntax error (<stdin>, line 50)
+[2026-09-11 15:13:46.608] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.608] [error] syntax error (<stdin>, line 51)
+
+ERROR: syntax error (<stdin>, line 51)
+[2026-09-11 15:13:46.610] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.610] [error] syntax error (<stdin>, line 52)
+
+ERROR: syntax error (<stdin>, line 52)
+[2026-09-11 15:13:46.612] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.612] [error] syntax error (<stdin>, line 53)
+
+ERROR: syntax error (<stdin>, line 53)
+[2026-09-11 15:13:46.614] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.614] [error] syntax error (<stdin>, line 54)
+
+ERROR: syntax error (<stdin>, line 54)
+[2026-09-11 15:13:46.616] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.616] [error] syntax error (<stdin>, line 55)
+
+ERROR: syntax error (<stdin>, line 55)
+[2026-09-11 15:13:46.618] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.618] [error] syntax error (<stdin>, line 56)
+
+ERROR: syntax error (<stdin>, line 56)
+[2026-09-11 15:13:46.620] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.620] [error] syntax error (<stdin>, line 57)
+
+ERROR: syntax error (<stdin>, line 57)
+[2026-09-11 15:13:46.621] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.621] [error] syntax error (<stdin>, line 58)
+
+ERROR: syntax error (<stdin>, line 58)
+[2026-09-11 15:13:46.624] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.624] [error] syntax error (<stdin>, line 59)
+
+ERROR: syntax error (<stdin>, line 59)
+[2026-09-11 15:13:46.626] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.626] [error] syntax error (<stdin>, line 60)
+
+ERROR: syntax error (<stdin>, line 60)
+[2026-09-11 15:13:46.628] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.628] [error] syntax error (<stdin>, line 61)
+
+ERROR: syntax error (<stdin>, line 61)
+[2026-09-11 15:13:46.630] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.630] [error] syntax error (<stdin>, line 62)
+
+ERROR: syntax error (<stdin>, line 62)
+[2026-09-11 15:13:46.632] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.632] [error] syntax error (<stdin>, line 63)
+
+ERROR: syntax error (<stdin>, line 63)
+[2026-09-11 15:13:46.635] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.635] [error] syntax error (<stdin>, line 64)
+
+ERROR: syntax error (<stdin>, line 64)
+[2026-09-11 15:13:46.637] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:46.637] [error] syntax error (<stdin>, line 65)
+
+ERROR: syntax error (<stdin>, line 65)
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 54, "nodes": 10764, "elements": 5173, "version": "2021.11"}
+1 Displacement was deleted.
+...deleting 82 pyramids from database...
+...deleting 204 wedges from database...
+...deleting 4639 tets from database...
+...deleting 1712 tris and 5136 edgeUses from database...
+...deleting 248 hexes and 0 faceUses from database...
+...deleting 570 faces from database...
+...deleting 3708 edges from database...
+...deleting 10764 nodes from database...
+[2026-09-11 15:13:46.712] [error] Errors found during session.
+
+ERROR: Errors found during session.

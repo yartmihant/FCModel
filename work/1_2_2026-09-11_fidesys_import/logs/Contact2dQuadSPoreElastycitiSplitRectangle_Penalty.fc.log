@@ -1,0 +1,43 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact2dQuadSPoreElastycitiSplitRectangle_Penalty.fc\'')
+
+[2026-09-11 15:11:42.637] [error] Invalid value specified.
+       Type 'modify?' for help.
+
+ERROR: Invalid value specified.
+       Type 'modify?' for help.
+[2026-09-11 15:11:42.641] [error] Invalid value specified.
+       Type 'modify?' for help.
+
+ERROR: Invalid value specified.
+       Type 'modify?' for help.
+[2026-09-11 15:11:42.643] [error] Master entity is empty.
+
+ERROR: Master entity is empty.
+[2026-09-11 15:11:42.643] [error] Command Failed.
+
+ERROR: Command Failed.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 4, "nodes": 517, "elements": 149, "version": "2021.11"}
+2 Displacement's were deleted.
+...deleting 149 faces from database...
+...deleting 332 edges from database...
+...deleting 517 nodes from database...
+[2026-09-11 15:11:42.691] [error] Errors found during session.
+
+ERROR: Errors found during session.

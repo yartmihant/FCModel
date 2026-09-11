@@ -1,0 +1,39 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3d_Beam_LinSpringVertical.fc\'')
+
+[2026-09-11 15:15:07.376] [error] Unrecognized Identifier: 'constant_damping'
+
+ERROR: Unrecognized Identifier: 'constant_damping'
+[2026-09-11 15:15:07.376] [error] syntax error (<stdin>, line 74)
+
+ERROR: syntax error (<stdin>, line 74)
+[2026-09-11 15:15:07.377] [error] There is no such Spring properties.
+
+ERROR: There is no such Spring properties.
+[2026-09-11 15:15:07.377] [error] Command Failed.
+
+ERROR: Command Failed.
+WARNING: The distance between nodesets is not accurate.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 4, "nodes": 13, "elements": 7, "version": "2021.11"}
+2 Displacement's were deleted.
+...deleting 7 edges from database...
+...deleting 13 nodes from database...
+[2026-09-11 15:15:07.417] [error] Errors found during session.
+
+ERROR: Errors found during session.

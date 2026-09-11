@@ -1,0 +1,37 @@
+Supervisor::Impl::load_plugins: Loaded component: libcubitcomp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+Supervisor::Impl::load_plugins: Loaded component: libFidesysComp.ccl from directory: /home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin
+
+%>import fidesys
+
+%>fidesys.cmd('reset')
+
+Finished Command: reset
+
+True
+%>fidesys.silent_cmd('import fidesyscase \'/home/antonov/Base/Libs/FCModel/data/fc_core_tests/Contact3dHex8_Tied_RBE2_findefs_PL.fc\'')
+
+[2026-09-11 15:13:23.978] [error] Unrecognized Identifier: 'pure_lagrangian'
+
+ERROR: Unrecognized Identifier: 'pure_lagrangian'
+[2026-09-11 15:13:23.978] [error] syntax error (<stdin>, line 56)
+
+ERROR: syntax error (<stdin>, line 56)
+[2026-09-11 15:13:23.989] [error] Invalid element id 3.
+
+ERROR: Invalid element id 3.
+True
+%>import cubit
+
+%>import json
+
+%>print("FCMODEL_IMPORT_DONE=" + json.dumps({"errors": cubit.get_error_count(), "nodes": cubit.get_node_count(), "elements": cubit.get_element_count(), "version": cubit.get_version()}))
+
+FCMODEL_IMPORT_DONE={"errors": 3, "nodes": 17, "elements": 3, "version": "2021.11"}
+1 Displacement was deleted.
+...deleting 2 hexes and 0 faceUses from database...
+...deleting 12 faces from database...
+...deleting 24 edges from database...
+...deleting 17 nodes from database...
+[2026-09-11 15:13:24.024] [error] Errors found during session.
+
+ERROR: Errors found during session.

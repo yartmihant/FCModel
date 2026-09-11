@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "path": "/home/antonov/.bin/CAE-Fidesys-8.1/cae-fidesys-8.1",
+      "size_bytes": 156,
+      "sha256": "ec7590bc6843d8bb099c7d4f3e259356ee6c5ecff913ee19be6cb403107d1e20"
+    },
+    {
+      "path": "/home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin/fidesysl",
+      "size_bytes": 44456,
+      "sha256": "41a0993ef869b4f1fd9c7a9e1e36e1d22b75db0eb959063d897e13b9b822be00"
+    },
+    {
+      "path": "/home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin/fidesys",
+      "size_bytes": 354072,
+      "sha256": "9224659fb9a637c661b740b7a51860e82238dfda9fdf770510d3a28ff4e7c2c5"
+    },
+    {
+      "path": "/home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin/libFidesysComp.ccl",
+      "size_bytes": 14640656,
+      "sha256": "e8918829c2e17e719ad148d4a1283577b3dd9c93f9410dca75372c4ae45550f4"
+    },
+    {
+      "path": "/home/antonov/.bin/CAE-Fidesys-8.1/preprocessor/bin/cubit3.py",
+      "size_bytes": 307096,
+      "sha256": "cd69f88657ea804734382cb3d556b50adbd174f55958abc2977dc9071190ab22"
+    }
+  ]
+}
