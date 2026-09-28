@@ -1,0 +1,13 @@
+{
+  "rows": 1130,
+  "columns": 22,
+  "counts": {
+    "Ошибка импорта": 678,
+    "Расхождения JSON": 418,
+    "Импорт не завершён": 2,
+    "Пройден": 32
+  },
+  "old_summary_unchanged": true,
+  "independent_json_comparisons": 1097,
+  "csv_sha256": "461aca50679dcf185c956478e2ad607cee4a1cc697dbf27454eef76e00c261ca"
+}
